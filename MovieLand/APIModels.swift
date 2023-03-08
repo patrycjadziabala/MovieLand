@@ -72,13 +72,17 @@ struct GenreModel: Decodable {
     let value: String
 }
 
-struct TitlesListModel: Decodable {
+struct SearchResultsModel: Decodable {
     let results: [Results]
+    let searchType: String
+    let expression: String
 }
 
 struct Results: Decodable {
     let id: String
     let image: String
     let title: String
+    let resultType: String?
     let description: String
 }
+

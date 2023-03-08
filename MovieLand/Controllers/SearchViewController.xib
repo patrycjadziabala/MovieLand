@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="PyV-yP-Xho" id="dDe-48-5v6"/>
+                <outlet property="searchButton" destination="RFW-n1-duB" id="B4h-lC-B98"/>
+                <outlet property="searchTextField" destination="pSM-FT-meZ" id="brH-jx-cdM"/>
                 <outlet property="view" destination="GpG-th-oTy" id="qwH-so-6yu"/>
             </connections>
         </placeholder>
@@ -36,6 +38,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                    <connections>
+                        <action selector="searchButtonPressed:" destination="-1" eventType="touchUpInside" id="N02-oX-pbT"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Type in actor's name or a film title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSM-FT-meZ">
                     <rect key="frame" x="16" y="666" width="312" height="34"/>

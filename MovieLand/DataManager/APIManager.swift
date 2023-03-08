@@ -12,13 +12,13 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void)
     
-    func fetchTitlesList(id: String, completion: @escaping (Result<TitlesListModel, Error>) -> Void)
+    func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void)
 }
 
 enum APIEndpoint: String {
     case name
     case title
-    case url
+    case searchMovie
 }
 
 enum APIManagerError: Error {
@@ -41,6 +41,10 @@ class APIManager: APIManagerProtocol {
             .replacingOccurrences(of: "<language>", with: language)
             .replacingOccurrences(of: "<endpoint>", with: endpoint.rawValue.capitalized)
             .appending(id)
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        guard let urlString = urlString else {
+            return nil
+        }
         return URL(string: urlString)
         
     }
@@ -102,8 +106,8 @@ class APIManager: APIManagerProtocol {
     }
     
     
-    func fetchTitlesList(id: String, completion: @escaping (Result<TitlesListModel, Error>) -> Void) {
-            guard let url = buildURL(for: .title, id: id) else {
+    func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
+            guard let url = buildURL(for: .searchMovie, id: query) else {
         
                 completion(.failure(APIManagerError.couldNotBuildURL))
                 return
@@ -117,7 +121,7 @@ class APIManager: APIManagerProtocol {
                 if let data = data {
                     let decoder = JSONDecoder()
                     do {
-                        let decodedData =  try decoder.decode(TitlesListModel.self, from: data)
+                        let decodedData =  try decoder.decode(SearchResultsModel.self, from: data)
                         completion(.success(decodedData))
                         return
                     } catch {
