@@ -11,6 +11,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
