@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "fb50c1d20f24db5322b2f8f379de3618f75fe08e"
+      }
+    },
+    {
+      "identity" : "swifttweener",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alexrvarela/SwiftTweener.git",
+      "state" : {
+        "revision" : "e8797a97a660cef2c6bc88f7afdd479e9b7276b8",
+        "version" : "2.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
