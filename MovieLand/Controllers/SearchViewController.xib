@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="PyV-yP-Xho" id="dDe-48-5v6"/>
+                <outlet property="view" destination="GpG-th-oTy" id="qwH-so-6yu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

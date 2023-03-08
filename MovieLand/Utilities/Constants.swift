@@ -10,19 +10,18 @@ import UIKit
 
 struct Constants {
     
-    // MARK: - URL Strings
-    // append id
-//    static let basePersonUrl = "https://imdb-api.com/API/Name/k_hd74d58q/"
-    //append id
-//    static let baseTitleUrl = "https://imdb-api.com/en/API/Title/k_hd74d58q/"
-    //append name
-    static let basePeopleListUrl = "https://imdb-api.com/en/API/SearchName/k_hd74d58q/"
-    //append title
-    static let baseTitleListUrl = "https://imdb-api.com/en/API/SearchTitle/k_hd74d58q/"
+    // MARK: - Images
+    static let heartImage = UIImage(systemName: "heart")
+    static let heartFillImage = UIImage(systemName: "heart.fill")
+    static let listBulletImage = UIImage(systemName: "list.bullet")
+    static let magnifyingGlassImage = UIImage(systemName: "magnifyingglass")
+
     
     // MARK: - Titles/Names
    
     static let cellIdentifier = "ListTableViewCell"
     
  
+    
+    
 }
