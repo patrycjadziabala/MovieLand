@@ -48,7 +48,7 @@ class PersonDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         let apiManager = APIManager()
-        apiManager.fetchPersonInformation(id: "nm0050959") { [weak self] result in
+        apiManager.fetchPersonInformation(id: personID) { [weak self] result in
             switch result {
             case .success(let person):
                 self?.handleSuccess(personModel: person)

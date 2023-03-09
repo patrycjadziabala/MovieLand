@@ -86,3 +86,7 @@ struct Results: Decodable {
     let description: String
 }
 
+enum ResultType: String {
+    case title
+    case name
+}

@@ -60,7 +60,7 @@ class MovieDetailsViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
     
         let apiManager = APIManager()
-        apiManager.fetchTitle(id: "tt0411008") { [weak self] result in
+        apiManager.fetchTitle(id: titleID) { [weak self] result in
             switch result {
             case .success(let title):
                 self?.handleSuccess(titleModel: title)
