@@ -23,8 +23,51 @@ class SearchViewController: UIViewController {
     }
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         let dataManager = APIManager()
-        dataManager.fetchSearchResults(query: searchTextField.text ?? "") { result in
-            print(result)
+        dataManager
+            .fetchSearchResults(query: searchTextField.text ?? "")
+        { [weak self] result in
+            switch result {
+            case .success(let searchResults):
+                self?.handleSuccess(searchResults: searchResults)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
         }
     }
+    
+    func handleSuccess(searchResults: SearchResultsModel) {
+        /*
+         bedziemy z background wątku (thread) wracać na główny wątek.
+         update UI ZAWSZE robimy na głównym wątku, więc cokolwiek się tutaj wydarzy w tej metodzie,
+         musimy to opakować w
+         DispatchQueue.main.async {
+            // tu updatujemy ui. nie trzeba pisać [weak self] tutaj
+         }
+         */
+    }
+    
+    func handleError(error: Error) {
+        print(error.localizedDescription)
+    }
 }
+
+/*
+ 
+ Zadanie domowe:
+
+ MovieDetailsViewController - podłączyć outlety
+
+ PersonDetailsViewcontroller - usunąć tabelkę
+
+ W obu kontrolerach powyższych jakoś sobie zaprojektować UI, biorąc pod uwagę modele - czyli dane które będziemy mieli dostępne do wyświetlenia (TitleModel i PersonModel)
+
+ COMMITOWAĆ CZĘSTO
+
+ Zadanie dodatkowe:
+
+ Zrobić także handling errorów - wyświetlić alert użytkownikowi - UIAlertView (wyszukać w necie jak się to robi) i w tym uialertview (chyba tak to się nazywa) wyświetlić error.localizedDescription
+ Jak to przetestować? Wyłączyć internet
+
+
+ 
+ */

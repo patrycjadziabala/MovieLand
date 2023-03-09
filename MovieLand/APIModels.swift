@@ -52,7 +52,6 @@ struct TitleModel: Decodable {
     let actorList: [ActorForTitleModel]
     let genreList: [GenreModel]
     let errorMessage: String
-    let description: String
 }
 
 struct BasicPersonModel: Decodable {

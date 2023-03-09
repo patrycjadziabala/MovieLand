@@ -19,6 +19,7 @@ enum APIEndpoint: String {
     case name
     case title
     case searchMovie
+    case searchAll
 }
 
 enum APIManagerError: Error {
@@ -107,7 +108,7 @@ class APIManager: APIManagerProtocol {
     
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
-            guard let url = buildURL(for: .searchMovie, id: query) else {
+            guard let url = buildURL(for: .searchAll, id: query) else {
         
                 completion(.failure(APIManagerError.couldNotBuildURL))
                 return
