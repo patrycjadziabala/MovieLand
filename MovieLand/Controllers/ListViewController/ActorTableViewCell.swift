@@ -1,27 +1,25 @@
 //
-//  TableViewCell.swift
+//  ActorTableViewCell.swift
 //  MovieLand
 //
-//  Created by Patka on 08/03/2023.
+//  Created by Patka on 09/03/2023.
 //
 
 import UIKit
 import SDWebImage
 
 class ActorTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var textLabelDetails: UILabel!
-    @IBOutlet weak var image1: UIImageView!
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = UIColor(named: "Blue")
-        contentView.layer.cornerRadius = CGFloat(20)
-        
+        // Initialization code
     }
-    
+
     func configure(with model: Results) {
-        textLabelDetails.text = model.title
-        image1.sd_setImage(with: URL(string: model.image))
+        titleLabel.text = model.title
+        titleImageView.sd_setImage(with: URL(string: model.image))
     }
 }
