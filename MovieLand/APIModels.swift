@@ -15,6 +15,7 @@ struct PersonModel: Decodable {
     let summary: String
     let birthDate: String
     let deathDate: String?
+    let height: String
     let awards: String
     let knownFor: [KnownForModel]
     let castMovies: [CastMovieModel]
@@ -24,7 +25,7 @@ struct PersonModel: Decodable {
 struct KnownForModel: Decodable {
     let id: String
     let title: String
-    let year: String
+    let year: String?
     let role: String
     let image: String
 }

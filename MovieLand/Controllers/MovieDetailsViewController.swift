@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieDetailsViewController: UIViewController {
     
@@ -47,6 +48,13 @@ class MovieDetailsViewController: UIViewController {
     
         let apiManager = APIManager()
         apiManager.fetchTitle(id: "tt0411008") { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.handleSuccess(titleModel: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+                
+            }
             print(result)
             //zrob switcha, zrob metody handleSuccess i handleError tak jak w SearchViewController
             // w success pokaż dane czyli titleLabel.text = titleModel.title
@@ -60,7 +68,23 @@ class MovieDetailsViewController: UIViewController {
              self.cośtamImageView.sd_setImage(with: url)
              */
         }
-        // Do any additional setup after loading the view.
+    }
+    
+    func handleSuccess(titleModel: TitleModel) {
+        DispatchQueue.main.async {
+            self.movieTitleLabel.text = titleModel.title
+            self.releaseDateLabel.text = titleModel.releaseDate
+            self.genreLabel.text = titleModel.genreList.first?.value ?? ""
+            let imageUrl = URL(string: titleModel.image)
+            self.moviePosterImageView.sd_setImage(with: imageUrl)
+            self.movieOverviewTextView.text = titleModel.plot
+            self.awardsTextView.text = titleModel.awards
+            
+        }
+    }
+    
+    func handleError(error: Error) {
+        print(error)
     }
 }
     

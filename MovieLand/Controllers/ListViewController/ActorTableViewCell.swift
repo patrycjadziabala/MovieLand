@@ -16,7 +16,7 @@ class ActorTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = UIColor(named: "System Teal Color")
+        contentView.backgroundColor = UIColor(named: "Blue")
         contentView.layer.cornerRadius = CGFloat(20)
         
     }

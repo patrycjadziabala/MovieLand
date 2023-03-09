@@ -28,7 +28,7 @@
                 <outlet property="movie4TitleLabel" destination="7MQ-48-gvQ" id="dbL-mX-j5U"/>
                 <outlet property="nameLabel" destination="SOK-BE-DPj" id="kOp-rh-C5q"/>
                 <outlet property="personImageView" destination="5VL-L0-lhW" id="VbR-DY-cAv"/>
-                <outlet property="personInfoTableView" destination="cw5-KC-3bL" id="Isd-nu-FhQ"/>
+                <outlet property="personInfoTextView" destination="cw5-KC-3bL" id="Isd-nu-FhQ"/>
                 <outlet property="roleLabel" destination="Rq1-Gq-VRp" id="TyM-bB-BJh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

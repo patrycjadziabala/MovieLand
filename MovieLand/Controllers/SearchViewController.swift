@@ -11,9 +11,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
-    
-    
     @IBOutlet weak var searchButton: UIButton!
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {

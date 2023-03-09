@@ -12,7 +12,7 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var birthDateLabel: UILabel!
-    @IBOutlet weak var personInfoTableView: UITextView!
+    @IBOutlet weak var personInfoTextView: UITextView!
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var awardsLabel: UITextView!
     @IBOutlet weak var heightLabel: UILabel!
@@ -33,5 +33,32 @@ class PersonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let apiManager = APIManager()
+        apiManager.fetchPersonInformation(id: "nm0050959") { [weak self] result in
+            switch result {
+            case .success(let person):
+                self?.handleSuccess(personModel: person)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
+    
+    func handleSuccess(personModel: PersonModel) {
+        DispatchQueue.main.async {
+            self.nameLabel.text = personModel.name
+            self.roleLabel.text = personModel.role
+            self.birthDateLabel.text = personModel.birthDate
+            self.personInfoTextView.text = personModel.summary
+            let imageUrl = URL(string: personModel.image)
+            self.personImageView.sd_setImage(with: imageUrl)
+            self.heightLabel.text = personModel.height
+            self.awardsLabel.text = personModel.awards
+            
+        }
+    }
+    func handleError(error: Error) {
+        print(error)
     }
 }
