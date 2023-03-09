@@ -17,8 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         let tabBarController = UITabBarController()
-        let searchViewController = PersonDetailsViewController()
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        
+        let searchNavigationController = UINavigationController()
+        let searchTabRouter = TabRouter(navigationController: searchNavigationController)
+        let searchViewController = SearchViewController(tabRouter: searchTabRouter)
+        searchNavigationController.viewControllers = [searchViewController]
+        
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
         
         let testController = UIViewController()

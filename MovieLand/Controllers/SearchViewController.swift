@@ -13,6 +13,17 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
     
+    let tabRouter: TabRouterProtocol
+    
+    init(tabRouter: TabRouterProtocol) {
+        self.tabRouter = tabRouter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -27,7 +38,8 @@ class SearchViewController: UIViewController {
         { [weak self] result in
             switch result {
             case .success(let searchResults):
-                self?.handleSuccess(searchResults: searchResults)
+                self?.tabRouter.navigateToPersonDetails(id: "")
+//                self?.handleSuccess(searchResults: searchResults)
             case .failure(let error):
                 self?.handleError(error: error)
             }

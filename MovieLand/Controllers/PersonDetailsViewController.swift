@@ -30,6 +30,19 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var movie4TitleLabel: UILabel!
     @IBOutlet weak var movie4RoleLabel: UILabel!
     
+    let personID: String
+    let tabRouter: TabRouterProtocol
+    
+    init(personID: String, tabRouter: TabRouterProtocol) {
+        self.personID = personID
+        self.tabRouter = tabRouter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

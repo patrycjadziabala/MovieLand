@@ -40,6 +40,19 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var movie4PosterImage: UIImageView!
     @IBOutlet weak var movie4TitleLabel: UILabel!
     
+    let titleID: String
+    let tabRouter: TabRouterProtocol
+    
+    init(titleID: String, tabRouter: TabRouterProtocol) {
+        self.titleID = titleID
+        self.tabRouter = tabRouter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
