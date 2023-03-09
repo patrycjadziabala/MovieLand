@@ -38,27 +38,26 @@ class SearchViewController: UIViewController {
         { [weak self] result in
             switch result {
             case .success(let searchResults):
-                self?.tabRouter.navigateToPersonDetails(id: "")
-//                self?.handleSuccess(searchResults: searchResults)
+                self?.handleSuccess(searchResults: searchResults)
             case .failure(let error):
                 self?.handleError(error: error)
             }
         }
+        searchButton.isEnabled = false
     }
     
     func handleSuccess(searchResults: SearchResultsModel) {
-        /*
-         bedziemy z background wątku (thread) wracać na główny wątek.
-         update UI ZAWSZE robimy na głównym wątku, więc cokolwiek się tutaj wydarzy w tej metodzie,
-         musimy to opakować w
-         DispatchQueue.main.async {
-            // tu updatujemy ui. nie trzeba pisać [weak self] tutaj
-         }
-         */
+        tabRouter.navigateToSearchResults(results: searchResults)
+        DispatchQueue.main.async {
+            self.searchButton.isEnabled = true
+        }
     }
     
     func handleError(error: Error) {
         print(error.localizedDescription)
+        DispatchQueue.main.async {
+            self.searchButton.isEnabled = true
+        }
     }
 }
 

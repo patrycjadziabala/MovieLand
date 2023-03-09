@@ -22,22 +22,22 @@ class TabRouter: TabRouterProtocol {
     }
     
     func navigateToPersonDetails(id: String) {
-        let controller = PersonDetailsViewController(personID: id, tabRouter: self)
         DispatchQueue.main.async {
+            let controller = PersonDetailsViewController(personID: id, tabRouter: self)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
     
     func navigateToTitleDetails(id: String) {
-        let controller = MovieDetailsViewController(titleID: id, tabRouter: self)
         DispatchQueue.main.async {
+            let controller = MovieDetailsViewController(titleID: id, tabRouter: self)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
     
     func navigateToSearchResults(results: SearchResultsModel) {
-        let controller = SearchResultsViewController(searchResults: results, tabRouter: self)
         DispatchQueue.main.async {
+            let controller = SearchResultsViewController(searchResults: results, tabRouter: self)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
