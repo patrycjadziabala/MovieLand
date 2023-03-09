@@ -9,6 +9,7 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -41,6 +42,9 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
+        scrollView.showsVerticalScrollIndicator = false
+    
         let apiManager = APIManager()
         apiManager.fetchTitle(id: "tt0411008") { [weak self] result in
             print(result)
