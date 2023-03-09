@@ -10,9 +10,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="yS3-DF-mqa" id="0xc-yh-BH3"/>
+                <outlet property="actor1AsCharacterLabel" destination="gyK-1v-1v6" id="ZUr-z9-x0I"/>
+                <outlet property="actor1Image" destination="Lo4-Db-5j7" id="FrF-Xw-zoh"/>
+                <outlet property="actor1NameLabel" destination="ThL-hp-QEn" id="0v1-19-6cg"/>
+                <outlet property="actor2AsCharacterLabel" destination="mWB-Ry-HyF" id="Qgz-pI-xKT"/>
+                <outlet property="actor2Image" destination="KdP-2c-rff" id="izH-yH-ZgJ"/>
+                <outlet property="actor2NameLabel" destination="9l6-Ul-FZP" id="PgE-KR-69Y"/>
+                <outlet property="actor3AsCharacterLabel" destination="POU-Lh-aPI" id="aTH-Ts-dJg"/>
+                <outlet property="actor3Image" destination="eGe-Ew-fjM" id="t29-1v-F03"/>
+                <outlet property="actor3NameLabel" destination="aO3-q2-kSA" id="vYC-gL-PxP"/>
+                <outlet property="actor4AsCharacterLabel" destination="kMn-lT-Ekb" id="OGd-ej-qcY"/>
+                <outlet property="actor4Image" destination="SUC-CZ-TsW" id="iex-5z-gyT"/>
+                <outlet property="actor4NameLabel" destination="2Qs-0O-Mmo" id="ghB-rr-r0f"/>
+                <outlet property="awardsTextView" destination="4U3-Xr-Izq" id="BQH-Va-krF"/>
+                <outlet property="castLabel" destination="WBH-3W-ScY" id="9gV-T0-k7d"/>
+                <outlet property="genreLabel" destination="Hlx-Di-Zqg" id="Oir-Cy-6nG"/>
+                <outlet property="moreLikeThisLabel" destination="FBO-N9-PdA" id="1lb-IU-GPT"/>
+                <outlet property="movie1PosterImage" destination="YnZ-K3-ltg" id="eJ1-bw-Ygb"/>
+                <outlet property="movie1TitleLabel" destination="bJd-3t-FbV" id="CpZ-NO-ydq"/>
+                <outlet property="movie2PosterImage" destination="lIw-Ds-IJa" id="b6h-4E-R44"/>
+                <outlet property="movie2TitleLabel" destination="Z8r-NV-N8Z" id="qNV-zg-pY2"/>
+                <outlet property="movie3PosterImage" destination="kQW-si-197" id="wZT-lm-MN6"/>
+                <outlet property="movie3TitleLabel" destination="Hpc-yq-P5a" id="hd6-m8-mWx"/>
+                <outlet property="movie4PosterImage" destination="WEW-14-k8N" id="IDY-3J-bzs"/>
+                <outlet property="movie4TitleLabel" destination="8yM-oc-H5I" id="RaV-g3-WCP"/>
+                <outlet property="movieOverviewTextView" destination="eI1-9q-oa1" id="M7c-lr-kLE"/>
+                <outlet property="moviePosterImageView" destination="yS3-DF-mqa" id="0xc-yh-BH3"/>
                 <outlet property="movieTitleLabel" destination="qd3-yc-h1D" id="hrv-DZ-kqJ"/>
-                <outlet property="overviewTextView" destination="eI1-9q-oa1" id="M7c-lr-kLE"/>
+                <outlet property="releaseDateLabel" destination="Jjh-p2-NFh" id="NOD-Jy-CoL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -194,18 +219,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="If you like this, why not try these:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Iwp-9N-Uvn">
-                    <rect key="frame" x="14" y="611" width="331" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-3t-FbV">
                     <rect key="frame" x="20" y="772" width="67" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
+                    <rect key="frame" x="16" y="618" width="249" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
