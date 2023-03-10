@@ -10,7 +10,7 @@ import Foundation
 struct PersonModel: Decodable {
     let id: String
     let name: String
-    let role: String
+    let role: String?
     let image: String
     let summary: String
     let birthDate: String

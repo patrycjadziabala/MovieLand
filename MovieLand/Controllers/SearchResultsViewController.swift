@@ -18,6 +18,11 @@ class SearchResultsViewController: UIViewController {
         self.tabRouter = tabRouter
         self.tableView = UITableView(frame: .zero)
         super.init(nibName: nil, bundle: nil)
+        print("\(String(describing: Self.self)) 🐣")
+    }
+    
+    deinit {
+        print("\(String(describing: Self.self)) 💀")
     }
     
     required init?(coder: NSCoder) {

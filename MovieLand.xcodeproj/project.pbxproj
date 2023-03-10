@@ -27,6 +27,7 @@
 		469959B729B649DE00069520 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469959B629B649DE00069520 /* GifLoader.swift */; };
 		469959B929B64D5200069520 /* cinema.gif in Resources */ = {isa = PBXBuildFile; fileRef = 469959B829B64D5200069520 /* cinema.gif */; };
 		46A24A0F29B8AAEC00B91444 /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A24A0D29B8AAEC00B91444 /* PersonDetailsViewController.xib */; };
+		46BCD5A929BB5EA00047AC42 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */; };
 		46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */; };
 		46F4E9B029AFC0DE00E8A1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */; };
 		46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */; };
@@ -71,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				469959B129B639BD00069520 /* SDWebImage in Frameworks */,
+				46BCD5A929BB5EA00047AC42 /* IQKeyboardManagerSwift in Frameworks */,
 				469959B329B639BD00069520 /* SDWebImageMapKit in Frameworks */,
 				46F4E9C429B0E41500E8A1A6 /* Tweener in Frameworks */,
 			);
@@ -203,6 +205,7 @@
 				46F4E9C329B0E41500E8A1A6 /* Tweener */,
 				469959B029B639BD00069520 /* SDWebImage */,
 				469959B229B639BD00069520 /* SDWebImageMapKit */,
+				46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */,
 			);
 			productName = MovieLand;
 			productReference = 46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */;
@@ -235,6 +238,7 @@
 			packageReferences = (
 				46F4E9C229B0E41500E8A1A6 /* XCRemoteSwiftPackageReference "SwiftTweener" */,
 				469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				46BCD5A729BB5EA00047AC42 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 46F4E9AB29AFC0DE00E8A1A6 /* Products */;
 			projectDirPath = "";
@@ -511,6 +515,14 @@
 				kind = branch;
 			};
 		};
+		46BCD5A729BB5EA00047AC42 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 		46F4E9C229B0E41500E8A1A6 /* XCRemoteSwiftPackageReference "SwiftTweener" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexrvarela/SwiftTweener.git";
@@ -531,6 +543,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46BCD5A729BB5EA00047AC42 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		46F4E9C329B0E41500E8A1A6 /* Tweener */ = {
 			isa = XCSwiftPackageProductDependency;
