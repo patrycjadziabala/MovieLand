@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchNavigationController = UINavigationController()
         let searchTabRouter = TabRouter(navigationController: searchNavigationController)
-        let searchViewController = SearchViewController(tabRouter: searchTabRouter)
+        let searchViewController = PersonDetailsViewController(personID: "", tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]
         
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)

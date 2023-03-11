@@ -78,7 +78,10 @@ class PersonDetailsViewController: UIViewController {
     
     func handleError(error: Error) {
         print(error)
-        presentAlert(with: error)
+        DispatchQueue.main.async {
+            self.presentAlert(with: error)
+        }
+        
     }
     
 //    func fetchCastMoviesId (id: Int, personModel: PersonModel, titleModel: TitleModel) {
@@ -107,18 +110,24 @@ class PersonDetailsViewController: UIViewController {
 class ScrollableHorizontalItemListView: UIView {
     
     let itemsStackView: UIStackView
-    
-    override init(frame: CGRect) {
-        itemsStackView = UIStackView(frame: frame)
-        super.init(frame: frame)
-        let scrollView = UIScrollView(frame: frame)
-        addSubview(scrollView)
-        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
-        scrollView.addSubview(itemsStackView)
-        
-    }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        itemsStackView = UIStackView(frame: .zero)
+        super.init(coder: coder)
+        let scrollView = UIScrollView(frame: frame)
+        addSubview(scrollView)
+        scrollView.constraint(to: self)
+        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
+        scrollView.addSubview(itemsStackView)
+        itemsStackView.constraint(to: scrollView)
+        itemsStackView.distribution = .fillEqually
+        itemsStackView.spacing = 8
+        itemsStackView.axis = .horizontal
+        for i in 1...10 {
+            let item = ScrollableItemView(frame: CGRect(x: 0, y: 0, width: 200, height: 350), title: "title \(i)", subtitle: "subtitle \(i)", image: UIImage(named: "camera"))
+            itemsStackView.addArrangedSubview(item)
+        }
     }
 }
+
+

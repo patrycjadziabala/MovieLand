@@ -99,7 +99,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-HX-fy5">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-HX-fy5" customClass="ScrollableHorizontalItemListView" customModule="MovieLand" customModuleProvider="target">
                                     <rect key="frame" x="10" y="484.33333333333337" width="370" height="250"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>

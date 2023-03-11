@@ -28,6 +28,7 @@
 		46BCD5AF29BB69D80047AC42 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */; };
 		46BCD5B129BCC3A50047AC42 /* MostPopularMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5B029BCC3A50047AC42 /* MostPopularMoviesViewController.swift */; };
 		46BCD5B529BCE5F50047AC42 /* ScrollableListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5B429BCE5F50047AC42 /* ScrollableListItem.swift */; };
+		46BCD5B929BCEEEA0047AC42 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */; };
 		46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */; };
 		46F4E9B029AFC0DE00E8A1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */; };
 		46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */; };
@@ -56,6 +57,7 @@
 		46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		46BCD5B029BCC3A50047AC42 /* MostPopularMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMoviesViewController.swift; sourceTree = "<group>"; };
 		46BCD5B429BCE5F50047AC42 /* ScrollableListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableListItem.swift; sourceTree = "<group>"; };
+		46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				46425CA829B76B7300524341 /* Constants.swift */,
 				469959B629B649DE00069520 /* GifLoader.swift */,
+				46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				46425CA929B76B7300524341 /* Constants.swift in Sources */,
 				4693340729BA588300593C70 /* TabRouter.swift in Sources */,
 				46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */,
+				46BCD5B929BCEEEA0047AC42 /* UIView+Extensions.swift in Sources */,
 				46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */,
 				4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */,
 				46BCD5B529BCE5F50047AC42 /* ScrollableListItem.swift in Sources */,
