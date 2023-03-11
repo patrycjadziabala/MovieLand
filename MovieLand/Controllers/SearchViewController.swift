@@ -87,19 +87,17 @@ extension SearchViewController: UITextFieldDelegate {
             }
         }
         searchTextField.text = ""
-        searchTextField.endEditing(true)
+        searchButton.isEnabled = false
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
         if textField.text != "" {
             return true
         } else {
-            textField.placeholder = "Type in actor's name or a film title"
+            textField.placeholder = "Type in a name or a film title"
             return false
         }
     }
-
 }
 
 

@@ -19,9 +19,19 @@ struct Constants {
     
     // MARK: - Titles/Names
    
-    static let cellIdentifier = "ListTableViewCell"
+    static let tableViewCell = "TableViewCell"
     
  
+    // MARK: - Colors
     
+    static let customBeige = "CustomBeige"
+    static let customDarkBlue = "CustomDarkBlue"
+    static let customDarkPink = "CustomDarkPink"
+    static let customLightGrey = "CustomLightGrey"
+    static let customLightOrange = "CustomLightOragne"
+    static let customLightPink = "CustomLightPink"
+    static let customOrange = "CustomOrange"
+    static let customPink = "CustomPink"
+    static let customWhite = "CustomWhite"
     
 }

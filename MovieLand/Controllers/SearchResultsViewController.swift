@@ -37,10 +37,8 @@ class SearchResultsViewController: UIViewController {
     
     func configureTableView() {
         view.addSubview(tableView)
-        let actorCellName = String(describing: ActorTableViewCell.self)
-        tableView.register(UINib(nibName: actorCellName, bundle: nil), forCellReuseIdentifier: actorCellName)
-        let titleCellName = String(describing: TitleTableViewCell.self)
-        tableView.register(UINib(nibName: titleCellName, bundle: nil), forCellReuseIdentifier: titleCellName)
+        let cell = String(describing: TableViewCell.self)
+        tableView.register(UINib(nibName: cell, bundle: nil), forCellReuseIdentifier: cell)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -65,12 +63,12 @@ extension SearchResultsViewController: UITableViewDataSource {
         }
         switch resultsType {
         case .title:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleTableViewCell.self)) as? TitleTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: Constants.tableViewCell.self)) as? TableViewCell {
                 cell.configure(with: model)
                 return cell
             }
         case .name:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ActorTableViewCell.self)) as? ActorTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: Constants.tableViewCell.self)) as? TableViewCell {
                 cell.configure(with: model)
                 return cell
             }
