@@ -21,10 +21,6 @@ class SearchResultsViewController: UIViewController {
         print("\(String(describing: Self.self)) 🐣")
     }
     
-    deinit {
-        print("\(String(describing: Self.self)) 💀")
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,24 +54,19 @@ extension SearchResultsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = dataSource[indexPath.row]
-        guard let resultsType = ResultType(rawValue: model.resultType?.lowercased() ?? "") else {
-            return UITableViewCell()
-        }
-        switch resultsType {
-        case .title:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: Constants.tableViewCell.self)) as? TableViewCell {
-                cell.configure(with: model)
-                return cell
-            }
-        case .name:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: Constants.tableViewCell.self)) as? TableViewCell {
-                cell.configure(with: model)
-                return cell
-            }
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tableViewCell) as? TableViewCell {
+            cell.configure(with: model)
+            return cell
         }
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
 }
 
 extension SearchResultsViewController: UITableViewDelegate {

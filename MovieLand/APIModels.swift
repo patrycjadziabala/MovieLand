@@ -90,3 +90,14 @@ enum ResultType: String {
     case title
     case name
 }
+
+struct MostPopularMoviesResultsModel: Decodable {
+    let items: [MostPopularItem]
+}
+struct MostPopularItem: Decodable {
+    let id: String
+    let rank: String
+    let title: String
+    let year: String
+    let image: String
+}

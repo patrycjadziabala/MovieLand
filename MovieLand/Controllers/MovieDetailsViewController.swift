@@ -69,17 +69,6 @@ class MovieDetailsViewController: UIViewController {
                 
             }
             print(result)
-            //zrob switcha, zrob metody handleSuccess i handleError tak jak w SearchViewController
-            // w success pokaż dane czyli titleLabel.text = titleModel.title
-            // itd
-            // wyświetlić obrazek w imageView za pomocą biblioteki SDWebImage:
-            // na imageView wywołać tak: self.cośtamImageView.sd_setImage(with: url)
-            /*
-             skąd wziąć urla?
-             let url = URL(string: titleModel.image)
-             i wtedy wysołujesz
-             self.cośtamImageView.sd_setImage(with: url)
-             */
         }
     }
     

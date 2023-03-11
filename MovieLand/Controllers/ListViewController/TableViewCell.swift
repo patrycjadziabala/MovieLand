@@ -17,16 +17,20 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellAdditionalInfoLabel: UILabel!
     
+    @IBOutlet weak var cellYearInfo: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        contentView.backgroundColor = UIColor(named: Constants.customLightPink)
     }
+    
     func configure(with model: Results) {
         cellNameLabel.text = model.title
         cellAdditionalInfoLabel.text = model.description
         cellImage.sd_setImage(with: URL(string: model.image))
+        cellYearInfo.isHidden = true
     }
-    
-    }
-    
+}
+
 

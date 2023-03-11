@@ -8,7 +8,7 @@
 import UIKit
 
 class PersonDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var birthDateLabel: UILabel!
@@ -69,9 +69,56 @@ class PersonDetailsViewController: UIViewController {
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
             
+            //            if let movie1ImageId = personModel.castMovies.id {
+            //                let movie1ImageId = titleModel.id
+            //                self.movie1Image.image = movie1ImageId
+//        }
         }
     }
+    
     func handleError(error: Error) {
         print(error)
+        presentAlert(with: error)
+    }
+    
+//    func fetchCastMoviesId (id: Int, personModel: PersonModel, titleModel: TitleModel) {
+//        let titleId = titleModel.id
+//        let castMovieId = personModel.castMovies[0].id
+//
+//        switch id {
+//        case
+//            return
+//
+//
+//    }
+    
+    func presentAlert(with error: Error) {
+        let alert = UIAlertController(title: "No internet", message: "Ooops you appear to be offline. This app required internet connection.", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+        })
+        
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+class ScrollableHorizontalItemListView: UIView {
+    
+    let itemsStackView: UIStackView
+    
+    override init(frame: CGRect) {
+        itemsStackView = UIStackView(frame: frame)
+        super.init(frame: frame)
+        let scrollView = UIScrollView(frame: frame)
+        addSubview(scrollView)
+        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
+        scrollView.addSubview(itemsStackView)
+        
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

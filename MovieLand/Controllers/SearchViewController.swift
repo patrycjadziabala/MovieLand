@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
     
+    
+    
     let tabRouter: TabRouterProtocol
     
     init(tabRouter: TabRouterProtocol) {
@@ -58,7 +60,6 @@ class SearchViewController: UIViewController {
     }
     
     func handleError(error: Error) {
-        print(error.localizedDescription)
         DispatchQueue.main.async {
             self.searchButton.isEnabled = true
         }
@@ -98,6 +99,8 @@ extension SearchViewController: UITextFieldDelegate {
             return false
         }
     }
+    
+    
 }
 
 
@@ -105,15 +108,7 @@ extension SearchViewController: UITextFieldDelegate {
  
  Zadanie domowe:
 
- MovieDetailsViewController - podłączyć outlety
-
- PersonDetailsViewcontroller - usunąć tabelkę
-
- W obu kontrolerach powyższych jakoś sobie zaprojektować UI, biorąc pod uwagę modele - czyli dane które będziemy mieli dostępne do wyświetlenia (TitleModel i PersonModel)
-
- COMMITOWAĆ CZĘSTO
-
- Zadanie dodatkowe:
+ 
 
  Zrobić także handling errorów - wyświetlić alert użytkownikowi - UIAlertView (wyszukać w necie jak się to robi) i w tym uialertview (chyba tak to się nazywa) wyświetlić error.localizedDescription
  Jak to przetestować? Wyłączyć internet
