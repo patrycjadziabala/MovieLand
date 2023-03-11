@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyr-Fc-Amh" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="754.33333333333337"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOK-BE-DPj">
                                     <rect key="frame" x="20" y="7.9999999999999982" width="350" height="20.333333333333329"/>
@@ -100,8 +100,11 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-HX-fy5">
-                                    <rect key="frame" x="10" y="484.33333333333337" width="370" height="495.66666666666663"/>
+                                    <rect key="frame" x="10" y="484.33333333333337" width="370" height="250"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="250" id="reF-2F-GA7"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,7 +117,6 @@
                                 <constraint firstItem="SOK-BE-DPj" firstAttribute="top" secondItem="lyr-Fc-Amh" secondAttribute="top" constant="8" id="GoY-lm-3Ba"/>
                                 <constraint firstItem="SOK-BE-DPj" firstAttribute="leading" secondItem="lyr-Fc-Amh" secondAttribute="leading" constant="20" id="ODw-9u-r4G"/>
                                 <constraint firstItem="fdF-eb-Sau" firstAttribute="top" secondItem="cw5-KC-3bL" secondAttribute="bottom" constant="20" id="S9O-QB-NA1"/>
-                                <constraint firstAttribute="height" constant="1000" id="SkB-4y-fww"/>
                                 <constraint firstItem="TDn-go-qFf" firstAttribute="top" secondItem="fdF-eb-Sau" secondAttribute="bottom" constant="20" id="Tnb-fl-XS7"/>
                                 <constraint firstItem="IQN-cj-V6g" firstAttribute="leading" secondItem="lyr-Fc-Amh" secondAttribute="leading" constant="10" id="VSP-wd-9kB"/>
                                 <constraint firstAttribute="trailing" secondItem="SOK-BE-DPj" secondAttribute="trailing" constant="20" id="WIM-aN-fY1"/>
