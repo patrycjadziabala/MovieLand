@@ -9,11 +9,17 @@ import UIKit
 
 class SwipeableInformationTilesController: UIViewController {
 
-    let dataSource: [CastMovieModel]
+    var dataSource: [CastMovieModel] {
+        didSet {
+            collectionViewCastMovies.reloadData()
+        }
+    }
+    
     let collectionViewCastMovies: UICollectionView
     
     init(dataSource: [CastMovieModel]) {
         self.dataSource = dataSource
+
         self.collectionViewCastMovies = UICollectionView(frame: .zero)
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,7 +31,7 @@ class SwipeableInformationTilesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+       configureCollectionView()
        
     }
     func configureCollectionView() {

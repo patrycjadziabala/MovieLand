@@ -13,8 +13,8 @@
             <connections>
                 <outlet property="awardsLabel" destination="TDn-go-qFf" id="3g5-Lh-jNR"/>
                 <outlet property="birthDateLabel" destination="N7a-Lx-Rfd" id="qL1-Rp-Qw7"/>
+                <outlet property="castMoviesCollectionViewContainer" destination="Pcm-uW-YjH" id="b3h-al-Zwz"/>
                 <outlet property="castMoviesLabel" destination="ntk-SJ-2Yq" id="A9n-kN-5gA"/>
-                <outlet property="collectionViewCastMovies" destination="QSV-Oq-FkN" id="khD-pU-nut"/>
                 <outlet property="heightLabel" destination="fdF-eb-Sau" id="WgV-tI-tqW"/>
                 <outlet property="nameLabel" destination="SOK-BE-DPj" id="kOp-rh-C5q"/>
                 <outlet property="personImageView" destination="5VL-L0-lhW" id="VbR-DY-cAv"/>
@@ -103,29 +103,9 @@
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcm-uW-YjH">
                                     <rect key="frame" x="10" y="479.33333333333337" width="370" height="200"/>
-                                    <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QSV-Oq-FkN">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="200"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="TVS-IY-rbY"/>
-                                                <constraint firstAttribute="width" constant="370" id="zjV-Iv-n6o"/>
-                                            </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ROT-dC-gc0">
-                                                <size key="itemSize" width="80" height="180"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                        </collectionView>
-                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="QSV-Oq-FkN" firstAttribute="centerX" secondItem="Pcm-uW-YjH" secondAttribute="centerX" id="1tF-SI-uVE"/>
-                                        <constraint firstItem="QSV-Oq-FkN" firstAttribute="centerX" secondItem="Pcm-uW-YjH" secondAttribute="centerX" id="5wt-AY-Dg2"/>
                                         <constraint firstAttribute="width" constant="370" id="GBM-gw-q34"/>
-                                        <constraint firstItem="QSV-Oq-FkN" firstAttribute="centerY" secondItem="Pcm-uW-YjH" secondAttribute="centerY" id="NeE-1j-oeK"/>
-                                        <constraint firstItem="QSV-Oq-FkN" firstAttribute="centerX" secondItem="Pcm-uW-YjH" secondAttribute="centerX" id="Zij-Yv-DgQ"/>
                                         <constraint firstAttribute="height" constant="200" id="yHn-FZ-H1d"/>
                                     </constraints>
                                 </view>

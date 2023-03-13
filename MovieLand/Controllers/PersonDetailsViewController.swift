@@ -17,17 +17,16 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var awardsLabel: UITextView!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var castMoviesLabel: UILabel!
-    @IBOutlet weak var collectionViewCastMovies: UICollectionView!
+    @IBOutlet weak var castMoviesCollectionViewContainer: UIView!
     
+    let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
-    var dataSource: [CastMovieModel]
-    
     
     init(personID: String, tabRouter: TabRouterProtocol) {
         self.personID = personID
         self.tabRouter = tabRouter
-        self.dataSource = []
+        self.castMoviesController = SwipeableInformationTilesController(dataSource: [])
        
         
         super.init(nibName: nil, bundle: nil)
@@ -66,8 +65,8 @@ class PersonDetailsViewController: UIViewController {
             self.personImageView.sd_setImage(with: imageUrl)
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
-            self.dataSource = personModel.castMovies
-            self.collectionViewCastMovies.reloadData()
+            self.castMoviesController.dataSource = personModel.castMovies
+//            self.collectionViewCastMovies.reloadData()
                 
             //            if let movie1ImageId = personModel.castMovies.id {
             //                let movie1ImageId = titleModel.id
@@ -98,69 +97,15 @@ class PersonDetailsViewController: UIViewController {
     
     
     func configureCollectionViewCastMovies() {
-        collectionViewCastMovies.dataSource = self
-        collectionViewCastMovies.delegate = self
-        collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
-        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
+//        collectionViewCastMovies.dataSource = self
+//        collectionViewCastMovies.delegate = self
+//        collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
+//        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
         
-    }
-    
-}
-
-extension PersonDetailsViewController: UICollectionViewDelegate {
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        CGSize(width: 80, height: collectionViewCastMovies.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let collectionViewCell = cell as? CollectionViewCell
+        addChild(castMoviesController)
+        view.addSubview(castMoviesController.view)
+        castMoviesController.didMove(toParent: self)
+        castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
     }
 }
-
-extension PersonDetailsViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionViewCastMovies.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCell, for: indexPath) as? CollectionViewCell{
-            cell.configure(with: dataSource[indexPath.item])
-            return cell
-        }
-            
-        return UICollectionViewCell()
-    }
-    
-    
-}
-
-
-
-//class ScrollableHorizontalItemListView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-//    let itemsStackView: UIStackView
-//    required init?(coder: NSCoder) {
-//        itemsStackView = UIStackView(frame: .zero)
-//        super.init(coder: coder)
-//        let scrollView = UIScrollView(frame: frame)
-//        addSubview(scrollView)
-//        scrollView.constraint(to: self)
-//        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
-//        scrollView.addSubview(itemsStackView)
-//        itemsStackView.constraint(to: scrollView)
-//        itemsStackView.distribution = .fillEqually
-//        itemsStackView.spacing = 8
-//        itemsStackView.axis = .horizontal
-//        for i in 1...10 {
-//            let item = ScrollableItemView(frame: CGRect(x: 0, y: 0, width: 200, height: 350), title: "title \(i)", subtitle: "subtitle \(i)", image: UIImage(named: "camera"))
-//            itemsStackView.addArrangedSubview(item)
-//        }
-//    }
-//}
-
-
