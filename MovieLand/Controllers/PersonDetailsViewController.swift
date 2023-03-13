@@ -17,13 +17,19 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var awardsLabel: UITextView!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var castMoviesLabel: UILabel!
+    @IBOutlet weak var collectionViewCastMovies: UICollectionView!
     
     let personID: String
     let tabRouter: TabRouterProtocol
+    var dataSource: [CastMovieModel]
+    
     
     init(personID: String, tabRouter: TabRouterProtocol) {
         self.personID = personID
         self.tabRouter = tabRouter
+        self.dataSource = []
+       
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,15 +41,19 @@ class PersonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureCollectionViewCastMovies()
+       
         let apiManager = APIManager()
-        apiManager.fetchPersonInformation(id: personID) { [weak self] result in
-            switch result {
-            case .success(let person):
-                self?.handleSuccess(personModel: person)
-            case .failure(let error):
-                self?.handleError(error: error)
+            apiManager.fetchPersonInformation(id: personID) { [weak self] result in
+                switch result {
+                case .success(let person):
+                    self?.handleSuccess(personModel: person)
+                 
+                case .failure(let error):
+                    self?.handleError(error: error)
+                }
+                print(result)
             }
-        }
     }
     
     func handleSuccess(personModel: PersonModel) {
@@ -56,7 +66,9 @@ class PersonDetailsViewController: UIViewController {
             self.personImageView.sd_setImage(with: imageUrl)
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
-            
+            self.dataSource = personModel.castMovies
+            self.collectionViewCastMovies.reloadData()
+                
             //            if let movie1ImageId = personModel.castMovies.id {
             //                let movie1ImageId = titleModel.id
             //                self.movie1Image.image = movie1ImageId
@@ -82,7 +94,52 @@ class PersonDetailsViewController: UIViewController {
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
+    func configureCollectionViewCastMovies() {
+        collectionViewCastMovies.dataSource = self
+        collectionViewCastMovies.delegate = self
+        collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
+        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
+        
+    }
+    
 }
+
+extension PersonDetailsViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        CGSize(width: 80, height: collectionViewCastMovies.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let collectionViewCell = cell as? CollectionViewCell
+    }
+}
+
+extension PersonDetailsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionViewCastMovies.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCell, for: indexPath) as? CollectionViewCell{
+            cell.configure(with: dataSource[indexPath.item])
+            return cell
+        }
+            
+        return UICollectionViewCell()
+    }
+    
+    
+}
+
+
 
 //class ScrollableHorizontalItemListView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     

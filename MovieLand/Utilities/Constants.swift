@@ -20,6 +20,7 @@ struct Constants {
     // MARK: - Titles/Names
    
     static let tableViewCell = "TableViewCell"
+    static let collectionViewCell = "CollectionViewCell"
     
  
     // MARK: - Colors

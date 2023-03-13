@@ -18,27 +18,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var movieOverviewTextView: UITextView!
     @IBOutlet weak var awardsTextView: UITextView!
     @IBOutlet weak var castLabel: UILabel!
-    @IBOutlet weak var actor1Image: UIImageView!
-    @IBOutlet weak var actor1NameLabel: UILabel!
-    @IBOutlet weak var actor1AsCharacterLabel: UILabel!
-    @IBOutlet weak var actor2Image: UIImageView!
-    @IBOutlet weak var actor2NameLabel: UILabel!
-    @IBOutlet weak var actor2AsCharacterLabel: UILabel!
-    @IBOutlet weak var actor3Image: UIImageView!
-    @IBOutlet weak var actor3NameLabel: UILabel!
-    @IBOutlet weak var actor3AsCharacterLabel: UILabel!
-    @IBOutlet weak var actor4Image: UIImageView!
-    @IBOutlet weak var actor4NameLabel: UILabel!
-    @IBOutlet weak var actor4AsCharacterLabel: UILabel!
     @IBOutlet weak var moreLikeThisLabel: UILabel!
-    @IBOutlet weak var movie1PosterImage: UIImageView!
-    @IBOutlet weak var movie1TitleLabel: UILabel!
-    @IBOutlet weak var movie2PosterImage: UIImageView!
-    @IBOutlet weak var movie2TitleLabel: UILabel!
-    @IBOutlet weak var movie3PosterImage: UIImageView!
-    @IBOutlet weak var movie3TitleLabel: UILabel!
-    @IBOutlet weak var movie4PosterImage: UIImageView!
-    @IBOutlet weak var movie4TitleLabel: UILabel!
     
     let titleID: String
     let tabRouter: TabRouterProtocol

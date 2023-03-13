@@ -14,14 +14,6 @@
                 <outlet property="castLabel" destination="WBH-3W-ScY" id="9gV-T0-k7d"/>
                 <outlet property="genreLabel" destination="Hlx-Di-Zqg" id="Oir-Cy-6nG"/>
                 <outlet property="moreLikeThisLabel" destination="FBO-N9-PdA" id="1lb-IU-GPT"/>
-                <outlet property="movie1PosterImage" destination="YnZ-K3-ltg" id="eJ1-bw-Ygb"/>
-                <outlet property="movie1TitleLabel" destination="bJd-3t-FbV" id="CpZ-NO-ydq"/>
-                <outlet property="movie2PosterImage" destination="lIw-Ds-IJa" id="b6h-4E-R44"/>
-                <outlet property="movie2TitleLabel" destination="Z8r-NV-N8Z" id="qNV-zg-pY2"/>
-                <outlet property="movie3PosterImage" destination="kQW-si-197" id="wZT-lm-MN6"/>
-                <outlet property="movie3TitleLabel" destination="Hpc-yq-P5a" id="hd6-m8-mWx"/>
-                <outlet property="movie4PosterImage" destination="WEW-14-k8N" id="IDY-3J-bzs"/>
-                <outlet property="movie4TitleLabel" destination="8yM-oc-H5I" id="RaV-g3-WCP"/>
                 <outlet property="movieOverviewTextView" destination="eI1-9q-oa1" id="M7c-lr-kLE"/>
                 <outlet property="moviePosterImageView" destination="yS3-DF-mqa" id="0xc-yh-BH3"/>
                 <outlet property="movieTitleLabel" destination="qd3-yc-h1D" id="hrv-DZ-kqJ"/>
@@ -41,50 +33,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8U-gN-cXt" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1049"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-K3-ltg">
-                                    <rect key="frame" x="16" y="799" width="79" height="114"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIw-Ds-IJa">
-                                    <rect key="frame" x="110" y="799" width="79" height="114"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-si-197">
-                                    <rect key="frame" x="205" y="799" width="79" height="114"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEW-14-k8N">
-                                    <rect key="frame" x="295" y="799" width="79" height="114"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8r-NV-N8Z">
-                                    <rect key="frame" x="110" y="915" width="67" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpc-yq-P5a">
-                                    <rect key="frame" x="209" y="915" width="67" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yM-oc-H5I">
-                                    <rect key="frame" x="297" y="915" width="67" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-3t-FbV">
-                                    <rect key="frame" x="22" y="915" width="67" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
                                     <rect key="frame" x="16" y="750" width="249" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

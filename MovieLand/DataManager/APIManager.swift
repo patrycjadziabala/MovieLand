@@ -13,6 +13,8 @@ protocol APIManagerProtocol: AnyObject {
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void)
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void)
+    
+    func cancelCurrentTask()
 }
 
 enum APIEndpoint: String {
@@ -32,6 +34,8 @@ class APIManager: APIManagerProtocol {
     let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_bv6bughg/"
     
     let language: String
+    
+    var currentTask: URLSessionDataTask?
     
     init(language: String = "en") {
         self.language = language
@@ -75,6 +79,7 @@ class APIManager: APIManagerProtocol {
             }
         }
         task.resume()
+        currentTask = task
     }
     
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void) {
@@ -104,35 +109,41 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.unknownError))
         }
         task.resume()
+        currentTask = task
     }
     
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
-            guard let url = buildURL(for: .searchAll, id: query) else {
-        
-                completion(.failure(APIManagerError.couldNotBuildURL))
+        guard let url = buildURL(for: .searchAll, id: query) else {
+            
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
                 return
             }
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if let error = error {
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData =  try decoder.decode(SearchResultsModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
                     completion(.failure(error))
                     return
                 }
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData =  try decoder.decode(SearchResultsModel.self, from: data)
-                        completion(.success(decodedData))
-                        return
-                    } catch {
-                        completion(.failure(error))
-                        return
-                    }
-                }
-                completion(.failure(APIManagerError.unknownError))
             }
-            task.resume()
+            completion(.failure(APIManagerError.unknownError))
         }
+        task.resume()
+        currentTask = task
+    }
+    
+    func cancelCurrentTask() {
+        currentTask?.cancel()
+    }
 }
 

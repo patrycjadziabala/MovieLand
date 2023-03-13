@@ -23,6 +23,8 @@
 		469959B729B649DE00069520 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469959B629B649DE00069520 /* GifLoader.swift */; };
 		469959B929B64D5200069520 /* cinema.gif in Resources */ = {isa = PBXBuildFile; fileRef = 469959B829B64D5200069520 /* cinema.gif */; };
 		46A24A0F29B8AAEC00B91444 /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A24A0D29B8AAEC00B91444 /* PersonDetailsViewController.xib */; };
+		46AC54BD29BF605300DB029B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC54BB29BF605300DB029B /* CollectionViewCell.swift */; };
+		46AC54BE29BF605300DB029B /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46AC54BC29BF605300DB029B /* CollectionViewCell.xib */; };
 		46BCD5A929BB5EA00047AC42 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */; };
 		46BCD5AE29BB69D80047AC42 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */; };
 		46BCD5AF29BB69D80047AC42 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */; };
@@ -54,6 +56,8 @@
 		469959B629B649DE00069520 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
 		469959B829B64D5200069520 /* cinema.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cinema.gif; sourceTree = SOURCE_ROOT; };
 		46A24A0D29B8AAEC00B91444 /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
+		46AC54BB29BF605300DB029B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		46AC54BC29BF605300DB029B /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		46BCD5B029BCC3A50047AC42 /* MostPopularMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMoviesViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			children = (
 				46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */,
 				46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */,
+				46AC54BB29BF605300DB029B /* CollectionViewCell.swift */,
+				46AC54BC29BF605300DB029B /* CollectionViewCell.xib */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			files = (
 				46BCD5AF29BB69D80047AC42 /* TableViewCell.xib in Resources */,
 				46F4E9B729AFC0DF00E8A1A6 /* Assets.xcassets in Resources */,
+				46AC54BE29BF605300DB029B /* CollectionViewCell.xib in Resources */,
 				46BCD5BE29BE16DE0047AC42 /* LaunchScreenView.xib in Resources */,
 				469959B929B64D5200069520 /* cinema.gif in Resources */,
 				46A24A0F29B8AAEC00B91444 /* PersonDetailsViewController.xib in Resources */,
@@ -299,6 +306,7 @@
 				46BCD5AE29BB69D80047AC42 /* TableViewCell.swift in Sources */,
 				4687909529B22214000BA402 /* APIManager.swift in Sources */,
 				4693340929BA5D3100593C70 /* SearchResultsViewController.swift in Sources */,
+				46AC54BD29BF605300DB029B /* CollectionViewCell.swift in Sources */,
 				46425CA929B76B7300524341 /* Constants.swift in Sources */,
 				4693340729BA588300593C70 /* TabRouter.swift in Sources */,
 				46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */,
