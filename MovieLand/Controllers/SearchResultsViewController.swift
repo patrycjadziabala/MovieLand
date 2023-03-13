@@ -74,7 +74,7 @@ extension SearchResultsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dataSource[indexPath.row]
         guard let resultType = ResultType(rawValue: model.resultType?.lowercased() ?? "") else {
-            print("No result type found \(model.resultType)")
+            print("No result type found \(model.resultType ?? "")")
             return
         }
         switch resultType {

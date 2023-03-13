@@ -72,17 +72,6 @@ class PersonDetailsViewController: UIViewController {
         
     }
     
-//    func fetchCastMoviesId (id: Int, personModel: PersonModel, titleModel: TitleModel) {
-//        let titleId = titleModel.id
-//        let castMovieId = personModel.castMovies[0].id
-//
-//        switch id {
-//        case
-//            return
-//
-//
-//    }
-    
     func presentAlert(with error: Error) {
         let alert = UIAlertController(title: "No internet", message: "Ooops you appear to be offline. This app required internet connection.", preferredStyle: .alert)
         
@@ -95,27 +84,26 @@ class PersonDetailsViewController: UIViewController {
     }
 }
 
-class ScrollableHorizontalItemListView: UIView {
+//class ScrollableHorizontalItemListView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let itemsStackView: UIStackView
-
-    required init?(coder: NSCoder) {
-        itemsStackView = UIStackView(frame: .zero)
-        super.init(coder: coder)
-        let scrollView = UIScrollView(frame: frame)
-        addSubview(scrollView)
-        scrollView.constraint(to: self)
-        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
-        scrollView.addSubview(itemsStackView)
-        itemsStackView.constraint(to: scrollView)
-        itemsStackView.distribution = .fillEqually
-        itemsStackView.spacing = 8
-        itemsStackView.axis = .horizontal
-        for i in 1...10 {
-            let item = ScrollableItemView(frame: CGRect(x: 0, y: 0, width: 200, height: 350), title: "title \(i)", subtitle: "subtitle \(i)", image: UIImage(named: "camera"))
-            itemsStackView.addArrangedSubview(item)
-        }
-    }
-}
+//    let itemsStackView: UIStackView
+//    required init?(coder: NSCoder) {
+//        itemsStackView = UIStackView(frame: .zero)
+//        super.init(coder: coder)
+//        let scrollView = UIScrollView(frame: frame)
+//        addSubview(scrollView)
+//        scrollView.constraint(to: self)
+//        scrollView.backgroundColor = UIColor(named: Constants.customLightGrey)
+//        scrollView.addSubview(itemsStackView)
+//        itemsStackView.constraint(to: scrollView)
+//        itemsStackView.distribution = .fillEqually
+//        itemsStackView.spacing = 8
+//        itemsStackView.axis = .horizontal
+//        for i in 1...10 {
+//            let item = ScrollableItemView(frame: CGRect(x: 0, y: 0, width: 200, height: 350), title: "title \(i)", subtitle: "subtitle \(i)", image: UIImage(named: "camera"))
+//            itemsStackView.addArrangedSubview(item)
+//        }
+//    }
+//}
 
 

@@ -19,6 +19,10 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+    }
+    
+    func configureView() {
         
         titleTextField.text = "MovieLand"
         

@@ -22,11 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchNavigationController = UINavigationController()
         let searchTabRouter = TabRouter(navigationController: searchNavigationController)
+        
+        // launch screen
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController")
+        
         let searchViewController = SearchViewController(tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]
         
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
-        
+//
         let testController = UIViewController()
         testController.view.backgroundColor = .gray
         

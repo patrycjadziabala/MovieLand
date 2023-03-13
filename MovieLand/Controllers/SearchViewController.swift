@@ -14,8 +14,6 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
     
-    
-    
     let tabRouter: TabRouterProtocol
     
     init(tabRouter: TabRouterProtocol) {
