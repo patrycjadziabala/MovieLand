@@ -19,6 +19,7 @@
                 <outlet property="movieTitleLabel" destination="qd3-yc-h1D" id="hrv-DZ-kqJ"/>
                 <outlet property="releaseDateLabel" destination="Jjh-p2-NFh" id="NOD-Jy-CoL"/>
                 <outlet property="scrollView" destination="tm6-0J-MJo" id="zbe-gg-BGH"/>
+                <outlet property="scrollableViewContainer" destination="06n-Cl-WE5" id="pM4-nj-L9o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,18 +41,30 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cast:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBH-3W-ScY">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBH-3W-ScY">
                                     <rect key="frame" x="17" y="492" width="40" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06n-Cl-WE5">
+                                    <rect key="frame" x="10" y="528" width="370" height="200"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="9IE-qT-Qu3"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <accessibility key="accessibilityConfiguration" identifier="Content View"/>
                             <constraints>
+                                <constraint firstItem="06n-Cl-WE5" firstAttribute="top" secondItem="WBH-3W-ScY" secondAttribute="bottom" constant="15" id="0qV-jX-s1g"/>
                                 <constraint firstAttribute="height" constant="1049" id="9wQ-qc-GKQ"/>
+                                <constraint firstItem="06n-Cl-WE5" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="OSM-Ei-ed0"/>
+                                <constraint firstItem="WBH-3W-ScY" firstAttribute="top" secondItem="h8U-gN-cXt" secondAttribute="top" constant="492" id="R02-I7-wgY"/>
+                                <constraint firstItem="WBH-3W-ScY" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="17" id="WAd-gF-5WH"/>
+                                <constraint firstAttribute="trailing" secondItem="06n-Cl-WE5" secondAttribute="trailing" constant="10" id="vrv-Mt-oB3"/>
+                                <constraint firstItem="06n-Cl-WE5" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="zbg-gI-9iA"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd3-yc-h1D">

@@ -19,6 +19,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var awardsTextView: UITextView!
     @IBOutlet weak var castLabel: UILabel!
     @IBOutlet weak var moreLikeThisLabel: UILabel!
+    @IBOutlet weak var scrollableViewContainer: UIView!
+    
     
     let titleID: String
     let tabRouter: TabRouterProtocol
