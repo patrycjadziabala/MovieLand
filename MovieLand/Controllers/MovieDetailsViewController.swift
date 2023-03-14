@@ -21,13 +21,15 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var moreLikeThisLabel: UILabel!
     @IBOutlet weak var scrollableViewContainer: UIView!
     
-    
+    let actorsInFilmController: SwipeableInformationTilesController
     let titleID: String
     let tabRouter: TabRouterProtocol
     
     init(titleID: String, tabRouter: TabRouterProtocol) {
         self.titleID = titleID
         self.tabRouter = tabRouter
+        self.actorsInFilmController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,6 +39,8 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureCollectionViewActorsInFilm()
         
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
         scrollView.showsVerticalScrollIndicator = false
@@ -70,5 +74,14 @@ class MovieDetailsViewController: UIViewController {
     func handleError(error: Error) {
         print(error)
     }
+    
+    func configureCollectionViewActorsInFilm() {
+        addChild(actorsInFilmController)
+        view.addSubview(actorsInFilmController.view)
+        actorsInFilmController.didMove(toParent: self)
+        actorsInFilmController.view.constraint(to: scrollableViewContainer)
+    }
+    
+    
 }
     
