@@ -126,7 +126,6 @@
 				4635BB3A29B8F1E600A8083D /* SearchViewController.xib */,
 				4693340829BA5D3100593C70 /* SearchResultsViewController.swift */,
 				46BCD5B029BCC3A50047AC42 /* MostPopularMoviesViewController.swift */,
-				46AC54BF29BF8ADC00DB029B /* SwipeableInformationTilesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				46BCD5B429BCE5F50047AC42 /* ScrollableListItem.swift */,
+				46AC54BF29BF8ADC00DB029B /* SwipeableInformationTilesController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

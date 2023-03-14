@@ -29,21 +29,22 @@ class CollectionViewCell: UICollectionViewCell {
         title.text = model.title
         info.text = model.year
         cancelCurrentTask()
-        apiManager.fetchTitle(id: model.id) { result in
-            switch result {
-            case .success(let titleModel):
-                self.currentModel = titleModel
-            case .failure:
-                self.currentModel = nil
-            }
-            DispatchQueue.main.async {
-                if let urlString = self.currentModel?.image {
-                    self.imageView.sd_setImage(with: URL(string: urlString))
-                } else {
-                    self.configureDefaultImage()
-                }
-            }
-        }
+        configureDefaultImage()
+//        apiManager.fetchTitle(id: model.id) { result in
+//            switch result {
+//            case .success(let titleModel):
+//                self.currentModel = titleModel
+//            case .failure:
+//                self.currentModel = nil
+//            }
+//            DispatchQueue.main.async {
+//                if let urlString = self.currentModel?.image {
+//                    self.imageView.sd_setImage(with: URL(string: urlString))
+//                } else {
+//                    self.configureDefaultImage()
+//                }
+//            }
+//        }
     }
     
     func configureDefaultImage() {

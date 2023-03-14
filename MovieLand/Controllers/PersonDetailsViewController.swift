@@ -68,10 +68,7 @@ class PersonDetailsViewController: UIViewController {
             self.castMoviesController.dataSource = personModel.castMovies
 //            self.collectionViewCastMovies.reloadData()
                 
-            //            if let movie1ImageId = personModel.castMovies.id {
-            //                let movie1ImageId = titleModel.id
-            //                self.movie1Image.image = movie1ImageId
-//        }
+           
         }
     }
     

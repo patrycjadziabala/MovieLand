@@ -19,8 +19,10 @@ class SwipeableInformationTilesController: UIViewController {
     
     init(dataSource: [CastMovieModel]) {
         self.dataSource = dataSource
-
-        self.collectionViewCastMovies = UICollectionView(frame: .zero)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.collectionViewCastMovies = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,19 +34,21 @@ class SwipeableInformationTilesController: UIViewController {
         super.viewDidLoad()
 
        configureCollectionView()
-       
+        
     }
+    
     func configureCollectionView() {
         view.addSubview(collectionViewCastMovies)
         let cell = String(describing: CollectionViewCell.self)
         collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
+        
         collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
         collectionViewCastMovies.constraint(to: view)
+        collectionViewCastMovies.delegate = self
+        collectionViewCastMovies.dataSource = self
+      
     }
-    
 }
-
-
 
 extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
@@ -73,5 +77,12 @@ extension SwipeableInformationTilesController: UICollectionViewDataSource {
         }
             
         return UICollectionViewCell()
+    }
+}
+
+extension SwipeableInformationTilesController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: collectionView.frame.height)
+        
     }
 }
