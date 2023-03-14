@@ -9,6 +9,8 @@ import UIKit
 
 class SwipeableInformationTilesController: UIViewController {
 
+    let tabRouter: TabRouterProtocol
+    
     var dataSource: [CastMovieModel] {
         didSet {
             collectionViewCastMovies.reloadData()
@@ -17,7 +19,8 @@ class SwipeableInformationTilesController: UIViewController {
     
     let collectionViewCastMovies: UICollectionView
     
-    init(dataSource: [CastMovieModel]) {
+    init(dataSource: [CastMovieModel], tabRouter: TabRouterProtocol) {
+        self.tabRouter = tabRouter
         self.dataSource = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -58,6 +61,11 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = dataSource[indexPath.item]
+        tabRouter.navigateToTitleDetails(id: model.id)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

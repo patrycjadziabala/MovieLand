@@ -26,7 +26,7 @@ class PersonDetailsViewController: UIViewController {
     init(personID: String, tabRouter: TabRouterProtocol) {
         self.personID = personID
         self.tabRouter = tabRouter
-        self.castMoviesController = SwipeableInformationTilesController(dataSource: [])
+        self.castMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
        
         
         super.init(nibName: nil, bundle: nil)
