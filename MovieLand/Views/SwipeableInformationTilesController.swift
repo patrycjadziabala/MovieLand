@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol SwipeableInformationTilePresentable {
+    var id: String { get }
+}
+
 class SwipeableInformationTilesController: UIViewController {
 
     let tabRouter: TabRouterProtocol
     
-    var dataSource: [CastMovieModel] {
+    var dataSource: [SwipeableInformationTilePresentable] {
         didSet {
             collectionViewCastMovies.reloadData()
         }
@@ -19,7 +23,7 @@ class SwipeableInformationTilesController: UIViewController {
     
     let collectionViewCastMovies: UICollectionView
     
-    init(dataSource: [CastMovieModel], tabRouter: TabRouterProtocol) {
+    init(dataSource: [SwipeableInformationTilePresentable], tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
         self.dataSource = dataSource
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -42,7 +46,6 @@ class SwipeableInformationTilesController: UIViewController {
     
     func configureCollectionView() {
         view.addSubview(collectionViewCastMovies)
-        let cell = String(describing: CollectionViewCell.self)
         collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
         
         collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
@@ -65,7 +68,11 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.item]
-        tabRouter.navigateToTitleDetails(id: model.id)
+        if model is CastMovieModel {
+            tabRouter.navigateToTitleDetails(id: model.id)
+        } else if model is ActorForTitleModel {
+            tabRouter.navigateToPersonDetails(id: model.id)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

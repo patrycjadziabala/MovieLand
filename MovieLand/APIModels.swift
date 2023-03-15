@@ -30,7 +30,7 @@ struct KnownForModel: Decodable {
     let image: String
 }
 
-struct CastMovieModel: Decodable {
+struct CastMovieModel: Decodable, SwipeableInformationTilePresentable {
     let id: String
     let role: String
     let title: String
@@ -60,7 +60,7 @@ struct BasicPersonModel: Decodable {
     let name: String
 }
 
-struct ActorForTitleModel: Decodable {
+struct ActorForTitleModel: Decodable, SwipeableInformationTilePresentable {
     let id: String
     let image: String
     let name: String

@@ -67,6 +67,7 @@ class MovieDetailsViewController: UIViewController {
             self.moviePosterImageView.sd_setImage(with: imageUrl)
             self.movieOverviewTextView.text = titleModel.plot
             self.awardsTextView.text = titleModel.awards
+            self.actorsInFilmController.dataSource = titleModel.actorList
             
         }
     }
@@ -80,6 +81,7 @@ class MovieDetailsViewController: UIViewController {
         view.addSubview(actorsInFilmController.view)
         actorsInFilmController.didMove(toParent: self)
         actorsInFilmController.view.constraint(to: scrollableViewContainer)
+        
     }
     
     
