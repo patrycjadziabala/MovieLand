@@ -30,6 +30,8 @@ class CollectionViewCell: UICollectionViewCell {
             configure(with: movieModel)
         } else if let actorModel = model as? ActorForTitleModel {
             configure(with: actorModel)
+        } else if let similarMovieModel = model as? Similars {
+            configure(with: similarMovieModel)
         }
     }
     
@@ -54,6 +56,13 @@ class CollectionViewCell: UICollectionViewCell {
         cancelCurrentTask()
         title.text = model.name
         info.text = model.asCharacter
+        configureImage(for: model.image)
+    }
+    
+    func configure(with model: Similars) {
+        cancelCurrentTask()
+        title.text = model.title
+        info.isHidden
         configureImage(for: model.image)
     }
     

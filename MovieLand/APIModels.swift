@@ -52,6 +52,7 @@ struct TitleModel: Decodable {
     let starList: [BasicPersonModel]
     let actorList: [ActorForTitleModel]
     let genreList: [GenreModel]
+    let similars: [Similars]
     let errorMessage: String
 }
 
@@ -70,6 +71,12 @@ struct ActorForTitleModel: Decodable, SwipeableInformationTilePresentable {
 struct GenreModel: Decodable {
     let key: String
     let value: String
+}
+
+struct Similars: Decodable, SwipeableInformationTilePresentable {
+    let id: String
+    let title: String
+    let image: String
 }
 
 struct SearchResultsModel: Decodable {

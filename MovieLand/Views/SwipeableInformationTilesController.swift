@@ -72,6 +72,8 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
             tabRouter.navigateToTitleDetails(id: model.id)
         } else if model is ActorForTitleModel {
             tabRouter.navigateToPersonDetails(id: model.id)
+        } else if model is Similars {
+            tabRouter.navigateToTitleDetails(id: model.id)
         }
     }
     

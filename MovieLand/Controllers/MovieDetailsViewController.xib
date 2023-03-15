@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
+                <outlet property="actorsInFilmScrollableViewContainer" destination="06n-Cl-WE5" id="pM4-nj-L9o"/>
                 <outlet property="awardsTextView" destination="4U3-Xr-Izq" id="BQH-Va-krF"/>
                 <outlet property="castLabel" destination="WBH-3W-ScY" id="9gV-T0-k7d"/>
                 <outlet property="genreLabel" destination="Hlx-Di-Zqg" id="Oir-Cy-6nG"/>
@@ -19,7 +20,7 @@
                 <outlet property="movieTitleLabel" destination="qd3-yc-h1D" id="hrv-DZ-kqJ"/>
                 <outlet property="releaseDateLabel" destination="Jjh-p2-NFh" id="NOD-Jy-CoL"/>
                 <outlet property="scrollView" destination="tm6-0J-MJo" id="zbe-gg-BGH"/>
-                <outlet property="scrollableViewContainer" destination="06n-Cl-WE5" id="pM4-nj-L9o"/>
+                <outlet property="similarMoviesScrollableViewContainer" destination="C8x-3k-hbS" id="57L-JJ-X3K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,9 +35,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8U-gN-cXt" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1049"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
                                     <rect key="frame" x="16" y="750" width="249" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -54,15 +54,28 @@
                                         <constraint firstAttribute="height" constant="200" id="9IE-qT-Qu3"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8x-3k-hbS">
+                                    <rect key="frame" x="10" y="786" width="370" height="200"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="kHS-Ya-NS9"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <accessibility key="accessibilityConfiguration" identifier="Content View"/>
                             <constraints>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="top" secondItem="WBH-3W-ScY" secondAttribute="bottom" constant="15" id="0qV-jX-s1g"/>
                                 <constraint firstAttribute="height" constant="1049" id="9wQ-qc-GKQ"/>
+                                <constraint firstItem="C8x-3k-hbS" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="Mgf-Dd-c4x"/>
+                                <constraint firstAttribute="trailing" secondItem="C8x-3k-hbS" secondAttribute="trailing" constant="10" id="MwQ-Gu-6ui"/>
+                                <constraint firstItem="FBO-N9-PdA" firstAttribute="top" secondItem="06n-Cl-WE5" secondAttribute="bottom" constant="22" id="NJG-y1-4jh"/>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="OSM-Ei-ed0"/>
                                 <constraint firstItem="WBH-3W-ScY" firstAttribute="top" secondItem="h8U-gN-cXt" secondAttribute="top" constant="492" id="R02-I7-wgY"/>
                                 <constraint firstItem="WBH-3W-ScY" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="17" id="WAd-gF-5WH"/>
+                                <constraint firstItem="C8x-3k-hbS" firstAttribute="top" secondItem="FBO-N9-PdA" secondAttribute="bottom" constant="15" id="aBz-jZ-cqd"/>
+                                <constraint firstItem="FBO-N9-PdA" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="16" id="hZm-wk-wg4"/>
+                                <constraint firstItem="C8x-3k-hbS" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="vJW-uu-jR9"/>
                                 <constraint firstAttribute="trailing" secondItem="06n-Cl-WE5" secondAttribute="trailing" constant="10" id="vrv-Mt-oB3"/>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="zbg-gI-9iA"/>
                             </constraints>

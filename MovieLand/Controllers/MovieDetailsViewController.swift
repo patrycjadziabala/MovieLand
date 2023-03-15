@@ -19,9 +19,11 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var awardsTextView: UITextView!
     @IBOutlet weak var castLabel: UILabel!
     @IBOutlet weak var moreLikeThisLabel: UILabel!
-    @IBOutlet weak var scrollableViewContainer: UIView!
+    @IBOutlet weak var actorsInFilmScrollableViewContainer: UIView!
+    @IBOutlet weak var similarMoviesScrollableViewContainer: UIView!
     
     let actorsInFilmController: SwipeableInformationTilesController
+    let similarMoviesController: SwipeableInformationTilesController
     let titleID: String
     let tabRouter: TabRouterProtocol
     
@@ -29,6 +31,7 @@ class MovieDetailsViewController: UIViewController {
         self.titleID = titleID
         self.tabRouter = tabRouter
         self.actorsInFilmController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.similarMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,6 +44,7 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         configureCollectionViewActorsInFilm()
+        configureCollectionViewSimilarMovies()
         
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
         scrollView.showsVerticalScrollIndicator = false
@@ -68,7 +72,7 @@ class MovieDetailsViewController: UIViewController {
             self.movieOverviewTextView.text = titleModel.plot
             self.awardsTextView.text = titleModel.awards
             self.actorsInFilmController.dataSource = titleModel.actorList
-            
+            self.similarMoviesController.dataSource = titleModel.similars
         }
     }
     
@@ -80,10 +84,15 @@ class MovieDetailsViewController: UIViewController {
         addChild(actorsInFilmController)
         view.addSubview(actorsInFilmController.view)
         actorsInFilmController.didMove(toParent: self)
-        actorsInFilmController.view.constraint(to: scrollableViewContainer)
+        actorsInFilmController.view.constraint(to: actorsInFilmScrollableViewContainer)
         
     }
     
-    
+    func configureCollectionViewSimilarMovies() {
+        addChild(similarMoviesController)
+        view.addSubview(similarMoviesController.view)
+        similarMoviesController.didMove(toParent: self)
+        similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
+    }
 }
     
