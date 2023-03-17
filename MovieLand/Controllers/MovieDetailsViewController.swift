@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SafariServices
 
 class MovieDetailsViewController: UIViewController {
     
@@ -18,6 +19,9 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var movieOverviewTextView: UITextView!
     @IBOutlet weak var awardsTextView: UITextView!
     @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var trailerLabel: UILabel!
+    @IBOutlet weak var trailerViewContainer: UIView!
+    @IBOutlet weak var trailerPlayButton: UIButton!
     @IBOutlet weak var moreLikeThisLabel: UILabel!
     @IBOutlet weak var actorsInFilmScrollableViewContainer: UIView!
     @IBOutlet weak var similarMoviesScrollableViewContainer: UIView!
@@ -56,7 +60,6 @@ class MovieDetailsViewController: UIViewController {
                 self?.handleSuccess(titleModel: title)
             case .failure(let error):
                 self?.handleError(error: error)
-                
             }
             print(result)
         }
@@ -75,6 +78,13 @@ class MovieDetailsViewController: UIViewController {
             self.similarMoviesController.dataSource = titleModel.similars
         }
     }
+
+    func handleSuccess(trailerModel: TrailerModel) {
+        DispatchQueue.main.async {
+            self.showTrailer(urlString: trailerModel.linkEmbed)
+        }
+    }
+    
     
     func handleError(error: Error) {
         print(error)
@@ -94,5 +104,35 @@ class MovieDetailsViewController: UIViewController {
         similarMoviesController.didMove(toParent: self)
         similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
     }
-}
     
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        let apiManager = APIManager()
+        apiManager.fetchTrailer(id: titleID) { [weak self] result in
+            switch result {
+            case .success(let trailer):
+                self?.handleSuccess(trailerModel: trailer)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+            print(result)
+        }
+    }
+}
+
+extension MovieDetailsViewController: SFSafariViewControllerDelegate {
+    
+    func showTrailer(urlString: String) {
+        if let url = URL(string: urlString) {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+            
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        
+    }
+}

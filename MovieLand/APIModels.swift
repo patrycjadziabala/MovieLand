@@ -56,6 +56,13 @@ struct TitleModel: Decodable {
     let errorMessage: String
 }
 
+struct TrailerModel: Decodable {
+    let imDbId: String
+    let link: String
+    let linkEmbed: String
+    let thumbnailUrl: String
+}
+
 struct BasicPersonModel: Decodable {
     let id: String
     let name: String

@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import SafariServices
 
 protocol APIManagerProtocol: AnyObject {
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void)
     
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void)
+    
+    func fetchTrailer(id: String, completion: @escaping(Result<TrailerModel, Error>) -> Void)
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void)
     
@@ -22,6 +25,7 @@ enum APIEndpoint: String {
     case title
     case searchMovie
     case searchAll
+    case trailer
 }
 
 enum APIManagerError: Error {
@@ -30,6 +34,7 @@ enum APIManagerError: Error {
 }
 
 class APIManager: APIManagerProtocol {
+    
     
     let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_hd74d58q/"
     
@@ -115,7 +120,6 @@ class APIManager: APIManagerProtocol {
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
         guard let url = buildURL(for: .searchAll, id: query) else {
-            
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
@@ -142,8 +146,35 @@ class APIManager: APIManagerProtocol {
         currentTask = task
     }
     
+    func fetchTrailer(id: String, completion: @escaping(Result<TrailerModel, Error>) -> Void) {
+        guard let url = buildURL(for: .trailer, id: id) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData =  try decoder.decode(TrailerModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
     func cancelCurrentTask() {
         currentTask?.cancel()
     }
 }
-

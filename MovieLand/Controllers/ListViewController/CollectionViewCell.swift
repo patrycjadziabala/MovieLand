@@ -76,8 +76,6 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-   
-    
     func configureDefaultImage() {
         self.imageView.image = UIImage(named: "camera")
     }
