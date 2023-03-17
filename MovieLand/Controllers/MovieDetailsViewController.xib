@@ -3,6 +3,8 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +23,7 @@
                 <outlet property="releaseDateLabel" destination="Jjh-p2-NFh" id="NOD-Jy-CoL"/>
                 <outlet property="scrollView" destination="tm6-0J-MJo" id="zbe-gg-BGH"/>
                 <outlet property="similarMoviesScrollableViewContainer" destination="C8x-3k-hbS" id="57L-JJ-X3K"/>
+                <outlet property="trailerImageView" destination="1H7-wn-Ut7" id="0bG-Nf-Fgk"/>
                 <outlet property="trailerLabel" destination="GVg-cD-VT3" id="EFp-Gg-VQE"/>
                 <outlet property="trailerPlayButton" destination="6QX-E5-XcF" id="aWf-zx-rvK"/>
                 <outlet property="trailerViewContainer" destination="SWc-Fj-WQV" id="X99-wj-Tjt"/>
@@ -52,7 +55,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8x-3k-hbS">
-                                    <rect key="frame" x="10" y="1080" width="370" height="200"/>
+                                    <rect key="frame" x="10" y="1030" width="370" height="200"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="kHS-Ya-NS9"/>
@@ -60,22 +63,36 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWc-Fj-WQV" userLabel="TrailerView">
                                     <rect key="frame" x="10" y="779" width="370" height="200"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1H7-wn-Ut7">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="200"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QX-E5-XcF">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="200"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="play.fill" catalog="system" symbolScale="large" variableValue="0.80000000000000004"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="black"/>
+                                                <color key="baseForegroundColor" name="CustomWhite"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="nxf-2f-IbA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="6QX-E5-XcF" secondAttribute="trailing" id="3EC-uX-04r"/>
                                         <constraint firstAttribute="height" constant="200" id="PoJ-J2-f12"/>
+                                        <constraint firstItem="6QX-E5-XcF" firstAttribute="top" secondItem="SWc-Fj-WQV" secondAttribute="top" id="ivq-84-FY8"/>
+                                        <constraint firstItem="6QX-E5-XcF" firstAttribute="leading" secondItem="SWc-Fj-WQV" secondAttribute="leading" id="nlo-bZ-PHI"/>
+                                        <constraint firstAttribute="bottom" secondItem="6QX-E5-XcF" secondAttribute="bottom" id="o0T-yC-TFh"/>
+                                        <constraint firstAttribute="trailing" secondItem="1H7-wn-Ut7" secondAttribute="trailing" id="q5o-Dn-ccJ"/>
+                                        <constraint firstItem="1H7-wn-Ut7" firstAttribute="leading" secondItem="SWc-Fj-WQV" secondAttribute="leading" id="s9d-Uo-tKz"/>
+                                        <constraint firstItem="1H7-wn-Ut7" firstAttribute="top" secondItem="SWc-Fj-WQV" secondAttribute="top" id="y0A-nJ-zsX"/>
+                                        <constraint firstAttribute="bottom" secondItem="1H7-wn-Ut7" secondAttribute="bottom" id="yvF-sP-yfV"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QX-E5-XcF">
-                                    <rect key="frame" x="157.66666666666666" y="994" width="75" height="35"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="KCm-W2-fwb"/>
-                                    </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    <connections>
-                                        <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="nxf-2f-IbA"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVg-cD-VT3">
                                     <rect key="frame" x="10" y="743" width="52" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -83,7 +100,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
-                                    <rect key="frame" x="10" y="1044" width="249" height="21"/>
+                                    <rect key="frame" x="10" y="994" width="249" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -95,21 +112,18 @@
                                 <constraint firstItem="FBO-N9-PdA" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="0mh-XA-KRh"/>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="top" secondItem="WBH-3W-ScY" secondAttribute="bottom" constant="15" id="0qV-jX-s1g"/>
                                 <constraint firstItem="SWc-Fj-WQV" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="6lb-y5-6p0"/>
-                                <constraint firstItem="6QX-E5-XcF" firstAttribute="top" secondItem="SWc-Fj-WQV" secondAttribute="bottom" constant="15" id="8gW-Oi-KoV"/>
                                 <constraint firstAttribute="height" constant="1300" id="9wQ-qc-GKQ"/>
                                 <constraint firstAttribute="trailing" secondItem="C8x-3k-hbS" secondAttribute="trailing" constant="10" id="MwQ-Gu-6ui"/>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="OSM-Ei-ed0"/>
+                                <constraint firstItem="FBO-N9-PdA" firstAttribute="top" secondItem="SWc-Fj-WQV" secondAttribute="bottom" constant="15" id="PwV-VR-3NB"/>
                                 <constraint firstItem="WBH-3W-ScY" firstAttribute="top" secondItem="h8U-gN-cXt" secondAttribute="top" constant="492" id="R02-I7-wgY"/>
                                 <constraint firstItem="GVg-cD-VT3" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="SUp-WG-0E7"/>
                                 <constraint firstItem="WBH-3W-ScY" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="17" id="WAd-gF-5WH"/>
                                 <constraint firstItem="GVg-cD-VT3" firstAttribute="top" secondItem="06n-Cl-WE5" secondAttribute="bottom" constant="15" id="bGB-TW-ZsK"/>
-                                <constraint firstItem="6QX-E5-XcF" firstAttribute="centerX" secondItem="h8U-gN-cXt" secondAttribute="centerX" id="jh2-qS-DGR"/>
                                 <constraint firstItem="SWc-Fj-WQV" firstAttribute="top" secondItem="GVg-cD-VT3" secondAttribute="bottom" constant="15" id="jut-V3-lN8"/>
                                 <constraint firstItem="SWc-Fj-WQV" firstAttribute="leading" secondItem="GVg-cD-VT3" secondAttribute="leading" id="lE4-be-RJi"/>
-                                <constraint firstItem="SWc-Fj-WQV" firstAttribute="centerX" secondItem="6QX-E5-XcF" secondAttribute="centerX" id="sEb-II-eEG"/>
                                 <constraint firstItem="C8x-3k-hbS" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="vJW-uu-jR9"/>
                                 <constraint firstAttribute="trailing" secondItem="06n-Cl-WE5" secondAttribute="trailing" constant="10" id="vrv-Mt-oB3"/>
-                                <constraint firstItem="FBO-N9-PdA" firstAttribute="top" secondItem="6QX-E5-XcF" secondAttribute="bottom" constant="15" id="y6O-ni-4f7"/>
                                 <constraint firstItem="C8x-3k-hbS" firstAttribute="top" secondItem="FBO-N9-PdA" secondAttribute="bottom" constant="15" id="zXS-QI-GGd"/>
                                 <constraint firstItem="06n-Cl-WE5" firstAttribute="leading" secondItem="h8U-gN-cXt" secondAttribute="leading" constant="10" id="zbg-gI-9iA"/>
                             </constraints>
@@ -184,6 +198,10 @@
         </view>
     </objects>
     <resources>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
+        <namedColor name="CustomWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

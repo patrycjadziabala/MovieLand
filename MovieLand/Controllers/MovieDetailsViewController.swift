@@ -25,11 +25,13 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var moreLikeThisLabel: UILabel!
     @IBOutlet weak var actorsInFilmScrollableViewContainer: UIView!
     @IBOutlet weak var similarMoviesScrollableViewContainer: UIView!
+    @IBOutlet weak var trailerImageView: UIImageView!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
     let titleID: String
     let tabRouter: TabRouterProtocol
+    var trailerUrl: String = ""
     
     init(titleID: String, tabRouter: TabRouterProtocol) {
         self.titleID = titleID
@@ -52,7 +54,15 @@ class MovieDetailsViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
         scrollView.showsVerticalScrollIndicator = false
+        
+        prepareForShowingMovieInformation()
+        
+        prepareForShowingTrailer()
+    }
     
+    // MARK: - Movie information configuration
+    
+    func prepareForShowingMovieInformation() {
         let apiManager = APIManager()
         apiManager.fetchTitle(id: titleID) { [weak self] result in
             switch result {
@@ -78,13 +88,6 @@ class MovieDetailsViewController: UIViewController {
             self.similarMoviesController.dataSource = titleModel.similars
         }
     }
-
-    func handleSuccess(trailerModel: TrailerModel) {
-        DispatchQueue.main.async {
-            self.showTrailer(urlString: trailerModel.linkEmbed)
-        }
-    }
-    
     
     func handleError(error: Error) {
         print(error)
@@ -95,7 +98,6 @@ class MovieDetailsViewController: UIViewController {
         view.addSubview(actorsInFilmController.view)
         actorsInFilmController.didMove(toParent: self)
         actorsInFilmController.view.constraint(to: actorsInFilmScrollableViewContainer)
-        
     }
     
     func configureCollectionViewSimilarMovies() {
@@ -105,8 +107,10 @@ class MovieDetailsViewController: UIViewController {
         similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
     }
     
+    // MARK: - Trailer configuaration
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
+    func prepareForShowingTrailer() {
+        
         let apiManager = APIManager()
         apiManager.fetchTrailer(id: titleID) { [weak self] result in
             switch result {
@@ -115,22 +119,36 @@ class MovieDetailsViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
-}
-
-extension MovieDetailsViewController: SFSafariViewControllerDelegate {
+    
+    func handleSuccess(trailerModel: TrailerModel) {
+        DispatchQueue.main.async {
+            let trailerImageUrl = URL(string: trailerModel.thumbnailUrl)
+            self.trailerImageView.sd_setImage(with: trailerImageUrl)
+            self.trailerUrl = trailerModel.link
+        }
+    }
     
     func showTrailer(urlString: String) {
         if let url = URL(string: urlString) {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
-            
             let vc = SFSafariViewController(url: url, configuration: config)
             present(vc, animated: true)
         }
     }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.showTrailer(urlString: self.trailerUrl)
+        }
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+
+extension MovieDetailsViewController: SFSafariViewControllerDelegate {
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         
