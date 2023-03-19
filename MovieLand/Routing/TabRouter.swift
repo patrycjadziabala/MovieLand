@@ -38,7 +38,7 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToSearchResults(results: SearchResultsModel) {
         DispatchQueue.main.async {
-            let controller = SearchResultsViewController(searchResults: results, tabRouter: self)
+            let controller = ListViewController(tabRouter: self, dataSource: results.results)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }

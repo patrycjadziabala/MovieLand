@@ -102,7 +102,7 @@ struct Results: Decodable {
 
 extension Results: TableViewCellPresentable {
     var cellType: TableViewCellType {
-        TableViewCellType(rawValue: resultType ?? "") ?? .unknown
+        TableViewCellType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
     }
     
     var iMDbRankLabelText: String? {
