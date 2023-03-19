@@ -17,6 +17,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void)
     
+    func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -26,6 +28,7 @@ enum APIEndpoint: String {
     case searchMovie
     case searchAll
     case trailer
+    case top250Movies
 }
 
 enum APIManagerError: Error {
@@ -34,9 +37,8 @@ enum APIManagerError: Error {
 }
 
 class APIManager: APIManagerProtocol {
-    
-    
-    let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_bdv8grxf/"
+
+    let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_hd74d58q/"
     
     let language: String
     
@@ -52,11 +54,23 @@ class APIManager: APIManagerProtocol {
             .replacingOccurrences(of: "<endpoint>", with: endpoint.rawValue.capitalized)
             .appending(id)
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
         guard let urlString = urlString else {
             return nil
         }
         return URL(string: urlString)
         
+    }
+    
+    func buildURLForFeaturedMovies(for endpoint: APIEndpoint) -> URL? {
+        let urlString = baseURLString
+            .replacingOccurrences(of: "<language>", with: language)
+            .replacingOccurrences(of: "<endpoint>", with: endpoint.rawValue.capitalized)
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        guard let urlString = urlString else {
+            return nil
+        }
+        return URL(string: urlString)
     }
     
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void) {
@@ -174,6 +188,33 @@ class APIManager: APIManagerProtocol {
         currentTask = task
     }
     
+    func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .top250Movies) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForFeaturedMoviesModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
     func cancelCurrentTask() {
         currentTask?.cancel()
     }

@@ -16,23 +16,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="238" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="MovieLand" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="452" height="238"/>
+            <rect key="frame" x="0.0" y="0.0" width="555" height="238"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="452" height="238"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="555" height="238"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axG-99-y1R">
-                        <rect key="frame" x="292" y="10" width="150" height="218"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axG-99-y1R">
+                        <rect key="frame" x="395" y="10" width="150" height="218"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="Ixq-Xw-Lgm"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="218" id="cNg-FM-9AP"/>
+                            <constraint firstAttribute="height" constant="218" id="ja8-dh-KhN"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-J4-V1n">
-                        <rect key="frame" x="10" y="69" width="158.66666666666666" height="100"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-J4-V1n">
+                        <rect key="frame" x="10" y="51.666666666666657" width="158.66666666666666" height="135.33333333333334"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-lT-4jR">
-                                <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDb rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xa-9q-oR8">
+                                <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="29"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-lT-4jR">
+                                <rect key="frame" x="0.0" y="35" width="158.66666666666666" height="30.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="n2j-NH-NOh"/>
                                 </constraints>
@@ -40,19 +48,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdditionalInfo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a78-1b-iWx">
-                                <rect key="frame" x="0.0" y="36" width="158.66666666666666" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year/Release Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-D4-6xX">
+                                <rect key="frame" x="0.0" y="71.333333333333329" width="158.66666666666666" height="29"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-D4-6xX">
-                                <rect key="frame" x="0.0" y="71" width="158.66666666666666" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdditionalInfo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a78-1b-iWx">
+                                <rect key="frame" x="0.0" y="106.33333333333334" width="158.66666666666666" height="29"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JFy-Sj-fug">
+                        <rect key="frame" x="214" y="0.0" width="166" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDb rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z41-fm-AaY">
+                                <rect key="frame" x="0.0" y="0.0" width="166" height="29"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="IMDb rating number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrh-6y-bZq">
+                                <rect key="frame" x="0.0" y="29" width="166" height="31"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="z41-fm-AaY" firstAttribute="top" secondItem="JFy-Sj-fug" secondAttribute="top" id="1Vb-Q2-B2J"/>
+                            <constraint firstAttribute="height" constant="60" id="Ilk-aa-bFL"/>
+                            <constraint firstItem="z41-fm-AaY" firstAttribute="leading" secondItem="JFy-Sj-fug" secondAttribute="leading" id="VM8-Ab-DK0"/>
+                            <constraint firstItem="Vrh-6y-bZq" firstAttribute="top" secondItem="z41-fm-AaY" secondAttribute="bottom" id="cqr-DO-EJ9"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <color key="backgroundColor" name="Beige"/>
@@ -60,18 +91,25 @@
                     <constraint firstItem="M9g-J4-V1n" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7FY-Gf-TbL"/>
                     <constraint firstItem="M9g-J4-V1n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="APN-FN-Utb"/>
                     <constraint firstAttribute="bottom" secondItem="axG-99-y1R" secondAttribute="bottom" constant="10" id="BHC-sE-ccW"/>
+                    <constraint firstItem="JFy-Sj-fug" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gae-pX-Qi7"/>
                     <constraint firstAttribute="trailing" secondItem="axG-99-y1R" secondAttribute="trailing" constant="10" id="RvW-oR-dJt"/>
+                    <constraint firstItem="axG-99-y1R" firstAttribute="leading" secondItem="JFy-Sj-fug" secondAttribute="trailing" constant="15" id="W5X-Vs-hPZ"/>
+                    <constraint firstItem="M9g-J4-V1n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6.3333333333333428" id="qp8-6F-WDn"/>
                     <constraint firstItem="axG-99-y1R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="u3z-AG-iQL"/>
+                    <constraint firstItem="JFy-Sj-fug" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xKg-m1-fC8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellAdditionalInfoLabel" destination="a78-1b-iWx" id="D2x-mj-exv"/>
+                <outlet property="cellIMDbRankLabel" destination="2Xa-9q-oR8" id="Vya-eK-M1P"/>
+                <outlet property="cellIMDbRatingLabel" destination="z41-fm-AaY" id="CWQ-4v-wop"/>
+                <outlet property="cellIMDbRatingNumberLabel" destination="Vrh-6y-bZq" id="wzx-xi-Pj1"/>
                 <outlet property="cellImage" destination="axG-99-y1R" id="agu-rD-iPh"/>
                 <outlet property="cellNameLabel" destination="vHK-lT-4jR" id="lVo-Iv-NzD"/>
                 <outlet property="cellYearInfo" destination="UFx-D4-6xX" id="FWi-wV-FkX"/>
             </connections>
-            <point key="canvasLocation" x="203.07692307692307" y="57.582938388625593"/>
+            <point key="canvasLocation" x="123.84615384615384" y="57.582938388625593"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,19 +28,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="241-RM-Vwc">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyr-Fc-Amh" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="746.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="827.33333333333337"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOK-BE-DPj">
-                                    <rect key="frame" x="20" y="10" width="350" height="19"/>
+                                    <rect key="frame" x="20" y="9.9999999999999982" width="350" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQN-cj-V6g">
-                                    <rect key="frame" x="10" y="59.000000000000007" width="370" height="20.333333333333336"/>
+                                    <rect key="frame" x="10" y="60.333333333333336" width="370" height="20.333333333333336"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rq1-Gq-VRp">
                                             <rect key="frame" x="10" y="0.0" width="34" height="20.333333333333332"/>
@@ -67,20 +66,20 @@
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-L0-lhW">
-                                    <rect key="frame" x="197.66666666666663" y="99.333333333333343" width="182.33333333333337" height="230.00000000000003"/>
+                                    <rect key="frame" x="197.66666666666663" y="100.66666666666669" width="182.33333333333337" height="230"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="230" id="Qoi-Q9-adj"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Person info" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-KC-3bL">
-                                    <rect key="frame" x="10" y="99.333333333333343" width="182.66666666666666" height="230.00000000000003"/>
+                                    <rect key="frame" x="10" y="100.66666666666669" width="182.66666666666666" height="230"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="textColor" systemColor="labelColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Awards:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDn-go-qFf">
-                                    <rect key="frame" x="10" y="386.33333333333331" width="370" height="41"/>
+                                    <rect key="frame" x="10" y="467.33333333333331" width="370" height="41"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="41" id="yVP-as-X3V"/>
@@ -90,19 +89,19 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-eb-Sau">
-                                    <rect key="frame" x="10" y="349.33333333333331" width="43" height="17"/>
+                                    <rect key="frame" x="10" y="350.66666666666669" width="43" height="96.666666666666686"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast Movies:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-SJ-2Yq">
-                                    <rect key="frame" x="10" y="447.33333333333331" width="83" height="17"/>
+                                    <rect key="frame" x="10" y="528.33333333333337" width="83" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcm-uW-YjH">
-                                    <rect key="frame" x="10" y="479.33333333333337" width="370" height="200"/>
+                                    <rect key="frame" x="10" y="560.33333333333337" width="370" height="200"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="370" id="GBM-gw-q34"/>
@@ -167,16 +166,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="135.38461538461539" y="-1.4218009478672986"/>
         </view>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReusableCell" id="1RW-fx-qQn">
-            <rect key="frame" x="0.0" y="0.0" width="153" height="197"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Dx-Hg-aq7" customClass="UICollectionViewCell">
-                <rect key="frame" x="0.0" y="0.0" width="153" height="197"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </collectionViewCellContentView>
-            <size key="customSize" width="153" height="197"/>
-            <point key="canvasLocation" x="636.15384615384619" y="30.924170616113742"/>
-        </collectionViewCell>
     </objects>
     <resources>
         <systemColor name="labelColor">

@@ -62,7 +62,7 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with model: Similars) {
         cancelCurrentTask()
         title.text = model.title
-        info.isHidden
+        info.isHidden = true
         configureImage(for: model.image)
     }
     

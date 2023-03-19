@@ -105,13 +105,50 @@ enum ResultType: String {
     case name
 }
 
-struct MostPopularMoviesResultsModel: Decodable {
-    let items: [MostPopularItem]
+//struct MostPopularMoviesResultsModel: Decodable {
+//    let items: [MostPopularItem]
+//}
+//struct MostPopularItem: Decodable {
+//    let id: String
+//    let rank: String
+//    let title: String
+//    let year: String
+//    let image: String
+//}
+
+struct ItemsForFeaturedMoviesModel: Decodable {
+    let items: [FeaturedMoviesModel]
 }
-struct MostPopularItem: Decodable {
+
+struct FeaturedMoviesModel: Decodable {
     let id: String
     let rank: String
     let title: String
+    let fullTitle: String
     let year: String
     let image: String
+    let crew: String
+    let imDbRating: String
+}
+
+struct ItemsForComingSoonModel: Decodable {
+    let items: [ComingSoonModel]
+}
+
+struct ComingSoonModel: Decodable {
+    let id: String
+    let title: String
+    let fullTitle: String
+    let year: String
+    let releaseState: String
+    let image: String
+    let genres: String
+    let genreList: [GenreList]
+    let stars: String
+    let imDbRating: String?
+}
+
+struct GenreList: Decodable {
+    let key: String
+    let value: String
 }

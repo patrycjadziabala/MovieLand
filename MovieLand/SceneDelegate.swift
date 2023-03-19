@@ -35,7 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let testController = UIViewController()
         testController.view.backgroundColor = .gray
         
-        tabBarController.viewControllers = [searchNavigationController, testController]
+        let top250MoviesViewController = Top250MoviesViewController(tabRouter: searchTabRouter)
+        top250MoviesViewController.tabBarItem = UITabBarItem(title: "Featured", image: Constants.featuredImageHeart, selectedImage: Constants.featuredImageHeart)
+        
+        tabBarController.viewControllers = [searchNavigationController, top250MoviesViewController, testController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return

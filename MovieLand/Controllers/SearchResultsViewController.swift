@@ -46,6 +46,8 @@ class SearchResultsViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension SearchResultsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,6 +70,8 @@ extension SearchResultsViewController: UITableViewDataSource {
     }
     
 }
+
+// MARK: - UITableViewDelegate
 
 extension SearchResultsViewController: UITableViewDelegate {
     

@@ -25,8 +25,8 @@
                     <rect key="frame" x="75" y="268" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Search for your favourite actor to see movies he played in or type in a movie title below" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4VL-m8-Xi7">
-                    <rect key="frame" x="75" y="434" width="240" height="209.33333333333334"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Search for your favourite actor to see movies he played in or type in a movie/tv series title below" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4VL-m8-Xi7">
+                    <rect key="frame" x="75" y="434" width="240" height="216.66666666666666"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="textColor" systemColor="labelColor"/>
