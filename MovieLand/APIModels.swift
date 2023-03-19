@@ -100,9 +100,42 @@ struct Results: Decodable {
     let description: String
 }
 
-enum ResultType: String {
+extension Results: TableViewCellPresentable {
+    var cellType: TableViewCellType {
+        TableViewCellType(rawValue: resultType ?? "") ?? .unknown
+    }
+    
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var nameLabelText: String? {
+        title
+    }
+    
+    var additionalInfoLabelText: String? {
+        description
+    }
+    
+    var yearInfoText: String? {
+        nil
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+    
+    
+}
+
+enum TableViewCellType: String {
     case title
     case name
+    case unknown
 }
 
 //struct MostPopularMoviesResultsModel: Decodable {
@@ -131,6 +164,36 @@ struct FeaturedMoviesModel: Decodable {
     let imDbRating: String
 }
 
+extension FeaturedMoviesModel: TableViewCellPresentable {
+    var cellType: TableViewCellType {
+        .title
+    }
+    
+    var iMDbRankLabelText: String? {
+        rank
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var nameLabelText: String? {
+        title
+    }
+    
+    var additionalInfoLabelText: String? {
+        crew
+    }
+    
+    var yearInfoText: String? {
+        year
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        imDbRating
+    }
+}
+
 struct ItemsForComingSoonModel: Decodable {
     let items: [ComingSoonModel]
 }
@@ -146,6 +209,38 @@ struct ComingSoonModel: Decodable {
     let genreList: [GenreList]
     let stars: String
     let imDbRating: String?
+}
+
+extension ComingSoonModel: TableViewCellPresentable {
+    var cellType: TableViewCellType {
+        .title
+    }
+    
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var nameLabelText: String? {
+        title
+    }
+    
+    var additionalInfoLabelText: String? {
+        stars
+    }
+    
+    var yearInfoText: String? {
+        "Release Date: \(releaseState)"
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        imDbRating
+    }
+    
+    
 }
 
 struct GenreList: Decodable {

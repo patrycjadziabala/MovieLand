@@ -8,6 +8,17 @@
 import UIKit
 import SDWebImage
 
+protocol TableViewCellPresentable {
+    var id: String { get }
+    var iMDbRankLabelText: String? { get }
+    var imageUrlString: String? { get }
+    var nameLabelText: String? { get }
+    var additionalInfoLabelText: String? { get }
+    var yearInfoText: String? { get }
+    var iMDbRatingNumberLabelText: String? { get }
+    var cellType: TableViewCellType { get }
+}
+
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellIMDbRankLabel: UILabel!
@@ -22,6 +33,36 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         contentView.backgroundColor = UIColor(named: Constants.customLightPink)
+    }
+    
+    func configure(with model: TableViewCellPresentable) {
+        cellNameLabel.text = model.nameLabelText
+        cellAdditionalInfoLabel.text = model.additionalInfoLabelText
+        if let urlString = model.imageUrlString {
+            cellImage.sd_setImage(with: URL(string: urlString))
+        } else {
+            // set default image
+        }
+        if model.yearInfoText?.isEmpty ?? true {
+            cellYearInfo.isHidden = true
+        } else {
+            cellYearInfo.isHidden = false
+            cellYearInfo.text = model.yearInfoText
+        }
+        if model.iMDbRankLabelText?.isEmpty ?? true {
+            cellIMDbRankLabel.isHidden = true
+        } else {
+            cellIMDbRankLabel.isHidden = false
+            cellIMDbRankLabel.text = model.iMDbRankLabelText
+        }
+        if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
+            cellIMDbRatingNumberLabel.isHidden = true
+            cellIMDbRatingLabel.isHidden = true
+        } else {
+            cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
+            cellIMDbRatingLabel.text = "IMDb Rating:"
+        }
+        
     }
     
     func configure(with model: Results) {

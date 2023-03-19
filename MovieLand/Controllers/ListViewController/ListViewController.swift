@@ -1,24 +1,23 @@
 //
-//  SearchResultsViewController.swift
+//  ListViewController.swift
 //  MovieLand
 //
-//  Created by Patka on 09/03/2023.
+//  Created by Patka on 19/03/2023.
 //
 
 import UIKit
 
-class SearchResultsViewController: UIViewController {
+class ListViewController: UIViewController {
 
     let tabRouter: TabRouterProtocol
     let tableView: UITableView
-    var dataSource: [Results]
+    var dataSource: [TableViewCellPresentable]
     
-    init(searchResults: SearchResultsModel, tabRouter: TabRouterProtocol) {
-        self.dataSource = searchResults.results
+    init(tabRouter: TabRouterProtocol, dataSource: [TableViewCellPresentable]) {
+        self.dataSource = dataSource
         self.tabRouter = tabRouter
         self.tableView = UITableView(frame: .zero)
         super.init(nibName: nil, bundle: nil)
-        print("\(String(describing: Self.self)) 🐣")
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +28,7 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLoad()
 
         configureTableView()
+        
     }
     
     func configureTableView() {
@@ -48,7 +48,7 @@ class SearchResultsViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension SearchResultsViewController: UITableViewDataSource {
+extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataSource.count
@@ -73,15 +73,12 @@ extension SearchResultsViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension SearchResultsViewController: UITableViewDelegate {
+extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dataSource[indexPath.row]
-        guard let resultType = TableViewCellType(rawValue: model.resultType?.lowercased() ?? "") else {
-            print("No result type found \(model.resultType ?? "")")
-            return
-        }
-        switch resultType {
+       
+        switch model.cellType {
         case .title:
             tabRouter.navigateToTitleDetails(id: model.id)
         case .name:
