@@ -32,8 +32,6 @@
 		46BCD5BC29BD23A40047AC42 /* Labrada-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5BB29BD23A40047AC42 /* Labrada-Light.ttf */; };
 		46BCD5BE29BE16DE0047AC42 /* LaunchScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */; };
 		46D8605229C76EE6006271A2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D8605129C76EE6006271A2 /* ListViewController.swift */; };
-		46E0FE5F29C5EFDC00FF8D1E /* Top250MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E0FE5D29C5EFDC00FF8D1E /* Top250MoviesViewController.swift */; };
-		46E0FE6029C5EFDC00FF8D1E /* Top250MoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E0FE5E29C5EFDC00FF8D1E /* Top250MoviesViewController.xib */; };
 		46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */; };
 		46F4E9B029AFC0DE00E8A1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */; };
 		46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */; };
@@ -65,8 +63,6 @@
 		46BCD5BB29BD23A40047AC42 /* Labrada-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Labrada-Light.ttf"; sourceTree = "<group>"; };
 		46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenView.xib; sourceTree = "<group>"; };
 		46D8605129C76EE6006271A2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		46E0FE5D29C5EFDC00FF8D1E /* Top250MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top250MoviesViewController.swift; sourceTree = "<group>"; };
-		46E0FE5E29C5EFDC00FF8D1E /* Top250MoviesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Top250MoviesViewController.xib; sourceTree = "<group>"; };
 		46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,8 +120,6 @@
 				46A24A0D29B8AAEC00B91444 /* PersonDetailsViewController.xib */,
 				4635BB3929B8F1E600A8083D /* SearchViewController.swift */,
 				4635BB3A29B8F1E600A8083D /* SearchViewController.xib */,
-				46E0FE5D29C5EFDC00FF8D1E /* Top250MoviesViewController.swift */,
-				46E0FE5E29C5EFDC00FF8D1E /* Top250MoviesViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,7 +286,6 @@
 				469959B929B64D5200069520 /* cinema.gif in Resources */,
 				46A24A0F29B8AAEC00B91444 /* PersonDetailsViewController.xib in Resources */,
 				465DDE2B29B8F071005F6A11 /* MovieDetailsViewController.xib in Resources */,
-				46E0FE6029C5EFDC00FF8D1E /* Top250MoviesViewController.xib in Resources */,
 				46F4E9B529AFC0DE00E8A1A6 /* Main.storyboard in Resources */,
 				4635BB3C29B8F1E600A8083D /* SearchViewController.xib in Resources */,
 				469959B529B6499100069520 /* mp4.mp4 in Resources */,
@@ -316,7 +309,6 @@
 				46BCD5B929BCEEEA0047AC42 /* UIView+Extensions.swift in Sources */,
 				46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */,
 				4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */,
-				46E0FE5F29C5EFDC00FF8D1E /* Top250MoviesViewController.swift in Sources */,
 				46AC54C029BF8ADC00DB029B /* SwipeableInformationTilesController.swift in Sources */,
 				4687909129B21492000BA402 /* MovieDetailsViewController.swift in Sources */,
 				4635BB3629B8F10200A8083D /* PersonDetailsViewController.swift in Sources */,

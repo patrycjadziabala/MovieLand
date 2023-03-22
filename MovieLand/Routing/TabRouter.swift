@@ -36,10 +36,14 @@ class TabRouter: TabRouterProtocol {
         }
     }
     
+    // func Navigate to Top 250 Movies/TVShows
+    
     func navigateToSearchResults(results: SearchResultsModel) {
         DispatchQueue.main.async {
             let controller = ListViewController(tabRouter: self, dataSource: results.results)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
+    
+    func
 }
