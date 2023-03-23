@@ -27,8 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let controller = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController")
         
-        let welcomeScreen = WelcomeScreenViewController(tabRouter: searchTabRouter, dataSource: [])
-        searchNavigationController.viewControllers = [welcomeScreen]
+        let welcomeScreenNavigationController = UINavigationController()
+        let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController)
+        let welcomeScreen = WelcomeScreenViewController(tabRouter: welcomeScreenTabRouter)
+        welcomeScreenNavigationController.viewControllers = [welcomeScreen]
         
         let searchViewController = SearchViewController(tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]
@@ -43,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let top250MoviesViewController = ListViewController(tabRouter: searchTabRouter, dataSource: )
 //        top250MoviesViewController.tabBarItem = UITabBarItem(title: "Featured", image: Constants.featuredImageHeart, selectedImage: Constants.featuredImageHeart)
         
-        tabBarController.viewControllers = [welcomeScreen, searchNavigationController, testController]
+        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, testController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return

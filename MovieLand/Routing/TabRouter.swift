@@ -11,8 +11,7 @@ import UIKit
 protocol TabRouterProtocol {
     func navigateToPersonDetails(id: String)
     func navigateToTitleDetails(id: String)
-    func navigateToSearchResults(results: SearchResultsModel)
-    func navigateToTop250Movies(results: ItemsForFeaturedMoviesModel)
+    func navigateToList(results: [TableViewCellPresentable])
 }
 
 class TabRouter: TabRouterProtocol {
@@ -37,16 +36,9 @@ class TabRouter: TabRouterProtocol {
         }
     }
     
-    func navigateToSearchResults(results: SearchResultsModel) {
+    func navigateToList(results: [TableViewCellPresentable]) {
         DispatchQueue.main.async {
-            let controller = ListViewController(tabRouter: self, dataSource: results.results)
-            self.navigationController.pushViewController(controller, animated: true)
-        }
-    }
-    
-    func navigateToTop250Movies(results: ItemsForFeaturedMoviesModel) {
-        DispatchQueue.main.async {
-            let controller = ListViewController(tabRouter: self, dataSource: results.items)
+            let controller = ListViewController(tabRouter: self, dataSource: results)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }

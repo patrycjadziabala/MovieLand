@@ -14,14 +14,14 @@ protocol SwipeableInformationTilePresentable {
     var imageUrlString: String? { get }
     var additionalInfoLabelText: String? { get }
     var iMDbRatingNumberLabelText: String? { get }
-    
+    var cellType: CellType { get }
 }
 
 class SwipeableInformationTilesController: UIViewController {
 
     private let tabRouter: TabRouterProtocol
     
-    private var dataSource: [SwipeableInformationTilePresentable]
+    var dataSource: [SwipeableInformationTilePresentable]
     
     private let collectionViewCastMovies: UICollectionView
     
@@ -68,22 +68,16 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
         CGSize(width: 100, height: 200)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.item]
-        if model is CastMovieModel {
+    
+        switch model.cellType {
+        case .title:
             tabRouter.navigateToTitleDetails(id: model.optionalId)
-        } else if model is ActorForTitleModel {
+        case .name:
             tabRouter.navigateToPersonDetails(id: model.optionalId)
-        } else if model is Similars {
-            tabRouter.navigateToTitleDetails(id: model.optionalId)
-        } else if model is ComingSoonModel {
-            tabRouter.navigateToTitleDetails(id: model.optionalId)
-        } else if model is FeaturedMoviesModel {
-            tabRouter.navigateToTitleDetails(id: model.optionalId)
+        case .unknown:
+            break
         }
     }
     

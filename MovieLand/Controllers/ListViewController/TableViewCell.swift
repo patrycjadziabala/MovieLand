@@ -16,7 +16,7 @@ protocol TableViewCellPresentable {
     var additionalInfoLabelText: String? { get }
     var yearInfoText: String? { get }
     var iMDbRatingNumberLabelText: String? { get }
-    var cellType: TableViewCellType { get }
+    var cellType: CellType { get }
 }
 
 class TableViewCell: UITableViewCell {
@@ -63,40 +63,6 @@ class TableViewCell: UITableViewCell {
             cellIMDbRatingLabel.text = "IMDb Rating:"
         }
     }
-//    
-//    func configure(with model: Results) {
-//        cellNameLabel.text = model.title
-//        cellAdditionalInfoLabel.text = model.description
-//        cellImage.sd_setImage(with: URL(string: model.image))
-//        cellYearInfo.isHidden = true
-//        cellIMDbRankLabel.isHidden = true
-//        cellIMDbRatingLabel.isHidden = true
-//        cellIMDbRatingNumberLabel.isHidden = true
-//    }
-//    
-//    func configure(with model: FeaturedMoviesModel) {
-//        cellIMDbRankLabel.text = model.rank
-//        cellImage.sd_setImage(with: URL(string: model.image))
-//        cellNameLabel.text = model.title
-//        cellAdditionalInfoLabel.text = model.crew
-//        cellYearInfo.text = model.year
-//        cellIMDbRatingNumberLabel.text = model.imDbRating
-//    }
-//    
-//    func configure(with model: ComingSoonModel) {
-//        cellIMDbRankLabel.isHidden = true
-//        cellImage.sd_setImage(with: URL(string: model.image))
-//        cellNameLabel.text = model.title
-//        cellAdditionalInfoLabel.text = model.stars
-//        cellYearInfo.text = "Release Date: \(model.releaseState)"
-//        if model.imDbRating != "" {
-//            cellIMDbRatingLabel.text = "IMDb Rating:"
-//            cellIMDbRatingNumberLabel.text = model.imDbRating
-//        } else {
-//            cellIMDbRatingLabel.isHidden = true
-//            cellIMDbRatingNumberLabel.isHidden = true
-//        }
-//    }
 }
 
 

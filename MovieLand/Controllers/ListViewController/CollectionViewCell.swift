@@ -39,11 +39,13 @@ class CollectionViewCell: UICollectionViewCell {
             configure(with: comingSoonModel)
         } else if let inCinemasModel = model as? InCinemasModel {
             configure(with: inCinemasModel)
+        } else if let featuredMoviesModel = model as? FeaturedMoviesModel {
+            configure(with: featuredMoviesModel)
         }
     }
     
     func configure(with model: InCinemasModel) {
-        
+        configureImage(for: model.image)
     }
     
     func configure(with model: CastMovieModel) {

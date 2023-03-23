@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
     
     func handleSuccess(searchResults: SearchResultsModel) {
         DispatchQueue.main.async {
-            self.tabRouter.navigateToSearchResults(results: searchResults)
+            self.tabRouter.navigateToList(results: searchResults.results)
             self.searchButton.isEnabled = true
         }
     }

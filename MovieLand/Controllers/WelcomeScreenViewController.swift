@@ -26,12 +26,10 @@ class WelcomeScreenViewController: UIViewController {
     
     let apiManager: APIManagerProtocol = APIManager()
     let tabRouter: TabRouterProtocol
-    let dataSource: [SwipeableInformationTilePresentable]
     let moviesInCinemaController: SwipeableInformationTilesController
     let top250MoviesController: SwipeableInformationTilesController
     
-    init(tabRouter: TabRouterProtocol, dataSource: [SwipeableInformationTilePresentable]) {
-        self.dataSource = dataSource
+    init(tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
         self.moviesInCinemaController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.top250MoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
@@ -52,8 +50,8 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViewInCinamasMovies()
         prepareForShowingInCinemaMoviesInformation()
 
-//        configureCollectionViewTop250Movies()
-//        prepareForShowingTop250MoviesInformation()
+        configureCollectionViewTop250Movies()
+        prepareForShowingTop250MoviesInformation()
         
     }
 
@@ -101,7 +99,10 @@ class WelcomeScreenViewController: UIViewController {
     }
         
     @IBAction func inCinemasSeeAllButtonPressed(_ sender: UIButton) {
-        
+        let mappedDataSource = moviesInCinemaController.dataSource.compactMap { swipeable in
+            return swipeable as? TableViewCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
     }
     
     // MARK: - Top250Movies configuration

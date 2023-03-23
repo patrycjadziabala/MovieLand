@@ -39,6 +39,10 @@ struct CastMovieModel: Decodable {
 }
 
 extension CastMovieModel: SwipeableInformationTilePresentable {
+    var cellType: CellType {
+        .title
+    }
+    
     var iMDbRankLabelText: String? {
         nil
     }
@@ -102,6 +106,11 @@ struct ActorForTitleModel: Decodable {
 }
 
 extension ActorForTitleModel: SwipeableInformationTilePresentable {
+    
+    var cellType: CellType {
+        .name
+    }
+    
     var optionalId: String {
         id
     }
@@ -139,6 +148,11 @@ struct Similars: Decodable {
 }
 
 extension Similars: SwipeableInformationTilePresentable {
+    
+    var cellType: CellType {
+        .title
+    }
+    
     var optionalId: String {
         id
     }
@@ -179,8 +193,8 @@ struct Results: Decodable {
 }
 
 extension Results: TableViewCellPresentable {
-    var cellType: TableViewCellType {
-        TableViewCellType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
+    var cellType: CellType {
+        CellType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
     }
     
     var iMDbRankLabelText: String? {
@@ -210,7 +224,7 @@ extension Results: TableViewCellPresentable {
     
 }
 
-enum TableViewCellType: String {
+enum CellType: String {
     case title
     case name
     case unknown
@@ -254,7 +268,7 @@ extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
 
 
 extension FeaturedMoviesModel: TableViewCellPresentable {
-    var cellType: TableViewCellType {
+    var cellType: CellType {
         .title
     }
     
@@ -310,7 +324,7 @@ extension ComingSoonModel: SwipeableInformationTilePresentable {
 }
 
 extension ComingSoonModel: TableViewCellPresentable {
-    var cellType: TableViewCellType {
+    var cellType: CellType {
         .title
     }
     
@@ -354,7 +368,19 @@ struct InCinemasModel: Decodable {
     let image: String
 }
 
-extension InCinemasModel: SwipeableInformationTilePresentable {
+extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePresentable {
+    var nameLabelText: String? {
+        title
+    }
+    
+    var yearInfoText: String? {
+        nil
+    }
+    
+    var cellType: CellType {
+        .title
+    }
+
     var optionalId: String {
         id
     }
@@ -378,5 +404,4 @@ extension InCinemasModel: SwipeableInformationTilePresentable {
     var iMDbRatingNumberLabelText: String? {
         nil
     }
-    
 }
