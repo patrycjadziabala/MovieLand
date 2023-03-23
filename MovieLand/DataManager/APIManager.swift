@@ -29,6 +29,7 @@ enum APIEndpoint: String {
     case searchAll
     case trailer
     case top250Movies
+    case boxoffice
 }
 
 enum APIManagerError: Error {
@@ -215,6 +216,35 @@ class APIManager: APIManagerProtocol {
         task.resume()
         currentTask = task
     }
+    
+    func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsForComingSoonModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .boxoffice) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForComingSoonModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
     func cancelCurrentTask() {
         currentTask?.cancel()
     }

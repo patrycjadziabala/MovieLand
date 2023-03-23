@@ -62,7 +62,6 @@ class TableViewCell: UITableViewCell {
             cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
             cellIMDbRatingLabel.text = "IMDb Rating:"
         }
-        
     }
     
     func configure(with model: Results) {

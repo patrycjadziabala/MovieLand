@@ -8,7 +8,13 @@
 import UIKit
 
 protocol SwipeableInformationTilePresentable {
-    var id: String { get }
+    var optionalId: String { get }
+    var iMDbRankLabelText: String? { get }
+    var titleLabelText: String { get }
+    var imageUrlString: String? { get }
+    var additionalInfoLabelText: String? { get }
+    var iMDbRatingNumberLabelText: String? { get }
+    
 }
 
 class SwipeableInformationTilesController: UIViewController {
@@ -59,7 +65,7 @@ class SwipeableInformationTilesController: UIViewController {
 extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        CGSize(width: 80, height: collectionViewCastMovies.frame.height)
+        CGSize(width: 100, height: 200)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -73,6 +79,8 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
         } else if model is ActorForTitleModel {
             tabRouter.navigateToPersonDetails(id: model.id)
         } else if model is Similars {
+            tabRouter.navigateToTitleDetails(id: model.id)
+        } else if model is ComingSoonModel {
             tabRouter.navigateToTitleDetails(id: model.id)
         }
     }
@@ -99,7 +107,7 @@ extension SwipeableInformationTilesController: UICollectionViewDataSource {
 
 extension SwipeableInformationTilesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: collectionView.frame.height)
+        return CGSize(width: 100, height: 200)
         
     }
 }

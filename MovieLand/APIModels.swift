@@ -30,12 +30,38 @@ struct KnownForModel: Decodable {
     let image: String
 }
 
-struct CastMovieModel: Decodable, SwipeableInformationTilePresentable {
+struct CastMovieModel: Decodable {
     let id: String
     let role: String
     let title: String
     let year: String?
     let description: String
+}
+
+extension CastMovieModel: SwipeableInformationTilePresentable {
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var titleLabelText: String {
+        title
+    }
+    
+    var imageUrlString: String? {
+        nil
+    }
+    
+    var additionalInfoLabelText: String? {
+        role
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+    
+    var optionalId: String {
+        id
+    }
 }
 
 struct TitleModel: Decodable {
@@ -68,7 +94,7 @@ struct BasicPersonModel: Decodable {
     let name: String
 }
 
-struct ActorForTitleModel: Decodable, SwipeableInformationTilePresentable {
+struct ActorForTitleModel: Decodable {
     let id: String
     let image: String
     let name: String
@@ -80,7 +106,7 @@ struct GenreModel: Decodable {
     let value: String
 }
 
-struct Similars: Decodable, SwipeableInformationTilePresentable {
+struct Similars: Decodable {
     let id: String
     let title: String
     let image: String

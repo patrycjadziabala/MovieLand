@@ -7,49 +7,70 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Labrada-Light.ttf">
+            <string>Labrada-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="MovieLand" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="80" height="158"/>
+            <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="80" height="158"/>
+                <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-NS-2Ge">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="158"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
-                                <rect key="frame" x="29.333333333333329" y="141" width="21.666666666666671" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
+                                <rect key="frame" x="1" y="181" width="21.666666666666671" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-9Y-AWs">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="GfJ-UT-0s3"/>
+                                    <constraint firstAttribute="height" constant="130" id="GfJ-UT-0s3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
-                                <rect key="frame" x="23.666666666666671" y="94" width="33" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title long long long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
+                                <rect key="frame" x="0.0" y="141" width="97" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-jj-4NJ">
+                                <rect key="frame" x="3" y="123" width="6" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eLb-GJ-wjy">
+                                <rect key="frame" x="63" y="133" width="16" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-hJ-BSg">
+                                <rect key="frame" x="82" y="130" width="12" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="muB-ly-2MG" firstAttribute="centerX" secondItem="qGp-NS-2Ge" secondAttribute="centerX" id="6nI-Oo-Uha"/>
-                            <constraint firstItem="muB-ly-2MG" firstAttribute="centerX" secondItem="HcI-Ok-7KH" secondAttribute="centerX" id="A8a-Up-RV9"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="top" secondItem="qGp-NS-2Ge" secondAttribute="top" id="EDr-0c-v4e"/>
-                            <constraint firstItem="HcI-Ok-7KH" firstAttribute="top" secondItem="Hjb-9Y-AWs" secondAttribute="bottom" constant="4" id="Eba-ET-EZd"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="centerX" secondItem="qGp-NS-2Ge" secondAttribute="centerX" id="Mgd-Kp-27J"/>
-                            <constraint firstAttribute="bottom" secondItem="muB-ly-2MG" secondAttribute="bottom" constant="2" id="SaA-ex-sSD"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" id="bDb-nQ-kZ8"/>
                             <constraint firstAttribute="trailing" secondItem="Hjb-9Y-AWs" secondAttribute="trailing" id="hvH-Sx-HUh"/>
-                            <constraint firstItem="HcI-Ok-7KH" firstAttribute="centerX" secondItem="qGp-NS-2Ge" secondAttribute="centerX" id="kB5-qv-yLw"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,14 +86,20 @@
             <connections>
                 <outlet property="imageView" destination="Hjb-9Y-AWs" id="pzg-hw-TQt"/>
                 <outlet property="info" destination="muB-ly-2MG" id="8wm-iU-JWC"/>
+                <outlet property="rankNumber" destination="PiX-jj-4NJ" id="w59-Gr-3Mg"/>
+                <outlet property="rankScore" destination="grr-hJ-BSg" id="VRf-yB-Ay9"/>
                 <outlet property="title" destination="HcI-Ok-7KH" id="XKI-Sl-hCR"/>
             </connections>
             <point key="canvasLocation" x="3.0769230769230766" y="59.004739336492889"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
