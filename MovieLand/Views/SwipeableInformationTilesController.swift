@@ -75,13 +75,13 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.item]
         if model is CastMovieModel {
-            tabRouter.navigateToTitleDetails(id: model.id)
+            tabRouter.navigateToTitleDetails(id: model.optionalId)
         } else if model is ActorForTitleModel {
-            tabRouter.navigateToPersonDetails(id: model.id)
+            tabRouter.navigateToPersonDetails(id: model.optionalId)
         } else if model is Similars {
-            tabRouter.navigateToTitleDetails(id: model.id)
+            tabRouter.navigateToTitleDetails(id: model.optionalId)
         } else if model is ComingSoonModel {
-            tabRouter.navigateToTitleDetails(id: model.id)
+            tabRouter.navigateToTitleDetails(id: model.optionalId)
         }
     }
     

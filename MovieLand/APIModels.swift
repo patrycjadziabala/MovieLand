@@ -101,6 +101,32 @@ struct ActorForTitleModel: Decodable {
     let asCharacter: String
 }
 
+extension ActorForTitleModel: SwipeableInformationTilePresentable {
+    var optionalId: String {
+        id
+    }
+    
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var titleLabelText: String {
+        name
+    }
+    
+    var imageUrlString: String? {
+        nil
+    }
+    
+    var additionalInfoLabelText: String? {
+        asCharacter
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+}
+
 struct GenreModel: Decodable {
     let key: String
     let value: String
@@ -110,6 +136,32 @@ struct Similars: Decodable {
     let id: String
     let title: String
     let image: String
+}
+
+extension Similars: SwipeableInformationTilePresentable {
+    var optionalId: String {
+        id
+    }
+    
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var titleLabelText: String {
+        title
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var additionalInfoLabelText: String? {
+        nil
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
 }
 
 struct SearchResultsModel: Decodable {
@@ -190,6 +242,17 @@ struct FeaturedMoviesModel: Decodable {
     let imDbRating: String
 }
 
+extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
+    var optionalId: String {
+        id
+    }
+    
+    var titleLabelText: String {
+        title
+    }
+}
+
+
 extension FeaturedMoviesModel: TableViewCellPresentable {
     var cellType: TableViewCellType {
         .title
@@ -235,6 +298,15 @@ struct ComingSoonModel: Decodable {
     let genreList: [GenreList]
     let stars: String
     let imDbRating: String?
+}
+
+extension ComingSoonModel: SwipeableInformationTilePresentable {
+    var optionalId: String {
+        id
+    }
+    var titleLabelText: String {
+        title
+    }
 }
 
 extension ComingSoonModel: TableViewCellPresentable {
