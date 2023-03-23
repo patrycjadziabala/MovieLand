@@ -84,8 +84,8 @@ class MovieDetailsViewController: UIViewController {
             self.moviePosterImageView.sd_setImage(with: imageUrl)
             self.movieOverviewTextView.text = titleModel.plot
             self.awardsTextView.text = titleModel.awards
-            self.actorsInFilmController.dataSource = titleModel.actorList
-            self.similarMoviesController.dataSource = titleModel.similars
+            self.actorsInFilmController.set(dataSource: titleModel.actorList)
+            self.similarMoviesController.set(dataSource: titleModel.similars)
         }
     }
     

@@ -19,15 +19,11 @@ protocol SwipeableInformationTilePresentable {
 
 class SwipeableInformationTilesController: UIViewController {
 
-    let tabRouter: TabRouterProtocol
+    private let tabRouter: TabRouterProtocol
     
-    var dataSource: [SwipeableInformationTilePresentable] {
-        didSet {
-            collectionViewCastMovies.reloadData()
-        }
-    }
+    private var dataSource: [SwipeableInformationTilePresentable]
     
-    let collectionViewCastMovies: UICollectionView
+    private let collectionViewCastMovies: UICollectionView
     
     init(dataSource: [SwipeableInformationTilePresentable], tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
@@ -45,12 +41,16 @@ class SwipeableInformationTilesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       configureCollectionView()
         
+        configureCollectionView()
     }
     
-    func configureCollectionView() {
+    func set(dataSource: [SwipeableInformationTilePresentable]) {
+        self.dataSource = dataSource
+        self.collectionViewCastMovies.reloadData()
+    }
+    
+    private func configureCollectionView() {
         view.addSubview(collectionViewCastMovies)
         collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
         
@@ -58,7 +58,7 @@ class SwipeableInformationTilesController: UIViewController {
         collectionViewCastMovies.constraint(to: view)
         collectionViewCastMovies.delegate = self
         collectionViewCastMovies.dataSource = self
-      
+        collectionViewCastMovies.reloadData()
     }
 }
 
@@ -81,6 +81,8 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
         } else if model is Similars {
             tabRouter.navigateToTitleDetails(id: model.optionalId)
         } else if model is ComingSoonModel {
+            tabRouter.navigateToTitleDetails(id: model.optionalId)
+        } else if model is FeaturedMoviesModel {
             tabRouter.navigateToTitleDetails(id: model.optionalId)
         }
     }

@@ -290,13 +290,13 @@ struct ItemsForComingSoonModel: Decodable {
 struct ComingSoonModel: Decodable {
     let id: String
     let title: String
-    let fullTitle: String
-    let year: String
-    let releaseState: String
+    let fullTitle: String?
+    let year: String?
+    let releaseState: String?
     let image: String
-    let genres: String
+    let genres: String?
     let genreList: [GenreList]
-    let stars: String
+    let stars: String?
     let imDbRating: String?
 }
 
@@ -337,11 +337,46 @@ extension ComingSoonModel: TableViewCellPresentable {
     var iMDbRatingNumberLabelText: String? {
         imDbRating
     }
-    
-    
 }
 
 struct GenreList: Decodable {
     let key: String
     let value: String
+}
+
+struct ItemsforInCinemasModel: Decodable {
+    let items: [InCinemasModel]
+}
+
+struct InCinemasModel: Decodable {
+    let id: String
+    let title: String
+    let image: String
+}
+
+extension InCinemasModel: SwipeableInformationTilePresentable {
+    var optionalId: String {
+        id
+    }
+    
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var titleLabelText: String {
+        title
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var additionalInfoLabelText: String? {
+        nil
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+    
 }

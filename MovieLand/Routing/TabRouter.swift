@@ -12,6 +12,7 @@ protocol TabRouterProtocol {
     func navigateToPersonDetails(id: String)
     func navigateToTitleDetails(id: String)
     func navigateToSearchResults(results: SearchResultsModel)
+    func navigateToTop250Movies(results: ItemsForFeaturedMoviesModel)
 }
 
 class TabRouter: TabRouterProtocol {
@@ -35,8 +36,6 @@ class TabRouter: TabRouterProtocol {
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
-    
-    // func Navigate to Top 250 Movies/TVShows
     
     func navigateToSearchResults(results: SearchResultsModel) {
         DispatchQueue.main.async {

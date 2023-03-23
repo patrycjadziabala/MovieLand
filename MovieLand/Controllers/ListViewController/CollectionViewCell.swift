@@ -15,6 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var rankNumber: UILabel!
     @IBOutlet weak var rankScore: UILabel!
+    @IBOutlet weak var starImage: UIImageView!
     
     let apiManager: APIManagerProtocol = APIManager()
 //    var currentModel: TitleModel?
@@ -36,14 +37,21 @@ class CollectionViewCell: UICollectionViewCell {
             configure(with: similarMovieModel)
         } else if let comingSoonModel = model as? ComingSoonModel {
             configure(with: comingSoonModel)
+        } else if let inCinemasModel = model as? InCinemasModel {
+            configure(with: inCinemasModel)
         }
     }
     
+    func configure(with model: InCinemasModel) {
+        
+    }
+    
     func configure(with model: CastMovieModel) {
-        title.text = model.title
-        info.text = model.year
-        rankScore.isHidden = true
-        rankNumber.isHidden = true
+//        title.text = model.title
+//        info.text = model.year
+//        rankScore.isHidden = true
+//        rankNumber.isHidden = true
+        starImage.isHidden = true
         cancelCurrentTask()
         configureDefaultImage()
         apiManager.fetchTitle(id: model.id) { result in
@@ -83,6 +91,16 @@ class CollectionViewCell: UICollectionViewCell {
         rankScore.isHidden = true
         rankNumber.isHidden = true
         configureImage(for: model.image)
+    }
+    
+    func configure(with model: FeaturedMoviesModel) {
+        cancelCurrentTask()
+        title.text = model.title
+        info.isHidden = true
+        rankScore.text = model.imDbRating
+        rankNumber.text = model.rank
+        configureImage(for: model.image)
+        
     }
     
     func configureImage(for urlString: String?) {

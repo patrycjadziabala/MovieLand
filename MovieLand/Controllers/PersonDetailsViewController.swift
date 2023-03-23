@@ -65,7 +65,7 @@ class PersonDetailsViewController: UIViewController {
             self.personImageView.sd_setImage(with: imageUrl)
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
-            self.castMoviesController.dataSource = personModel.castMovies
+            self.castMoviesController.set(dataSource: personModel.castMovies)
 //            self.collectionViewCastMovies.reloadData()
                 
            

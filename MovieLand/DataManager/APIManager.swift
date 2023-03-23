@@ -19,6 +19,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     
+    func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -39,7 +41,7 @@ enum APIManagerError: Error {
 
 class APIManager: APIManagerProtocol {
 
-    let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_hd74d58q/"
+    let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_bdv8grxf/"
     
     let language: String
     
@@ -217,7 +219,7 @@ class APIManager: APIManagerProtocol {
         currentTask = task
     }
     
-    func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsForComingSoonModel, Error>) -> Void) {
+    func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void) {
         guard let url = buildURLForFeaturedMovies(for: .boxoffice) else {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
@@ -231,7 +233,7 @@ class APIManager: APIManagerProtocol {
             if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let decodedData = try decoder.decode(ItemsForComingSoonModel.self, from: data)
+                    let decodedData = try decoder.decode(ItemsforInCinemasModel.self, from: data)
                     completion(.success(decodedData))
                     return
                 } catch {

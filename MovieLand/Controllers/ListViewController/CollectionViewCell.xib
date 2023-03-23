@@ -88,6 +88,7 @@
                 <outlet property="info" destination="muB-ly-2MG" id="8wm-iU-JWC"/>
                 <outlet property="rankNumber" destination="PiX-jj-4NJ" id="w59-Gr-3Mg"/>
                 <outlet property="rankScore" destination="grr-hJ-BSg" id="VRf-yB-Ay9"/>
+                <outlet property="starImage" destination="eLb-GJ-wjy" id="vHW-gg-LB2"/>
                 <outlet property="title" destination="HcI-Ok-7KH" id="XKI-Sl-hCR"/>
             </connections>
             <point key="canvasLocation" x="3.0769230769230766" y="59.004739336492889"/>
