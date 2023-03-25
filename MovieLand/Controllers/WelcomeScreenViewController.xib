@@ -89,13 +89,13 @@
                                             <rect key="frame" x="0.0" y="368" width="390" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Cinemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnV-S2-zC0" userLabel="In Cinemas">
-                                                    <rect key="frame" x="0.0" y="10.666666666666686" width="109.33333333333333" height="33.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="109.33333333333333" height="44"/>
                                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
-                                                    <rect key="frame" x="313.66666666666669" y="9" width="76.333333333333314" height="35"/>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
+                                                    <rect key="frame" x="313.66666666666669" y="5" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -110,10 +110,12 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="5gp-vJ-UPY"/>
+                                                <constraint firstItem="2in-HT-puo" firstAttribute="centerY" secondItem="cnV-S2-zC0" secondAttribute="centerY" id="6db-cU-6FN"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" id="Itc-7E-I6y"/>
                                                 <constraint firstAttribute="top" secondItem="cnV-S2-zC0" secondAttribute="bottom" constant="-44" id="ZCw-kq-UKn"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" id="kdx-d0-5Uz"/>
                                                 <constraint firstAttribute="trailing" secondItem="2in-HT-puo" secondAttribute="trailing" id="tot-dW-6Ri"/>
+                                                <constraint firstItem="cnV-S2-zC0" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="xjE-wG-ORL"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F99-Hu-nPc" userLabel="InCinemasView">
@@ -126,14 +128,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-TR-ner">
                                             <rect key="frame" x="0.0" y="648" width="390" height="35"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
-                                                    <rect key="frame" x="0.0" y="1.6666666666666288" width="210" height="33.333333333333371"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
+                                                    <rect key="frame" x="0.0" y="1" width="210" height="33.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
-                                                    <rect key="frame" x="313.66666666666669" y="0.0" width="76.333333333333314" height="35"/>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
+                                                    <rect key="frame" x="313.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -147,8 +149,11 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="Dd6-VE-1Ks" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="4SR-vJ-p3s"/>
                                                 <constraint firstAttribute="trailing" secondItem="Dd6-VE-1Ks" secondAttribute="trailing" id="54F-bz-DeD"/>
+                                                <constraint firstItem="OTN-h6-hvN" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="6Zp-mb-n53"/>
                                                 <constraint firstAttribute="height" constant="35" id="A6a-vS-GbF"/>
+                                                <constraint firstItem="OTN-h6-hvN" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="CCT-5R-c8i"/>
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="leading" secondItem="cUI-TR-ner" secondAttribute="leading" id="GxJ-9W-D4t"/>
                                             </constraints>
                                         </view>
