@@ -16,6 +16,7 @@ struct Constants {
     static let listBulletImage = UIImage(systemName: "list.bullet")
     static let magnifyingGlassImage = UIImage(systemName: "magnifyingglass")
     static let featuredImageHeart = UIImage(systemName: "suit.heart")
+    static let homekitImage = UIImage(systemName: "homekit")
 
     
     // MARK: - Titles/Names

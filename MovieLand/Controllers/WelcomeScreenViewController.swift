@@ -46,7 +46,9 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
      
         configureWelcomeScreenView()
+        
 //        prepareForShowingTrailer()
+        
         configureCollectionViewInCinamasMovies()
         prepareForShowingInCinemaMoviesInformation()
 
@@ -59,6 +61,9 @@ class WelcomeScreenViewController: UIViewController {
     
     func configureWelcomeScreenView() {
         trailerButton.setTitle("See all Coming Soon movies", for: .normal)
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
+            scrollView.showsVerticalScrollIndicator = false
+        
     }
     
 // MARK: - Trailer configuration
@@ -83,6 +88,7 @@ class WelcomeScreenViewController: UIViewController {
     
     func handleSuccess(model: ItemsforInCinemasModel) {
         DispatchQueue.main.async {
+            self.inCinemasSeeAllButton.isEnabled = true
             self.moviesInCinemaController.set(dataSource: model.items)
         }
     }
@@ -121,6 +127,7 @@ class WelcomeScreenViewController: UIViewController {
     
     func handleSuccess(model: ItemsForFeaturedMoviesModel) {
         DispatchQueue.main.async {
+            self.top250IMDMoviesSeeAllButton.isEnabled = true
             self.top250MoviesController.set(dataSource: model.items)
         }
     }
@@ -133,6 +140,9 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     @IBAction func top250IMDbMoviesAeeAllButtonPressed(_ sender: UIButton) {
-//        tabRouter.navigateToTop250Movies(results: dataSource)
+        let mappedDataSource = top250MoviesController.dataSource.compactMap { swipeable in
+            return swipeable as? TableViewCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
     }
 }

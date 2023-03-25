@@ -13,7 +13,7 @@ struct PersonModel: Decodable {
     let role: String?
     let image: String
     let summary: String
-    let birthDate: String
+    let birthDate: String?
     let deathDate: String?
     let height: String
     let awards: String

@@ -31,6 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController)
         let welcomeScreen = WelcomeScreenViewController(tabRouter: welcomeScreenTabRouter)
         welcomeScreenNavigationController.viewControllers = [welcomeScreen]
+        welcomeScreen.tabBarItem = UITabBarItem(title: "Home", image: Constants.homekitImage, selectedImage: Constants.homekitImage)
+        
+        let scrollTestNavigationController = UINavigationController()
+        let scrollTestTabRouter = TabRouter(navigationController: scrollTestNavigationController)
+        let scrollTestScreen = ScrollTestViewController()
+        scrollTestNavigationController.viewControllers = [scrollTestScreen]
+        scrollTestScreen.tabBarItem = UITabBarItem(title: "Test", image: UIImage(systemName: "questionmark.square.dashed"), selectedImage: UIImage(systemName: "questionmark.square.dashed"))
         
         let searchViewController = SearchViewController(tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]
@@ -45,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let top250MoviesViewController = ListViewController(tabRouter: searchTabRouter, dataSource: )
 //        top250MoviesViewController.tabBarItem = UITabBarItem(title: "Featured", image: Constants.featuredImageHeart, selectedImage: Constants.featuredImageHeart)
         
-        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, testController]
+        tabBarController.viewControllers = [scrollTestNavigationController, welcomeScreenNavigationController, searchNavigationController, testController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return

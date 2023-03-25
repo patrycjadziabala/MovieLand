@@ -61,14 +61,12 @@ extension ListViewController: UITableViewDataSource {
             cell.configure(with: model)
             return cell
         }
-        
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
 }
 
 // MARK: - UITableViewDelegate

@@ -89,25 +89,25 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Cinemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnV-S2-zC0" userLabel="In Cinemas">
-                                    <rect key="frame" x="10" y="370" width="110" height="44"/>
+                                    <rect key="frame" x="9.9999999999999929" y="370" width="109.33333333333331" height="44"/>
                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
-                                    <rect key="frame" x="10" y="654" width="210" height="34"/>
+                                    <rect key="frame" x="10" y="654" width="210" height="33.333333333333371"/>
                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-em-BRI" userLabel="Top250IMDbMoviesView">
-                                    <rect key="frame" x="0.0" y="703" width="390" height="200"/>
+                                    <rect key="frame" x="0.0" y="702.33333333333337" width="390" height="200"/>
                                     <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="hI3-8I-jkF"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
                                     <rect key="frame" x="303" y="379" width="77" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
@@ -119,8 +119,8 @@
                                         <action selector="inCinemasSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="U8V-HX-IjV"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
-                                    <rect key="frame" x="303" y="653" width="77" height="35"/>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
+                                    <rect key="frame" x="303" y="652.33333333333337" width="77" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                         <backgroundConfiguration key="background">
@@ -158,16 +158,14 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <viewLayoutGuide key="safeArea" id="0Ja-rs-tjY"/>
                     <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="centerX" secondItem="qAE-5i-QJZ" secondAttribute="centerX" id="442-1f-imk"/>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="bottom" secondItem="jpG-Qf-RT3" secondAttribute="bottom" id="GTb-Zu-3sj"/>
                         <constraint firstAttribute="trailing" secondItem="vPj-O1-Lbf" secondAttribute="trailing" id="c5n-yh-Spa"/>
-                        <constraint firstItem="vPj-O1-Lbf" firstAttribute="top" secondItem="0Ja-rs-tjY" secondAttribute="top" id="cA2-JC-TRV"/>
+                        <constraint firstItem="vPj-O1-Lbf" firstAttribute="top" secondItem="qAE-5i-QJZ" secondAttribute="top" id="cA2-JC-TRV"/>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="leading" secondItem="qAE-5i-QJZ" secondAttribute="leading" id="fgM-Vm-meW"/>
                         <constraint firstAttribute="bottom" secondItem="vPj-O1-Lbf" secondAttribute="bottom" id="mo1-6Z-Ach"/>
-                        <constraint firstItem="vPj-O1-Lbf" firstAttribute="top" secondItem="qAE-5i-QJZ" secondAttribute="top" id="ugV-ss-qiH"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="v5A-pi-Vhb"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="jpG-Qf-RT3"/>
@@ -176,6 +174,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="qAE-5i-QJZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9NY-vY-pdc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qAE-5i-QJZ" secondAttribute="bottom" id="CX5-gZ-O1f"/>
                 <constraint firstItem="qAE-5i-QJZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SUK-lz-zPV"/>
                 <constraint firstItem="qAE-5i-QJZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="V1N-Kb-Bms"/>
