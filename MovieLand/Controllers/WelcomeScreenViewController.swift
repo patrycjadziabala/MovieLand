@@ -26,18 +26,23 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var mostPopularMoviesLabel: UILabel!
     @IBOutlet weak var mostPopularMoviesButton: UIButton!
     @IBOutlet weak var mostPopularScrollableViewCointainer: UIView!
+    @IBOutlet weak var top250IMDbTVSeriesLabel: UILabel!
+    @IBOutlet weak var top250IMDbTVSeriesButton: UIButton!
+    @IBOutlet weak var top250IMDbTVSeriesScrollableViewContainer: UIView!
     
     let apiManager: APIManagerProtocol = APIManager()
     let tabRouter: TabRouterProtocol
     let moviesInCinemaController: SwipeableInformationTilesController
     let top250MoviesController: SwipeableInformationTilesController
     let mostPopularMoviesController: SwipeableInformationTilesController
+    let top250TVSeriesController: SwipeableInformationTilesController
     
     init(tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
         self.moviesInCinemaController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.top250MoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.mostPopularMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.top250TVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -60,9 +65,11 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViewTop250Movies()
         prepareForShowingTop250MoviesInformation()
         
-        
         configureCollectionViewMostPopularMovies()
         prepareForShowingMostPopularMovies()
+        
+        configureCollectionViewTop250TVSeries()
+        prepareForShowingTop250TVSeriesInformation()
     }
 
     // MARK: - Welcome Screen View configuration
@@ -78,7 +85,11 @@ class WelcomeScreenViewController: UIViewController {
     
 //    func prepareForShowingTrailer() {
 //
-//    }
+    @IBAction func seeAllSomingSoonButtonPressed(_ sender: UIButton) {
+        
+        
+    }
+    //    }
     
 // MARK: - In Cinemas Movies configuration
     
@@ -184,6 +195,41 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func mostPopularMoviesSeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = mostPopularMoviesController.dataSource.compactMap { swipeable in
+            return swipeable as? TableViewCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
+    }
+    
+    // MARK: - Top250IMDbTVSeries configuration
+    
+    func prepareForShowingTop250TVSeriesInformation() {
+        apiManager.fetchTop250TVSeriesResults { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.handleSuccessForTop250TVSeries(model: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+            print(result)
+        }
+    }
+    
+    func handleSuccessForTop250TVSeries(model: ItemsForFeaturedMoviesModel) {
+        DispatchQueue.main.async {
+            self.top250IMDbTVSeriesButton.isEnabled = true
+            self.top250TVSeriesController.set(dataSource: model.items)
+        }
+    }
+    
+    func configureCollectionViewTop250TVSeries() {
+        addChild(top250TVSeriesController)
+        view.addSubview(top250TVSeriesController.view)
+        top250TVSeriesController.didMove(toParent: self)
+        top250TVSeriesController.view.constraint(to: top250IMDbTVSeriesScrollableViewContainer)
+    }
+    
+    @IBAction func top250IMDbTVSeriesButtonPressed(_ sender: UIButton) {
+        let mappedDataSource = top250TVSeriesController.dataSource.compactMap { swipeable in
             return swipeable as? TableViewCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)

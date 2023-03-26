@@ -27,6 +27,9 @@
                 <outlet property="top250IMDMoviesSeeAllButton" destination="Dd6-VE-1Ks" id="5s7-tO-zwV"/>
                 <outlet property="top250IMDbMoviesLabel" destination="OTN-h6-hvN" id="wZG-Ox-PKO"/>
                 <outlet property="top250IMDbMoviesScrollableViewContainer" destination="vTl-em-BRI" id="biF-uI-I41"/>
+                <outlet property="top250IMDbTVSeriesButton" destination="pjc-U5-ZYe" id="L8c-oK-oEz"/>
+                <outlet property="top250IMDbTVSeriesLabel" destination="AlS-EO-IRn" id="Ny7-4n-aKW"/>
+                <outlet property="top250IMDbTVSeriesScrollableViewContainer" destination="5HZ-1j-5Z8" id="104-jE-XSi"/>
                 <outlet property="trailerButton" destination="UNc-gY-whc" id="ev1-aA-NCx"/>
                 <outlet property="trailerImageView" destination="rtq-X3-Cj7" id="1aH-Cf-FHY"/>
                 <outlet property="trailerInfoTextView" destination="cxw-Pm-50r" id="sBh-md-e7O"/>
@@ -36,17 +39,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="1400"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="1700"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-5i-QJZ">
-                    <rect key="frame" x="0.0" y="47" width="390" height="1319"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="1600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-O1-Lbf" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="1172"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="1872"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ijv-c9-vlM">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="1172"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="1454"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gB2-IE-RPk" userLabel="TrailerView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="350"/>
@@ -72,6 +75,9 @@
                                                     <rect key="frame" x="10" y="315" width="75" height="34.333333333333314"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <action selector="seeAllSomingSoonButtonPressed:" destination="-1" eventType="touchUpInside" id="iJI-8I-UL2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomLightPink"/>
@@ -89,16 +95,16 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1t-mM-fo2" userLabel="InCinemasLabelView">
-                                            <rect key="frame" x="0.0" y="368" width="390" height="44"/>
+                                            <rect key="frame" x="0.0" y="368" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Cinemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnV-S2-zC0" userLabel="In Cinemas">
-                                                    <rect key="frame" x="0.0" y="0.0" width="109.33333333333333" height="44"/>
+                                                    <rect key="frame" x="0.0" y="1" width="109.33333333333333" height="43"/>
                                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
-                                                    <rect key="frame" x="313.66666666666669" y="5" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333333144" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -112,7 +118,7 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="5gp-vJ-UPY"/>
+                                                <constraint firstAttribute="height" constant="45" id="5gp-vJ-UPY"/>
                                                 <constraint firstItem="2in-HT-puo" firstAttribute="centerY" secondItem="cnV-S2-zC0" secondAttribute="centerY" id="6db-cU-6FN"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" id="Itc-7E-I6y"/>
                                                 <constraint firstAttribute="top" secondItem="cnV-S2-zC0" secondAttribute="bottom" constant="-44" id="ZCw-kq-UKn"/>
@@ -121,15 +127,15 @@
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="xjE-wG-ORL"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F99-Hu-nPc" userLabel="InCinemasView">
-                                            <rect key="frame" x="0.0" y="430" width="390" height="200"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F99-Hu-nPc" userLabel="InCinemasCollectionView">
+                                            <rect key="frame" x="0.0" y="431" width="390" height="200"/>
                                             <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="S69-oa-Phl"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-TR-ner" userLabel="Top250MoviesLabelView">
-                                            <rect key="frame" x="0.0" y="648" width="390" height="35"/>
+                                            <rect key="frame" x="0.0" y="649" width="390" height="35"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
                                                     <rect key="frame" x="0.0" y="1" width="210" height="33.333333333333336"/>
@@ -159,8 +165,8 @@
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="leading" secondItem="cUI-TR-ner" secondAttribute="leading" id="GxJ-9W-D4t"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-em-BRI" userLabel="Top250IMDbMoviesView">
-                                            <rect key="frame" x="0.0" y="701" width="390" height="200"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-em-BRI" userLabel="Top250IMDbMoviesCollectionView">
+                                            <rect key="frame" x="0.0" y="702" width="390" height="200"/>
                                             <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="ciK-lU-qc3"/>
@@ -168,10 +174,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-s1-Twt" userLabel="MostPopularMoviesLabelView">
-                                            <rect key="frame" x="0.0" y="919" width="390" height="35"/>
+                                            <rect key="frame" x="0.0" y="920" width="390" height="35"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
-                                                    <rect key="frame" x="311" y="0.0" width="79" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
+                                                    <rect key="frame" x="311" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -182,7 +188,7 @@
                                                         <action selector="mostPopularMoviesSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="EWg-DV-XhX"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Most Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-2Y-qyQ" userLabel="MostPopularMoviesLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-2Y-qyQ" userLabel="MostPopularMoviesLabel">
                                                     <rect key="frame" x="0.0" y="0.0" width="217" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="217" id="ZrE-Se-iGE"/>
@@ -195,21 +201,58 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstItem="z5M-2Y-qyQ" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="6KR-4l-2sB"/>
+                                                <constraint firstItem="z5M-2Y-qyQ" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="Ada-He-xB7"/>
                                                 <constraint firstItem="cu5-z5-UcI" firstAttribute="leading" secondItem="z5M-2Y-qyQ" secondAttribute="trailing" constant="94" id="FCi-So-5Ac"/>
-                                                <constraint firstItem="z5M-2Y-qyQ" firstAttribute="top" secondItem="8Np-s1-Twt" secondAttribute="top" constant="5" id="V9W-QQ-JI8"/>
-                                                <constraint firstAttribute="height" constant="35" id="WWP-Bz-XZU"/>
+                                                <constraint firstItem="z5M-2Y-qyQ" firstAttribute="top" secondItem="8Np-s1-Twt" secondAttribute="top" id="V9W-QQ-JI8"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WiB-tY-8nL"/>
-                                                <constraint firstItem="cu5-z5-UcI" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="fQw-Fn-XBz"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="leading" secondItem="8Np-s1-Twt" secondAttribute="leading" id="jsq-Sv-iz5"/>
+                                                <constraint firstItem="cu5-z5-UcI" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="lUK-Vn-ASy"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRi-bC-1RR" userLabel="MostPopularMoviesView">
-                                            <rect key="frame" x="0.0" y="972" width="390" height="200"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRi-bC-1RR" userLabel="MostPopularMoviesCollectionView">
+                                            <rect key="frame" x="0.0" y="973" width="390" height="200"/>
                                             <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="tintColor" red="0.77745652198791504" green="0.13628259301185608" blue="0.080417118966579437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="dmc-E8-hMc"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiH-aG-Toz" userLabel="Top250TVSeriesLabelView">
+                                            <rect key="frame" x="0.0" y="1191" width="390" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlS-EO-IRn">
+                                                    <rect key="frame" x="0.0" y="6" width="231.33333333333334" height="33.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
+                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" name="CustomDarkPink"/>
+                                                        </backgroundConfiguration>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="top250IMDbTVSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="5be-up-joU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="AlS-EO-IRn" firstAttribute="leading" secondItem="EiH-aG-Toz" secondAttribute="leading" id="AqB-Hu-LaK"/>
+                                                <constraint firstAttribute="height" constant="45" id="K6D-gl-cuD"/>
+                                                <constraint firstAttribute="trailing" secondItem="pjc-U5-ZYe" secondAttribute="trailing" id="Vps-ow-a2x"/>
+                                                <constraint firstItem="AlS-EO-IRn" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="eF4-h9-es3"/>
+                                                <constraint firstItem="pjc-U5-ZYe" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="vea-fm-qfp"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-1j-5Z8" userLabel="Top250TVSeriesCollectionView">
+                                            <rect key="frame" x="0.0" y="1254" width="390" height="200"/>
+                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="9Ce-lY-psJ"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -219,6 +262,8 @@
                                         <constraint firstAttribute="trailing" secondItem="cUI-TR-ner" secondAttribute="trailing" id="OsN-jy-ana"/>
                                         <constraint firstItem="vTl-em-BRI" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="SJ7-Ll-pkp"/>
                                         <constraint firstItem="R1t-mM-fo2" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="UTc-EW-tka"/>
+                                        <constraint firstItem="EiH-aG-Toz" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="Vhl-0R-EQV"/>
+                                        <constraint firstAttribute="trailing" secondItem="EiH-aG-Toz" secondAttribute="trailing" id="f2r-8g-akw"/>
                                         <constraint firstAttribute="trailing" secondItem="F99-Hu-nPc" secondAttribute="trailing" id="kn4-ke-Pvu"/>
                                         <constraint firstAttribute="trailing" secondItem="R1t-mM-fo2" secondAttribute="trailing" id="quP-JD-EBu"/>
                                         <constraint firstAttribute="trailing" secondItem="vTl-em-BRI" secondAttribute="trailing" id="sl1-Th-MzQ"/>
@@ -232,14 +277,14 @@
                                 <constraint firstItem="Ijv-c9-vlM" firstAttribute="leading" secondItem="vPj-O1-Lbf" secondAttribute="leading" id="MQR-z7-i15"/>
                                 <constraint firstAttribute="trailing" secondItem="Ijv-c9-vlM" secondAttribute="trailing" id="cep-fk-kR4"/>
                                 <constraint firstItem="Ijv-c9-vlM" firstAttribute="top" secondItem="vPj-O1-Lbf" secondAttribute="top" id="lhZ-WW-M5j"/>
-                                <constraint firstAttribute="bottom" secondItem="Ijv-c9-vlM" secondAttribute="bottom" id="oLJ-Ji-s13"/>
+                                <constraint firstAttribute="bottom" secondItem="Ijv-c9-vlM" secondAttribute="bottom" constant="418" id="oLJ-Ji-s13"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="trailing" secondItem="v5A-pi-Vhb" secondAttribute="trailing" id="6cD-oQ-ed0"/>
-                        <constraint firstItem="vPj-O1-Lbf" firstAttribute="bottom" secondItem="v5A-pi-Vhb" secondAttribute="bottom" id="G55-Dr-2Iy"/>
+                        <constraint firstItem="vPj-O1-Lbf" firstAttribute="bottom" secondItem="v5A-pi-Vhb" secondAttribute="bottom" constant="418" id="G55-Dr-2Iy"/>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="leading" secondItem="v5A-pi-Vhb" secondAttribute="leading" id="HLn-eR-Ztw"/>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="height" secondItem="jpG-Qf-RT3" secondAttribute="height" priority="750" id="eUH-eB-uBH"/>
                         <constraint firstItem="vPj-O1-Lbf" firstAttribute="width" secondItem="jpG-Qf-RT3" secondAttribute="width" id="mYM-X4-Z11"/>
@@ -252,7 +297,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="qAE-5i-QJZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="De6-dk-feV"/>
+                <constraint firstItem="qAE-5i-QJZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-19" id="De6-dk-feV"/>
                 <constraint firstItem="qAE-5i-QJZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HrK-ys-FDi"/>
                 <constraint firstItem="qAE-5i-QJZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cju-5p-QWE"/>
                 <constraint firstItem="qAE-5i-QJZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="qIa-XO-gCF"/>

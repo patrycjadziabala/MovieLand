@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let top250MoviesViewController = ListViewController(tabRouter: searchTabRouter, dataSource: )
 //        top250MoviesViewController.tabBarItem = UITabBarItem(title: "Featured", image: Constants.featuredImageHeart, selectedImage: Constants.featuredImageHeart)
         
-        tabBarController.viewControllers = [scrollTestNavigationController, welcomeScreenNavigationController, searchNavigationController, testController]
+        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, scrollTestNavigationController, testController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return

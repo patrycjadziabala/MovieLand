@@ -23,6 +23,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     
+    func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -35,6 +37,7 @@ enum APIEndpoint: String {
     case top250Movies
     case boxoffice
     case mostPopularMovies
+    case top250TVs
 }
 
 enum APIManagerError: Error {
@@ -252,6 +255,34 @@ class APIManager: APIManagerProtocol {
     
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
         guard let url = buildURLForFeaturedMovies(for: .mostPopularMovies) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForFeaturedMoviesModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .top250TVs) else {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
