@@ -21,6 +21,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void)
     
+    func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -32,6 +34,7 @@ enum APIEndpoint: String {
     case trailer
     case top250Movies
     case boxoffice
+    case mostPopularMovies
 }
 
 enum APIManagerError: Error {
@@ -234,6 +237,34 @@ class APIManager: APIManagerProtocol {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData = try decoder.decode(ItemsforInCinemasModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .mostPopularMovies) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForFeaturedMoviesModel.self, from: data)
                     completion(.success(decodedData))
                     return
                 } catch {

@@ -23,16 +23,21 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var top250IMDbMoviesLabel: UILabel!
     @IBOutlet weak var top250IMDMoviesSeeAllButton: UIButton!
     @IBOutlet weak var top250IMDbMoviesScrollableViewContainer: UIView!
+    @IBOutlet weak var mostPopularMoviesLabel: UILabel!
+    @IBOutlet weak var mostPopularMoviesButton: UIButton!
+    @IBOutlet weak var mostPopularScrollableViewCointainer: UIView!
     
     let apiManager: APIManagerProtocol = APIManager()
     let tabRouter: TabRouterProtocol
     let moviesInCinemaController: SwipeableInformationTilesController
     let top250MoviesController: SwipeableInformationTilesController
+    let mostPopularMoviesController: SwipeableInformationTilesController
     
     init(tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
         self.moviesInCinemaController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.top250MoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.mostPopularMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,6 +60,9 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViewTop250Movies()
         prepareForShowingTop250MoviesInformation()
         
+        
+        configureCollectionViewMostPopularMovies()
+        prepareForShowingMostPopularMovies()
     }
 
     // MARK: - Welcome Screen View configuration
@@ -141,6 +149,41 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func top250IMDbMoviesAeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = top250MoviesController.dataSource.compactMap { swipeable in
+            return swipeable as? TableViewCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
+    }
+    
+    // MARK: - MostPopularMovies configiration
+    
+    func prepareForShowingMostPopularMovies() {
+        apiManager.fetchMostPopularMoviesInformation { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.handleSuccessForMostPopularMovies(model: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+            print(result)
+        }
+    }
+    
+    func handleSuccessForMostPopularMovies(model: ItemsForFeaturedMoviesModel) {
+        DispatchQueue.main.async {
+            self.mostPopularMoviesButton.isEnabled = true
+            self.mostPopularMoviesController.set(dataSource: model.items)
+        }
+    }
+    
+    func configureCollectionViewMostPopularMovies() {
+        addChild(mostPopularMoviesController)
+        view.addSubview(mostPopularMoviesController.view)
+        mostPopularMoviesController.didMove(toParent: self)
+        mostPopularMoviesController.view.constraint(to: mostPopularScrollableViewCointainer)
+    }
+    
+    @IBAction func mostPopularMoviesSeeAllButtonPressed(_ sender: UIButton) {
+        let mappedDataSource = mostPopularMoviesController.dataSource.compactMap { swipeable in
             return swipeable as? TableViewCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
