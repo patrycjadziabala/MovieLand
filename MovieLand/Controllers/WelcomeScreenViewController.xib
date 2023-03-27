@@ -16,6 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeScreenViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
+                <outlet property="boxOfficeAllTimeButton" destination="28s-Y5-bgQ" id="H1n-dV-d6G"/>
+                <outlet property="boxOfficeAllTimeLabel" destination="bM7-DD-Jh6" id="ef1-mu-M1L"/>
+                <outlet property="boxOfficeAllTimeScrollableContainer" destination="qDz-FD-dhl" id="bFy-Hk-9SC"/>
                 <outlet property="contentView" destination="vPj-O1-Lbf" id="lYa-xy-opb"/>
                 <outlet property="inCinemasLabel" destination="cnV-S2-zC0" id="6w5-2t-eIC"/>
                 <outlet property="inCinemasScrollableViewContainer" destination="F99-Hu-nPc" id="Mge-5s-lw3"/>
@@ -23,6 +26,9 @@
                 <outlet property="mostPopularMoviesButton" destination="cu5-z5-UcI" id="lYL-x9-Bxz"/>
                 <outlet property="mostPopularMoviesLabel" destination="z5M-2Y-qyQ" id="ie0-VT-AV1"/>
                 <outlet property="mostPopularScrollableViewCointainer" destination="HRi-bC-1RR" id="dxJ-FC-XrE"/>
+                <outlet property="mostPopularTVShowsButton" destination="NVg-Ss-Jqi" id="CL7-GM-Bzr"/>
+                <outlet property="mostPopularTVShowsLabel" destination="ALB-tK-4RV" id="yhU-vy-21J"/>
+                <outlet property="mostPopularTVShowsScrollableContainer" destination="7Dz-M2-bgj" id="LXh-FZ-Rd8"/>
                 <outlet property="scrollView" destination="qAE-5i-QJZ" id="ALO-3V-yFd"/>
                 <outlet property="top250IMDMoviesSeeAllButton" destination="Dd6-VE-1Ks" id="5s7-tO-zwV"/>
                 <outlet property="top250IMDbMoviesLabel" destination="OTN-h6-hvN" id="wZG-Ox-PKO"/>
@@ -39,17 +45,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="1700"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="2500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-5i-QJZ">
-                    <rect key="frame" x="0.0" y="47" width="390" height="1600"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="2400"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-O1-Lbf" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="1872"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="2434"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ijv-c9-vlM">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="1454"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="2016"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gB2-IE-RPk" userLabel="TrailerView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="350"/>
@@ -255,17 +261,97 @@
                                                 <constraint firstAttribute="height" constant="200" id="9Ce-lY-psJ"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7z9-xc-Bzv" userLabel="MostPopularTVSeriesLabelView">
+                                            <rect key="frame" x="0.0" y="1472" width="390" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular TV Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALB-tK-4RV">
+                                                    <rect key="frame" x="0.0" y="6" width="230" height="33.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
+                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" name="CustomDarkPink"/>
+                                                        </backgroundConfiguration>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="mostPopularTvSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="6dI-oz-DIe"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="ALB-tK-4RV" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="1HX-xs-JGQ"/>
+                                                <constraint firstAttribute="height" constant="45" id="INm-gf-vlw"/>
+                                                <constraint firstItem="NVg-Ss-Jqi" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="OWs-nj-hMm"/>
+                                                <constraint firstItem="ALB-tK-4RV" firstAttribute="leading" secondItem="7z9-xc-Bzv" secondAttribute="leading" id="PLm-UE-xju"/>
+                                                <constraint firstAttribute="trailing" secondItem="NVg-Ss-Jqi" secondAttribute="trailing" id="Rhg-3D-A11"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-M2-bgj" userLabel="MostPopularTVSeriesCollectionView">
+                                            <rect key="frame" x="0.0" y="1535" width="390" height="200"/>
+                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="MZM-kh-9cd"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyc-J2-8zS" userLabel="BoxOfficeAllTimeLabelView">
+                                            <rect key="frame" x="0.0" y="1753" width="390" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Box Office of All Time " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-DD-Jh6" userLabel="BoxOfficeAllTimeLabel">
+                                                    <rect key="frame" x="0.0" y="6" width="252.33333333333334" height="33.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
+                                                    <rect key="frame" x="315" y="5.3333333333332575" width="75" height="34.333333333333336"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" name="CustomDarkPink"/>
+                                                        </backgroundConfiguration>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="boxOfficeAllTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="afH-VE-T8q"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="28s-Y5-bgQ" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="AYL-bE-2ch"/>
+                                                <constraint firstItem="bM7-DD-Jh6" firstAttribute="leading" secondItem="dyc-J2-8zS" secondAttribute="leading" id="Ajk-rt-xnD"/>
+                                                <constraint firstAttribute="height" constant="45" id="F5R-4F-yYI"/>
+                                                <constraint firstItem="bM7-DD-Jh6" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="GDR-An-Vow"/>
+                                                <constraint firstAttribute="trailing" secondItem="28s-Y5-bgQ" secondAttribute="trailing" id="GPf-re-hZs"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-FD-dhl" userLabel="BoxOfficeAllTimeCollectionView">
+                                            <rect key="frame" x="0.0" y="1816" width="390" height="200"/>
+                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="fpY-Se-v7E"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gB2-IE-RPk" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="1zp-Q4-pmt"/>
+                                        <constraint firstItem="7Dz-M2-bgj" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="9Ms-Ya-eT6"/>
                                         <constraint firstItem="cUI-TR-ner" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="Iwb-Ob-uiu"/>
                                         <constraint firstAttribute="trailing" secondItem="cUI-TR-ner" secondAttribute="trailing" id="OsN-jy-ana"/>
                                         <constraint firstItem="vTl-em-BRI" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="SJ7-Ll-pkp"/>
                                         <constraint firstItem="R1t-mM-fo2" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="UTc-EW-tka"/>
                                         <constraint firstItem="EiH-aG-Toz" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="Vhl-0R-EQV"/>
+                                        <constraint firstAttribute="trailing" secondItem="7Dz-M2-bgj" secondAttribute="trailing" id="ZtV-Ph-LaO"/>
                                         <constraint firstAttribute="trailing" secondItem="EiH-aG-Toz" secondAttribute="trailing" id="f2r-8g-akw"/>
                                         <constraint firstAttribute="trailing" secondItem="F99-Hu-nPc" secondAttribute="trailing" id="kn4-ke-Pvu"/>
+                                        <constraint firstItem="qDz-FD-dhl" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="ljP-bX-68H"/>
                                         <constraint firstAttribute="trailing" secondItem="R1t-mM-fo2" secondAttribute="trailing" id="quP-JD-EBu"/>
+                                        <constraint firstAttribute="trailing" secondItem="qDz-FD-dhl" secondAttribute="trailing" id="rNn-st-7fm"/>
                                         <constraint firstAttribute="trailing" secondItem="vTl-em-BRI" secondAttribute="trailing" id="sl1-Th-MzQ"/>
                                         <constraint firstAttribute="trailing" secondItem="gB2-IE-RPk" secondAttribute="trailing" id="vnL-2M-3GP"/>
                                         <constraint firstItem="F99-Hu-nPc" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="wm5-xA-9gn"/>
@@ -305,14 +391,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="190.76923076923077" y="275.82938388625593"/>
         </view>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cnr-hM-hAS">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-403" y="290"/>
-        </label>
     </objects>
     <resources>
         <namedColor name="CustomDarkPink">

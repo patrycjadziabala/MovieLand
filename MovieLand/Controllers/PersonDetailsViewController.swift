@@ -47,7 +47,6 @@ class PersonDetailsViewController: UIViewController {
                 switch result {
                 case .success(let person):
                     self?.handleSuccess(personModel: person)
-                 
                 case .failure(let error):
                     self?.handleError(error: error)
                 }

@@ -405,3 +405,57 @@ extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePres
         nil
     }
 }
+
+struct ItemsForBoxOfficeAllTimeModel: Decodable {
+    let items: [BoxOfficeAllTimeModel]
+}
+
+struct BoxOfficeAllTimeModel: Decodable {
+    let id: String
+    let rank: String
+    let title: String
+    let worldwideLifetimeGross: String
+    let domesticLifetimeGross: String
+    let domestic: String
+    let foreignLifetimeGross: String
+    let foreign: String
+    let year: String
+}
+
+extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationTilePresentable {
+    var iMDbRankLabelText: String? {
+        rank
+    }
+    
+    var imageUrlString: String? {
+        nil
+    }
+    
+    var nameLabelText: String? {
+        title
+    }
+    
+    var additionalInfoLabelText: String? {
+        year
+    }
+    
+    var yearInfoText: String? {
+        year
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+    
+    var cellType: CellType {
+        .title
+    }
+    
+    var optionalId: String {
+        id
+    }
+    
+    var titleLabelText: String {
+        title
+    }
+}

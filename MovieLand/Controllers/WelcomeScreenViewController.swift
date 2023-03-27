@@ -30,12 +30,22 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var top250IMDbTVSeriesButton: UIButton!
     @IBOutlet weak var top250IMDbTVSeriesScrollableViewContainer: UIView!
     
+    @IBOutlet weak var mostPopularTVShowsLabel: UILabel!
+    @IBOutlet weak var mostPopularTVShowsButton: UIButton!
+    @IBOutlet weak var mostPopularTVShowsScrollableContainer: UIView!
+
+    @IBOutlet weak var boxOfficeAllTimeLabel: UILabel!
+    @IBOutlet weak var boxOfficeAllTimeButton: UIButton!
+    @IBOutlet weak var boxOfficeAllTimeScrollableContainer: UIView!
+    
     let apiManager: APIManagerProtocol = APIManager()
     let tabRouter: TabRouterProtocol
     let moviesInCinemaController: SwipeableInformationTilesController
     let top250MoviesController: SwipeableInformationTilesController
     let mostPopularMoviesController: SwipeableInformationTilesController
     let top250TVSeriesController: SwipeableInformationTilesController
+    let mostPopularTVSeriesController: SwipeableInformationTilesController
+    let boxOfficeAllTimeController: SwipeableInformationTilesController
     
     init(tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
@@ -43,6 +53,8 @@ class WelcomeScreenViewController: UIViewController {
         self.top250MoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.mostPopularMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.top250TVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.mostPopularTVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.boxOfficeAllTimeController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,7 +62,6 @@ class WelcomeScreenViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +81,12 @@ class WelcomeScreenViewController: UIViewController {
         
         configureCollectionViewTop250TVSeries()
         prepareForShowingTop250TVSeriesInformation()
+        
+        configureCollectionViewForMostPopularTVSeries()
+        prepareForShowingMostPopularSeries()
+        
+        configureCollectionViewForBoxOfficeAllTime()
+        prepareForShowingBoxOfficeAllTime()
     }
 
     // MARK: - Welcome Screen View configuration
@@ -234,4 +251,76 @@ class WelcomeScreenViewController: UIViewController {
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
+    
+    // MARK: - MostPopularTVSeries configuration
+    
+    func prepareForShowingMostPopularSeries() {
+        apiManager.fetchMostPopularTVSeriesInformation { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.handleSuccessForMostPopularTVSeries(model: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+            print(result)
+        }
+    }
+    
+    func handleSuccessForMostPopularTVSeries(model: ItemsForFeaturedMoviesModel) {
+        DispatchQueue.main.async {
+            self.mostPopularTVShowsButton.isEnabled = true
+            self.mostPopularTVSeriesController.set(dataSource: model.items)
+        }
+    }
+    
+    func configureCollectionViewForMostPopularTVSeries() {
+        addChild(mostPopularTVSeriesController)
+        view.addSubview(mostPopularTVSeriesController.view)
+        mostPopularTVSeriesController.didMove(toParent: self)
+        mostPopularTVSeriesController.view.constraint(to: mostPopularTVShowsScrollableContainer)
+    }
+    
+    @IBAction func mostPopularTvSeriesButtonPressed(_ sender: UIButton) {
+        let mappedDataSource = mostPopularTVSeriesController.dataSource.compactMap { swipeable in
+            return swipeable as? TableViewCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
+    }
+   
+    // MARK: - BoxOfficeAllTime configuration
+    
+    func prepareForShowingBoxOfficeAllTime() {
+        apiManager.fetchBoxOfficeAllTime { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.handleSuccess(model: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+            print(result)
+        }
+    }
+    
+    func handleSuccess(model: ItemsForBoxOfficeAllTimeModel) {
+        DispatchQueue.main.async {
+            self.boxOfficeAllTimeButton.isEnabled = true
+            self.boxOfficeAllTimeController.set(dataSource: model.items)
+        }
+    }
+    
+    func configureCollectionViewForBoxOfficeAllTime() {
+        addChild(boxOfficeAllTimeController)
+        view.addSubview(boxOfficeAllTimeController.view)
+        boxOfficeAllTimeController.didMove(toParent: self)
+        boxOfficeAllTimeController.view.constraint(to: boxOfficeAllTimeScrollableContainer)
+    }
+    
+    
+    @IBAction func boxOfficeAllTimeButtonPressed(_ sender: UIButton) {
+            let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
+                return swipeable as? TableViewCellPresentable
+            }
+            self.tabRouter.navigateToList(results: mappedDataSource)
+    }
+    
 }

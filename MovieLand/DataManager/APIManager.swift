@@ -25,6 +25,10 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     
+    func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
+    
+    func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -38,6 +42,8 @@ enum APIEndpoint: String {
     case boxoffice
     case mostPopularMovies
     case top250TVs
+    case mostPopularTVs
+    case boxOfficeAllTime
 }
 
 enum APIManagerError: Error {
@@ -296,6 +302,62 @@ class APIManager: APIManagerProtocol {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData = try decoder.decode(ItemsForFeaturedMoviesModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .mostPopularTVs) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForFeaturedMoviesModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .boxOfficeAllTime) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForBoxOfficeAllTimeModel.self, from: data)
                     completion(.success(decodedData))
                     return
                 } catch {
