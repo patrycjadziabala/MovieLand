@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 protocol TabRouterProtocol {
     func navigateToPersonDetails(id: String)
     func navigateToTitleDetails(id: String)
     func navigateToList(results: [ListViewControllerCellPresentable])
+    func navigateToWebView(urlString: String)
 }
 
 class TabRouter: TabRouterProtocol {
@@ -31,7 +33,8 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToTitleDetails(id: String) {
         DispatchQueue.main.async {
-            let controller = MovieDetailsViewController(titleID: id, tabRouter: self)
+            let viewModel = MovieDetailsViewModel(tabRouter: self)
+            let controller = MovieDetailsViewController(titleID: id, tabRouter: self, viewModel: viewModel)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
@@ -40,6 +43,15 @@ class TabRouter: TabRouterProtocol {
         DispatchQueue.main.async {
             let controller = ListViewController(tabRouter: self, dataSource: results)
             self.navigationController.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func navigateToWebView(urlString: String) {
+        if let url = URL(string: urlString) {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+            let vc = SFSafariViewController(url: url, configuration: config)
+            navigationController.present(vc, animated: true)
         }
     }
 }

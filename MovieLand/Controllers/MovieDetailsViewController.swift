@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-import SafariServices
 
 class MovieDetailsViewController: UIViewController {
     
@@ -31,16 +30,16 @@ class MovieDetailsViewController: UIViewController {
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
     let titleID: String
-    let tabRouter: TabRouterProtocol
     var trailerUrl: String = ""
+    let viewModel: MovieDetailsViewModelProtocol
     
-    init(titleID: String, tabRouter: TabRouterProtocol) {
+    init(titleID: String, tabRouter: TabRouterProtocol, viewModel: MovieDetailsViewModelProtocol) {
         self.titleID = titleID
-        self.tabRouter = tabRouter
         self.actorsInFilmController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.similarMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
-        
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -64,16 +63,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Movie information configuration
     
     func prepareForShowingMovieInformation() {
-        let apiManager = APIManager()
-        apiManager.fetchTitle(id: titleID) { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccess(titleModel: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-            print(result)
-        }
+        viewModel.fetchTitle(id: titleID)
     }
     
     func handleSuccess(titleModel: TitleModel) {
@@ -111,16 +101,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Trailer configuaration
     
     func prepareForShowingTrailer() {
-        
-        let apiManager = APIManager()
-        apiManager.fetchTrailer(id: titleID) { [weak self] result in
-            switch result {
-            case .success(let trailer):
-                self?.handleSuccess(trailerModel: trailer)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchTrailer(id: titleID)
     }
     
     func handleSuccess(trailerModel: TrailerModel) {
@@ -132,12 +113,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     func showTrailer(urlString: String) {
-        if let url = URL(string: urlString) {
-            let config = SFSafariViewController.Configuration()
-            config.entersReaderIfAvailable = true
-            let vc = SFSafariViewController(url: url, configuration: config)
-            present(vc, animated: true)
-        }
+        viewModel.navigateToTrailer(urlString: urlString)
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -149,18 +125,24 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Cast configuration
     
     @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
-        let mappedDataSource = actorsInFilmController.dataSource.compactMap { swipeable in
-            return swipeable as? ListViewControllerCellPresentable
-        }
-        tabRouter.navigateToList(results: mappedDataSource)
+        viewModel.navigateToList(result: actorsInFilmController.dataSource)
     }
 }
 
-// MARK: - SFSafariViewControllerDelegate
-
-extension MovieDetailsViewController: SFSafariViewControllerDelegate {
+extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
+    func onFetchTitleSuccess(model: TitleModel) {
+        handleSuccess(titleModel: model)
+    }
     
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        
+    func onFetchTitleError(error: Error) {
+        handleError(error: error)
+    }
+    
+    func onFetchTrailerSuccess(model: TrailerModel) {
+        handleSuccess(trailerModel: model)
+    }
+    
+    func onFetchTrailerError(error: Error) {
+        handleError(error: error)
     }
 }
