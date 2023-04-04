@@ -26,6 +26,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var actorsInFilmScrollableViewContainer: UIView!
     @IBOutlet weak var similarMoviesScrollableViewContainer: UIView!
     @IBOutlet weak var trailerImageView: UIImageView!
+    @IBOutlet weak var seeAllCastButton: UIButton!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -143,6 +144,15 @@ class MovieDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             self.showTrailer(urlString: self.trailerUrl)
         }
+    }
+    
+    // MARK: - Cast configuration
+    
+    @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
+        let mappedDataSource = actorsInFilmController.dataSource.compactMap { swipeable in
+            return swipeable as? ListViewControllerCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedDataSource)
     }
 }
 

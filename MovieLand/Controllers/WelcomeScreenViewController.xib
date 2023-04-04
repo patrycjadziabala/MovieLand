@@ -182,7 +182,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-s1-Twt" userLabel="MostPopularMoviesLabelView">
                                             <rect key="frame" x="0.0" y="920" width="390" height="35"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
                                                     <rect key="frame" x="311" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
@@ -232,7 +232,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
                                                     <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
@@ -270,7 +270,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
                                                     <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
@@ -308,10 +308,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
-                                                    <rect key="frame" x="315" y="5.3333333333332575" width="75" height="34.333333333333336"/>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
+                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button" cornerStyle="capsule">
+                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>

@@ -39,7 +39,7 @@ struct CastMovieModel: Decodable {
 }
 
 extension CastMovieModel: SwipeableInformationTilePresentable {
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
     
@@ -107,7 +107,7 @@ struct ActorForTitleModel: Decodable {
 
 extension ActorForTitleModel: SwipeableInformationTilePresentable {
     
-    var cellType: CellType {
+    var contentType: CellContentType {
         .name
     }
     
@@ -124,7 +124,7 @@ extension ActorForTitleModel: SwipeableInformationTilePresentable {
     }
     
     var imageUrlString: String? {
-        nil
+        image
     }
     
     var additionalInfoLabelText: String? {
@@ -133,6 +133,22 @@ extension ActorForTitleModel: SwipeableInformationTilePresentable {
     
     var iMDbRatingNumberLabelText: String? {
         nil
+    }
+}
+
+extension ActorForTitleModel: TableViewCellPresentable {
+    var nameLabelText: String? {
+        name
+    }
+    
+    var yearInfoText: String? {
+        nil
+    }
+}
+
+extension ActorForTitleModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
     }
 }
 
@@ -149,7 +165,7 @@ struct Similars: Decodable {
 
 extension Similars: SwipeableInformationTilePresentable {
     
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
     
@@ -193,8 +209,8 @@ struct Results: Decodable {
 }
 
 extension Results: TableViewCellPresentable {
-    var cellType: CellType {
-        CellType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
+    var contentType: CellContentType {
+        CellContentType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
     }
     
     var iMDbRankLabelText: String? {
@@ -220,26 +236,20 @@ extension Results: TableViewCellPresentable {
     var iMDbRatingNumberLabelText: String? {
         nil
     }
-    
-    
 }
 
-enum CellType: String {
+extension Results: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+}
+
+enum CellContentType: String {
     case title
     case name
     case unknown
 }
 
-//struct MostPopularMoviesResultsModel: Decodable {
-//    let items: [MostPopularItem]
-//}
-//struct MostPopularItem: Decodable {
-//    let id: String
-//    let rank: String
-//    let title: String
-//    let year: String
-//    let image: String
-//}
 
 struct ItemsForFeaturedMoviesModel: Decodable {
     let items: [FeaturedMoviesModel]
@@ -268,7 +278,7 @@ extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
 
 
 extension FeaturedMoviesModel: TableViewCellPresentable {
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
     
@@ -294,6 +304,12 @@ extension FeaturedMoviesModel: TableViewCellPresentable {
     
     var iMDbRatingNumberLabelText: String? {
         imDbRating
+    }
+}
+
+extension FeaturedMoviesModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
     }
 }
 
@@ -324,7 +340,7 @@ extension ComingSoonModel: SwipeableInformationTilePresentable {
 }
 
 extension ComingSoonModel: TableViewCellPresentable {
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
     
@@ -353,6 +369,12 @@ extension ComingSoonModel: TableViewCellPresentable {
     }
 }
 
+extension ComingSoonModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+}
+
 struct GenreList: Decodable {
     let key: String
     let value: String
@@ -377,7 +399,7 @@ extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePres
         nil
     }
     
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
 
@@ -403,6 +425,12 @@ extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePres
     
     var iMDbRatingNumberLabelText: String? {
         nil
+    }
+}
+
+extension InCinemasModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
     }
 }
 
@@ -447,7 +475,7 @@ extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationT
         nil
     }
     
-    var cellType: CellType {
+    var contentType: CellContentType {
         .title
     }
     
@@ -457,5 +485,90 @@ extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationT
     
     var titleLabelText: String {
         title
+    }
+}
+
+extension BoxOfficeAllTimeModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+}
+
+struct PersonAwardsModel: Decodable {
+    let imDbId: String
+    let name: String
+    let description: String
+    let items: [PersonAwardsItemModel]
+}
+
+struct PersonAwardsItemModel: Decodable {
+    let eventTitle: String
+    let outcomeItems: [PersonAwardsOutcomeItemModel]
+}
+
+struct PersonAwardsOutcomeItemModel: Decodable {
+    let outcomeYear: String?
+    let outcomeTitle: String
+    let outcomeCategory: String
+    let outcomeDetails: [PersonAwardsOutcomeDetailsModel]
+}
+
+struct PersonAwardsOutcomeDetailsModel: Decodable {
+    let plainText: String
+    let html: String
+}
+
+struct PersonAwardSummaryModel {
+    
+    let year: String?
+    let eventTitle: String
+    let title: String
+    let category: String
+    let description: String?
+    let id: String
+    
+    init(with model: PersonAwardsOutcomeItemModel, eventTitle: String) {
+        self.year = model.outcomeYear
+        self.eventTitle = eventTitle
+        self.title = model.outcomeTitle
+        self.category = model.outcomeCategory
+        self.description = model.outcomeDetails.first?.plainText
+        // TODO: - Get id using regex from "html"
+        self.id = ""
+    }
+}
+
+extension PersonAwardSummaryModel: AwardsTableViewCellPresentable {
+    var awardsCellEventTitle: String? {
+        eventTitle
+    }
+    
+    var awardsCellAwardName: String? {
+        category
+    }
+    
+    var awardsCellOutcomeYear: String? {
+        year
+    }
+    
+    var awardsCellOutcomeTitle: String? {
+        title
+    }
+    
+    var awardsCellOutcomeCategory: String? {
+        description
+    }
+    
+    var awardsCellType: CellContentType {
+        .title
+    }
+}
+
+extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .awardTableViewCell(model: self)
+    }
+    var contentType: CellContentType {
+        .title
     }
 }

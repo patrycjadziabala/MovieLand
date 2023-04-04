@@ -142,7 +142,7 @@ class WelcomeScreenViewController: UIViewController {
         
     @IBAction func inCinemasSeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = moviesInCinemaController.dataSource.compactMap { swipeable in
-            return swipeable as? TableViewCellPresentable
+            return swipeable as? ListViewControllerCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
@@ -177,7 +177,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func top250IMDbMoviesAeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = top250MoviesController.dataSource.compactMap { swipeable in
-            return swipeable as? TableViewCellPresentable
+            return swipeable as? ListViewControllerCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
@@ -212,7 +212,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func mostPopularMoviesSeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = mostPopularMoviesController.dataSource.compactMap { swipeable in
-            return swipeable as? TableViewCellPresentable
+            return swipeable as? ListViewControllerCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
@@ -247,7 +247,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func top250IMDbTVSeriesButtonPressed(_ sender: UIButton) {
         let mappedDataSource = top250TVSeriesController.dataSource.compactMap { swipeable in
-            return swipeable as? TableViewCellPresentable
+            return swipeable as? ListViewControllerCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
@@ -282,7 +282,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func mostPopularTvSeriesButtonPressed(_ sender: UIButton) {
         let mappedDataSource = mostPopularTVSeriesController.dataSource.compactMap { swipeable in
-            return swipeable as? TableViewCellPresentable
+            return swipeable as? ListViewControllerCellPresentable
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
@@ -318,7 +318,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBAction func boxOfficeAllTimeButtonPressed(_ sender: UIButton) {
             let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
-                return swipeable as? TableViewCellPresentable
+                return swipeable as? ListViewControllerCellPresentable
             }
             self.tabRouter.navigateToList(results: mappedDataSource)
     }

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonDetailsViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
+                <outlet property="awardsButton" destination="ice-lg-cWk" id="anq-JR-kYX"/>
                 <outlet property="awardsLabel" destination="TDn-go-qFf" id="3g5-Lh-jNR"/>
                 <outlet property="birthDateLabel" destination="N7a-Lx-Rfd" id="qL1-Rp-Qw7"/>
                 <outlet property="castMoviesCollectionViewContainer" destination="Pcm-uW-YjH" id="b3h-al-Zwz"/>
@@ -130,6 +131,9 @@
                                                 <fontDescription key="titleFontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="16"/>
                                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="awardsButtonPressed:" destination="-1" eventType="touchUpInside" id="3RS-mg-qOZ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

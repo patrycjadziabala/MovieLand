@@ -7,13 +7,24 @@
 
 import UIKit
 
+enum ListViewControllerCellType {
+    case regularTableViewCell(model: TableViewCellPresentable)
+    case awardTableViewCell(model: AwardsTableViewCellPresentable)
+}
+
+protocol ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType { get }
+    var contentType: CellContentType { get }
+    var id: String { get }
+}
+
 class ListViewController: UIViewController {
 
     let tabRouter: TabRouterProtocol
     let tableView: UITableView
-    var dataSource: [TableViewCellPresentable]
+    var dataSource: [ListViewControllerCellPresentable]
     
-    init(tabRouter: TabRouterProtocol, dataSource: [TableViewCellPresentable]) {
+    init(tabRouter: TabRouterProtocol, dataSource: [ListViewControllerCellPresentable]) {
         self.dataSource = dataSource
         self.tabRouter = tabRouter
         self.tableView = UITableView(frame: .zero)
@@ -33,8 +44,10 @@ class ListViewController: UIViewController {
     
     func configureTableView() {
         view.addSubview(tableView)
-        let cell = String(describing: TableViewCell.self)
-        tableView.register(UINib(nibName: cell, bundle: nil), forCellReuseIdentifier: cell)
+        let regularCell = String(describing: TableViewCell.self)
+        tableView.register(UINib(nibName: regularCell, bundle: nil), forCellReuseIdentifier: regularCell)
+        let awardsCell = String(describing: AwardsTableViewCell.self)
+        tableView.register(UINib(nibName: awardsCell, bundle: nil), forCellReuseIdentifier: awardsCell)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -55,12 +68,21 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = dataSource[indexPath.row]
+        let presentableModel = dataSource[indexPath.row]
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tableViewCell) as? TableViewCell {
-            cell.configure(with: model)
-            return cell
+        switch presentableModel.listCellType {
+        case .regularTableViewCell(let model):
+            if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.regularTableViewCell) as? TableViewCell {
+                cell.configure(with: model)
+                return cell
+            }
+        case .awardTableViewCell(let model):
+            if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.awardsTableViewCell) as? AwardsTableViewCell {
+                cell.configure(with: model)
+                return cell
+            }
         }
+        
         return UITableViewCell()
     }
     
@@ -75,8 +97,8 @@ extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dataSource[indexPath.row]
-       
-        switch model.cellType {
+        
+        switch model.contentType {
         case .title:
             tabRouter.navigateToTitleDetails(id: model.id)
         case .name:

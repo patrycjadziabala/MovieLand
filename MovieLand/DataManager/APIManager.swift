@@ -29,6 +29,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void)
     
+    func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 
@@ -44,6 +46,7 @@ enum APIEndpoint: String {
     case top250TVs
     case mostPopularTVs
     case boxOfficeAllTime
+    case nameAwards
 }
 
 enum APIManagerError: Error {
@@ -74,7 +77,6 @@ class APIManager: APIManagerProtocol {
             return nil
         }
         return URL(string: urlString)
-        
     }
     
     func buildURLForFeaturedMovies(for endpoint: APIEndpoint) -> URL? {
@@ -358,6 +360,34 @@ class APIManager: APIManagerProtocol {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData = try decoder.decode(ItemsForBoxOfficeAllTimeModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void) {
+        guard let url = buildURL(for: .nameAwards, id: id) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(PersonAwardsModel.self, from: data)
                     completion(.success(decodedData))
                     return
                 } catch {

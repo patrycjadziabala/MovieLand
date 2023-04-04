@@ -21,7 +21,8 @@ struct Constants {
     
     // MARK: - Titles/Names
    
-    static let tableViewCell = "TableViewCell"
+    static let regularTableViewCell = "TableViewCell"
+    static let awardsTableViewCell = "AwardsTableViewCell"
     static let collectionViewCell = "CollectionViewCell"
     
  

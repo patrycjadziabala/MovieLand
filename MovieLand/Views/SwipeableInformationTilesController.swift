@@ -14,7 +14,7 @@ protocol SwipeableInformationTilePresentable {
     var imageUrlString: String? { get }
     var additionalInfoLabelText: String? { get }
     var iMDbRatingNumberLabelText: String? { get }
-    var cellType: CellType { get }
+    var contentType: CellContentType { get }
 }
 
 class SwipeableInformationTilesController: UIViewController {
@@ -71,7 +71,7 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.item]
     
-        switch model.cellType {
+        switch model.contentType {
         case .title:
             tabRouter.navigateToTitleDetails(id: model.optionalId)
         case .name:

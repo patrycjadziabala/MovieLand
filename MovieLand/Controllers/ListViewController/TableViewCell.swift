@@ -16,7 +16,7 @@ protocol TableViewCellPresentable {
     var additionalInfoLabelText: String? { get }
     var yearInfoText: String? { get }
     var iMDbRatingNumberLabelText: String? { get }
-    var cellType: CellType { get }
+    var contentType: CellContentType { get }
 }
 
 class TableViewCell: UITableViewCell {

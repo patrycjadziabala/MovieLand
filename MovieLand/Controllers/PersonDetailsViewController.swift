@@ -15,10 +15,12 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var personInfoTextView: UITextView!
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var awardsLabel: UITextView!
+    @IBOutlet weak var awardsButton: UIButton!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var castMoviesLabel: UILabel!
     @IBOutlet weak var castMoviesCollectionViewContainer: UIView!
     
+    let apiManager = APIManager()
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
@@ -42,7 +44,6 @@ class PersonDetailsViewController: UIViewController {
         
         configureCollectionViewCastMovies()
        
-        let apiManager = APIManager()
             apiManager.fetchPersonInformation(id: personID) { [weak self] result in
                 switch result {
                 case .success(let person):
@@ -103,5 +104,31 @@ class PersonDetailsViewController: UIViewController {
         view.addSubview(castMoviesController.view)
         castMoviesController.didMove(toParent: self)
         castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
+    }
+    
+    // MARK: - Awards configuration
+    
+    @IBAction func awardsButtonPressed(_ sender: UIButton) {
+        apiManager.fetchPersonAwardsInformation(id: personID) { [weak self] result in
+            switch result {
+            case .success(let awardsResults):
+                self?.handleSuccess(awardsResults: awardsResults)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
+    
+    func handleSuccess(awardsResults: PersonAwardsModel) {
+        DispatchQueue.main.async {
+            var array: [PersonAwardSummaryModel] = []
+            for outerItem in awardsResults.items {
+                for innerItem in outerItem.outcomeItems {
+                    let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle)
+                    array.append(model)
+                }
+            }
+            self.tabRouter.navigateToList(results: array)
+        }
     }
 }
