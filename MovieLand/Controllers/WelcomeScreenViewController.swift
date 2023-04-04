@@ -118,7 +118,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     
@@ -157,7 +156,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     
@@ -192,7 +190,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     
@@ -227,7 +224,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     
@@ -262,7 +258,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     
@@ -297,7 +292,6 @@ class WelcomeScreenViewController: UIViewController {
             case .failure(let error):
                 self?.handleError(error: error)
             }
-            print(result)
         }
     }
     

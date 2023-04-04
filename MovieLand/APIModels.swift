@@ -497,7 +497,7 @@ extension BoxOfficeAllTimeModel: ListViewControllerCellPresentable {
 struct PersonAwardsModel: Decodable {
     let imDbId: String
     let name: String
-    let description: String
+    let description: String?
     let items: [PersonAwardsItemModel]
 }
 

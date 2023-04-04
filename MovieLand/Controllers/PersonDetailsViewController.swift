@@ -51,7 +51,6 @@ class PersonDetailsViewController: UIViewController {
                 case .failure(let error):
                     self?.handleError(error: error)
                 }
-                print(result)
             }
     }
     
