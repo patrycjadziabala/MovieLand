@@ -194,6 +194,22 @@ extension Similars: SwipeableInformationTilePresentable {
     }
 }
 
+extension Similars: TableViewCellPresentable {
+    var nameLabelText: String? {
+        title
+    }
+    
+    var yearInfoText: String? {
+        nil
+    }
+}
+
+extension Similars: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+}
+
 struct SearchResultsModel: Decodable {
     let results: [Results]
     let searchType: String
@@ -572,3 +588,5 @@ extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
         .title
     }
 }
+
+

@@ -26,6 +26,9 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var similarMoviesScrollableViewContainer: UIView!
     @IBOutlet weak var trailerImageView: UIImageView!
     @IBOutlet weak var seeAllCastButton: UIButton!
+    @IBOutlet weak var seeAllSimilarsButton: UIButton!
+    
+    
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -127,7 +130,15 @@ class MovieDetailsViewController: UIViewController {
     @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: actorsInFilmController.dataSource)
     }
+
+// MARK: - Similar Movies configuration
+
+    @IBAction func seeAllSimilarsButtonPressed(_ sender: UIButton) {
+        viewModel.navigateToList(result: similarMoviesController.dataSource)
+    }
 }
+
+// MARK: - MovieDetailsViewController - extension
 
 extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     func onFetchTitleSuccess(model: TitleModel) {
