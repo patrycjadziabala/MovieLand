@@ -124,7 +124,7 @@
 		4687908529B1F4F4000BA402 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46A24A1429B8EFFE00B91444 /* ListViewController */,
+				46A24A1429B8EFFE00B91444 /* ReusableCells */,
 				46F4E9B329AFC0DE00E8A1A6 /* Main.storyboard */,
 				46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */,
 				46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */,
@@ -167,24 +167,24 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
-		46A24A1429B8EFFE00B91444 /* ListViewController */ = {
+		46A24A1429B8EFFE00B91444 /* ReusableCells */ = {
 			isa = PBXGroup;
 			children = (
 				46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */,
 				46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */,
-				46D8605129C76EE6006271A2 /* ListViewController.swift */,
 				46AC54BB29BF605300DB029B /* CollectionViewCell.swift */,
 				46AC54BC29BF605300DB029B /* CollectionViewCell.xib */,
 				4640FC1F29DC54A00061999C /* AwardsTableViewCell.swift */,
 				4640FC2029DC54A00061999C /* AwardsTableViewCell.xib */,
 			);
-			path = ListViewController;
+			path = ReusableCells;
 			sourceTree = "<group>";
 		};
 		46BCD5B229BCE5960047AC42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				46AC54BF29BF8ADC00DB029B /* SwipeableInformationTilesController.swift */,
+				46D8605129C76EE6006271A2 /* ListViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

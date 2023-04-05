@@ -33,6 +33,7 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         contentView.backgroundColor = UIColor(named: Constants.customLightPink)
+        configureDefaultImage()
     }
     
     func configure(with model: TableViewCellPresentable) {
@@ -41,7 +42,7 @@ class TableViewCell: UITableViewCell {
         if let urlString = model.imageUrlString {
             cellImage.sd_setImage(with: URL(string: urlString))
         } else {
-            // set default image
+            configureDefaultImage()
         }
         if model.yearInfoText?.isEmpty ?? true {
             cellYearInfo.isHidden = true
@@ -62,6 +63,10 @@ class TableViewCell: UITableViewCell {
             cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
             cellIMDbRatingLabel.text = "IMDb Rating:"
         }
+    }
+    
+    func configureDefaultImage() {
+        self.cellImage.image = UIImage(named: "camera")
     }
 }
 

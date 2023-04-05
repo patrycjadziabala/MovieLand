@@ -7,16 +7,6 @@
 
 import UIKit
 
-protocol SwipeableInformationTilePresentable {
-    var optionalId: String { get }
-    var iMDbRankLabelText: String? { get }
-    var titleLabelText: String { get }
-    var imageUrlString: String? { get }
-    var additionalInfoLabelText: String? { get }
-    var iMDbRatingNumberLabelText: String? { get }
-    var contentType: CellContentType { get }
-}
-
 class SwipeableInformationTilesController: UIViewController {
 
     private let tabRouter: TabRouterProtocol
