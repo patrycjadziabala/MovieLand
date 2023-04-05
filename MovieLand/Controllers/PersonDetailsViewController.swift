@@ -80,10 +80,10 @@ class PersonDetailsViewController: UIViewController {
     }
     
     func presentAlert(with error: Error) {
-        let alert = UIAlertController(title: "No internet", message: "Ooops you appear to be offline. This app required internet connection.", preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
+        let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
+            print(Constants.okButtonTapped)
         })
         
         alert.addAction(ok)

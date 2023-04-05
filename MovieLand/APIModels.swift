@@ -361,7 +361,7 @@ extension ComingSoonModel: TableViewCellPresentable {
     }
     
     var yearInfoText: String? {
-        "Release Date: \(releaseState)"
+        "Release Date: \(releaseState ?? "Unknown")"
     }
     
     var iMDbRatingNumberLabelText: String? {

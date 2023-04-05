@@ -61,12 +61,12 @@ class TableViewCell: UITableViewCell {
             cellIMDbRatingLabel.isHidden = true
         } else {
             cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
-            cellIMDbRatingLabel.text = "IMDb Rating:"
+            cellIMDbRatingLabel.text = Constants.iMDbRating
         }
     }
     
     func configureDefaultImage() {
-        self.cellImage.image = UIImage(named: "camera")
+        self.cellImage.image = Constants.defaultImage
     }
 }
 

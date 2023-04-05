@@ -17,6 +17,7 @@ struct Constants {
     static let magnifyingGlassImage = UIImage(systemName: "magnifyingglass")
     static let featuredImageHeart = UIImage(systemName: "suit.heart")
     static let homekitImage = UIImage(systemName: "homekit")
+    static let defaultImage = UIImage(named: "camera")
 
     
     // MARK: - Titles/Names
@@ -24,6 +25,7 @@ struct Constants {
     static let regularTableViewCell = "TableViewCell"
     static let awardsTableViewCell = "AwardsTableViewCell"
     static let collectionViewCell = "CollectionViewCell"
+    static let iMDbRating = "IMDb Rating:"
     
  
     // MARK: - Colors
@@ -38,4 +40,10 @@ struct Constants {
     static let customPink = "CustomPink"
     static let customWhite = "CustomWhite"
     
+    // MARK: - Alerts
+    
+    static let noInternet = "No internet"
+    static let offlineMessage = "Ooops you appear to be offline. This app required internet connection."
+    static let ok = "Ok"
+    static let okButtonTapped = "Ok button tapped"
 }

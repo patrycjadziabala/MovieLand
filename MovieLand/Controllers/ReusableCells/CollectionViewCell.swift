@@ -89,7 +89,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         func configureDefaultImage() {
             DispatchQueue.main.async {
-                self.imageView.image = UIImage(named: "camera")
+                self.imageView.image = Constants.defaultImage
             }
         }
         
