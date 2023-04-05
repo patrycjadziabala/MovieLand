@@ -29,6 +29,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellIMDbRatingLabel: UILabel!
     @IBOutlet weak var cellIMDbRatingNumberLabel: UILabel!
     
+    let apiManager: APIManagerProtocol = APIManager()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -42,7 +44,16 @@ class TableViewCell: UITableViewCell {
         if let urlString = model.imageUrlString {
             cellImage.sd_setImage(with: URL(string: urlString))
         } else {
-            configureDefaultImage()
+            apiManager.fetchTitle(id: model.id) { result in
+                var imageUrlString: String?
+                switch result {
+                case .success(let titleModel):
+                    imageUrlString = titleModel.image
+                case .failure:
+                    self.configureDefaultImage()
+                }
+                self.configureImage(for: imageUrlString)
+            }
         }
         if model.yearInfoText?.isEmpty ?? true {
             cellYearInfo.isHidden = true
@@ -62,6 +73,16 @@ class TableViewCell: UITableViewCell {
         } else {
             cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
             cellIMDbRatingLabel.text = Constants.iMDbRating
+        }
+    }
+    
+    func configureImage(for urlString: String?) {
+        DispatchQueue.main.async {
+            if let urlString = urlString {
+                self.cellImage.sd_setImage(with: URL(string: urlString))
+            } else {
+                self.configureDefaultImage()
+            }
         }
     }
     
