@@ -27,8 +27,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var trailerImageView: UIImageView!
     @IBOutlet weak var seeAllCastButton: UIButton!
     @IBOutlet weak var seeAllSimilarsButton: UIButton!
-    
-    
+    @IBOutlet weak var exploreAwardsButton: UIButton!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -130,14 +129,22 @@ class MovieDetailsViewController: UIViewController {
     @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: actorsInFilmController.dataSource)
     }
-
-// MARK: - Similar Movies configuration
-
+    
+    // MARK: - Similar Movies configuration
+    
     @IBAction func seeAllSimilarsButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: similarMoviesController.dataSource)
     }
+    
+    
+    // MARK: - Awards configuration
+    
+    @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {
+        
+        
+    }
+    
 }
-
 // MARK: - MovieDetailsViewController - extension
 
 extension MovieDetailsViewController: MovieDetailsViewModelDelegate {

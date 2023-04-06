@@ -39,11 +39,23 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with model: SwipeableInformationTilePresentable) {
         title.text = model.titleLabelText
         
-        if model.additionalInfoLabelText?.isEmpty ?? true {
-            info.isHidden = true
+        if let yearMovieInfo = model.additionalInfoLabelText {
+            info.text = yearMovieInfo
         } else {
-            info.isHidden = false
-            info.text = model.additionalInfoLabelText
+            apiManager.fetchTitle(id: model.optionalId) { result in
+                var yearMovieInfoFromDifferentModel: String?
+                switch result {
+                case .success(let movieYear):
+                    yearMovieInfoFromDifferentModel = movieYear.year
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.info.isHidden = true
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.info.text = yearMovieInfoFromDifferentModel
+                }
+            }
         }
         
         if model.iMDbRankLabelText?.isEmpty ?? true {

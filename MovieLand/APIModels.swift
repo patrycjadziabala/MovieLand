@@ -589,4 +589,46 @@ extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
+struct MovieAwardsModel: Decodable {
+    let imDbId: String
+    let title: String
+    let type: String
+    let year: String
+    let description: String
+    let items: [MovieAwardsItemModel]
+}
 
+struct MovieAwardsItemModel: Decodable {
+    let eventTitle: String
+    let eventYear: String
+    let outcomeItems: [MovieAwardsOutcomeItemModel]
+}
+
+struct MovieAwardsOutcomeItemModel: Decodable {
+    let outcomeTitle: String
+    let outcomeCategory: String
+    let outcomeDetails: [MovieAwardsOutcomeDetailsModel]
+}
+
+struct MovieAwardsOutcomeDetailsModel: Decodable {
+    let plainText: String
+    let html: String
+}
+
+struct MovieAwardSummaryModel {
+    let awardYear: String
+    let eventTitle: String
+    let title: String
+    let category: String
+    let description: String?
+    let id: String
+    
+    init(with model: MovieAwardsOutcomeItemModel, eventYear: String, eventTitle: String) {
+        self.awardYear = eventYear
+        self.eventTitle = eventTitle
+        self.title = model.outcomeTitle
+        self.category = model.outcomeCategory
+        self.description = model.outcomeDetails.first?.plainText
+        self.id = ""
+    }
+}

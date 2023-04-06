@@ -55,11 +55,24 @@ class TableViewCell: UITableViewCell {
                 self.configureImage(for: imageUrlString)
             }
         }
-        if model.yearInfoText?.isEmpty ?? true {
-            cellYearInfo.isHidden = true
+        if let yearMovieInfo = model.yearInfoText {
+            cellYearInfo.text = yearMovieInfo
+            
         } else {
-            cellYearInfo.isHidden = false
-            cellYearInfo.text = model.yearInfoText
+            apiManager.fetchTitle(id: model.id) { result in
+                var yearMovieInfoFromDifferentModel: String?
+                switch result {
+                case .success(let movieYear):
+                    yearMovieInfoFromDifferentModel = movieYear.year
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.cellYearInfo.isHidden = true
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.cellYearInfo.text = yearMovieInfoFromDifferentModel
+                }
+            }
         }
         if model.iMDbRankLabelText?.isEmpty ?? true {
             cellIMDbRankLabel.isHidden = true

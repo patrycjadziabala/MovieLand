@@ -25,9 +25,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-NS-2Ge">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
-                                <rect key="frame" x="1" y="181" width="21.666666666666671" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
+                                <rect key="frame" x="1" y="182" width="98" height="15"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="130" id="GfJ-UT-0s3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title long long long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title long long long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
                                 <rect key="frame" x="0.0" y="141" width="97" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="15"/>
@@ -69,8 +68,11 @@
                         <constraints>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="top" secondItem="qGp-NS-2Ge" secondAttribute="top" id="EDr-0c-v4e"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="centerX" secondItem="qGp-NS-2Ge" secondAttribute="centerX" id="Mgd-Kp-27J"/>
+                            <constraint firstAttribute="trailing" secondItem="muB-ly-2MG" secondAttribute="trailing" constant="1" id="SCz-ue-FXG"/>
+                            <constraint firstAttribute="bottom" secondItem="muB-ly-2MG" secondAttribute="bottom" constant="3" id="ave-tU-2t3"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" id="bDb-nQ-kZ8"/>
                             <constraint firstAttribute="trailing" secondItem="Hjb-9Y-AWs" secondAttribute="trailing" id="hvH-Sx-HUh"/>
+                            <constraint firstItem="muB-ly-2MG" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" constant="1" id="s5V-ga-Sr4"/>
                         </constraints>
                     </view>
                 </subviews>

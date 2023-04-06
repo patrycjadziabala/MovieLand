@@ -108,10 +108,10 @@
                                     <rect key="frame" x="10" y="413" width="370" height="41"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Awards:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDn-go-qFf" userLabel="Awards Text View">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="41"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="250" id="YQj-EM-CvV"/>
+                                                <constraint firstAttribute="width" constant="280" id="YQj-EM-CvV"/>
                                                 <constraint firstAttribute="height" constant="41" id="yVP-as-X3V"/>
                                             </constraints>
                                             <color key="textColor" systemColor="labelColor"/>

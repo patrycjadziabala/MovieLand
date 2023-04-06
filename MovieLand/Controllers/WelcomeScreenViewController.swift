@@ -309,12 +309,10 @@ class WelcomeScreenViewController: UIViewController {
         boxOfficeAllTimeController.view.constraint(to: boxOfficeAllTimeScrollableContainer)
     }
     
-    
     @IBAction func boxOfficeAllTimeButtonPressed(_ sender: UIButton) {
             let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
                 return swipeable as? ListViewControllerCellPresentable
             }
             self.tabRouter.navigateToList(results: mappedDataSource)
     }
-    
 }
