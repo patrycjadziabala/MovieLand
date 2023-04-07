@@ -24,14 +24,15 @@ class PersonDetailsViewController: UIViewController {
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
+    let viewModel: PersonDetailsViewModelProtocol
     
-    init(personID: String, tabRouter: TabRouterProtocol) {
+    init(personID: String, tabRouter: TabRouterProtocol, viewModel: PersonDetailsViewModelProtocol) {
         self.personID = personID
         self.tabRouter = tabRouter
         self.castMoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
-       
-        
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -42,16 +43,10 @@ class PersonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.fetchPersonInformation(id: personID)
+
         configureCollectionViewCastMovies()
-       
-            apiManager.fetchPersonInformation(id: personID) { [weak self] result in
-                switch result {
-                case .success(let person):
-                    self?.handleSuccess(personModel: person)
-                case .failure(let error):
-                    self?.handleError(error: error)
-                }
-            }
+      
     }
     
     func handleSuccess(personModel: PersonModel) {
@@ -71,14 +66,6 @@ class PersonDetailsViewController: UIViewController {
         }
     }
     
-    func handleError(error: Error) {
-        print(error)
-        DispatchQueue.main.async {
-            self.presentAlert(with: error)
-        }
-        
-    }
-    
     func presentAlert(with error: Error) {
         let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
         
@@ -87,8 +74,10 @@ class PersonDetailsViewController: UIViewController {
         })
         
         alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
     }
+    
+    
     
     
     
@@ -108,26 +97,19 @@ class PersonDetailsViewController: UIViewController {
     // MARK: - Awards configuration
     
     @IBAction func awardsButtonPressed(_ sender: UIButton) {
-        apiManager.fetchPersonAwardsInformation(id: personID) { [weak self] result in
-            switch result {
-            case .success(let awardsResults):
-                self?.handleSuccess(awardsResults: awardsResults)
-            case .failure(let error):
-                self?.handleError(error: error)
+        viewModel.fetchPersonAwards(id: personID)
             }
-        }
+    }
+
+// MARK: - PersonDetailsViewController - extension
+
+extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
+
+    func onFetchPersonInformationSuccess(model: PersonModel) {
+        handleSuccess(personModel: model)
     }
     
-    func handleSuccess(awardsResults: PersonAwardsModel) {
-        DispatchQueue.main.async {
-            var array: [PersonAwardSummaryModel] = []
-            for outerItem in awardsResults.items {
-                for innerItem in outerItem.outcomeItems {
-                    let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle)
-                    array.append(model)
-                }
-            }
-            self.tabRouter.navigateToList(results: array)
-        }
+    func presentAlertOffile(with error: Error) {
+        presentAlert(with: error)
     }
 }

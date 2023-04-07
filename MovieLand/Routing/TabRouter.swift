@@ -25,8 +25,8 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToPersonDetails(id: String) {
         DispatchQueue.main.async {
-            let controller = PersonDetailsViewController(personID: id, tabRouter: self)
-
+            let viewModel = PersonDetailsViewModel(tabRouter: self)
+            let controller = PersonDetailsViewController(personID: id, tabRouter: self, viewModel: viewModel)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }
