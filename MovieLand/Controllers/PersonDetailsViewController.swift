@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PersonDetailsViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var castMoviesLabel: UILabel!
     @IBOutlet weak var castMoviesCollectionViewContainer: UIView!
+    @IBOutlet weak var seeAllCastMovieButton: UIButton!
     
     let apiManager = APIManager()
     let castMoviesController: SwipeableInformationTilesController
@@ -39,12 +41,10 @@ class PersonDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.fetchPersonInformation(id: personID)
-
         configureCollectionViewCastMovies()
       
     }
@@ -62,7 +62,6 @@ class PersonDetailsViewController: UIViewController {
             self.castMoviesController.set(dataSource: personModel.castMovies)
 //            self.collectionViewCastMovies.reloadData()
                 
-           
         }
     }
     
@@ -77,21 +76,19 @@ class PersonDetailsViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
     func configureCollectionViewCastMovies() {
-//        collectionViewCastMovies.dataSource = self
-//        collectionViewCastMovies.delegate = self
-//        collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
-//        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
-        
-        
+
         addChild(castMoviesController)
         view.addSubview(castMoviesController.view)
         castMoviesController.didMove(toParent: self)
         castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
+    }
+    
+    // MARK: - Cast configuration
+
+    @IBAction func seeAllCastMovieButtonPressed(_ sender: UIButton) {
+        
+        viewModel.navigateToList(result: castMoviesController.dataSource)
     }
     
     // MARK: - Awards configuration

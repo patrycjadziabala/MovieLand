@@ -136,7 +136,6 @@ class MovieDetailsViewController: UIViewController {
         viewModel.navigateToList(result: similarMoviesController.dataSource)
     }
     
-    
     // MARK: - Awards configuration
     
     @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {

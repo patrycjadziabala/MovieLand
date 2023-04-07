@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
 protocol PersonDetailsViewModelProtocol: AnyObject {
     
     func fetchPersonInformation(id: String)
     func fetchPersonAwards(id: String)
+    func navigateToList(result:[SwipeableInformationTilePresentable])
     var delegate: PersonDetailsViewModelDelegate? { get set }
 }
 
@@ -36,6 +36,13 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
                 self?.handleError(error: error)
             }
         }
+    }
+    
+    func navigateToList(result: [SwipeableInformationTilePresentable]) {
+        let mappedResult = result.compactMap { swipeable in
+            return swipeable as? ListViewControllerCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedResult)
     }
     
     func fetchPersonAwards(id: String) {
@@ -74,4 +81,5 @@ protocol PersonDetailsViewModelDelegate {
     
     func onFetchPersonInformationSuccess(model: PersonModel)
     func presentAlertOffile(with error: Error)
+    
 }

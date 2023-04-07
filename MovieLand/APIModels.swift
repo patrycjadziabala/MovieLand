@@ -68,6 +68,22 @@ extension CastMovieModel: SwipeableInformationTilePresentable {
     }
 }
 
+extension CastMovieModel: TableViewCellPresentable {
+    var nameLabelText: String? {
+        title
+    }
+    
+    var yearInfoText: String? {
+        year
+    }
+}
+
+extension CastMovieModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+}
+
 struct TitleModel: Decodable {
     let id: String
     let title: String
