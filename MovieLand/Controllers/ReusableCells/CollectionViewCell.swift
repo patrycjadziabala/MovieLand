@@ -13,7 +13,7 @@ protocol SwipeableInformationTilePresentable {
     var iMDbRankLabelText: String? { get }
     var titleLabelText: String { get }
     var imageUrlString: String? { get }
-    var additionalInfoLabelText: String? { get }
+    var yearOrAdditionalInfoLabelText: String? { get }
     var iMDbRatingNumberLabelText: String? { get }
     var contentType: CellContentType { get }
 }
@@ -39,7 +39,7 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with model: SwipeableInformationTilePresentable) {
         title.text = model.titleLabelText
         
-        if let yearMovieInfo = model.additionalInfoLabelText {
+        if let yearMovieInfo = model.yearOrAdditionalInfoLabelText {
             info.text = yearMovieInfo
         } else {
             apiManager.fetchTitle(id: model.optionalId) { result in

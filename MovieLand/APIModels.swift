@@ -55,8 +55,8 @@ extension CastMovieModel: SwipeableInformationTilePresentable {
         nil
     }
     
-    var additionalInfoLabelText: String? {
-        role
+    var yearOrAdditionalInfoLabelText: String? {
+        year
     }
     
     var iMDbRatingNumberLabelText: String? {
@@ -69,6 +69,10 @@ extension CastMovieModel: SwipeableInformationTilePresentable {
 }
 
 extension CastMovieModel: TableViewCellPresentable {
+    var additionalInfoLabelText: String? {
+        nil
+    }
+    
     var nameLabelText: String? {
         title
     }
@@ -143,7 +147,7 @@ extension ActorForTitleModel: SwipeableInformationTilePresentable {
         image
     }
     
-    var additionalInfoLabelText: String? {
+    var yearOrAdditionalInfoLabelText: String? {
         asCharacter
     }
     
@@ -153,6 +157,10 @@ extension ActorForTitleModel: SwipeableInformationTilePresentable {
 }
 
 extension ActorForTitleModel: TableViewCellPresentable {
+    var additionalInfoLabelText: String? {
+        asCharacter
+    }
+    
     var nameLabelText: String? {
         name
     }
@@ -201,7 +209,7 @@ extension Similars: SwipeableInformationTilePresentable {
         image
     }
     
-    var additionalInfoLabelText: String? {
+    var yearOrAdditionalInfoLabelText: String? {
         nil
     }
     
@@ -211,6 +219,10 @@ extension Similars: SwipeableInformationTilePresentable {
 }
 
 extension Similars: TableViewCellPresentable {
+    var additionalInfoLabelText: String? {
+        nil
+    }
+    
     var nameLabelText: String? {
         title
     }
@@ -299,6 +311,10 @@ struct FeaturedMoviesModel: Decodable {
 }
 
 extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
+    var yearOrAdditionalInfoLabelText: String? {
+        year
+    }
+    
     var optionalId: String {
         id
     }
@@ -307,7 +323,6 @@ extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
         title
     }
 }
-
 
 extension FeaturedMoviesModel: TableViewCellPresentable {
     var contentType: CellContentType {
@@ -363,6 +378,10 @@ struct ComingSoonModel: Decodable {
 }
 
 extension ComingSoonModel: SwipeableInformationTilePresentable {
+    var yearOrAdditionalInfoLabelText: String? {
+        year
+    }
+    
     var optionalId: String {
         id
     }
@@ -422,7 +441,8 @@ struct InCinemasModel: Decodable {
     let image: String
 }
 
-extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePresentable {
+extension InCinemasModel: SwipeableInformationTilePresentable {
+    
     var nameLabelText: String? {
         title
     }
@@ -451,11 +471,17 @@ extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePres
         image
     }
     
-    var additionalInfoLabelText: String? {
+    var yearOrAdditionalInfoLabelText: String? {
         nil
     }
     
     var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+}
+
+extension InCinemasModel: TableViewCellPresentable {
+    var additionalInfoLabelText: String? {
         nil
     }
 }
@@ -482,7 +508,7 @@ struct BoxOfficeAllTimeModel: Decodable {
     let year: String
 }
 
-extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationTilePresentable {
+extension BoxOfficeAllTimeModel: SwipeableInformationTilePresentable {
     var iMDbRankLabelText: String? {
         rank
     }
@@ -495,8 +521,8 @@ extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationT
         title
     }
     
-    var additionalInfoLabelText: String? {
-        year
+    var yearOrAdditionalInfoLabelText: String? {
+        nil
     }
     
     var yearInfoText: String? {
@@ -517,6 +543,12 @@ extension BoxOfficeAllTimeModel: TableViewCellPresentable, SwipeableInformationT
     
     var titleLabelText: String {
         title
+    }
+}
+
+extension BoxOfficeAllTimeModel: TableViewCellPresentable {
+    var additionalInfoLabelText: String? {
+        nil
     }
 }
 
