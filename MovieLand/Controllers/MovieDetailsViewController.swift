@@ -140,14 +140,18 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Awards configuration
     
     @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {
-        
+        viewModel.fetchMovieAwards(id: titleID)
         
     }
-    
 }
 // MARK: - MovieDetailsViewController - extension
 
 extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
+    
+    func onFetchMovieAwardError(error: Error) {
+        handleError(error: error)
+    }
+        
     func onFetchTitleSuccess(model: TitleModel) {
         handleSuccess(titleModel: model)
     }

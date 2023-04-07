@@ -418,7 +418,7 @@ extension InCinemasModel: TableViewCellPresentable, SwipeableInformationTilePres
     var contentType: CellContentType {
         .title
     }
-
+    
     var optionalId: String {
         id
     }
@@ -594,7 +594,7 @@ struct MovieAwardsModel: Decodable {
     let title: String
     let type: String
     let year: String
-    let description: String
+    let description: String?
     let items: [MovieAwardsItemModel]
 }
 
@@ -632,3 +632,39 @@ struct MovieAwardSummaryModel {
         self.id = ""
     }
 }
+
+extension MovieAwardSummaryModel: AwardsTableViewCellPresentable {
+    var awardsCellEventTitle: String? {
+        eventTitle
+    }
+    
+    var awardsCellAwardName: String? {
+        category
+    }
+    
+    var awardsCellOutcomeYear: String? {
+        awardYear
+    }
+    
+    var awardsCellOutcomeTitle: String? {
+        title
+    }
+    
+    var awardsCellOutcomeCategory: String? {
+        description
+    }
+    
+    var awardsCellType: CellContentType {
+        .title
+    }
+}
+
+extension MovieAwardSummaryModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .awardTableViewCell(model: self)
+    }
+    var contentType: CellContentType {
+        .title
+    }
+}
+
