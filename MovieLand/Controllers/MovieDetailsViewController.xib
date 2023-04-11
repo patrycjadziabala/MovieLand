@@ -286,6 +286,9 @@
                                                         <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="movieDbWebsiteButtonPressed:" destination="-1" eventType="touchUpInside" id="KyU-bN-J4E"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qeQ-ax-321">
                                                     <rect key="frame" x="81" y="87" width="75" height="35"/>
@@ -298,6 +301,9 @@
                                                         <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="rottenTomatoesWebsiteButtonPressed:" destination="-1" eventType="touchUpInside" id="65s-cU-BlT"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy8-ab-zbO">
                                                     <rect key="frame" x="284" y="37" width="78" height="34"/>
@@ -309,6 +315,9 @@
                                                         <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="filmAffinityWebsiteButtonPressed:" destination="-1" eventType="touchUpInside" id="LTC-qs-gPQ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D7-NL-Mgk">
                                                     <rect key="frame" x="7" y="42" width="65.333333333333314" height="34"/>

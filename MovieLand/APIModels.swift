@@ -127,24 +127,6 @@ struct AllDetailsWebLinkModel: Decodable {
     let url: String
 }
 
-//struct AllDetailsWebSummaryModel {
-//    let officialWebsiteUrl: String?
-//    let imDbUrl: String?
-//    let theMovieDbUrl: String?
-//    let rottenTomatoesUrl: String?
-//    let filmAffinityUrl: String?
-//    let id: String
-//
-//    init(with model: AllDetailsWebLinkModel, officialWebsite: String?, imDbId: String) {
-//        self.officialWebsiteUrl = officialWebsite
-//        self.id = imDbId
-//        self.imDbUrl = model.url
-//        self.theMovieDbUrl = model.url
-//        self.rottenTomatoesUrl = model.url
-//        self.filmAffinityUrl = model.url
-//    }
-//}
-
 struct BasicPersonModel: Decodable {
     let id: String
     let name: String

@@ -33,7 +33,7 @@ class MovieDetailsViewController: UIViewController {
     let similarMoviesController: SwipeableInformationTilesController
     let titleID: String
     var trailerUrl: String = ""
-    var model: AllDetailsWebModel?
+    var webDetailsModel: AllDetailsWebModel?
     let viewModel: MovieDetailsViewModelProtocol
     
     init(titleID: String, tabRouter: TabRouterProtocol, viewModel: MovieDetailsViewModelProtocol) {
@@ -135,7 +135,7 @@ class MovieDetailsViewController: UIViewController {
     
     func handleSuccess(webDetailsModel: AllDetailsWebModel) {
         DispatchQueue.main.async {
-            self.model = webDetailsModel
+            self.webDetailsModel = webDetailsModel
         }
     }
     
@@ -146,17 +146,35 @@ class MovieDetailsViewController: UIViewController {
     @IBAction func officialWebsiteButtonPressed(_ sender: UIButton) {
         print("OK")
         DispatchQueue.main.async {
-            self.showWeb(urlString: self.model?.officialWebsite ?? "")
+            self.showWeb(urlString: self.webDetailsModel?.officialWebsite ?? "")
         }
     }
     
     @IBAction func imDbWebsiteButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
-            self.showWeb(urlString: self.model?.imDb.url ?? "")
+            self.showWeb(urlString: self.webDetailsModel?.imDb.url ?? "")
         }
-        
     }
     
+    @IBAction func movieDbWebsiteButtonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.showWeb(urlString: self.webDetailsModel?.theMovieDb.url ?? "")
+        }
+    }
+    
+    @IBAction func rottenTomatoesWebsiteButtonPressed(_ sender: UIButton) {
+        
+        DispatchQueue.main.async {
+            self.showWeb(urlString: self.webDetailsModel?.rottenTomatoes.url ?? "")
+        }
+    }
+    
+    @IBAction func filmAffinityWebsiteButtonPressed(_ sender: UIButton) {
+        
+        DispatchQueue.main.async {
+            self.showWeb(urlString: self.webDetailsModel?.filmAffinity.url ?? "")
+        }
+    }
     
     // MARK: - Cast configuration
     
