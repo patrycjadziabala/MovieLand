@@ -28,6 +28,11 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var seeAllCastButton: UIButton!
     @IBOutlet weak var seeAllSimilarsButton: UIButton!
     @IBOutlet weak var exploreAwardsButton: UIButton!
+    @IBOutlet weak var officialWebsiteButton: UIButton!
+    @IBOutlet weak var imDbWebsiteButton: UIButton!
+    @IBOutlet weak var filmAffinityWebsiteButton: UIButton!
+    @IBOutlet weak var movieDbWebsiteButton: UIButton!
+    @IBOutlet weak var rottenTomatoesWebsiteButton: UIButton!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -73,6 +78,8 @@ class MovieDetailsViewController: UIViewController {
     
     func handleSuccess(titleModel: TitleModel) {
         DispatchQueue.main.async {
+            self.seeAllCastButton.isEnabled = true
+            self.seeAllSimilarsButton.isEnabled = true
             self.movieTitleLabel.text = titleModel.title
             self.releaseDateLabel.text = titleModel.releaseDate
             self.genreLabel.text = titleModel.genreList.first?.value ?? ""
@@ -135,6 +142,11 @@ class MovieDetailsViewController: UIViewController {
     
     func handleSuccess(webDetailsModel: AllDetailsWebModel) {
         DispatchQueue.main.async {
+            self.officialWebsiteButton.isEnabled = true
+            self.imDbWebsiteButton.isEnabled = true
+            self.rottenTomatoesWebsiteButton.isEnabled = true
+            self.movieDbWebsiteButton.isEnabled = true
+            self.filmAffinityWebsiteButton.isEnabled = true
             self.webDetailsModel = webDetailsModel
         }
     }
@@ -163,14 +175,12 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func rottenTomatoesWebsiteButtonPressed(_ sender: UIButton) {
-        
         DispatchQueue.main.async {
             self.showWeb(urlString: self.webDetailsModel?.rottenTomatoes.url ?? "")
         }
     }
     
     @IBAction func filmAffinityWebsiteButtonPressed(_ sender: UIButton) {
-        
         DispatchQueue.main.async {
             self.showWeb(urlString: self.webDetailsModel?.filmAffinity.url ?? "")
         }
@@ -191,7 +201,9 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Awards configuration
     
     @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {
+        exploreAwardsButton.isEnabled = false
         viewModel.fetchMovieAwards(id: titleID)
+        exploreAwardsButton.isEnabled = true
     }
 }
 // MARK: - MovieDetailsViewController - extension

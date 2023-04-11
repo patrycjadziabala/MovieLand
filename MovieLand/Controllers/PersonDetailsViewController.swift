@@ -46,11 +46,12 @@ class PersonDetailsViewController: UIViewController {
         
         viewModel.fetchPersonInformation(id: personID)
         configureCollectionViewCastMovies()
-      
+        
     }
     
     func handleSuccess(personModel: PersonModel) {
         DispatchQueue.main.async {
+            self.seeAllCastMovieButton.isEnabled = true
             self.nameLabel.text = personModel.name
             self.roleLabel.text = personModel.role
             self.birthDateLabel.text = personModel.birthDate
@@ -60,8 +61,8 @@ class PersonDetailsViewController: UIViewController {
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
             self.castMoviesController.set(dataSource: personModel.castMovies)
-//            self.collectionViewCastMovies.reloadData()
-                
+            //            self.collectionViewCastMovies.reloadData()
+            
         }
     }
     
@@ -73,11 +74,11 @@ class PersonDetailsViewController: UIViewController {
         })
         
         alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func configureCollectionViewCastMovies() {
-
+        
         addChild(castMoviesController)
         view.addSubview(castMoviesController.view)
         castMoviesController.didMove(toParent: self)
@@ -85,7 +86,7 @@ class PersonDetailsViewController: UIViewController {
     }
     
     // MARK: - Cast configuration
-
+    
     @IBAction func seeAllCastMovieButtonPressed(_ sender: UIButton) {
         
         viewModel.navigateToList(result: castMoviesController.dataSource)
@@ -94,14 +95,16 @@ class PersonDetailsViewController: UIViewController {
     // MARK: - Awards configuration
     
     @IBAction func awardsButtonPressed(_ sender: UIButton) {
+        awardsButton.isEnabled = false
         viewModel.fetchPersonAwards(id: personID)
-            }
+        awardsButton.isEnabled = true
     }
+}
 
 // MARK: - PersonDetailsViewController - extension
 
 extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
-
+    
     func onFetchPersonInformationSuccess(model: PersonModel) {
         handleSuccess(personModel: model)
     }

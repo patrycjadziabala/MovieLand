@@ -91,14 +91,14 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     func handleSuccess(awardsResults: MovieAwardsModel) {
         DispatchQueue.main.async {
-            var array: [MovieAwardSummaryModel] = []
+            var arrayMovieAward: [MovieAwardSummaryModel] = []
             for outerItem in awardsResults.items {
                 for innerItem in outerItem.outcomeItems {
                     let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear, eventTitle: outerItem.eventTitle)
-                    array.append(model)
+                    arrayMovieAward.append(model)
                 }
             }
-            self.tabRouter.navigateToList(results: array)
+            self.tabRouter.navigateToList(results: arrayMovieAward)
         }
     }
     
