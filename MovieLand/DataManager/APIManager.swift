@@ -42,6 +42,7 @@ enum APIEndpoint: String {
     case searchMovie
     case searchAll
     case trailer
+    case externalSites
     case top250Movies
     case boxoffice
     case mostPopularMovies
@@ -195,6 +196,34 @@ class APIManager: APIManagerProtocol {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData =  try decoder.decode(TrailerModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
+    func fetchAllDetailsWeb(id: String, completion: @escaping(Result<AllDetailsWebModel, Error>) -> Void) {
+        guard let url = buildURL(for: .externalSites, id: id) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(AllDetailsWebModel.self, from: data)
                     completion(.success(decodedData))
                     return
                 } catch {

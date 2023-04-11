@@ -33,6 +33,7 @@ class MovieDetailsViewController: UIViewController {
     let similarMoviesController: SwipeableInformationTilesController
     let titleID: String
     var trailerUrl: String = ""
+    var model: AllDetailsWebModel?
     let viewModel: MovieDetailsViewModelProtocol
     
     init(titleID: String, tabRouter: TabRouterProtocol, viewModel: MovieDetailsViewModelProtocol) {
@@ -60,6 +61,8 @@ class MovieDetailsViewController: UIViewController {
         prepareForShowingMovieInformation()
         
         prepareForShowingTrailer()
+        
+        prepareToShowFullDetails()
     }
     
     // MARK: - Movie information configuration
@@ -124,6 +127,37 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - See Full Details - Web View configuration
+    
+    func prepareToShowFullDetails() {
+        viewModel.fetchFullDetailsWeb(id: titleID)
+    }
+    
+    func handleSuccess(webDetailsModel: AllDetailsWebModel) {
+        DispatchQueue.main.async {
+            self.model = webDetailsModel
+        }
+    }
+    
+    func showWeb(urlString: String) {
+        viewModel.navigateToFullDetailsWeb(urlString: urlString)
+    }
+    
+    @IBAction func officialWebsiteButtonPressed(_ sender: UIButton) {
+        print("OK")
+        DispatchQueue.main.async {
+            self.showWeb(urlString: self.model?.officialWebsite ?? "")
+        }
+    }
+    
+    @IBAction func imDbWebsiteButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.showWeb(urlString: self.model?.imDb.url ?? "")
+        }
+        
+    }
+    
+    
     // MARK: - Cast configuration
     
     @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
@@ -163,6 +197,14 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     }
     
     func onFetchTrailerError(error: Error) {
+        handleError(error: error)
+    }
+    
+    func onFetchWebDetailsSuccess(model: AllDetailsWebModel) {
+        handleSuccess(webDetailsModel: model)
+    }
+    
+    func onFetchWebDetailsError(error: Error) {
         handleError(error: error)
     }
 }

@@ -49,7 +49,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1400"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xLh-ep-0iD">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="1279.3333333333333"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="1429.3333333333333"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmY-iX-azu" userLabel="Title">
                                             <rect key="frame" x="155" y="0.0" width="80.333333333333314" height="50"/>
@@ -211,7 +211,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Lxc-wP-nyl" secondAttribute="trailing" id="fkb-6Q-9hg"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqZ-Dm-VXx">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqZ-Dm-VXx" userLabel="Cast Collection View">
                                             <rect key="frame" x="15" y="545" width="360" height="200"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -256,8 +256,98 @@
                                                 <constraint firstAttribute="bottom" secondItem="1H7-wn-Ut7" secondAttribute="bottom" id="yvF-sP-yfV"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPB-6v-fe7" userLabel="webButtonsView">
+                                            <rect key="frame" x="10" y="1025.3333333333333" width="370" height="130"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6l-1N-AUb">
+                                                    <rect key="frame" x="117.33333333333333" y="3" width="135.66666666666669" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="n3I-e9-qdG"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Official Website" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </backgroundConfiguration>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="officialWebsiteButtonPressed:" destination="-1" eventType="touchUpInside" id="aqe-Fa-J3t"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR6-Nm-d3H">
+                                                    <rect key="frame" x="81" y="42" width="92.666666666666657" height="34"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Movie Db" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </backgroundConfiguration>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qeQ-ax-321">
+                                                    <rect key="frame" x="81" y="87" width="75" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Rotten Tomatoes" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </backgroundConfiguration>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy8-ab-zbO">
+                                                    <rect key="frame" x="284" y="37" width="78" height="34"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Film Affinity" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </backgroundConfiguration>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D7-NL-Mgk">
+                                                    <rect key="frame" x="7" y="42" width="65.333333333333314" height="34"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="ImDb" cornerStyle="capsule">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </backgroundConfiguration>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="imDbWebsiteButtonPressed:" destination="-1" eventType="touchUpInside" id="lZe-gA-5aU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="top" secondItem="qeQ-ax-321" secondAttribute="top" id="6Sj-vg-wge"/>
+                                                <constraint firstItem="KR6-Nm-d3H" firstAttribute="top" secondItem="CPB-6v-fe7" secondAttribute="top" constant="45" id="Awx-tO-8uS"/>
+                                                <constraint firstAttribute="trailing" secondItem="KR6-Nm-d3H" secondAttribute="trailing" constant="60" id="CbY-mM-xdG"/>
+                                                <constraint firstItem="s6l-1N-AUb" firstAttribute="centerX" secondItem="CPB-6v-fe7" secondAttribute="centerX" id="For-Bv-Wyw"/>
+                                                <constraint firstItem="s6l-1N-AUb" firstAttribute="top" secondItem="CPB-6v-fe7" secondAttribute="top" id="Joe-2p-oSS"/>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="trailing" secondItem="qeQ-ax-321" secondAttribute="trailing" id="Rgl-Tp-uJu"/>
+                                                <constraint firstAttribute="height" constant="130" id="TXN-BM-qNo"/>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="top" secondItem="KR6-Nm-d3H" secondAttribute="bottom" constant="8" id="TXh-7n-4Dc"/>
+                                                <constraint firstItem="KR6-Nm-d3H" firstAttribute="top" secondItem="s6l-1N-AUb" secondAttribute="bottom" constant="8" id="Vo3-yO-w7o"/>
+                                                <constraint firstItem="KR6-Nm-d3H" firstAttribute="height" secondItem="3D7-NL-Mgk" secondAttribute="height" id="WtH-o6-lEp"/>
+                                                <constraint firstAttribute="trailing" secondItem="wy8-ab-zbO" secondAttribute="trailing" constant="60" id="clw-s0-fJ1"/>
+                                                <constraint firstItem="3D7-NL-Mgk" firstAttribute="top" secondItem="CPB-6v-fe7" secondAttribute="top" constant="45" id="dNe-ih-yB6"/>
+                                                <constraint firstItem="3D7-NL-Mgk" firstAttribute="leading" secondItem="CPB-6v-fe7" secondAttribute="leading" constant="60" id="iCi-r4-2aW"/>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="height" secondItem="3D7-NL-Mgk" secondAttribute="height" id="rC1-Bt-4D3"/>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="leading" secondItem="qeQ-ax-321" secondAttribute="trailing" constant="100" id="tiF-Hb-3Ox"/>
+                                                <constraint firstItem="wy8-ab-zbO" firstAttribute="leading" secondItem="qeQ-ax-321" secondAttribute="trailing" constant="100" id="zOq-SE-T19"/>
+                                                <constraint firstItem="s6l-1N-AUb" firstAttribute="height" secondItem="3D7-NL-Mgk" secondAttribute="height" id="zTE-Rc-HwZ"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mle-Up-Tsr" userLabel="Similars Label and button View">
-                                            <rect key="frame" x="10" y="1025.3333333333333" width="370" height="34"/>
+                                            <rect key="frame" x="10" y="1175.3333333333333" width="370" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you like this, why not try these:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-N9-PdA">
                                                     <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="34"/>
@@ -292,7 +382,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgm-Cc-EfH" userLabel="similarsCollectionView">
-                                            <rect key="frame" x="15" y="1079.3333333333333" width="360" height="200"/>
+                                            <rect key="frame" x="15" y="1229.3333333333333" width="360" height="200"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="we7-Gp-2Rz"/>
@@ -308,9 +398,12 @@
                                         <constraint firstItem="CKe-ja-yra" firstAttribute="leading" secondItem="xLh-ep-0iD" secondAttribute="leading" id="LkS-DJ-yPn"/>
                                         <constraint firstAttribute="trailing" secondItem="Dgm-Cc-EfH" secondAttribute="trailing" constant="15" id="R4t-na-jlc"/>
                                         <constraint firstAttribute="trailing" secondItem="CKe-ja-yra" secondAttribute="trailing" id="Rav-jp-cQQ"/>
+                                        <constraint firstItem="CPB-6v-fe7" firstAttribute="leading" secondItem="xLh-ep-0iD" secondAttribute="leading" constant="10" id="TNz-tu-521"/>
                                         <constraint firstItem="iqZ-Dm-VXx" firstAttribute="leading" secondItem="xLh-ep-0iD" secondAttribute="leading" constant="15" id="TdF-5K-TeX"/>
+                                        <constraint firstAttribute="trailing" secondItem="CPB-6v-fe7" secondAttribute="trailing" constant="10" id="Tjo-Wy-etx"/>
                                         <constraint firstItem="Uan-ZU-zGE" firstAttribute="leading" secondItem="xLh-ep-0iD" secondAttribute="leading" constant="10" id="Xvj-X4-Kcx"/>
                                         <constraint firstAttribute="trailing" secondItem="Uan-ZU-zGE" secondAttribute="trailing" constant="10" id="Xz2-rV-VNi"/>
+                                        <constraint firstItem="CPB-6v-fe7" firstAttribute="top" secondItem="SWc-Fj-WQV" secondAttribute="bottom" constant="20" id="YIl-7F-5yZ"/>
                                         <constraint firstAttribute="trailing" secondItem="mle-Up-Tsr" secondAttribute="trailing" constant="10" id="aj2-9i-DaU"/>
                                         <constraint firstItem="Dgm-Cc-EfH" firstAttribute="leading" secondItem="xLh-ep-0iD" secondAttribute="leading" constant="15" id="dTh-x0-GQK"/>
                                         <constraint firstItem="CKe-ja-yra" firstAttribute="top" secondItem="43P-Ek-RsZ" secondAttribute="bottom" constant="20" id="emO-8c-IXw"/>

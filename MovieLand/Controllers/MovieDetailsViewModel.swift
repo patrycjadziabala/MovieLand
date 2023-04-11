@@ -10,8 +10,10 @@ import Foundation
 protocol MovieDetailsViewModelProtocol: AnyObject {
     func fetchTitle(id: String)
     func fetchTrailer(id: String)
+    func fetchFullDetailsWeb(id: String)
     func navigateToList(result: [SwipeableInformationTilePresentable])
     func navigateToTrailer(urlString: String)
+    func navigateToFullDetailsWeb(urlString: String)
     func fetchMovieAwards(id: String)
     var delegate: MovieDetailsViewModelDelegate? { get set }
 }
@@ -29,6 +31,10 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     }
     
     func navigateToTrailer(urlString: String) {
+        tabRouter.navigateToWebView(urlString: urlString)
+    }
+    
+    func navigateToFullDetailsWeb(urlString: String) {
         tabRouter.navigateToWebView(urlString: urlString)
     }
     
@@ -57,6 +63,17 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
                 self?.delegate?.onFetchTrailerSuccess(model: trailer)
             case .failure(let error):
                 self?.delegate?.onFetchTrailerError(error: error)
+            }
+        }
+    }
+    
+    func fetchFullDetailsWeb(id: String) {
+        apiManager.fetchAllDetailsWeb(id: id) { [weak self] result in
+            switch result {
+            case .success(let webDetails):
+                self?.delegate?.onFetchWebDetailsSuccess(model: webDetails)
+            case .failure(let error):
+                self?.delegate?.onFetchWebDetailsError(error: error)
             }
         }
     }
@@ -98,5 +115,7 @@ protocol MovieDetailsViewModelDelegate {
     func onFetchTitleError(error: Error)
     func onFetchTrailerSuccess(model: TrailerModel)
     func onFetchTrailerError(error: Error)
+    func onFetchWebDetailsSuccess(model: AllDetailsWebModel)
+    func onFetchWebDetailsError(error: Error)
     func onFetchMovieAwardError(error: Error)
 }
