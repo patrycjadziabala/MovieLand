@@ -10,7 +10,7 @@ import SDWebImage
 import SafariServices
 
 class WelcomeScreenViewController: UIViewController {
-
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var trailerViewContainer: UIView!
@@ -29,16 +29,13 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var top250IMDbTVSeriesLabel: UILabel!
     @IBOutlet weak var top250IMDbTVSeriesButton: UIButton!
     @IBOutlet weak var top250IMDbTVSeriesScrollableViewContainer: UIView!
-    
     @IBOutlet weak var mostPopularTVShowsLabel: UILabel!
     @IBOutlet weak var mostPopularTVShowsButton: UIButton!
     @IBOutlet weak var mostPopularTVShowsScrollableContainer: UIView!
-
     @IBOutlet weak var boxOfficeAllTimeLabel: UILabel!
     @IBOutlet weak var boxOfficeAllTimeButton: UIButton!
     @IBOutlet weak var boxOfficeAllTimeScrollableContainer: UIView!
     
-    let apiManager: APIManagerProtocol = APIManager()
     let tabRouter: TabRouterProtocol
     let moviesInCinemaController: SwipeableInformationTilesController
     let top250MoviesController: SwipeableInformationTilesController
@@ -46,8 +43,10 @@ class WelcomeScreenViewController: UIViewController {
     let top250TVSeriesController: SwipeableInformationTilesController
     let mostPopularTVSeriesController: SwipeableInformationTilesController
     let boxOfficeAllTimeController: SwipeableInformationTilesController
+    let viewModel: WelcomeScreenViewModelProtocol
     
-    init(tabRouter: TabRouterProtocol) {
+    
+    init(tabRouter: TabRouterProtocol, viewModel: WelcomeScreenViewModelProtocol) {
         self.tabRouter = tabRouter
         self.moviesInCinemaController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.top250MoviesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
@@ -55,8 +54,9 @@ class WelcomeScreenViewController: UIViewController {
         self.top250TVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.mostPopularTVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.boxOfficeAllTimeController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
-        
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -65,14 +65,14 @@ class WelcomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         configureWelcomeScreenView()
         
-//        prepareForShowingTrailer()
+        //        prepareForShowingTrailer()
         
         configureCollectionViewInCinamasMovies()
         prepareForShowingInCinemaMoviesInformation()
-
+        
         configureCollectionViewTop250Movies()
         prepareForShowingTop250MoviesInformation()
         
@@ -88,37 +88,29 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViewForBoxOfficeAllTime()
         prepareForShowingBoxOfficeAllTime()
     }
-
+    
     // MARK: - Welcome Screen View configuration
     
     func configureWelcomeScreenView() {
         trailerButton.setTitle("See all Coming Soon movies", for: .normal)
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
-            scrollView.showsVerticalScrollIndicator = false
-        
+        scrollView.showsVerticalScrollIndicator = false
     }
     
-// MARK: - Trailer configuration
+    // MARK: - Trailer configuration
     
-//    func prepareForShowingTrailer() {
-//
+    //    func prepareForShowingTrailer() {
+    //
     @IBAction func seeAllSomingSoonButtonPressed(_ sender: UIButton) {
         
         
     }
     //    }
     
-// MARK: - In Cinemas Movies configuration
+    // MARK: - In Cinemas Movies configuration
     
     func prepareForShowingInCinemaMoviesInformation() {
-        apiManager.fetchInCinemasMoviesInformation { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccess(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchInCinemaMoviesInformation()
     }
     
     func handleSuccess(model: ItemsforInCinemasModel) {
@@ -128,17 +120,13 @@ class WelcomeScreenViewController: UIViewController {
         }
     }
     
-    func handleError(error: Error) {
-        print(error)
-    }
-    
     func configureCollectionViewInCinamasMovies() {
         addChild(moviesInCinemaController)
         view.addSubview(moviesInCinemaController.view)
         moviesInCinemaController.didMove(toParent: self)
         moviesInCinemaController.view.constraint(to: inCinemasScrollableViewContainer)
     }
-        
+    
     @IBAction func inCinemasSeeAllButtonPressed(_ sender: UIButton) {
         let mappedDataSource = moviesInCinemaController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
@@ -149,14 +137,7 @@ class WelcomeScreenViewController: UIViewController {
     // MARK: - Top250Movies configuration
     
     func prepareForShowingTop250MoviesInformation() {
-        apiManager.fetchFeaturedMoviesResults { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccess(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchFeaturedMoviesResults()
     }
     
     func handleSuccess(model: ItemsForFeaturedMoviesModel) {
@@ -183,14 +164,7 @@ class WelcomeScreenViewController: UIViewController {
     // MARK: - MostPopularMovies configiration
     
     func prepareForShowingMostPopularMovies() {
-        apiManager.fetchMostPopularMoviesInformation { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccessForMostPopularMovies(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchMostPopularMoviesInformation()
     }
     
     func handleSuccessForMostPopularMovies(model: ItemsForFeaturedMoviesModel) {
@@ -217,14 +191,7 @@ class WelcomeScreenViewController: UIViewController {
     // MARK: - Top250IMDbTVSeries configuration
     
     func prepareForShowingTop250TVSeriesInformation() {
-        apiManager.fetchTop250TVSeriesResults { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccessForTop250TVSeries(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchTop250TVSeries()
     }
     
     func handleSuccessForTop250TVSeries(model: ItemsForFeaturedMoviesModel) {
@@ -251,14 +218,7 @@ class WelcomeScreenViewController: UIViewController {
     // MARK: - MostPopularTVSeries configuration
     
     func prepareForShowingMostPopularSeries() {
-        apiManager.fetchMostPopularTVSeriesInformation { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccessForMostPopularTVSeries(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchMostPopularTVSeries()
     }
     
     func handleSuccessForMostPopularTVSeries(model: ItemsForFeaturedMoviesModel) {
@@ -281,18 +241,11 @@ class WelcomeScreenViewController: UIViewController {
         }
         tabRouter.navigateToList(results: mappedDataSource)
     }
-   
+    
     // MARK: - BoxOfficeAllTime configuration
     
     func prepareForShowingBoxOfficeAllTime() {
-        apiManager.fetchBoxOfficeAllTime { [weak self] result in
-            switch result {
-            case .success(let title):
-                self?.handleSuccess(model: title)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
-        }
+        viewModel.fetchBoxOfficeAllTime()
     }
     
     func handleSuccess(model: ItemsForBoxOfficeAllTimeModel) {
@@ -310,9 +263,35 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     @IBAction func boxOfficeAllTimeButtonPressed(_ sender: UIButton) {
-            let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
-                return swipeable as? ListViewControllerCellPresentable
-            }
-            self.tabRouter.navigateToList(results: mappedDataSource)
+        let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
+            return swipeable as? ListViewControllerCellPresentable
+        }
+        self.tabRouter.navigateToList(results: mappedDataSource)
     }
+}
+
+// MARK: - WelcomeScreenViewController - extension
+
+extension WelcomeScreenViewController: WelcomeScreenViewModelDelegate {
+    func onFetchInCinemasMoviesHandleSuccess(model: ItemsforInCinemasModel) {
+        handleSuccess(model: model)
+    }
+    
+    func onFetchFeaturedMoviesHandleSuccess(model: ItemsForFeaturedMoviesModel) {
+        handleSuccess(model: model)
+    }
+    
+    func onFetchMostPopularMoviesInformationSuccess(model: ItemsForFeaturedMoviesModel) {
+        handleSuccessForMostPopularMovies(model: model)    }
+    
+    func onFetchTop250TVSeriesSuccess(model: ItemsForFeaturedMoviesModel) {
+        handleSuccessForTop250TVSeries(model: model)    }
+    
+    func onFetchMostPopularTVSeriesSuccess(model: ItemsForFeaturedMoviesModel) {
+        handleSuccessForMostPopularTVSeries(model: model)    }
+    
+    func onFetchBoxOfficeAllTimeSuccess(model: ItemsForBoxOfficeAllTimeModel) {
+        handleSuccess(model: model)
+    }
+    
 }

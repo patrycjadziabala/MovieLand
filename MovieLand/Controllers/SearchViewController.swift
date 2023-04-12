@@ -97,20 +97,4 @@ extension SearchViewController: UITextFieldDelegate {
             return false
         }
     }
-    
-    
 }
-
-
-/*
- 
- Zadanie domowe:
-
- 
-
- Zrobić także handling errorów - wyświetlić alert użytkownikowi - UIAlertView (wyszukać w necie jak się to robi) i w tym uialertview (chyba tak to się nazywa) wyświetlić error.localizedDescription
- Jak to przetestować? Wyłączyć internet
-
-
- 
- */
