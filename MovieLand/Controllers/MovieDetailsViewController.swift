@@ -92,10 +92,6 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
-    func handleError(error: Error) {
-        print(error)
-    }
-    
     func configureCollectionViewActorsInFilm() {
         addChild(actorsInFilmController)
         view.addSubview(actorsInFilmController.view)
@@ -214,27 +210,11 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
         handleSuccess(titleModel: model)
     }
     
-    func onFetchMovieAwardError(error: Error) {
-        handleError(error: error)
-    }
-        
-    func onFetchTitleError(error: Error) {
-        handleError(error: error)
-    }
-    
     func onFetchTrailerSuccess(model: TrailerModel) {
         handleSuccess(trailerModel: model)
     }
     
-    func onFetchTrailerError(error: Error) {
-        handleError(error: error)
-    }
-    
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel) {
         handleSuccess(webDetailsModel: model)
-    }
-    
-    func onFetchWebDetailsError(error: Error) {
-        handleError(error: error)
     }
 }

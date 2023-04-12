@@ -78,8 +78,6 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
 }
 
 protocol PersonDetailsViewModelDelegate {
-    
     func onFetchPersonInformationSuccess(model: PersonModel)
     func presentAlertOffile(with error: Error)
-    
 }

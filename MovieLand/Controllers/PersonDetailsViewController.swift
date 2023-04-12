@@ -88,7 +88,6 @@ class PersonDetailsViewController: UIViewController {
     // MARK: - Cast configuration
     
     @IBAction func seeAllCastMovieButtonPressed(_ sender: UIButton) {
-        
         viewModel.navigateToList(result: castMoviesController.dataSource)
     }
     

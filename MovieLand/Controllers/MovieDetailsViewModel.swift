@@ -51,7 +51,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             case .success(let title):
                 self?.delegate?.onFetchTitleSuccess(model: title)
             case .failure(let error):
-                self?.delegate?.onFetchTitleError(error: error)
+                self?.handleError(error: error)
             }
         }
     }
@@ -62,7 +62,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             case .success(let trailer):
                 self?.delegate?.onFetchTrailerSuccess(model: trailer)
             case .failure(let error):
-                self?.delegate?.onFetchTrailerError(error: error)
+                self?.handleError(error: error)
             }
         }
     }
@@ -73,7 +73,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             case .success(let webDetails):
                 self?.delegate?.onFetchWebDetailsSuccess(model: webDetails)
             case .failure(let error):
-                self?.delegate?.onFetchWebDetailsError(error: error)
+                self?.handleError(error: error)
             }
         }
     }
@@ -112,10 +112,6 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
 
 protocol MovieDetailsViewModelDelegate {
     func onFetchTitleSuccess(model: TitleModel)
-    func onFetchTitleError(error: Error)
     func onFetchTrailerSuccess(model: TrailerModel)
-    func onFetchTrailerError(error: Error)
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel)
-    func onFetchWebDetailsError(error: Error)
-    func onFetchMovieAwardError(error: Error)
 }
