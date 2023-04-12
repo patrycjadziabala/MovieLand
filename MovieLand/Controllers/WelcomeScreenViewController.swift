@@ -268,6 +268,17 @@ class WelcomeScreenViewController: UIViewController {
         }
         self.tabRouter.navigateToList(results: mappedDataSource)
     }
+    
+    // MARK: - Alert
+    
+    func errorAlert(with error: Error) {
+        let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
+        let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
+            print(Constants.okButtonTapped)
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - WelcomeScreenViewController - extension
@@ -294,4 +305,7 @@ extension WelcomeScreenViewController: WelcomeScreenViewModelDelegate {
         handleSuccess(model: model)
     }
     
+    func presentError(error: Error) {
+        errorAlert(with: error)
+    }
 }

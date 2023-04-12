@@ -36,6 +36,7 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
     
     func handleError(error: Error) {
         print(error)
+        delegate?.presentError(error: error)
     }
     
     func fetchFeaturedMoviesResults() {
@@ -104,4 +105,5 @@ protocol WelcomeScreenViewModelDelegate {
     func onFetchTop250TVSeriesSuccess(model: ItemsForFeaturedMoviesModel)
     func onFetchMostPopularTVSeriesSuccess(model: ItemsForFeaturedMoviesModel)
     func onFetchBoxOfficeAllTimeSuccess(model: ItemsForBoxOfficeAllTimeModel)
+    func presentError(error: Error)
 }

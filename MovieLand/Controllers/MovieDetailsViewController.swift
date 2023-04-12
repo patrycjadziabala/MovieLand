@@ -201,7 +201,20 @@ class MovieDetailsViewController: UIViewController {
         viewModel.fetchMovieAwards(id: titleID)
         exploreAwardsButton.isEnabled = true
     }
+    
+    // MARK: - Alerts
+    
+    func errorAlert(with error: Error) {
+        let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
+            print(Constants.okButtonTapped)
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+
 // MARK: - MovieDetailsViewController - extension
 
 extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
@@ -216,5 +229,9 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel) {
         handleSuccess(webDetailsModel: model)
+    }
+    
+    func presentErrorAlert(error: Error) {
+        errorAlert(with: error)
     }
 }

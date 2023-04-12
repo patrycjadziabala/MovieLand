@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MovieDetailsViewModelProtocol: AnyObject {
     func fetchTitle(id: String)
@@ -104,14 +105,17 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     func handleError(error: Error) {
         print(error)
-//        DispatchQueue.main.async {
-//            self.presentAlert(with: error)
-//        }
+        DispatchQueue.main.async {
+            self.delegate?.presentErrorAlert(error: error)
+        }
     }
 }
+
+//MARK: - MovieDetailsViewModelDelegate
 
 protocol MovieDetailsViewModelDelegate {
     func onFetchTitleSuccess(model: TitleModel)
     func onFetchTrailerSuccess(model: TrailerModel)
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel)
+    func presentErrorAlert(error: Error)
 }

@@ -60,6 +60,16 @@ class SearchViewController: UIViewController {
     func handleError(error: Error) {
         DispatchQueue.main.async {
             self.searchButton.isEnabled = true
+            errorAlert(with: error)
+        }
+        
+        func errorAlert(with error: Error) {
+            let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
+            let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
+                print(Constants.okButtonTapped)
+            })
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
