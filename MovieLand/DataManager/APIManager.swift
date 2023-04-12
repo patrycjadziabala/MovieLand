@@ -51,6 +51,7 @@ enum APIEndpoint: String {
     case boxOfficeAllTime
     case nameAwards
     case awards
+    case ratings
 }
 
 enum APIManagerError: Error {
@@ -461,9 +462,35 @@ class APIManager: APIManagerProtocol {
         currentTask = task
     }
     
+    func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void) {
+        guard let url = buildURL(for: .ratings, id: id) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(RatingsModel.self, from: data)
+                    completion(.success(decodedData))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        task.resume()
+        currentTask = task
+    }
+    
     func cancelCurrentTask() {
         currentTask?.cancel()
     }
-    
-    
 }

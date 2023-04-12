@@ -729,3 +729,10 @@ extension MovieAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
+struct RatingsModel: Decodable {
+    let imDbId: String
+    let year: String
+    let type: String
+    let imDb: String
+}
+
