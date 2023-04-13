@@ -38,7 +38,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configure(with model: SwipeableInformationTilePresentable) {
         title.text = model.titleLabelText
-        
+        configureMovieYear(with: model)
+        configureRankingNumber(with: model)
+        configureRankNumber(with: model)
+        fetchImage(with: model)
+        }
+
+    func configureMovieYear(with model: SwipeableInformationTilePresentable) {
         if let yearMovieInfo = model.yearOrAdditionalInfoLabelText {
             info.text = yearMovieInfo
         } else {
@@ -57,22 +63,40 @@ class CollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+    }
         
+    func configureRankingNumber(with model: SwipeableInformationTilePresentable) {
+        if let rankingNumber = model.iMDbRatingNumberLabelText {
+            rankScore.text = rankingNumber
+        } else {
+            apiManager.fetchRatings(id: model.optionalId) { result in
+                var ratingMovieFromDifferentModel: String?
+                switch result {
+                case .success(let movieRating):
+                    ratingMovieFromDifferentModel = movieRating.imDb
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.rankScore.isHidden = true
+                        self.starImage.isHidden = true
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.rankScore.text = ratingMovieFromDifferentModel
+                }
+            }
+        }
+    }
+    
+    func configureRankNumber(with model: SwipeableInformationTilePresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
             rankNumber.isHidden = true
         } else {
             rankNumber.isHidden = false
             rankNumber.text = model.iMDbRankLabelText
         }
-        
-        if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
-            rankScore.isHidden = true
-            starImage.isHidden = true
-        } else {
-            rankScore.isHidden = false
-            rankScore.text = model.iMDbRatingNumberLabelText
-        }
-        
+    }
+    
+    func fetchImage(with model: SwipeableInformationTilePresentable) {
         if let urlString = model.imageUrlString {
             imageView.sd_setImage(with: URL(string: urlString))
         } else {
@@ -88,8 +112,8 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }
     }
-        
-        func configureImage(for urlString: String?) {
+    
+    func configureImage(for urlString: String?) {
             DispatchQueue.main.async {
                 if let urlString = urlString {
                     self.imageView.sd_setImage(with: URL(string: urlString))
@@ -102,6 +126,7 @@ class CollectionViewCell: UICollectionViewCell {
         func configureDefaultImage() {
             DispatchQueue.main.async {
                 self.imageView.image = Constants.defaultImage
+                print("Error")
             }
         }
         
@@ -110,3 +135,4 @@ class CollectionViewCell: UICollectionViewCell {
             imageView.sd_cancelCurrentImageLoad()
         }
     }
+

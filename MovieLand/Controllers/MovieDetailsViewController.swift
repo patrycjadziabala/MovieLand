@@ -33,6 +33,9 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var filmAffinityWebsiteButton: UIButton!
     @IBOutlet weak var movieDbWebsiteButton: UIButton!
     @IBOutlet weak var rottenTomatoesWebsiteButton: UIButton!
+    @IBOutlet weak var ratingScore: UILabel!
+    @IBOutlet weak var ratingStarImage: UIImageView!
+    @IBOutlet weak var ratingDescriptionLabel: UILabel!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -68,6 +71,8 @@ class MovieDetailsViewController: UIViewController {
         prepareForShowingTrailer()
         
         prepareToShowFullDetails()
+        
+        prepareForShowingMovieRating()
     }
     
     // MARK: - Movie information configuration
@@ -89,8 +94,11 @@ class MovieDetailsViewController: UIViewController {
             self.awardsTextView.text = titleModel.awards
             self.actorsInFilmController.set(dataSource: titleModel.actorList)
             self.similarMoviesController.set(dataSource: titleModel.similars)
+            
         }
     }
+    
+    
     
     func configureCollectionViewActorsInFilm() {
         addChild(actorsInFilmController)
@@ -104,6 +112,24 @@ class MovieDetailsViewController: UIViewController {
         view.addSubview(similarMoviesController.view)
         similarMoviesController.didMove(toParent: self)
         similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
+    }
+    
+    // MARK: - Movie rating configuration
+    
+    func prepareForShowingMovieRating() {
+        viewModel.fetchRating(id: titleID)
+    }
+    
+    func handleSuccess(ratingModel: RatingsModel) {
+        DispatchQueue.main.async {
+            if ratingModel.imDb?.isEmpty ?? true {
+                self.ratingScore.isHidden = true
+                self.ratingStarImage.isHidden = true
+                self.ratingDescriptionLabel.isHidden = true
+            } else {
+                self.ratingScore.text = ratingModel.imDb
+            }
+        }
     }
     
     // MARK: - Trailer configuaration
@@ -229,6 +255,10 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel) {
         handleSuccess(webDetailsModel: model)
+    }
+    
+    func onFetchRatingSuccess(ratingModel: RatingsModel) {
+        handleSuccess(ratingModel: ratingModel)
     }
     
     func presentErrorAlert(error: Error) {

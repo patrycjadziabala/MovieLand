@@ -16,6 +16,7 @@ protocol MovieDetailsViewModelProtocol: AnyObject {
     func navigateToTrailer(urlString: String)
     func navigateToFullDetailsWeb(urlString: String)
     func fetchMovieAwards(id: String)
+    func fetchRating(id: String)
     var delegate: MovieDetailsViewModelDelegate? { get set }
 }
 
@@ -90,6 +91,18 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
     }
     
+    func fetchRating(id: String) {
+        apiManager.fetchRatings(id: id) {
+            [weak self] result in
+            switch result {
+            case .success(let rating):
+                self?.delegate?.onFetchRatingSuccess(ratingModel: rating)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
+    
     func handleSuccess(awardsResults: MovieAwardsModel) {
         DispatchQueue.main.async {
             var arrayMovieAward: [MovieAwardSummaryModel] = []
@@ -117,5 +130,6 @@ protocol MovieDetailsViewModelDelegate {
     func onFetchTitleSuccess(model: TitleModel)
     func onFetchTrailerSuccess(model: TrailerModel)
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel)
+    func onFetchRatingSuccess(ratingModel: RatingsModel)
     func presentErrorAlert(error: Error)
 }

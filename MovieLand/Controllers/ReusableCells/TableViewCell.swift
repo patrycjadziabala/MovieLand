@@ -57,7 +57,6 @@ class TableViewCell: UITableViewCell {
         }
         if let yearMovieInfo = model.yearInfoText {
             cellYearInfo.text = yearMovieInfo
-            
         } else {
             apiManager.fetchTitle(id: model.id) { result in
                 var yearMovieInfoFromDifferentModel: String?
@@ -81,11 +80,28 @@ class TableViewCell: UITableViewCell {
             cellIMDbRankLabel.text = model.iMDbRankLabelText
         }
         if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
-            cellIMDbRatingNumberLabel.isHidden = true
-            cellIMDbRatingLabel.isHidden = true
+            configureMovieRating(id: model.id)
         } else {
             cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
             cellIMDbRatingLabel.text = Constants.iMDbRating
+        }
+    }
+    
+    func configureMovieRating(id: String) {
+        apiManager.fetchRatings(id: id) { result in
+            var ratingMovieFromDifferentModel: String?
+            switch result {
+            case .success(let movieRating):
+                ratingMovieFromDifferentModel = movieRating.imDb
+            case .failure:
+                DispatchQueue.main.async {
+                    self.cellIMDbRatingNumberLabel.isHidden = true
+                    self.cellIMDbRatingLabel.isHidden = true
+                }
+            }
+            DispatchQueue.main.async {
+                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
+            }
         }
     }
     
@@ -100,7 +116,9 @@ class TableViewCell: UITableViewCell {
     }
     
     func configureDefaultImage() {
-        self.cellImage.image = Constants.defaultImage
+        DispatchQueue.main.async {
+            self.cellImage.image = Constants.defaultImage
+        }
     }
 }
 

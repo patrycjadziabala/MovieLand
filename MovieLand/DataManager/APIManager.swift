@@ -33,6 +33,8 @@ protocol APIManagerProtocol: AnyObject {
     
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void)
     
+    func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void)
+    
     func cancelCurrentTask()
 }
 

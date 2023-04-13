@@ -115,7 +115,7 @@ struct TrailerModel: Decodable {
 
 struct AllDetailsWebModel: Decodable {
     let imDbId: String
-    let officialWebsite: String
+    let officialWebsite: String?
     let imDb: AllDetailsWebLinkModel
     let theMovieDb: AllDetailsWebLinkModel
     let rottenTomatoes: AllDetailsWebLinkModel
@@ -733,6 +733,6 @@ struct RatingsModel: Decodable {
     let imDbId: String
     let year: String
     let type: String
-    let imDb: String
+    let imDb: String?
+    let title: String
 }
-
