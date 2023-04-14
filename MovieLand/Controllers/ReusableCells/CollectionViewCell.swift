@@ -126,7 +126,6 @@ class CollectionViewCell: UICollectionViewCell {
         func configureDefaultImage() {
             DispatchQueue.main.async {
                 self.imageView.image = Constants.defaultImage
-                print("Error")
             }
         }
         

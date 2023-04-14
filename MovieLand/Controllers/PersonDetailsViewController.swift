@@ -45,6 +45,13 @@ class PersonDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.fetchPersonInformation(id: personID)
+        configureView()
+       
+    }
+    
+    // MARK: - View Configuration
+    
+    func configureView() {
         configureCollectionViewCastMovies()
     }
     
@@ -58,7 +65,6 @@ class PersonDetailsViewController: UIViewController {
             } else {
                 self.birthDateLabel.text = "Birth date: \(personModel.birthDate ?? "")"
                 self.birthDateLabel.sizeToFit()
-//                self.birthDateLabel.numberOfLines = 1
                 }
             self.personInfoTextView.text = personModel.summary
             let imageUrl = URL(string: personModel.image)

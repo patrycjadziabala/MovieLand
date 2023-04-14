@@ -87,6 +87,7 @@ class WelcomeScreenViewController: UIViewController {
         
         configureCollectionViewForBoxOfficeAllTime()
         prepareForShowingBoxOfficeAllTime()
+        
     }
     
     // MARK: - Welcome Screen View configuration

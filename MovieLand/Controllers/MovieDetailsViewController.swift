@@ -60,12 +60,6 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureCollectionViewActorsInFilm()
-        configureCollectionViewSimilarMovies()
-        
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        scrollView.showsVerticalScrollIndicator = false
-        
         prepareForShowingMovieInformation()
         
         prepareForShowingTrailer()
@@ -73,6 +67,17 @@ class MovieDetailsViewController: UIViewController {
         prepareToShowFullDetails()
         
         prepareForShowingMovieRating()
+        
+        configureView()
+    }
+    
+    // MARK: - View - Configuration
+    
+    func configureView() {
+        configureCollectionViewActorsInFilm()
+        configureCollectionViewSimilarMovies()
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        scrollView.showsVerticalScrollIndicator = false
     }
     
     // MARK: - Movie information configuration
@@ -97,9 +102,7 @@ class MovieDetailsViewController: UIViewController {
             
         }
     }
-    
-    
-    
+
     func configureCollectionViewActorsInFilm() {
         addChild(actorsInFilmController)
         view.addSubview(actorsInFilmController.view)
