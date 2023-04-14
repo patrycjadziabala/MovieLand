@@ -21,8 +21,8 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var castMoviesLabel: UILabel!
     @IBOutlet weak var castMoviesCollectionViewContainer: UIView!
     @IBOutlet weak var seeAllCastMovieButton: UIButton!
+    @IBOutlet weak var deathDateLabel: UILabel!
     
-    let apiManager = APIManager()
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
@@ -46,7 +46,6 @@ class PersonDetailsViewController: UIViewController {
         
         viewModel.fetchPersonInformation(id: personID)
         configureCollectionViewCastMovies()
-        
     }
     
     func handleSuccess(personModel: PersonModel) {
@@ -54,15 +53,28 @@ class PersonDetailsViewController: UIViewController {
             self.seeAllCastMovieButton.isEnabled = true
             self.nameLabel.text = personModel.name
             self.roleLabel.text = personModel.role
-            self.birthDateLabel.text = personModel.birthDate
+            if personModel.birthDate == nil {
+                self.birthDateLabel.isHidden = true
+            } else {
+                self.birthDateLabel.text = "Birth date: \(personModel.birthDate ?? "")"
+                self.birthDateLabel.sizeToFit()
+//                self.birthDateLabel.numberOfLines = 1
+                }
             self.personInfoTextView.text = personModel.summary
             let imageUrl = URL(string: personModel.image)
             self.personImageView.sd_setImage(with: imageUrl)
             self.heightLabel.text = personModel.height
             self.awardsLabel.text = personModel.awards
             self.castMoviesController.set(dataSource: personModel.castMovies)
-            //            self.collectionViewCastMovies.reloadData()
-            
+            if let personDeathDate = personModel.deathDate {
+                self.deathDateLabel.text = "Death date: \(personDeathDate)"
+            } else {
+                self.deathDateLabel.isHidden = true
+            }
+           
+//            self.collectionViewCastMovies.reloadData()
+                
+//            }
         }
     }
     

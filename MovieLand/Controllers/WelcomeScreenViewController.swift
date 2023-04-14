@@ -93,7 +93,8 @@ class WelcomeScreenViewController: UIViewController {
     
     func configureWelcomeScreenView() {
         trailerButton.setTitle("See all Coming Soon movies", for: .normal)
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
     }
     

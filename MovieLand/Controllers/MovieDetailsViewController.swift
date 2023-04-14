@@ -63,7 +63,7 @@ class MovieDetailsViewController: UIViewController {
         configureCollectionViewActorsInFilm()
         configureCollectionViewSimilarMovies()
         
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 100)
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
         
         prepareForShowingMovieInformation()
@@ -225,7 +225,6 @@ class MovieDetailsViewController: UIViewController {
     @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {
         exploreAwardsButton.isEnabled = false
         viewModel.fetchMovieAwards(id: titleID)
-        exploreAwardsButton.isEnabled = true
     }
     
     // MARK: - Alerts
@@ -263,5 +262,11 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     
     func presentErrorAlert(error: Error) {
         errorAlert(with: error)
+    }
+    
+    func onFetchMovieAwardsFinished() {
+        DispatchQueue.main.async {
+            self.exploreAwardsButton.isEnabled = true
+        }
     }
 }
