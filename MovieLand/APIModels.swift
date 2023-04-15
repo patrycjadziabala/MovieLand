@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PersonModel: Decodable, Equatable {
+struct PersonModel: Codable, Equatable {
     let id: String
     let name: String
     let role: String?
@@ -58,7 +58,7 @@ extension PersonModel: ListViewControllerCellPresentable {
     }
 }
 
-struct KnownForModel: Decodable, Equatable {
+struct KnownForModel: Codable, Equatable {
     let id: String
     let title: String
     let year: String?
@@ -66,7 +66,7 @@ struct KnownForModel: Decodable, Equatable {
     let image: String
 }
 
-struct CastMovieModel: Decodable, Equatable {
+struct CastMovieModel: Codable, Equatable {
     let id: String
     let role: String
     let title: String
@@ -124,7 +124,7 @@ extension CastMovieModel: ListViewControllerCellPresentable {
     }
 }
 
-struct TitleModel: Decodable, Equatable {
+struct TitleModel: Codable, Equatable {
     let id: String
     let title: String
     let type: String
@@ -178,14 +178,14 @@ extension TitleModel: ListViewControllerCellPresentable {
     }
 }
 
-struct TrailerModel: Decodable {
+struct TrailerModel: Codable {
     let imDbId: String
     let link: String
     let linkEmbed: String
     let thumbnailUrl: String
 }
 
-struct AllDetailsWebModel: Decodable {
+struct AllDetailsWebModel: Codable {
     let imDbId: String
     let officialWebsite: String?
     let imDb: AllDetailsWebLinkModel
@@ -194,17 +194,17 @@ struct AllDetailsWebModel: Decodable {
     let filmAffinity: AllDetailsWebLinkModel
 }
 
-struct AllDetailsWebLinkModel: Decodable {
+struct AllDetailsWebLinkModel: Codable {
     let id: String
     let url: String
 }
 
-struct BasicPersonModel: Decodable, Equatable {
+struct BasicPersonModel: Codable, Equatable {
     let id: String
     let name: String
 }
 
-struct ActorForTitleModel: Decodable, Equatable {
+struct ActorForTitleModel: Codable, Equatable {
     let id: String
     let image: String
     let name: String
@@ -262,12 +262,12 @@ extension ActorForTitleModel: ListViewControllerCellPresentable {
     }
 }
 
-struct GenreModel: Decodable, Equatable {
+struct GenreModel: Codable, Equatable {
     let key: String
     let value: String
 }
 
-struct Similars: Decodable, Equatable {
+struct Similars: Codable, Equatable {
     let id: String
     let title: String
     let image: String
@@ -324,13 +324,13 @@ extension Similars: ListViewControllerCellPresentable {
     }
 }
 
-struct SearchResultsModel: Decodable {
+struct SearchResultsModel: Codable {
     let results: [Results]
     let searchType: String
     let expression: String
 }
 
-struct Results: Decodable {
+struct Results: Codable {
     let id: String
     let image: String
     let title: String
@@ -380,11 +380,11 @@ enum CellContentType: String {
     case unknown
 }
 
-struct ItemsForFeaturedMoviesModel: Decodable {
+struct ItemsForFeaturedMoviesModel: Codable {
     let items: [FeaturedMoviesModel]
 }
 
-struct FeaturedMoviesModel: Decodable {
+struct FeaturedMoviesModel: Codable {
     let id: String
     let rank: String
     let title: String
@@ -445,11 +445,11 @@ extension FeaturedMoviesModel: ListViewControllerCellPresentable {
     }
 }
 
-struct ItemsForComingSoonModel: Decodable {
+struct ItemsForComingSoonModel: Codable {
     let items: [ComingSoonModel]
 }
 
-struct ComingSoonModel: Decodable {
+struct ComingSoonModel: Codable {
     let id: String
     let title: String
     let fullTitle: String?
@@ -511,16 +511,16 @@ extension ComingSoonModel: ListViewControllerCellPresentable {
     }
 }
 
-struct GenreList: Decodable {
+struct GenreList: Codable {
     let key: String
     let value: String
 }
 
-struct ItemsforInCinemasModel: Decodable {
+struct ItemsforInCinemasModel: Codable {
     let items: [InCinemasModel]
 }
 
-struct InCinemasModel: Decodable {
+struct InCinemasModel: Codable {
     let id: String
     let title: String
     let image: String
@@ -577,11 +577,11 @@ extension InCinemasModel: ListViewControllerCellPresentable {
     }
 }
 
-struct ItemsForBoxOfficeAllTimeModel: Decodable {
+struct ItemsForBoxOfficeAllTimeModel: Codable {
     let items: [BoxOfficeAllTimeModel]
 }
 
-struct BoxOfficeAllTimeModel: Decodable {
+struct BoxOfficeAllTimeModel: Codable {
     let id: String
     let rank: String
     let title: String
@@ -643,26 +643,26 @@ extension BoxOfficeAllTimeModel: ListViewControllerCellPresentable {
     }
 }
 
-struct PersonAwardsModel: Decodable {
+struct PersonAwardsModel: Codable {
     let imDbId: String
     let name: String
     let description: String?
     let items: [PersonAwardsItemModel]
 }
 
-struct PersonAwardsItemModel: Decodable {
+struct PersonAwardsItemModel: Codable {
     let eventTitle: String
     let outcomeItems: [PersonAwardsOutcomeItemModel]
 }
 
-struct PersonAwardsOutcomeItemModel: Decodable {
+struct PersonAwardsOutcomeItemModel: Codable {
     let outcomeYear: String?
     let outcomeTitle: String
     let outcomeCategory: String
     let outcomeDetails: [PersonAwardsOutcomeDetailsModel]
 }
 
-struct PersonAwardsOutcomeDetailsModel: Decodable {
+struct PersonAwardsOutcomeDetailsModel: Codable {
     let plainText: String
     let html: String
 }
@@ -722,7 +722,7 @@ extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
-struct MovieAwardsModel: Decodable {
+struct MovieAwardsModel: Codable {
     let imDbId: String
     let title: String
     let type: String
@@ -731,19 +731,19 @@ struct MovieAwardsModel: Decodable {
     let items: [MovieAwardsItemModel]
 }
 
-struct MovieAwardsItemModel: Decodable {
+struct MovieAwardsItemModel: Codable {
     let eventTitle: String
     let eventYear: String
     let outcomeItems: [MovieAwardsOutcomeItemModel]
 }
 
-struct MovieAwardsOutcomeItemModel: Decodable {
+struct MovieAwardsOutcomeItemModel: Codable {
     let outcomeTitle: String
     let outcomeCategory: String
     let outcomeDetails: [MovieAwardsOutcomeDetailsModel]
 }
 
-struct MovieAwardsOutcomeDetailsModel: Decodable {
+struct MovieAwardsOutcomeDetailsModel: Codable {
     let plainText: String
     let html: String
 }
@@ -801,7 +801,7 @@ extension MovieAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
-struct RatingsModel: Decodable {
+struct RatingsModel: Codable {
     let imDbId: String
     let year: String
     let type: String

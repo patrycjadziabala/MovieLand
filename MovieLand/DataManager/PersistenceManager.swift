@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PersistableModel: Equatable {
+enum PersistableModel: Codable, Equatable {
     case person(model: PersonModel)
     case seen(model: TitleModel)
     case want(model: TitleModel)
@@ -48,22 +48,28 @@ class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
     private let kPersistedData = "kPersistedData"
     
     init() {
-        persistedData = []
+        if let dataFromDefaults = UserDefaults.standard.data(forKey: kPersistedData) {
+            let decoder = JSONDecoder()
+            let decodedData = try? decoder.decode([PersistableModel].self, from: dataFromDefaults)
+            persistedData = decodedData ?? []
+        } else {
+            persistedData = []
+        }
     }
     
     func persist(model: PersistableModel) {
-        guard !persistedData.contains(where: { persistedModel in
-            model == persistedModel
-        }) else {
+        guard !isPersisted(model: model) else {
             return
         }
         persistedData.append(model)
+        persistToUserDefaults()
     }
     
     func remove(model: PersistableModel) {
         persistedData.removeAll { arrayModel in
             arrayModel == model
         }
+        persistToUserDefaults()
     }
     
     func isPersisted(model: PersistableModel) -> Bool {
@@ -78,5 +84,11 @@ class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
         } else {
             persist(model: model)
         }
+    }
+    
+    func persistToUserDefaults() {
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(persistedData)
+        UserDefaults.standard.set(data, forKey: kPersistedData)
     }
 }
