@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -34,30 +35,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         welcomeScreenNavigationController.viewControllers = [welcomeScreen]
         welcomeScreen.tabBarItem = UITabBarItem(title: "Home", image: Constants.homekitImage, selectedImage: Constants.homekitImage)
         
-        let scrollTestNavigationController = UINavigationController()
-        let scrollTestTabRouter = TabRouter(navigationController: scrollTestNavigationController)
-        let scrollTestScreen = ScrollTestViewController()
-        scrollTestNavigationController.viewControllers = [scrollTestScreen]
-        scrollTestScreen.tabBarItem = UITabBarItem(title: "Test", image: UIImage(systemName: "questionmark.square.dashed"), selectedImage: UIImage(systemName: "questionmark.square.dashed"))
+        let favouritesNavigationController = UINavigationController()
+        let favouritesTabRouter = TabRouter(navigationController: favouritesNavigationController)
+        let favouritesViewController = FavouritesViewController(tabRouter: favouritesTabRouter)
+        favouritesNavigationController.viewControllers = [favouritesViewController]
+        favouritesViewController.tabBarItem = UITabBarItem(title: "Fav", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
         let searchViewController = SearchViewController(tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]
         
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
-//
-        let testController = UIViewController()
-        testController.view.backgroundColor = .gray
-        
-        
-        
-//        let top250MoviesViewController = ListViewController(tabRouter: searchTabRouter, dataSource: )
-//        top250MoviesViewController.tabBarItem = UITabBarItem(title: "Featured", image: Constants.featuredImageHeart, selectedImage: Constants.featuredImageHeart)
-        
-        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, scrollTestNavigationController, testController]
+
+        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, favouritesNavigationController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        return
-        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

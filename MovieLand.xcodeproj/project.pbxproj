@@ -41,6 +41,7 @@
 		46D8605229C76EE6006271A2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D8605129C76EE6006271A2 /* ListViewController.swift */; };
 		46D8605529CB0DCB006271A2 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D8605329CB0DCB006271A2 /* WelcomeScreenViewController.swift */; };
 		46D8605629CB0DCB006271A2 /* WelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D8605429CB0DCB006271A2 /* WelcomeScreenViewController.xib */; };
+		46F0D7A829EAE89200895932 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0D7A729EAE89200895932 /* FavouritesViewController.swift */; };
 		46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */; };
 		46F4E9B029AFC0DE00E8A1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */; };
 		46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */; };
@@ -81,6 +82,7 @@
 		46D8605129C76EE6006271A2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		46D8605329CB0DCB006271A2 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		46D8605429CB0DCB006271A2 /* WelcomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeScreenViewController.xib; sourceTree = "<group>"; };
+		46F0D7A729EAE89200895932 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				46F4E9B329AFC0DE00E8A1A6 /* Main.storyboard */,
 				46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */,
 				46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */,
+				46F0D7A729EAE89200895932 /* FavouritesViewController.swift */,
 				4687908F29B21492000BA402 /* MovieDetailsViewController.swift */,
 				4640FC2329DCB5820061999C /* MovieDetailsViewModel.swift */,
 				4640FC2929E96BD60061999C /* MovieDetailsViewController.xib */,
@@ -343,6 +346,7 @@
 				46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */,
 				4640FC2829E6B57B0061999C /* WelcomeScreenViewModel.swift in Sources */,
 				469979AA29CF3CBB00DECEBB /* ScrollTestViewController.swift in Sources */,
+				46F0D7A829EAE89200895932 /* FavouritesViewController.swift in Sources */,
 				4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */,
 				46AC54C029BF8ADC00DB029B /* SwipeableInformationTilesController.swift in Sources */,
 				4687909129B21492000BA402 /* MovieDetailsViewController.swift in Sources */,
