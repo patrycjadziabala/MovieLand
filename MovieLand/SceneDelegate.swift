@@ -18,8 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { _ in
-            print("Clearing SDWebImageCache")
+        Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { _ in
             SDImageCache.shared.clearMemory()
         }
         

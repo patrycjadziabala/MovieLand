@@ -47,10 +47,13 @@ class PersonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        toggleActivity(active: true)
         viewModel.fetchPersonInformation(id: personID)
         viewModel.fetchPersonAwards(id: personID)
         configureView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.toggleActivity(active: false)
+        }
        
     }
     

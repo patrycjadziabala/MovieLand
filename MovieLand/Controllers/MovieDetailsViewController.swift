@@ -59,11 +59,6 @@ class MovieDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        removeFromParent()
-    }
-    
     deinit {
         print("\(String(describing: Self.self)) dead")
     }
@@ -71,6 +66,7 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        toggleActivity(active: true)
         prepareForShowingMovieInformation()
         
         prepareForShowingTrailer()
@@ -83,6 +79,10 @@ class MovieDetailsViewController: UIViewController {
         
         updateSeenIcon(isSeen: false)
         updateWantIcon(isWant: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.toggleActivity(active: false)
+        }
     }
     
     // MARK: - View - Configuration
@@ -128,6 +128,7 @@ class MovieDetailsViewController: UIViewController {
             self.similarMoviesController.set(dataSource: titleModel.similars)
             self.updateWantIcon(isWant: self.viewModel.isWant())
             self.updateSeenIcon(isSeen: self.viewModel.isSeen())
+//            self.toggleActivity(active: false)
         }
     }
 
@@ -321,6 +322,7 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
     }
     
     func presentErrorAlert(error: Error) {
+        toggleActivity(active: false)
         errorAlert(with: error)
     }
     
@@ -328,5 +330,45 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
         DispatchQueue.main.async {
             self.exploreAwardsButton.isEnabled = true
         }
+    }
+}
+
+extension UIViewController {
+    func toggleActivity(active: Bool) {
+        if active {
+            let activityOverlay = ActivityOverlayView(frame: view.frame)
+            view.addSubview(activityOverlay)
+            activityOverlay.constraint(to: view)
+            view.bringSubviewToFront(activityOverlay)
+        } else {
+            for subview in view.subviews {
+                if subview.isKind(of: ActivityOverlayView.self) {
+                    subview.removeFromSuperview()
+                }
+            }
+        }
+    }
+}
+
+class ActivityOverlayView: UIView {
+    var activityIndicator: UIActivityIndicatorView
+    
+    override init(frame: CGRect) {
+        activityIndicator = UIActivityIndicatorView(frame: .zero)
+        super.init(frame: frame)
+        doConfiguration()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func doConfiguration() {
+        addSubview(activityIndicator)
+        backgroundColor = .white
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        activityIndicator.startAnimating()
     }
 }

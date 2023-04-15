@@ -39,7 +39,6 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
 
         configureTableView()
-        
     }
     
     deinit {
