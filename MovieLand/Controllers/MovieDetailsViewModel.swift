@@ -28,7 +28,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     let apiManager = APIManager()
     
-    var delegate: MovieDetailsViewModelDelegate?
+    weak var delegate: MovieDetailsViewModelDelegate?
 
     let tabRouter: TabRouterProtocol
     
@@ -115,23 +115,18 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     }
     
     func handleSuccess(awardsResults: MovieAwardsModel) {
-        DispatchQueue.main.async {
-            var arrayMovieAward: [MovieAwardSummaryModel] = []
-            for outerItem in awardsResults.items {
-                for innerItem in outerItem.outcomeItems {
-                    let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear, eventTitle: outerItem.eventTitle)
-                    arrayMovieAward.append(model)
-                }
+        var arrayMovieAward: [MovieAwardSummaryModel] = []
+        for outerItem in awardsResults.items {
+            for innerItem in outerItem.outcomeItems {
+                let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear, eventTitle: outerItem.eventTitle)
+                arrayMovieAward.append(model)
             }
-            self.tabRouter.navigateToList(results: arrayMovieAward)
         }
+        self.tabRouter.navigateToList(results: arrayMovieAward)
     }
     
     func handleError(error: Error) {
-        print(error)
-        DispatchQueue.main.async {
-            self.delegate?.presentErrorAlert(error: error)
-        }
+        self.delegate?.presentErrorAlert(error: error)
     }
     
     // MARK: - Favourites
@@ -168,7 +163,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
 
 //MARK: - MovieDetailsViewModelDelegate
 
-protocol MovieDetailsViewModelDelegate {
+protocol MovieDetailsViewModelDelegate: AnyObject {
     func onFetchTitleSuccess(model: TitleModel)
     func onFetchTrailerSuccess(model: TrailerModel)
     func onFetchWebDetailsSuccess(model: AllDetailsWebModel)

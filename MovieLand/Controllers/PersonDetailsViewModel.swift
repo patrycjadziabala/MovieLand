@@ -20,7 +20,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     
     let apiManager = APIManager()
     
-    var delegate: PersonDetailsViewModelDelegate?
+    weak var delegate: PersonDetailsViewModelDelegate?
     
     let tabRouter: TabRouterProtocol
     
@@ -89,7 +89,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     }
 }
 
-protocol PersonDetailsViewModelDelegate {
+protocol PersonDetailsViewModelDelegate: AnyObject {
     func onFetchPersonInformationSuccess(model: PersonModel)
     func presentAlertOffile(with error: Error)
     func onFetchAwardsCompleted(success: Bool)

@@ -59,6 +59,15 @@ class MovieDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeFromParent()
+    }
+    
+    deinit {
+        print("\(String(describing: Self.self)) dead")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,7 +111,7 @@ class MovieDetailsViewController: UIViewController {
             let imageUrl = URL(string: titleModel.image)
             self.moviePosterImageView.sd_setImage(with: imageUrl)
             self.movieOverviewTextView.text = titleModel.plot
-            
+
 //            if titleModel.awards == nil {
 //                self.exploreAwardsButton.isHidden
 //            }
@@ -114,7 +123,7 @@ class MovieDetailsViewController: UIViewController {
             } else {
                 self.awardsTextView.isHidden = true
             }
-         
+
             self.actorsInFilmController.set(dataSource: titleModel.actorList)
             self.similarMoviesController.set(dataSource: titleModel.similars)
             self.updateWantIcon(isWant: self.viewModel.isWant())
@@ -200,7 +209,6 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func officialWebsiteButtonPressed(_ sender: UIButton) {
-        print("OK")
         DispatchQueue.main.async {
             self.showWeb(urlString: self.webDetailsModel?.officialWebsite ?? "")
         }
@@ -252,13 +260,15 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Alerts
     
     func errorAlert(with error: Error) {
-        let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
-        
-        let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
-            print(Constants.okButtonTapped)
-        })
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
+                print(Constants.okButtonTapped)
+            })
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Favourites

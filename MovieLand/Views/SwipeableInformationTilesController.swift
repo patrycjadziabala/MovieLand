@@ -35,6 +35,11 @@ class SwipeableInformationTilesController: UIViewController {
         configureCollectionView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeFromParent()
+    }
+    
     func set(dataSource: [SwipeableInformationTilePresentable]) {
         self.dataSource = dataSource
         self.collectionViewCastMovies.reloadData()
@@ -69,10 +74,6 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
         case .unknown:
             break
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let collectionViewCell = cell as? CollectionViewCell
     }
 }
 

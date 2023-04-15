@@ -41,6 +41,10 @@ class PersonDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("\(String(describing: Self.self)) dead")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

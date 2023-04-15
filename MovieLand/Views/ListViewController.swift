@@ -42,6 +42,10 @@ class ListViewController: UIViewController {
         
     }
     
+    deinit {
+        print("\(String(describing: Self.self)) dead")
+    }
+    
     func configureTableView() {
         view.addSubview(tableView)
         let regularCell = String(describing: TableViewCell.self)
