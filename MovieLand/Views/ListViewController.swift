@@ -57,6 +57,11 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.reloadData()
     }
+    
+    func update(dataSource: [ListViewControllerCellPresentable]) {
+        self.dataSource = dataSource
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource

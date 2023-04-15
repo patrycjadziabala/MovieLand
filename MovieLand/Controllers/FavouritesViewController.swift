@@ -11,17 +11,20 @@ class FavouritesViewController: UIViewController {
 
     private let segmentedControl: UISegmentedControl
     private let tabRouter: TabRouterProtocol
+    private let listController: ListViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureSegmentedControl()
         configureView()
+        configureListView()
     }
     
     init(tabRouter: TabRouterProtocol) {
         self.segmentedControl = UISegmentedControl(frame: CGRect.zero)
         self.tabRouter = tabRouter
+        self.listController = ListViewController(tabRouter: tabRouter, dataSource: [])
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,5 +58,16 @@ class FavouritesViewController: UIViewController {
     
     @objc func onSegmentedControlChanged() {
         
+    }
+    
+    func configureListView() {
+        addChild(listController)
+        view.addSubview(listController.view)
+        listController.didMove(toParent: self)
+        listController.view.translatesAutoresizingMaskIntoConstraints = false
+        listController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor).isActive = true
+        listController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        listController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        listController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
