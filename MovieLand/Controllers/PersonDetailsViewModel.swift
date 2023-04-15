@@ -12,6 +12,7 @@ protocol PersonDetailsViewModelProtocol: AnyObject {
     func fetchPersonInformation(id: String)
     func fetchPersonAwards(id: String)
     func navigateToList(result:[SwipeableInformationTilePresentable])
+    func navigateToAwards()
     var delegate: PersonDetailsViewModelDelegate? { get set }
 }
 
@@ -22,6 +23,8 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     var delegate: PersonDetailsViewModelDelegate?
     
     let tabRouter: TabRouterProtocol
+    
+    private var awardsArray: [PersonAwardSummaryModel]?
     
     init(tabRouter: TabRouterProtocol) {
         self.tabRouter = tabRouter
@@ -50,23 +53,32 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
             switch result {
             case .success(let awardsResults):
                 self?.handleSuccess(awardsResults: awardsResults)
+                self?.delegate?.onFetchAwardsCompleted(success: true)
             case .failure(let error):
                 self?.handleError(error: error)
+                self?.delegate?.onFetchAwardsCompleted(success: false)
             }
         }
     }
     
     func handleSuccess(awardsResults: PersonAwardsModel) {
-        DispatchQueue.main.async {
-            var array: [PersonAwardSummaryModel] = []
-            for outerItem in awardsResults.items {
-                for innerItem in outerItem.outcomeItems {
-                    let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle)
-                    array.append(model)
-                }
+        var array: [PersonAwardSummaryModel] = []
+        for outerItem in awardsResults.items {
+            for innerItem in outerItem.outcomeItems {
+                let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle)
+                array.append(model)
             }
-            self.tabRouter.navigateToList(results: array)
         }
+        awardsArray = array
+    }
+    
+    // Jak mozna sie dostac z tej funkcji wyzej do array????
+    func navigateToAwards() {
+        guard let array = awardsArray else {
+            return
+        }
+        self.tabRouter.navigateToList(results: array)
+
     }
     
     func handleError(error: Error) {
@@ -80,4 +92,5 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
 protocol PersonDetailsViewModelDelegate {
     func onFetchPersonInformationSuccess(model: PersonModel)
     func presentAlertOffile(with error: Error)
+    func onFetchAwardsCompleted(success: Bool)
 }

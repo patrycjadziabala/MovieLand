@@ -83,6 +83,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Movie information configuration
     
     func prepareForShowingMovieInformation() {
+        exploreAwardsButton.isHidden = true
         viewModel.fetchTitle(id: titleID)
     }
     
@@ -96,7 +97,19 @@ class MovieDetailsViewController: UIViewController {
             let imageUrl = URL(string: titleModel.image)
             self.moviePosterImageView.sd_setImage(with: imageUrl)
             self.movieOverviewTextView.text = titleModel.plot
-            self.awardsTextView.text = titleModel.awards
+            
+//            if titleModel.awards == nil {
+//                self.exploreAwardsButton.isHidden
+//            }
+            if let awardsList = titleModel.awards {
+                self.exploreAwardsButton.isHidden = false
+                self.exploreAwardsButton.backgroundColor = UIColor.cyan
+
+                self.awardsTextView.text = awardsList
+            } else {
+                self.awardsTextView.isHidden = true
+            }
+         
             self.actorsInFilmController.set(dataSource: titleModel.actorList)
             self.similarMoviesController.set(dataSource: titleModel.similars)
             

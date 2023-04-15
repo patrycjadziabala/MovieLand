@@ -45,6 +45,7 @@ class PersonDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.fetchPersonInformation(id: personID)
+        viewModel.fetchPersonAwards(id: personID)
         configureView()
        
     }
@@ -53,36 +54,72 @@ class PersonDetailsViewController: UIViewController {
     
     func configureView() {
         configureCollectionViewCastMovies()
+        awardsButton.isEnabled = false
     }
     
     func handleSuccess(personModel: PersonModel) {
         DispatchQueue.main.async {
             self.seeAllCastMovieButton.isEnabled = true
             self.nameLabel.text = personModel.name
+            self.configureBirthDate(personModel: personModel)
             self.roleLabel.text = personModel.role
-            if personModel.birthDate == nil {
-                self.birthDateLabel.isHidden = true
-            } else {
-                self.birthDateLabel.text = "Birth date: \(personModel.birthDate ?? "")"
-                self.birthDateLabel.sizeToFit()
-                }
             self.personInfoTextView.text = personModel.summary
-            let imageUrl = URL(string: personModel.image)
-            self.personImageView.sd_setImage(with: imageUrl)
+            self.configureImage(personModel: personModel)
             self.heightLabel.text = personModel.height
-            self.awardsLabel.text = personModel.awards
+            self.configurePersonAwards(personModel: personModel)
             self.castMoviesController.set(dataSource: personModel.castMovies)
-            if let personDeathDate = personModel.deathDate {
-                self.deathDateLabel.text = "Death date: \(personDeathDate)"
-            } else {
-                self.deathDateLabel.isHidden = true
-            }
+            self.configurePersonDeathDate(personModel: personModel)
            
 //            self.collectionViewCastMovies.reloadData()
                 
 //            }
         }
     }
+    
+    func configureBirthDate(personModel: PersonModel) {
+        if personModel.birthDate == nil {
+            self.birthDateLabel.isHidden = true
+        } else {
+            self.birthDateLabel.text = "Birth date: \(personModel.birthDate ?? "")"
+            self.birthDateLabel.sizeToFit()
+        }
+    }
+        
+        func configureImage(personModel: PersonModel) {
+            let imageUrl = URL(string: personModel.image)
+            self.personImageView.sd_setImage(with: imageUrl)
+        }
+
+    func configurePersonAwards(personModel: PersonModel) {
+        if let personAwards = personModel.awards {
+            self.awardsLabel.text = personAwards
+        } else {
+            self.hideAwardsLabelandButton()
+        }
+    }
+    
+    func configurePersonDeathDate(personModel: PersonModel) {
+        if let personDeathDate = personModel.deathDate {
+            self.deathDateLabel.text = "Death date: \(personDeathDate)"
+        } else {
+            self.deathDateLabel.isHidden = true
+        }
+    }
+    
+    func hideAwardsLabelandButton() {
+        awardsLabel.isHidden = true
+        awardsButton.isHidden = true
+    }
+    
+    func configureCollectionViewCastMovies() {
+        
+        addChild(castMoviesController)
+        view.addSubview(castMoviesController.view)
+        castMoviesController.didMove(toParent: self)
+        castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
+    }
+    
+    // MARK: - Alert configuration
     
     func presentAlert(with error: Error) {
         let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)
@@ -95,14 +132,6 @@ class PersonDetailsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func configureCollectionViewCastMovies() {
-        
-        addChild(castMoviesController)
-        view.addSubview(castMoviesController.view)
-        castMoviesController.didMove(toParent: self)
-        castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
-    }
-    
     // MARK: - Cast configuration
     
     @IBAction func seeAllCastMovieButtonPressed(_ sender: UIButton) {
@@ -112,15 +141,21 @@ class PersonDetailsViewController: UIViewController {
     // MARK: - Awards configuration
     
     @IBAction func awardsButtonPressed(_ sender: UIButton) {
-        awardsButton.isEnabled = false
-        viewModel.fetchPersonAwards(id: personID)
-        awardsButton.isEnabled = true
+        viewModel.navigateToAwards()
     }
 }
 
 // MARK: - PersonDetailsViewController - extension
 
 extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
+    
+    // enum zamiast bool i rozne case
+    func onFetchAwardsCompleted(success: Bool) {
+        DispatchQueue.main.async {
+            self.awardsButton.isEnabled = success
+        }
+    }
+    
     
     func onFetchPersonInformationSuccess(model: PersonModel) {
         handleSuccess(personModel: model)

@@ -178,7 +178,6 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Awards:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4U3-Xr-Izq" userLabel="Awards Text View">
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="41"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" notEnabled="YES"/>
                                                     </accessibility>
@@ -209,6 +208,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4U3-Xr-Izq" firstAttribute="leading" secondItem="CKe-ja-yra" secondAttribute="leading" id="0H1-eX-Org"/>
+                                                <constraint firstItem="D4e-ai-oU9" firstAttribute="centerY" secondItem="CKe-ja-yra" secondAttribute="centerY" id="3lA-O1-dxA"/>
                                                 <constraint firstAttribute="trailing" secondItem="D4e-ai-oU9" secondAttribute="trailing" id="CgX-w1-PAO"/>
                                                 <constraint firstItem="D4e-ai-oU9" firstAttribute="height" secondItem="CKe-ja-yra" secondAttribute="height" id="U1S-cB-OSV"/>
                                                 <constraint firstAttribute="bottom" secondItem="4U3-Xr-Izq" secondAttribute="bottom" id="eCQ-m7-AaO"/>
