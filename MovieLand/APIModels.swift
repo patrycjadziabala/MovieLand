@@ -22,6 +22,42 @@ struct PersonModel: Decodable {
     let errorMessage: String
 }
 
+extension PersonModel: TableViewCellPresentable {
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var nameLabelText: String? {
+        name
+    }
+    
+    var additionalInfoLabelText: String? {
+        awards
+    }
+    
+    var yearInfoText: String? {
+        nil
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+}
+
+extension PersonModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
+    
+    var contentType: CellContentType {
+        .name
+    }
+}
+
 struct KnownForModel: Decodable {
     let id: String
     let title: String
@@ -104,6 +140,42 @@ struct TitleModel: Decodable {
     let genreList: [GenreModel]
     let similars: [Similars]
     let errorMessage: String
+}
+
+extension TitleModel: TableViewCellPresentable {
+    var iMDbRankLabelText: String? {
+        nil
+    }
+    
+    var imageUrlString: String? {
+        image
+    }
+    
+    var nameLabelText: String? {
+        title
+    }
+    
+    var additionalInfoLabelText: String? {
+        nil
+    }
+    
+    var yearInfoText: String? {
+        year
+    }
+    
+    var iMDbRatingNumberLabelText: String? {
+        nil
+    }
+    
+    var contentType: CellContentType {
+        .title
+    }
+}
+
+extension TitleModel: ListViewControllerCellPresentable {
+    var listCellType: ListViewControllerCellType {
+        .regularTableViewCell(model: self)
+    }
 }
 
 struct TrailerModel: Decodable {

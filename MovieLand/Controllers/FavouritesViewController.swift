@@ -12,6 +12,7 @@ class FavouritesViewController: UIViewController {
     private let segmentedControl: UISegmentedControl
     private let tabRouter: TabRouterProtocol
     private let listController: ListViewController
+    private let persistenceManager: PersistenceManagerProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,17 @@ class FavouritesViewController: UIViewController {
         configureListView()
     }
     
-    init(tabRouter: TabRouterProtocol) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        refreshData()
+    }
+    
+    init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
         self.segmentedControl = UISegmentedControl(frame: CGRect.zero)
         self.tabRouter = tabRouter
         self.listController = ListViewController(tabRouter: tabRouter, dataSource: [])
+        self.persistenceManager = persistenceManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,7 +65,7 @@ class FavouritesViewController: UIViewController {
     }
     
     @objc func onSegmentedControlChanged() {
-        
+        refreshData()
     }
     
     func configureListView() {
@@ -69,5 +77,61 @@ class FavouritesViewController: UIViewController {
         listController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         listController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         listController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    func refreshData() {
+        
+        let intArray = [1, 2, 3, 4, 5]
+        let stringArray = intArray.map { element in
+            "This is number \(element)"
+        }
+        
+        let allPersistedData = persistenceManager.persistedData
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            let peopleData = allPersistedData
+                .filter { model in
+                    switch model {
+                    case .person:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .map { model in
+                    return model.asListPresentable
+            }
+            listController.update(dataSource: peopleData)
+        case 1:
+            let seenData = allPersistedData
+                .filter { model in
+                    switch model {
+                    case .seen:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .map { model in
+                    return model.asListPresentable
+                }
+            listController.update(dataSource: seenData)
+        case 2:
+            let wantData = allPersistedData
+                .filter { model in
+                    switch model {
+                    case .want:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .map { model in
+                    return model.asListPresentable
+                }
+            listController.update(dataSource: wantData)
+        default:
+            break
+        }
     }
 }

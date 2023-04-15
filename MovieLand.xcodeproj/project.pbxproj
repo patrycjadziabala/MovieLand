@@ -42,6 +42,7 @@
 		46D8605529CB0DCB006271A2 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D8605329CB0DCB006271A2 /* WelcomeScreenViewController.swift */; };
 		46D8605629CB0DCB006271A2 /* WelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D8605429CB0DCB006271A2 /* WelcomeScreenViewController.xib */; };
 		46F0D7A829EAE89200895932 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0D7A729EAE89200895932 /* FavouritesViewController.swift */; };
+		46F0D7AA29EAF68300895932 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F0D7A929EAF68300895932 /* PersistenceManager.swift */; };
 		46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */; };
 		46F4E9B029AFC0DE00E8A1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */; };
 		46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E9B129AFC0DE00E8A1A6 /* LaunchScreenViewController.swift */; };
@@ -83,6 +84,7 @@
 		46D8605329CB0DCB006271A2 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		46D8605429CB0DCB006271A2 /* WelcomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeScreenViewController.xib; sourceTree = "<group>"; };
 		46F0D7A729EAE89200895932 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		46F0D7A929EAF68300895932 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F4E9AD29AFC0DE00E8A1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F4E9AF29AFC0DE00E8A1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				4687909429B22214000BA402 /* APIManager.swift */,
+				46F0D7A929EAF68300895932 /* PersistenceManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				4640FC2429DCB5820061999C /* MovieDetailsViewModel.swift in Sources */,
 				46BCD5AE29BB69D80047AC42 /* TableViewCell.swift in Sources */,
 				4687909529B22214000BA402 /* APIManager.swift in Sources */,
+				46F0D7AA29EAF68300895932 /* PersistenceManager.swift in Sources */,
 				46AC54BD29BF605300DB029B /* CollectionViewCell.swift in Sources */,
 				46425CA929B76B7300524341 /* Constants.swift in Sources */,
 				4693340729BA588300593C70 /* TabRouter.swift in Sources */,
