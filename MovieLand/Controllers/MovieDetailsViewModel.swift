@@ -17,6 +17,10 @@ protocol MovieDetailsViewModelProtocol: AnyObject {
     func navigateToFullDetailsWeb(urlString: String)
     func fetchMovieAwards(id: String)
     func fetchRating(id: String)
+    func toggleSeen()
+    func isSeen() -> Bool
+    func toggleWant()
+    func isWant() -> Bool
     var delegate: MovieDetailsViewModelDelegate? { get set }
 }
 
@@ -28,8 +32,13 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
 
     let tabRouter: TabRouterProtocol
     
-    init(tabRouter: TabRouterProtocol) {
+    let persistenceManager: PersistenceManagerProtocol
+    
+    var titleModel: TitleModel?
+    
+    init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
         self.tabRouter = tabRouter
+        self.persistenceManager = persistenceManager
     }
     
     func navigateToTrailer(urlString: String) {
@@ -51,6 +60,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         apiManager.fetchTitle(id: id) { [weak self] result in
             switch result {
             case .success(let title):
+                self?.titleModel = title
                 self?.delegate?.onFetchTitleSuccess(model: title)
             case .failure(let error):
                 self?.handleError(error: error)
@@ -123,6 +133,37 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             self.delegate?.presentErrorAlert(error: error)
         }
     }
+    
+    // MARK: - Favourites
+    
+    func toggleSeen() {
+        guard let titleModel = self.titleModel else {
+            return
+        }
+        persistenceManager.togglePersisted(model: .seen(model: titleModel))
+    }
+        
+    func isSeen() -> Bool {
+        guard let titleModel = self.titleModel else {
+            return false
+        }
+        return persistenceManager.isPersisted(model: .seen(model: titleModel))
+    }
+    
+    func toggleWant() {
+        guard let titleModel = self.titleModel else {
+            return
+        }
+        persistenceManager.togglePersisted(model: .want(model: titleModel))
+    }
+    
+    func isWant() -> Bool {
+        guard let titleModel = self.titleModel else {
+            return false
+        }
+        return persistenceManager.isPersisted(model: .want(model: titleModel))
+    }
+    
 }
 
 //MARK: - MovieDetailsViewModelDelegate

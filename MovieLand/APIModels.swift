@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PersonModel: Decodable {
+struct PersonModel: Decodable, Equatable {
     let id: String
     let name: String
     let role: String?
@@ -58,7 +58,7 @@ extension PersonModel: ListViewControllerCellPresentable {
     }
 }
 
-struct KnownForModel: Decodable {
+struct KnownForModel: Decodable, Equatable {
     let id: String
     let title: String
     let year: String?
@@ -66,7 +66,7 @@ struct KnownForModel: Decodable {
     let image: String
 }
 
-struct CastMovieModel: Decodable {
+struct CastMovieModel: Decodable, Equatable {
     let id: String
     let role: String
     let title: String
@@ -124,7 +124,7 @@ extension CastMovieModel: ListViewControllerCellPresentable {
     }
 }
 
-struct TitleModel: Decodable {
+struct TitleModel: Decodable, Equatable {
     let id: String
     let title: String
     let type: String
@@ -199,12 +199,12 @@ struct AllDetailsWebLinkModel: Decodable {
     let url: String
 }
 
-struct BasicPersonModel: Decodable {
+struct BasicPersonModel: Decodable, Equatable {
     let id: String
     let name: String
 }
 
-struct ActorForTitleModel: Decodable {
+struct ActorForTitleModel: Decodable, Equatable {
     let id: String
     let image: String
     let name: String
@@ -262,12 +262,12 @@ extension ActorForTitleModel: ListViewControllerCellPresentable {
     }
 }
 
-struct GenreModel: Decodable {
+struct GenreModel: Decodable, Equatable {
     let key: String
     let value: String
 }
 
-struct Similars: Decodable {
+struct Similars: Decodable, Equatable {
     let id: String
     let title: String
     let image: String

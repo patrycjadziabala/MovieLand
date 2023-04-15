@@ -20,24 +20,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         let tabBarController = UITabBarController()
+        let persistenceManager = UserDefaultsPersistenceManager()
         
         let searchNavigationController = UINavigationController()
-        let searchTabRouter = TabRouter(navigationController: searchNavigationController)
+        let searchTabRouter = TabRouter(navigationController: searchNavigationController, persistenceManager: persistenceManager)
         
         // launch screen
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let controller = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController")
         
         let welcomeScreenNavigationController = UINavigationController()
-        let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController)
+        let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController, persistenceManager: persistenceManager)
         let viewModel = WelcomeScreenViewModel()
         let welcomeScreen = WelcomeScreenViewController(tabRouter: welcomeScreenTabRouter, viewModel: viewModel)
         welcomeScreenNavigationController.viewControllers = [welcomeScreen]
         welcomeScreen.tabBarItem = UITabBarItem(title: "Home", image: Constants.homekitImage, selectedImage: Constants.homekitImage)
         
         let favouritesNavigationController = UINavigationController()
-        let favouritesTabRouter = TabRouter(navigationController: favouritesNavigationController)
-        let favouritesViewController = FavouritesViewController(tabRouter: favouritesTabRouter)
+        let favouritesTabRouter = TabRouter(navigationController: favouritesNavigationController, persistenceManager: persistenceManager)
+        let favouritesViewController = FavouritesViewController(tabRouter: favouritesTabRouter, persistenceManager: persistenceManager)
         favouritesNavigationController.viewControllers = [favouritesViewController]
         favouritesViewController.tabBarItem = UITabBarItem(title: "Fav", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         

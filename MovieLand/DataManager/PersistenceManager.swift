@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PersistableModel {
+enum PersistableModel: Equatable {
     case person(model: PersonModel)
     case seen(model: TitleModel)
     case want(model: TitleModel)
@@ -38,6 +38,8 @@ enum PersistableModel {
 protocol PersistenceManagerProtocol {
     func persist(model: PersistableModel)
     func remove(model: PersistableModel)
+    func isPersisted(model: PersistableModel) -> Bool
+    func togglePersisted(model: PersistableModel)
     var persistedData: [PersistableModel] { get }
 }
 
@@ -51,7 +53,7 @@ class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
     
     func persist(model: PersistableModel) {
         guard !persistedData.contains(where: { persistedModel in
-            model.id == persistedModel.id
+            model == persistedModel
         }) else {
             return
         }
@@ -60,7 +62,21 @@ class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
     
     func remove(model: PersistableModel) {
         persistedData.removeAll { arrayModel in
-            arrayModel.id == model.id
+            arrayModel == model
+        }
+    }
+    
+    func isPersisted(model: PersistableModel) -> Bool {
+        persistedData.contains { persistedModel in
+            model == persistedModel
+        }
+    }
+    
+    func togglePersisted(model: PersistableModel) {
+        if isPersisted(model: model) {
+            remove(model: model)
+        } else {
+            persist(model: model)
         }
     }
 }

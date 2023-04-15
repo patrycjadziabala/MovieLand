@@ -36,6 +36,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingScore: UILabel!
     @IBOutlet weak var ratingStarImage: UIImageView!
     @IBOutlet weak var ratingDescriptionLabel: UILabel!
+    @IBOutlet weak var wantToWatchButton: UIButton!
+    @IBOutlet weak var seenButton: UIButton!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -69,6 +71,9 @@ class MovieDetailsViewController: UIViewController {
         prepareForShowingMovieRating()
         
         configureView()
+        
+        updateSeenIcon(isSeen: false)
+        updateWantIcon(isWant: false)
     }
     
     // MARK: - View - Configuration
@@ -112,7 +117,8 @@ class MovieDetailsViewController: UIViewController {
          
             self.actorsInFilmController.set(dataSource: titleModel.actorList)
             self.similarMoviesController.set(dataSource: titleModel.similars)
-            
+            self.updateWantIcon(isWant: self.viewModel.isWant())
+            self.updateSeenIcon(isSeen: self.viewModel.isSeen())
         }
     }
 
@@ -253,6 +259,34 @@ class MovieDetailsViewController: UIViewController {
         })
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Favourites
+    
+    @IBAction func wantToWatchButtonPressed(_ sender: UIButton) {
+        
+        viewModel.toggleWant()
+        updateWantIcon(isWant: viewModel.isWant())
+    }
+    @IBAction func seenButtonPressed(_ sender: UIButton) {
+        viewModel.toggleSeen()
+        updateSeenIcon(isSeen: viewModel.isSeen())
+    }
+    
+    func updateSeenIcon(isSeen: Bool) {
+        if isSeen {
+            seenButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            seenButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
+    func updateWantIcon(isWant: Bool) {
+        if isWant {
+            wantToWatchButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            wantToWatchButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
     }
 }
 
