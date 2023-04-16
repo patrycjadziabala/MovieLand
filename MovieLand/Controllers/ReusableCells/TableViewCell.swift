@@ -38,23 +38,41 @@ class TableViewCell: UITableViewCell {
         configureDefaultImage()
     }
     
+    //MARK: - Cell configuration
+    
     func configure(with model: TableViewCellPresentable) {
         cellNameLabel.text = model.nameLabelText
         cellAdditionalInfoLabel.text = model.additionalInfoLabelText
-        if let urlString = model.imageUrlString {
-            cellImage.sd_setImage(with: URL(string: urlString))
-        } else {
-            apiManager.fetchTitle(id: model.id) { result in
-                var imageUrlString: String?
-                switch result {
-                case .success(let titleModel):
-                    imageUrlString = titleModel.image
-                case .failure:
-                    self.configureDefaultImage()
+        
+        fetchImage(with: model)
+        configureMovieYear(with: model)
+        configureIMDbRank(with: model)
+        configureIMDbRating(with: model)
+    }
+    
+    //MARK: - Movie rating
+    
+    func configureMovieRating(id: String) {
+        apiManager.fetchRatings(id: id) { result in
+            var ratingMovieFromDifferentModel: String?
+            switch result {
+            case .success(let movieRating):
+                ratingMovieFromDifferentModel = movieRating.imDb
+            case .failure:
+                DispatchQueue.main.async {
+                    self.cellIMDbRatingNumberLabel.isHidden = true
+                    self.cellIMDbRatingLabel.isHidden = true
                 }
-                self.configureImage(for: imageUrlString)
+            }
+            DispatchQueue.main.async {
+                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
             }
         }
+    }
+    
+    //MARK: - Movie Year
+    
+    func configureMovieYear(with model: TableViewCellPresentable) {
         if let yearMovieInfo = model.yearInfoText {
             cellYearInfo.text = yearMovieInfo
         } else {
@@ -73,12 +91,22 @@ class TableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+   
+    //MARK: - Movie iMDb Rank
+    
+    func configureIMDbRank(with model: TableViewCellPresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
             cellIMDbRankLabel.isHidden = true
         } else {
             cellIMDbRankLabel.isHidden = false
             cellIMDbRankLabel.text = model.iMDbRankLabelText
         }
+    }
+    
+    //MARK: - Movie iMDbRating
+    
+    func configureIMDbRating(with model: TableViewCellPresentable) {
         if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
             configureMovieRating(id: model.id)
         } else {
@@ -87,20 +115,21 @@ class TableViewCell: UITableViewCell {
         }
     }
     
-    func configureMovieRating(id: String) {
-        apiManager.fetchRatings(id: id) { result in
-            var ratingMovieFromDifferentModel: String?
-            switch result {
-            case .success(let movieRating):
-                ratingMovieFromDifferentModel = movieRating.imDb
-            case .failure:
-                DispatchQueue.main.async {
-                    self.cellIMDbRatingNumberLabel.isHidden = true
-                    self.cellIMDbRatingLabel.isHidden = true
+    //MARK: - Image
+    
+    func fetchImage(with model: TableViewCellPresentable) {
+        if let urlString = model.imageUrlString {
+            cellImage.sd_setImage(with: URL(string: urlString))
+        } else {
+            apiManager.fetchTitle(id: model.id) { result in
+                var imageUrlString: String?
+                switch result {
+                case .success(let titleModel):
+                    imageUrlString = titleModel.image
+                case .failure:
+                    self.configureDefaultImage()
                 }
-            }
-            DispatchQueue.main.async {
-                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
+                self.configureImage(for: imageUrlString)
             }
         }
     }

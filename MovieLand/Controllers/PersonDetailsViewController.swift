@@ -139,13 +139,13 @@ class PersonDetailsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Cast configuration
+    // MARK: - Cast
     
     @IBAction func seeAllCastMovieButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: castMoviesController.dataSource)
     }
     
-    // MARK: - Awards configuration
+    // MARK: - Awards
     
     @IBAction func awardsButtonPressed(_ sender: UIButton) {
         viewModel.navigateToAwards()
@@ -162,7 +162,6 @@ extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
             self.awardsButton.isEnabled = success
         }
     }
-    
     
     func onFetchPersonInformationSuccess(model: PersonModel) {
         handleSuccess(personModel: model)
