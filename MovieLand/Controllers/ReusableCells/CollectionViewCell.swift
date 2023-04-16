@@ -36,14 +36,18 @@ class CollectionViewCell: UICollectionViewCell {
         configureDefaultImage()
     }
     
+    //MARK: - Cell configuration
+    
     func configure(with model: SwipeableInformationTilePresentable) {
         title.text = model.titleLabelText
         configureMovieYear(with: model)
         configureRankingNumber(with: model)
         configureRankNumber(with: model)
         fetchImage(with: model)
-        }
-
+    }
+    
+    //MARK: - Movie Year
+    
     func configureMovieYear(with model: SwipeableInformationTilePresentable) {
         if let yearMovieInfo = model.yearOrAdditionalInfoLabelText {
             info.text = yearMovieInfo
@@ -64,7 +68,9 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }
     }
-        
+    
+    //MARK: - Movie Rating
+    
     func configureRankingNumber(with model: SwipeableInformationTilePresentable) {
         if let rankingNumber = model.iMDbRatingNumberLabelText {
             rankScore.text = rankingNumber
@@ -87,6 +93,8 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
+   //MARK: - Movie Rank
+    
     func configureRankNumber(with model: SwipeableInformationTilePresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
             rankNumber.isHidden = true
@@ -95,6 +103,7 @@ class CollectionViewCell: UICollectionViewCell {
             rankNumber.text = model.iMDbRankLabelText
         }
     }
+    //MARK: - Image
     
     func fetchImage(with model: SwipeableInformationTilePresentable) {
         if let urlString = model.imageUrlString {
@@ -114,24 +123,26 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     func configureImage(for urlString: String?) {
-            DispatchQueue.main.async {
-                if let urlString = urlString {
-                    self.imageView.sd_setImage(with: URL(string: urlString))
-                } else {
-                    self.configureDefaultImage()
-                }
+        DispatchQueue.main.async {
+            if let urlString = urlString {
+                self.imageView.sd_setImage(with: URL(string: urlString))
+            } else {
+                self.configureDefaultImage()
             }
-        }
-        
-        func configureDefaultImage() {
-            DispatchQueue.main.async {
-                self.imageView.image = Constants.defaultImage
-            }
-        }
-        
-        func cancelCurrentTask() {
-            apiManager.cancelCurrentTask()
-            imageView.sd_cancelCurrentImageLoad()
         }
     }
+    
+    func configureDefaultImage() {
+        DispatchQueue.main.async {
+            self.imageView.image = Constants.defaultImage
+        }
+    }
+    
+    //MARK: - Task cancel
+    
+    func cancelCurrentTask() {
+        apiManager.cancelCurrentTask()
+        imageView.sd_cancelCurrentImageLoad()
+    }
+}
 
