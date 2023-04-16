@@ -19,7 +19,7 @@ protocol AwardsTableViewCellPresentable {
 }
 
 class AwardsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var awardsCellContentView: UIView!
     @IBOutlet weak var awardsCellImageView: UIImageView!
     @IBOutlet weak var awardsCellEventTitle: UILabel!
@@ -33,6 +33,8 @@ class AwardsTableViewCell: UITableViewCell {
         
         contentView.backgroundColor = UIColor(named: Constants.customLightOrange)
     }
+    
+    //MARK: - Cell configuration
     
     func configure(with model: AwardsTableViewCellPresentable) {
         awardsCellEventTitle.text = model.awardsCellEventTitle

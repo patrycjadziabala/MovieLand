@@ -67,14 +67,12 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         toggleActivity(active: true)
+        
         prepareForShowingMovieInformation()
-        
         prepareForShowingTrailer()
-        
         prepareToShowFullDetails()
-        
         prepareForShowingMovieRating()
-        
+
         configureView()
         
         updateSeenIcon(isSeen: false)
@@ -85,7 +83,7 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
-    // MARK: - View - Configuration
+    // MARK: - View Configuration
     
     func configureView() {
         configureCollectionViewActorsInFilm()
@@ -108,42 +106,36 @@ class MovieDetailsViewController: UIViewController {
             self.movieTitleLabel.text = titleModel.title
             self.releaseDateLabel.text = titleModel.releaseDate
             self.genreLabel.text = titleModel.genreList.first?.value ?? ""
-            let imageUrl = URL(string: titleModel.image)
-            self.moviePosterImageView.sd_setImage(with: imageUrl)
+            self.configureMovieImage(titleModel: titleModel)
             self.movieOverviewTextView.text = titleModel.plot
-
-//            if titleModel.awards == nil {
-//                self.exploreAwardsButton.isHidden
-//            }
-            if let awardsList = titleModel.awards {
-                self.exploreAwardsButton.isHidden = false
-                self.exploreAwardsButton.backgroundColor = UIColor.cyan
-
-                self.awardsTextView.text = awardsList
-            } else {
-                self.awardsTextView.isHidden = true
-            }
-
+            self.configureMovieAwards(titleModel: titleModel)
             self.actorsInFilmController.set(dataSource: titleModel.actorList)
             self.similarMoviesController.set(dataSource: titleModel.similars)
+            
             self.updateWantIcon(isWant: self.viewModel.isWant())
             self.updateSeenIcon(isSeen: self.viewModel.isSeen())
 //            self.toggleActivity(active: false)
         }
     }
 
-    func configureCollectionViewActorsInFilm() {
-        addChild(actorsInFilmController)
-        view.addSubview(actorsInFilmController.view)
-        actorsInFilmController.didMove(toParent: self)
-        actorsInFilmController.view.constraint(to: actorsInFilmScrollableViewContainer)
+    // MARK: - Movie Awards
+    
+    func configureMovieAwards(titleModel: TitleModel) {
+        if let awardsList = titleModel.awards {
+            self.exploreAwardsButton.isHidden = false
+            self.exploreAwardsButton.backgroundColor = UIColor.cyan
+
+            self.awardsTextView.text = awardsList
+        } else {
+            self.awardsTextView.isHidden = true
+        }
     }
     
-    func configureCollectionViewSimilarMovies() {
-        addChild(similarMoviesController)
-        view.addSubview(similarMoviesController.view)
-        similarMoviesController.didMove(toParent: self)
-        similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
+    //MARK: - Movie Image
+    
+    func configureMovieImage(titleModel: TitleModel) {
+        let imageUrl = URL(string: titleModel.image)
+        self.moviePosterImageView.sd_setImage(with: imageUrl)
     }
     
     // MARK: - Movie rating configuration
@@ -164,6 +156,22 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Collection views configuration
+    
+    func configureCollectionViewActorsInFilm() {
+        addChild(actorsInFilmController)
+        view.addSubview(actorsInFilmController.view)
+        actorsInFilmController.didMove(toParent: self)
+        actorsInFilmController.view.constraint(to: actorsInFilmScrollableViewContainer)
+    }
+    
+    func configureCollectionViewSimilarMovies() {
+        addChild(similarMoviesController)
+        view.addSubview(similarMoviesController.view)
+        similarMoviesController.didMove(toParent: self)
+        similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
+    }
+
     // MARK: - Trailer configuaration
     
     func prepareForShowingTrailer() {
@@ -332,6 +340,8 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
         }
     }
 }
+
+// MARK: - Toggle activity
 
 extension UIViewController {
     func toggleActivity(active: Bool) {
