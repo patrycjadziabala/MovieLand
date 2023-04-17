@@ -69,7 +69,6 @@ class WelcomeScreenViewController: UIViewController {
         configureWelcomeScreenView()
         prepareForShowingWelcomeScreenInformation()
         configureCollectionViews()
-        
     }
     
     // MARK: - Welcome Screen View configuration

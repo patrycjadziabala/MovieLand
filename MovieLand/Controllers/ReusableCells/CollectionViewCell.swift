@@ -32,6 +32,12 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        configureCellView()
+    }
+    
+    //MARK: - Configure Cell View
+    
+    func configureCellView() {
         contentView.backgroundColor = UIColor(named: Constants.customPink)
         configureDefaultImage()
     }
@@ -93,7 +99,7 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-   //MARK: - Movie Rank
+    //MARK: - Movie Rank
     
     func configureRankNumber(with model: SwipeableInformationTilePresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {

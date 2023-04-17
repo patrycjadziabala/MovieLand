@@ -16,6 +16,5 @@ extension UIView {
         trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).isActive = true
         topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).isActive = true
         bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
-        
     }
 }
