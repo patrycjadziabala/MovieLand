@@ -69,7 +69,7 @@ class MovieDetailsViewController: UIViewController {
         toggleActivity(active: true)
         prepareForShowingMovieInformation()
         configureView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.toggleActivity(active: false)
         }
     }
@@ -334,30 +334,5 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
         DispatchQueue.main.async {
             self.exploreAwardsButton.isEnabled = true
         }
-    }
-}
-
-// MARK: - Toggle activity
-
-class ActivityOverlayView: UIView {
-    var activityIndicator: UIActivityIndicatorView
-    
-    override init(frame: CGRect) {
-        activityIndicator = UIActivityIndicatorView(frame: .zero)
-        super.init(frame: frame)
-        doConfiguration()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func doConfiguration() {
-        addSubview(activityIndicator)
-        backgroundColor = .white
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        activityIndicator.startAnimating()
     }
 }

@@ -50,7 +50,7 @@ class PersonDetailsViewController: UIViewController {
         toggleActivity(active: true)
         prepareForShowingPersonInformation()
         configureView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.toggleActivity(active: false)
         }
     }

@@ -26,3 +26,26 @@ extension UIViewController {
         }
     }
 }
+
+class ActivityOverlayView: UIView {
+    var activityIndicator: UIActivityIndicatorView
+    
+    override init(frame: CGRect) {
+        activityIndicator = UIActivityIndicatorView(frame: .zero)
+        super.init(frame: frame)
+        doConfiguration()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func doConfiguration() {
+        addSubview(activityIndicator)
+        backgroundColor = .white
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        activityIndicator.startAnimating()
+    }
+}

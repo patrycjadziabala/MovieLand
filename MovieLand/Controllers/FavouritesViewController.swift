@@ -17,9 +17,13 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        toggleActivity(active: true)
         configureSegmentedControl()
         configureView()
         configureListView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.toggleActivity(active: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

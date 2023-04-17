@@ -66,9 +66,13 @@ class WelcomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        toggleActivity(active: true)
         configureWelcomeScreenView()
         prepareForShowingWelcomeScreenInformation()
         configureCollectionViews()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.toggleActivity(active: false)
+        }
     }
     
     // MARK: - Welcome Screen View configuration
