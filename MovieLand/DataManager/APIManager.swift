@@ -10,31 +10,18 @@ import SafariServices
 
 protocol APIManagerProtocol: AnyObject {
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void)
-    
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void)
-    
     func fetchTrailer(id: String, completion: @escaping(Result<TrailerModel, Error>) -> Void)
-    
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void)
-    
     func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
-    
     func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void)
-    
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
-    
     func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
-    
     func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
-    
     func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void)
-    
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void)
-    
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void)
-    
     func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void)
-    
     func cancelCurrentTask()
 }
 
@@ -62,7 +49,7 @@ enum APIManagerError: Error {
 }
 
 class APIManager: APIManagerProtocol {
-
+    
     let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_bdv8grxf/"
     
     let language: String
@@ -154,7 +141,6 @@ class APIManager: APIManagerProtocol {
         task.resume()
         currentTask = task
     }
-    
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
         guard let url = buildURL(for: .searchAll, id: query) else {

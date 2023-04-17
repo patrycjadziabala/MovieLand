@@ -30,6 +30,24 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         self.tabRouter = tabRouter
     }
     
+    //MARK: - Navigation
+    
+    func navigateToList(result: [SwipeableInformationTilePresentable]) {
+        let mappedResult = result.compactMap { swipeable in
+            return swipeable as? ListViewControllerCellPresentable
+        }
+        tabRouter.navigateToList(results: mappedResult)
+    }
+    
+    func navigateToAwards() {
+        guard let array = awardsArray else {
+            return
+        }
+        self.tabRouter.navigateToList(results: array)
+    }
+    
+    //MARK: - Fetch Person Information
+    
     func fetchPersonInformation(id: String) {
         apiManager.fetchPersonInformation(id: id) { [weak self] result in
             switch result {
@@ -41,12 +59,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         }
     }
     
-    func navigateToList(result: [SwipeableInformationTilePresentable]) {
-        let mappedResult = result.compactMap { swipeable in
-            return swipeable as? ListViewControllerCellPresentable
-        }
-        tabRouter.navigateToList(results: mappedResult)
-    }
+    //MARK: - Fetch Awards
     
     func fetchPersonAwards(id: String) {
         apiManager.fetchPersonAwardsInformation(id: id) { [weak self] result in
@@ -72,14 +85,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         awardsArray = array
     }
     
-    // Jak mozna sie dostac z tej funkcji wyzej do array????
-    func navigateToAwards() {
-        guard let array = awardsArray else {
-            return
-        }
-        self.tabRouter.navigateToList(results: array)
-
-    }
+    //MARK: - Alerts
     
     func handleError(error: Error) {
         print(error)
@@ -88,6 +94,8 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         }
     }
 }
+
+//MARK: - PersonDetailsViewModel - Delegate
 
 protocol PersonDetailsViewModelDelegate: AnyObject {
     func onFetchPersonInformationSuccess(model: PersonModel)

@@ -81,11 +81,6 @@ class FavouritesViewController: UIViewController {
     
     func refreshData() {
         
-        let intArray = [1, 2, 3, 4, 5]
-        let stringArray = intArray.map { element in
-            "This is number \(element)"
-        }
-        
         let allPersistedData = persistenceManager.persistedData
         switch segmentedControl.selectedSegmentIndex {
         case 0:

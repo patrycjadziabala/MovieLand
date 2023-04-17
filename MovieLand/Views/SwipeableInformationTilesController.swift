@@ -8,7 +8,7 @@
 import UIKit
 
 class SwipeableInformationTilesController: UIViewController {
-
+    
     private let tabRouter: TabRouterProtocol
     
     var dataSource: [SwipeableInformationTilePresentable]
@@ -35,26 +35,27 @@ class SwipeableInformationTilesController: UIViewController {
         configureCollectionView()
     }
     
-    func set(dataSource: [SwipeableInformationTilePresentable]) {
-        self.dataSource = dataSource
-        self.collectionViewCastMovies.reloadData()
-    }
-    
     // MARK: - View configuration
     
     private func configureCollectionView() {
         view.addSubview(collectionViewCastMovies)
         collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
-        
         collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
         collectionViewCastMovies.constraint(to: view)
         collectionViewCastMovies.delegate = self
         collectionViewCastMovies.dataSource = self
         collectionViewCastMovies.reloadData()
     }
+    
+    //MARK: - Update Data Source
+    
+    func set(dataSource: [SwipeableInformationTilePresentable]) {
+        self.dataSource = dataSource
+        self.collectionViewCastMovies.reloadData()
+    }
 }
 
-// MARK: - SwipeableInformationTilesController - extension
+// MARK: - SwipeableInformationTilesController - Extension
 
 extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
@@ -64,7 +65,7 @@ extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.item]
-    
+        
         switch model.contentType {
         case .title:
             tabRouter.navigateToTitleDetails(id: model.optionalId)
@@ -88,7 +89,7 @@ extension SwipeableInformationTilesController: UICollectionViewDataSource {
             cell.configure(with: dataSource[indexPath.item])
             return cell
         }
-            
+        
         return UICollectionViewCell()
     }
 }

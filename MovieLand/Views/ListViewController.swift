@@ -19,7 +19,7 @@ protocol ListViewControllerCellPresentable {
 }
 
 class ListViewController: UIViewController {
-
+    
     let tabRouter: TabRouterProtocol
     let tableView: UITableView
     var dataSource: [ListViewControllerCellPresentable]
@@ -37,7 +37,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureTableView()
     }
     
@@ -63,6 +63,8 @@ class ListViewController: UIViewController {
         tableView.reloadData()
     }
     
+    //MARK: - Update Data Source
+    
     func update(dataSource: [ListViewControllerCellPresentable]) {
         self.dataSource = dataSource
         tableView.reloadData()
@@ -79,7 +81,6 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let presentableModel = dataSource[indexPath.row]
-        
         switch presentableModel.listCellType {
         case .regularTableViewCell(let model):
             if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.regularTableViewCell) as? TableViewCell {
@@ -92,7 +93,6 @@ extension ListViewController: UITableViewDataSource {
                 return cell
             }
         }
-        
         return UITableViewCell()
     }
     
@@ -107,7 +107,6 @@ extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dataSource[indexPath.row]
-        
         switch model.contentType {
         case .title:
             tabRouter.navigateToTitleDetails(id: model.id)

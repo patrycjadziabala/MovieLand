@@ -67,18 +67,9 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         toggleActivity(active: true)
-        
         prepareForShowingMovieInformation()
-        prepareForShowingTrailer()
-        prepareToShowFullDetails()
-        prepareForShowingMovieRating()
-
         configureView()
-        
-        updateSeenIcon(isSeen: false)
-        updateWantIcon(isWant: false)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.toggleActivity(active: false)
         }
     }
@@ -92,11 +83,16 @@ class MovieDetailsViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
     }
     
-    // MARK: - Movie information configuration
+    // MARK: - Movie Information Configuration
     
     func prepareForShowingMovieInformation() {
         exploreAwardsButton.isHidden = true
         viewModel.fetchTitle(id: titleID)
+        prepareForShowingTrailer()
+        prepareToShowFullDetails()
+        prepareForShowingMovieRating()
+        updateSeenIcon(isSeen: false)
+        updateWantIcon(isWant: false)
     }
     
     func handleSuccess(titleModel: TitleModel) {
@@ -114,17 +110,17 @@ class MovieDetailsViewController: UIViewController {
             
             self.updateWantIcon(isWant: self.viewModel.isWant())
             self.updateSeenIcon(isSeen: self.viewModel.isSeen())
-//            self.toggleActivity(active: false)
+            //            self.toggleActivity(active: false)
         }
     }
-
+    
     // MARK: - Movie Awards
     
     func configureMovieAwards(titleModel: TitleModel) {
         if let awardsList = titleModel.awards {
             self.exploreAwardsButton.isHidden = false
             self.exploreAwardsButton.backgroundColor = UIColor.cyan
-
+            
             self.awardsTextView.text = awardsList
         } else {
             self.awardsTextView.isHidden = true
@@ -171,7 +167,7 @@ class MovieDetailsViewController: UIViewController {
         similarMoviesController.didMove(toParent: self)
         similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
     }
-
+    
     // MARK: - Trailer configuaration
     
     func prepareForShowingTrailer() {
@@ -247,19 +243,19 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
-    // MARK: - Cast configuration
+    // MARK: - Cast
     
     @IBAction func seeAllCastButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: actorsInFilmController.dataSource)
     }
     
-    // MARK: - Similar Movies configuration
+    // MARK: - Similar Movies
     
     @IBAction func seeAllSimilarsButtonPressed(_ sender: UIButton) {
         viewModel.navigateToList(result: similarMoviesController.dataSource)
     }
     
-    // MARK: - Awards configuration
+    // MARK: - Awards
     
     @IBAction func exploreAwardsButtonPressed(_ sender: UIButton) {
         exploreAwardsButton.isEnabled = false
@@ -351,10 +347,14 @@ extension UIViewController {
             activityOverlay.constraint(to: view)
             view.bringSubviewToFront(activityOverlay)
         } else {
-            for subview in view.subviews {
-                if subview.isKind(of: ActivityOverlayView.self) {
-                    subview.removeFromSuperview()
+            DispatchQueue.main.async {
+                
+                for subview in self.view.subviews {
+                    if subview.isKind(of: ActivityOverlayView.self) {
+                        subview.removeFromSuperview()
+                    }
                 }
+                
             }
         }
     }

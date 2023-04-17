@@ -17,7 +17,6 @@ protocol WelcomeScreenViewModelProtocol: AnyObject {
     func fetchBoxOfficeAllTime()
 }
 
-
 class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
     
     var delegate: WelcomeScreenViewModelDelegate?
@@ -32,11 +31,6 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
                 self?.handleError(error: error)
             }
         }
-    }
-    
-    func handleError(error: Error) {
-        print(error)
-        delegate?.presentError(error: error)
     }
     
     func fetchFeaturedMoviesResults() {
@@ -92,6 +86,11 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
                 self?.handleError(error: error)
             }
         }
+    }
+    
+    func handleError(error: Error) {
+        print(error)
+        delegate?.presentError(error: error)
     }
 }
 

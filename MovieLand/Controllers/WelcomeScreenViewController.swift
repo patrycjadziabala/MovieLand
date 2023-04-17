@@ -67,26 +67,8 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
         
         configureWelcomeScreenView()
-        
-        //        prepareForShowingTrailer()
-        
-        configureCollectionViewInCinamasMovies()
-        prepareForShowingInCinemaMoviesInformation()
-        
-        configureCollectionViewTop250Movies()
-        prepareForShowingTop250MoviesInformation()
-        
-        configureCollectionViewMostPopularMovies()
-        prepareForShowingMostPopularMovies()
-        
-        configureCollectionViewTop250TVSeries()
-        prepareForShowingTop250TVSeriesInformation()
-        
-        configureCollectionViewForMostPopularTVSeries()
-        prepareForShowingMostPopularSeries()
-        
-        configureCollectionViewForBoxOfficeAllTime()
-        prepareForShowingBoxOfficeAllTime()
+        prepareForShowingWelcomeScreenInformation()
+        configureCollectionViews()
         
     }
     
@@ -94,22 +76,38 @@ class WelcomeScreenViewController: UIViewController {
     
     func configureWelcomeScreenView() {
         trailerButton.setTitle("See all Coming Soon movies", for: .normal)
-        
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
     }
     
-    // MARK: - Trailer configuration
+    func prepareForShowingWelcomeScreenInformation() {
+        prepareForShowingInCinemaMoviesInformation()
+        prepareForShowingTop250MoviesInformation()
+        prepareForShowingMostPopularMovies()
+        prepareForShowingTop250TVSeriesInformation()
+        prepareForShowingMostPopularSeries()
+        prepareForShowingBoxOfficeAllTime()
+        //        prepareForShowingTrailer()
+    }
+    
+    func configureCollectionViews() {
+        configureCollectionViewInCinamasMovies()
+        configureCollectionViewTop250Movies()
+        configureCollectionViewMostPopularMovies()
+        configureCollectionViewTop250TVSeries()
+        configureCollectionViewForMostPopularTVSeries()
+        configureCollectionViewForBoxOfficeAllTime()
+    }
+    
+    // MARK: - Trailers
     
     //    func prepareForShowingTrailer() {
-    //
+    //}
     @IBAction func seeAllSomingSoonButtonPressed(_ sender: UIButton) {
         
-        
     }
-    //    }
     
-    // MARK: - In Cinemas Movies configuration
+    // MARK: - In Cinemas Movies
     
     func prepareForShowingInCinemaMoviesInformation() {
         viewModel.fetchInCinemaMoviesInformation()
@@ -136,7 +134,7 @@ class WelcomeScreenViewController: UIViewController {
         tabRouter.navigateToList(results: mappedDataSource)
     }
     
-    // MARK: - Top250Movies configuration
+    // MARK: - Top 250 Movies
     
     func prepareForShowingTop250MoviesInformation() {
         viewModel.fetchFeaturedMoviesResults()
@@ -163,7 +161,7 @@ class WelcomeScreenViewController: UIViewController {
         tabRouter.navigateToList(results: mappedDataSource)
     }
     
-    // MARK: - MostPopularMovies configiration
+    // MARK: - Most Popular Movies
     
     func prepareForShowingMostPopularMovies() {
         viewModel.fetchMostPopularMoviesInformation()
@@ -190,7 +188,7 @@ class WelcomeScreenViewController: UIViewController {
         tabRouter.navigateToList(results: mappedDataSource)
     }
     
-    // MARK: - Top250IMDbTVSeries configuration
+    // MARK: - Top 250 IMDb TV Series
     
     func prepareForShowingTop250TVSeriesInformation() {
         viewModel.fetchTop250TVSeries()
@@ -217,7 +215,7 @@ class WelcomeScreenViewController: UIViewController {
         tabRouter.navigateToList(results: mappedDataSource)
     }
     
-    // MARK: - MostPopularTVSeries configuration
+    // MARK: - Most Popular TV Series
     
     func prepareForShowingMostPopularSeries() {
         viewModel.fetchMostPopularTVSeries()

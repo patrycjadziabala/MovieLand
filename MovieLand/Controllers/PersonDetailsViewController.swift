@@ -48,13 +48,11 @@ class PersonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleActivity(active: true)
-        viewModel.fetchPersonInformation(id: personID)
-        viewModel.fetchPersonAwards(id: personID)
+        prepareForShowingPersonInformation()
         configureView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.toggleActivity(active: false)
         }
-       
     }
     
     // MARK: - View Configuration
@@ -62,6 +60,13 @@ class PersonDetailsViewController: UIViewController {
     func configureView() {
         configureCollectionViewCastMovies()
         awardsButton.isEnabled = false
+    }
+    
+    //MARK: - Person Details Configuration
+    
+    func prepareForShowingPersonInformation() {
+        viewModel.fetchPersonInformation(id: personID)
+        viewModel.fetchPersonAwards(id: personID)
     }
     
     func handleSuccess(personModel: PersonModel) {
@@ -76,12 +81,10 @@ class PersonDetailsViewController: UIViewController {
             self.configurePersonAwards(personModel: personModel)
             self.castMoviesController.set(dataSource: personModel.castMovies)
             self.configurePersonDeathDate(personModel: personModel)
-           
-//            self.collectionViewCastMovies.reloadData()
-                
-//            }
+            //            self.collectionViewCastMovies.reloadData()
         }
     }
+    //MARK: - Birth Date
     
     func configureBirthDate(personModel: PersonModel) {
         if personModel.birthDate == nil {
@@ -91,12 +94,16 @@ class PersonDetailsViewController: UIViewController {
             self.birthDateLabel.sizeToFit()
         }
     }
-        
-        func configureImage(personModel: PersonModel) {
-            let imageUrl = URL(string: personModel.image)
-            self.personImageView.sd_setImage(with: imageUrl)
-        }
-
+    
+    //MARK: - Image
+    
+    func configureImage(personModel: PersonModel) {
+        let imageUrl = URL(string: personModel.image)
+        self.personImageView.sd_setImage(with: imageUrl)
+    }
+    
+    //MARK: - Awards
+    
     func configurePersonAwards(personModel: PersonModel) {
         if let personAwards = personModel.awards {
             self.awardsLabel.text = personAwards
@@ -104,6 +111,8 @@ class PersonDetailsViewController: UIViewController {
             self.hideAwardsLabelandButton()
         }
     }
+    
+    //MARK: - Death Date
     
     func configurePersonDeathDate(personModel: PersonModel) {
         if let personDeathDate = personModel.deathDate {
@@ -118,15 +127,16 @@ class PersonDetailsViewController: UIViewController {
         awardsButton.isHidden = true
     }
     
+    //MARK: - Collection View Configuaration
+    
     func configureCollectionViewCastMovies() {
-        
         addChild(castMoviesController)
         view.addSubview(castMoviesController.view)
         castMoviesController.didMove(toParent: self)
         castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
     }
     
-    // MARK: - Alert configuration
+    // MARK: - Alerts
     
     func presentAlert(with error: Error) {
         let alert = UIAlertController(title: Constants.noInternet, message: Constants.offlineMessage, preferredStyle: .alert)

@@ -29,7 +29,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     let apiManager = APIManager()
     
     weak var delegate: MovieDetailsViewModelDelegate?
-
+    
     let tabRouter: TabRouterProtocol
     
     let persistenceManager: PersistenceManagerProtocol
@@ -40,6 +40,8 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         self.tabRouter = tabRouter
         self.persistenceManager = persistenceManager
     }
+    
+    // MARK: - Navigation
     
     func navigateToTrailer(urlString: String) {
         tabRouter.navigateToWebView(urlString: urlString)
@@ -56,6 +58,8 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         tabRouter.navigateToList(results: mappedResult)
     }
     
+    //MARK: - Fetch Title
+    
     func fetchTitle(id: String) {
         apiManager.fetchTitle(id: id) { [weak self] result in
             switch result {
@@ -68,6 +72,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
     }
     
+    //MARK: - Fetch Trailer
     func fetchTrailer(id: String) {
         apiManager.fetchTrailer(id: id) { [weak self] result in
             switch result {
@@ -78,6 +83,8 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             }
         }
     }
+    
+    //MARK: - Fetch links to external websites
     
     func fetchFullDetailsWeb(id: String) {
         apiManager.fetchAllDetailsWeb(id: id) { [weak self] result in
@@ -90,6 +97,8 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
     }
     
+    // MARK: - Fetch Movie Awards
+    
     func fetchMovieAwards(id: String) {
         apiManager.fetchMovieAwardsInformation(id: id) { [weak self] result in
             switch result {
@@ -99,18 +108,6 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
                 self?.handleError(error: error)
             }
             self?.delegate?.onFetchMovieAwardsFinished()
-        }
-    }
-    
-    func fetchRating(id: String) {
-        apiManager.fetchRatings(id: id) {
-            [weak self] result in
-            switch result {
-            case .success(let rating):
-                self?.delegate?.onFetchRatingSuccess(ratingModel: rating)
-            case .failure(let error):
-                self?.handleError(error: error)
-            }
         }
     }
     
@@ -125,6 +122,22 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         self.tabRouter.navigateToList(results: arrayMovieAward)
     }
     
+    //MARK: - Fetch Rating
+    
+    func fetchRating(id: String) {
+        apiManager.fetchRatings(id: id) {
+            [weak self] result in
+            switch result {
+            case .success(let rating):
+                self?.delegate?.onFetchRatingSuccess(ratingModel: rating)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
+    
+    // MARK: - Alerts
+    
     func handleError(error: Error) {
         self.delegate?.presentErrorAlert(error: error)
     }
@@ -137,7 +150,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
         persistenceManager.togglePersisted(model: .seen(model: titleModel))
     }
-        
+    
     func isSeen() -> Bool {
         guard let titleModel = self.titleModel else {
             return false
@@ -158,10 +171,9 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
         return persistenceManager.isPersisted(model: .want(model: titleModel))
     }
-    
 }
 
-//MARK: - MovieDetailsViewModelDelegate
+//MARK: - MovieDetailsViewModel - Delegate
 
 protocol MovieDetailsViewModelDelegate: AnyObject {
     func onFetchTitleSuccess(model: TitleModel)
