@@ -22,8 +22,6 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var castMoviesCollectionViewContainer: UIView!
     @IBOutlet weak var seeAllCastMovieButton: UIButton!
     @IBOutlet weak var deathDateLabel: UILabel!
-    
-    
     @IBOutlet weak var favouriteButton: UIButton!
     
     

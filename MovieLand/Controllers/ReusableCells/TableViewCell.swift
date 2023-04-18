@@ -58,27 +58,7 @@ class TableViewCell: UITableViewCell {
         configureIMDbRank(with: model)
         configureIMDbRating(with: model)
     }
-    
-    //MARK: - Movie rating
-    
-    func configureMovieRating(id: String) {
-        apiManager.fetchRatings(id: id) { result in
-            var ratingMovieFromDifferentModel: String?
-            switch result {
-            case .success(let movieRating):
-                ratingMovieFromDifferentModel = movieRating.imDb
-            case .failure:
-                DispatchQueue.main.async {
-                    self.cellIMDbRatingNumberLabel.isHidden = true
-                    self.cellIMDbRatingLabel.isHidden = true
-                }
-            }
-            DispatchQueue.main.async {
-                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
-            }
-        }
-    }
-    
+
     //MARK: - Movie Year
     
     func configureMovieYear(with model: TableViewCellPresentable) {
@@ -124,6 +104,24 @@ class TableViewCell: UITableViewCell {
         }
     }
     
+    func configureMovieRating(id: String) {
+        apiManager.fetchRatings(id: id) { result in
+            var ratingMovieFromDifferentModel: String?
+            switch result {
+            case .success(let movieRating):
+                ratingMovieFromDifferentModel = movieRating.imDb
+            case .failure:
+                DispatchQueue.main.async {
+                    self.cellIMDbRatingNumberLabel.isHidden = true
+                    self.cellIMDbRatingLabel.isHidden = true
+                }
+            }
+            DispatchQueue.main.async {
+                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
+            }
+        }
+    }
+    
     //MARK: - Image
     
     func fetchImage(with model: TableViewCellPresentable) {
@@ -158,6 +156,12 @@ class TableViewCell: UITableViewCell {
             self.cellImage.image = Constants.defaultImage
         }
     }
+    
+    //MARK: - Favourites
+    
+    // get movie/person id
+    // fetch title/person model with that id
+    // compare model id with model ids in favourites user defaults
 }
 
 
