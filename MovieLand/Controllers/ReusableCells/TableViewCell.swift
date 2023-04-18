@@ -29,6 +29,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellIMDbRatingLabel: UILabel!
     @IBOutlet weak var cellIMDbRatingNumberLabel: UILabel!
     
+    
+    
     let apiManager: APIManagerProtocol = APIManager()
     
     override func awakeFromNib() {

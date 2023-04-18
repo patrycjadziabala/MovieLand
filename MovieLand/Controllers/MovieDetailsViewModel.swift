@@ -160,6 +160,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     func toggleWant() {
         guard let titleModel = self.titleModel else {
+            print("Returned")
             return
         }
         persistenceManager.togglePersisted(model: .want(model: titleModel))

@@ -13,6 +13,8 @@ protocol PersonDetailsViewModelProtocol: AnyObject {
     func fetchPersonAwards(id: String)
     func navigateToList(result:[SwipeableInformationTilePresentable])
     func navigateToAwards()
+    func toggleFavourite()
+    func isFavourite() -> Bool
     var delegate: PersonDetailsViewModelDelegate? { get set }
 }
 
@@ -24,10 +26,15 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     
     let tabRouter: TabRouterProtocol
     
+    let persistenceManager: PersistenceManagerProtocol
+    
+    var personModel: PersonModel?
+    
     private var awardsArray: [PersonAwardSummaryModel]?
     
-    init(tabRouter: TabRouterProtocol) {
+    init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
         self.tabRouter = tabRouter
+        self.persistenceManager = persistenceManager
     }
     
     //MARK: - Navigation
@@ -52,6 +59,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         apiManager.fetchPersonInformation(id: id) { [weak self] result in
             switch result {
             case .success(let person):
+                self?.personModel = person
                 self?.delegate?.onFetchPersonInformationSuccess(model: person)
             case .failure(let error):
                 self?.handleError(error: error)
@@ -88,10 +96,27 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     //MARK: - Alerts
     
     func handleError(error: Error) {
-        print(error)
-        DispatchQueue.main.async {
             self.delegate?.presentAlertOffile(with: error)
+    }
+    
+  //MARK: - Favourites
+    
+    func toggleFavourite() {
+      
+        guard let personModel = self.personModel else {
+            print("Returned")
+            return
         }
+        print("persistenceManager")
+        persistenceManager.togglePersisted(model: .person(model: personModel))
+        
+    }
+    
+    func isFavourite() -> Bool {
+        guard let personModel = self.personModel else {
+            return false
+        }
+        return persistenceManager.isPersisted(model: .person(model: personModel))
     }
 }
 

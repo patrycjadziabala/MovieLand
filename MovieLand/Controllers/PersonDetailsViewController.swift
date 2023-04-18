@@ -23,6 +23,11 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var seeAllCastMovieButton: UIButton!
     @IBOutlet weak var deathDateLabel: UILabel!
     
+    
+    @IBOutlet weak var favouriteButton: UIButton!
+    
+    
+    
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
@@ -67,6 +72,7 @@ class PersonDetailsViewController: UIViewController {
     func prepareForShowingPersonInformation() {
         viewModel.fetchPersonInformation(id: personID)
         viewModel.fetchPersonAwards(id: personID)
+        updateFavouriteIcon(isFavourite: false)
     }
     
     func handleSuccess(personModel: PersonModel) {
@@ -81,6 +87,8 @@ class PersonDetailsViewController: UIViewController {
             self.configurePersonAwards(personModel: personModel)
             self.castMoviesController.set(dataSource: personModel.castMovies)
             self.configurePersonDeathDate(personModel: personModel)
+            
+            self.updateFavouriteIcon(isFavourite: self.viewModel.isFavourite())
             //            self.collectionViewCastMovies.reloadData()
         }
     }
@@ -159,6 +167,23 @@ class PersonDetailsViewController: UIViewController {
     
     @IBAction func awardsButtonPressed(_ sender: UIButton) {
         viewModel.navigateToAwards()
+    }
+    
+    //MARK: - Favourites
+    
+    @IBAction func favouriteButtonPressed(_ sender: UIButton) {
+        print("OK")
+        viewModel.toggleFavourite()
+        print("Not OK")
+        updateFavouriteIcon(isFavourite: viewModel.isFavourite())
+    }
+    
+    func updateFavouriteIcon(isFavourite: Bool) {
+        if isFavourite {
+            favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 }
 

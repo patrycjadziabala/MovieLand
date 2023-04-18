@@ -279,7 +279,6 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Favourites
     
     @IBAction func wantToWatchButtonPressed(_ sender: UIButton) {
-        
         viewModel.toggleWant()
         updateWantIcon(isWant: viewModel.isWant())
     }
