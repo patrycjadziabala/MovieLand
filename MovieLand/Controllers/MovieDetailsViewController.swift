@@ -289,17 +289,17 @@ class MovieDetailsViewController: UIViewController {
     
     func updateSeenIcon(isSeen: Bool) {
         if isSeen {
-            seenButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            seenButton.setImage(Constants.eyeSeenIcon, for: .normal)
         } else {
-            seenButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            seenButton.setImage(Constants.eyeNotSeenIcon, for: .normal)
         }
     }
     
     func updateWantIcon(isWant: Bool) {
         if isWant {
-            wantToWatchButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            wantToWatchButton.setImage(Constants.wantToWatch, for: .normal)
         } else {
-            wantToWatchButton.setImage(UIImage(systemName: "star"), for: .normal)
+            wantToWatchButton.setImage(Constants.onWantToWatchList, for: .normal)
         }
     }
 }

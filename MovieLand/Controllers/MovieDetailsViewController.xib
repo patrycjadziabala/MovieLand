@@ -53,7 +53,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tm6-0J-MJo">
-                    <rect key="frame" x="0.0" y="34" width="390" height="1600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="1600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8U-gN-cXt" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1800"/>
@@ -168,7 +168,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="ln2-BF-WyK"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="seenButtonPressed:" destination="-1" eventType="touchUpInside" id="Uqp-NL-13o"/>
                                                     </connections>
@@ -180,7 +180,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="cD0-UP-g9j"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                                     <connections>
                                                         <action selector="wantToWatchButtonPressed:" destination="-1" eventType="touchUpInside" id="hPy-Tb-EFD"/>
                                                     </connections>
@@ -554,9 +554,9 @@
         </view>
     </objects>
     <resources>
-        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="eye.fill" catalog="system" width="128" height="80"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="CustomWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

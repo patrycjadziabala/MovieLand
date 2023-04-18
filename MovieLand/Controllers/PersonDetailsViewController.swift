@@ -172,17 +172,15 @@ class PersonDetailsViewController: UIViewController {
     //MARK: - Favourites
     
     @IBAction func favouriteButtonPressed(_ sender: UIButton) {
-        print("OK")
         viewModel.toggleFavourite()
-        print("Not OK")
         updateFavouriteIcon(isFavourite: viewModel.isFavourite())
     }
     
     func updateFavouriteIcon(isFavourite: Bool) {
         if isFavourite {
-            favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favouriteButton.setImage(Constants.heartFillImage, for: .normal)
         } else {
-            favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            favouriteButton.setImage(Constants.heartImage, for: .normal)
         }
     }
 }

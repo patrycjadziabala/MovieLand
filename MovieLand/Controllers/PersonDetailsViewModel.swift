@@ -104,10 +104,8 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     func toggleFavourite() {
       
         guard let personModel = self.personModel else {
-            print("Returned")
             return
         }
-        print("persistenceManager")
         persistenceManager.togglePersisted(model: .person(model: personModel))
         
     }

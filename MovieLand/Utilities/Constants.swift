@@ -18,8 +18,11 @@ struct Constants {
     static let featuredImageHeart = UIImage(systemName: "suit.heart")
     static let homekitImage = UIImage(systemName: "homekit")
     static let defaultImage = UIImage(named: "camera")
+    static let eyeNotSeenIcon = UIImage(systemName: "eye")
+    static let eyeSeenIcon = UIImage(systemName: "eye.fill")
+    static let wantToWatch = UIImage(systemName: "plus")
+    static let onWantToWatchList = UIImage(systemName: "doc.text.fill")
 
-    
     // MARK: - Titles/Names
    
     static let regularTableViewCell = "TableViewCell"
