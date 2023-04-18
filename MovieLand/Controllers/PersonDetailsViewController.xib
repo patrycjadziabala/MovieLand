@@ -103,7 +103,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsY-oP-1aG" userLabel="FavouriteButton">
-                                                            <rect key="frame" x="340" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="201" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="Uch-Xr-vov"/>
                                                                 <constraint firstAttribute="height" constant="30" id="f4t-b2-w9a"/>
@@ -122,7 +122,7 @@
                                                         <constraint firstItem="5VL-L0-lhW" firstAttribute="leading" secondItem="cw5-KC-3bL" secondAttribute="trailing" constant="15" id="DMe-6p-F2H"/>
                                                         <constraint firstAttribute="trailing" secondItem="5VL-L0-lhW" secondAttribute="trailing" id="Ol7-CY-8YI"/>
                                                         <constraint firstItem="5VL-L0-lhW" firstAttribute="top" secondItem="04S-Ek-MKD" secondAttribute="top" id="Y0z-Ov-rOU"/>
-                                                        <constraint firstItem="GsY-oP-1aG" firstAttribute="trailing" secondItem="5VL-L0-lhW" secondAttribute="trailing" id="Y22-mg-uBw"/>
+                                                        <constraint firstItem="GsY-oP-1aG" firstAttribute="trailing" secondItem="5VL-L0-lhW" secondAttribute="trailing" constant="-139" id="Y22-mg-uBw"/>
                                                         <constraint firstItem="cw5-KC-3bL" firstAttribute="leading" secondItem="04S-Ek-MKD" secondAttribute="leading" id="cmc-pU-Cm3"/>
                                                         <constraint firstAttribute="bottom" secondItem="cw5-KC-3bL" secondAttribute="bottom" id="hY2-q1-bLu"/>
                                                         <constraint firstItem="cw5-KC-3bL" firstAttribute="top" secondItem="04S-Ek-MKD" secondAttribute="top" id="hxO-nE-oNt"/>
