@@ -20,7 +20,7 @@ protocol TableViewCellPresentable {
 }
 
 class TableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var cellIMDbRankLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellNameLabel: UILabel!
@@ -48,14 +48,34 @@ class TableViewCell: UITableViewCell {
     
     func configure(with model: TableViewCellPresentable) {
         cellNameLabel.text = model.nameLabelText
-        cellAdditionalInfoLabel.text = model.additionalInfoLabelText
-        
+        cellNameLabel.lineBreakMode = .byWordWrapping
+        cellNameLabel.numberOfLines = 0
         fetchImage(with: model)
         configureMovieYear(with: model)
         configureIMDbRank(with: model)
         configureIMDbRating(with: model)
+        configureAdditionalInfo(with: model)
     }
-
+    
+    //MARK: - Stars
+    
+    func configureAdditionalInfo(with model: TableViewCellPresentable) {
+        apiManager.fetchTitle(id: model.id) { result in
+            var stars: String?
+            switch result {
+            case .success(let starList):
+                stars = starList.stars
+                DispatchQueue.main.async {
+                    self.cellAdditionalInfoLabel.text = stars
+                }
+            case .failure:
+                DispatchQueue.main.async {
+                    self.cellAdditionalInfoLabel.isHidden = true
+                }
+            }
+        }
+    }
+    
     //MARK: - Movie Year
     
     func configureMovieYear(with model: TableViewCellPresentable) {
@@ -78,7 +98,7 @@ class TableViewCell: UITableViewCell {
             }
         }
     }
-   
+    
     //MARK: - Movie iMDb Rank
     
     func configureIMDbRank(with model: TableViewCellPresentable) {
@@ -96,8 +116,7 @@ class TableViewCell: UITableViewCell {
         if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
             configureMovieRating(id: model.id)
         } else {
-            cellIMDbRatingNumberLabel.text = model.iMDbRatingNumberLabelText
-            cellIMDbRatingLabel.text = Constants.iMDbRating
+            cellIMDbRatingNumberLabel.text = "IMDb rating: \(model.iMDbRatingNumberLabelText ?? "")"
         }
     }
     
@@ -114,7 +133,7 @@ class TableViewCell: UITableViewCell {
                 }
             }
             DispatchQueue.main.async {
-                self.cellIMDbRatingNumberLabel.text = ratingMovieFromDifferentModel
+                self.cellIMDbRatingNumberLabel.text = "IMDb rating: \(ratingMovieFromDifferentModel ?? "")"
             }
         }
     }
