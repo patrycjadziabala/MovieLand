@@ -98,7 +98,7 @@
             <connections>
                 <outlet property="cellAdditionalInfoLabel" destination="a78-1b-iWx" id="D2x-mj-exv"/>
                 <outlet property="cellIMDbRankLabel" destination="2Xa-9q-oR8" id="Vya-eK-M1P"/>
-                <outlet property="cellIMDbRatingNumberLabel" destination="Vrh-6y-bZq" id="wzx-xi-Pj1"/>
+                <outlet property="cellIMDbRatingNumberLabel" destination="Vrh-6y-bZq" id="Fe7-xe-jH2"/>
                 <outlet property="cellImage" destination="axG-99-y1R" id="agu-rD-iPh"/>
                 <outlet property="cellNameLabel" destination="vHK-lT-4jR" id="lVo-Iv-NzD"/>
                 <outlet property="cellYearInfo" destination="UFx-D4-6xX" id="FWi-wV-FkX"/>

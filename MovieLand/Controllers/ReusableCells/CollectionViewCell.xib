@@ -44,34 +44,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-jj-4NJ">
-                                <rect key="frame" x="3" y="123" width="6" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eLb-GJ-wjy">
                                 <rect key="frame" x="63" y="133" width="16" height="11"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-hJ-BSg">
-                                <rect key="frame" x="82" y="130" width="12" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-hJ-BSg">
+                                <rect key="frame" x="79" y="130" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="BDx-t0-zFQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-jj-4NJ">
+                                <rect key="frame" x="0.0" y="130" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="HwI-gw-gPC"/>
+                                    <constraint firstAttribute="width" constant="15" id="Ztb-xi-dJY"/>
+                                    <constraint firstAttribute="height" constant="15" id="g7e-WK-otZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="grr-hJ-BSg" firstAttribute="top" secondItem="Hjb-9Y-AWs" secondAttribute="bottom" id="4Q9-v7-R25"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="top" secondItem="qGp-NS-2Ge" secondAttribute="top" id="EDr-0c-v4e"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="centerX" secondItem="qGp-NS-2Ge" secondAttribute="centerX" id="Mgd-Kp-27J"/>
                             <constraint firstAttribute="trailing" secondItem="muB-ly-2MG" secondAttribute="trailing" constant="1" id="SCz-ue-FXG"/>
+                            <constraint firstItem="PiX-jj-4NJ" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" id="VFW-zU-PlH"/>
                             <constraint firstAttribute="bottom" secondItem="muB-ly-2MG" secondAttribute="bottom" constant="3" id="ave-tU-2t3"/>
                             <constraint firstItem="Hjb-9Y-AWs" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" id="bDb-nQ-kZ8"/>
+                            <constraint firstAttribute="trailing" secondItem="grr-hJ-BSg" secondAttribute="trailing" constant="6" id="h8G-hC-Iw5"/>
                             <constraint firstAttribute="trailing" secondItem="Hjb-9Y-AWs" secondAttribute="trailing" id="hvH-Sx-HUh"/>
+                            <constraint firstItem="PiX-jj-4NJ" firstAttribute="top" secondItem="Hjb-9Y-AWs" secondAttribute="bottom" id="iT9-s6-99u"/>
                             <constraint firstItem="muB-ly-2MG" firstAttribute="leading" secondItem="qGp-NS-2Ge" secondAttribute="leading" constant="1" id="s5V-ga-Sr4"/>
                         </constraints>
                     </view>

@@ -40,6 +40,7 @@ class CollectionViewCell: UICollectionViewCell {
     func configureCellView() {
         contentView.backgroundColor = UIColor(named: Constants.customPink)
         configureDefaultImage()
+        starImage.isHidden = true
     }
     
     //MARK: - Cell configuration
@@ -80,16 +81,19 @@ class CollectionViewCell: UICollectionViewCell {
     func configureRankingNumber(with model: SwipeableInformationTilePresentable) {
         if let rankingNumber = model.iMDbRatingNumberLabelText {
             rankScore.text = rankingNumber
+            self.starImage.isHidden = false
         } else {
             apiManager.fetchRatings(id: model.optionalId) { result in
                 var ratingMovieFromDifferentModel: String?
                 switch result {
                 case .success(let movieRating):
                     ratingMovieFromDifferentModel = movieRating.imDb
+                    DispatchQueue.main.async {
+                        self.starImage.isHidden = false
+                    }
                 case .failure:
                     DispatchQueue.main.async {
                         self.rankScore.isHidden = true
-                        self.starImage.isHidden = true
                     }
                 }
                 DispatchQueue.main.async {

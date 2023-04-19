@@ -24,10 +24,16 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellIMDbRankLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellNameLabel: UILabel!
+    @IBOutlet weak var cellIMDbRatingNumberLabel: UILabel!
+    
     @IBOutlet weak var cellAdditionalInfoLabel: UILabel!
     @IBOutlet weak var cellYearInfo: UILabel!
-    @IBOutlet weak var cellIMDbRatingLabel: UILabel!
-    @IBOutlet weak var cellIMDbRatingNumberLabel: UILabel!
+  
+   
+    
+    
+    
+    
     
     let apiManager: APIManagerProtocol = APIManager()
     
@@ -129,7 +135,6 @@ class TableViewCell: UITableViewCell {
             case .failure:
                 DispatchQueue.main.async {
                     self.cellIMDbRatingNumberLabel.isHidden = true
-                    self.cellIMDbRatingLabel.isHidden = true
                 }
             }
             DispatchQueue.main.async {
