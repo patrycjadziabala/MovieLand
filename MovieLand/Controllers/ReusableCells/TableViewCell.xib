@@ -92,51 +92,18 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCj-jC-dLa" userLabel="SeenButton">
-                        <rect key="frame" x="515" y="10" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="E2C-hV-KZU"/>
-                            <constraint firstAttribute="height" constant="30" id="P92-SS-GbD"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJY-l2-yS5" userLabel="WantToWatchButton">
-                        <rect key="frame" x="485" y="10" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="B6P-b8-zao"/>
-                            <constraint firstAttribute="width" constant="30" id="GZ9-70-qs8"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-aG-Ogk" userLabel="FavouriteButton">
-                        <rect key="frame" x="395" y="10" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="JCs-6O-U8K"/>
-                            <constraint firstAttribute="width" constant="30" id="fiG-Md-Kd5"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" name="Beige"/>
                 <constraints>
-                    <constraint firstItem="fCj-jC-dLa" firstAttribute="leading" secondItem="cJY-l2-yS5" secondAttribute="trailing" id="2qc-Bs-4ND"/>
-                    <constraint firstItem="fCj-jC-dLa" firstAttribute="top" secondItem="axG-99-y1R" secondAttribute="top" id="6xC-6O-oP5"/>
                     <constraint firstItem="M9g-J4-V1n" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7FY-Gf-TbL"/>
                     <constraint firstItem="M9g-J4-V1n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="APN-FN-Utb"/>
                     <constraint firstAttribute="bottom" secondItem="axG-99-y1R" secondAttribute="bottom" constant="10" id="BHC-sE-ccW"/>
-                    <constraint firstItem="FKT-aG-Ogk" firstAttribute="leading" secondItem="axG-99-y1R" secondAttribute="leading" id="DJq-Ze-AeS"/>
                     <constraint firstAttribute="trailing" secondItem="axG-99-y1R" secondAttribute="trailing" constant="10" id="RvW-oR-dJt"/>
                     <constraint firstItem="axG-99-y1R" firstAttribute="leading" secondItem="JFy-Sj-fug" secondAttribute="trailing" constant="15" id="W5X-Vs-hPZ"/>
                     <constraint firstItem="JFy-Sj-fug" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="220" id="ioh-Le-oTZ"/>
-                    <constraint firstItem="fCj-jC-dLa" firstAttribute="trailing" secondItem="axG-99-y1R" secondAttribute="trailing" id="nA2-qW-4N5"/>
                     <constraint firstItem="M9g-J4-V1n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6.3333333333333428" id="qp8-6F-WDn"/>
                     <constraint firstItem="axG-99-y1R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="u3z-AG-iQL"/>
-                    <constraint firstItem="FKT-aG-Ogk" firstAttribute="top" secondItem="axG-99-y1R" secondAttribute="top" id="uQu-hy-ldS"/>
                     <constraint firstItem="JFy-Sj-fug" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="un6-SE-hYD"/>
-                    <constraint firstItem="cJY-l2-yS5" firstAttribute="top" secondItem="axG-99-y1R" secondAttribute="top" id="zet-he-vRy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -148,17 +115,11 @@
                 <outlet property="cellImage" destination="axG-99-y1R" id="agu-rD-iPh"/>
                 <outlet property="cellNameLabel" destination="vHK-lT-4jR" id="lVo-Iv-NzD"/>
                 <outlet property="cellYearInfo" destination="UFx-D4-6xX" id="FWi-wV-FkX"/>
-                <outlet property="favouriteButton" destination="FKT-aG-Ogk" id="pQG-rY-16i"/>
-                <outlet property="seenButton" destination="fCj-jC-dLa" id="s6X-Id-5dO"/>
-                <outlet property="wantToWatchButton" destination="cJY-l2-yS5" id="fWI-aF-ZPd"/>
             </connections>
             <point key="canvasLocation" x="123.84615384615384" y="57.582938388625593"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="eye" catalog="system" width="128" height="79"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Beige">
             <color red="1" green="0.96078431369999995" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

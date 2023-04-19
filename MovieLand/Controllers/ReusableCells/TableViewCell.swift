@@ -28,9 +28,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellYearInfo: UILabel!
     @IBOutlet weak var cellIMDbRatingLabel: UILabel!
     @IBOutlet weak var cellIMDbRatingNumberLabel: UILabel!
-    @IBOutlet weak var seenButton: UIButton!
-    @IBOutlet weak var wantToWatchButton: UIButton!
-    @IBOutlet weak var favouriteButton: UIButton!
     
     let apiManager: APIManagerProtocol = APIManager()
     
@@ -156,12 +153,6 @@ class TableViewCell: UITableViewCell {
             self.cellImage.image = Constants.defaultImage
         }
     }
-    
-    //MARK: - Favourites
-    
-    // get movie/person id
-    // fetch title/person model with that id
-    // compare model id with model ids in favourites user defaults
 }
 
 

@@ -26,79 +26,90 @@
                         <rect key="frame" x="395" y="10" width="150" height="218"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="NvM-DF-6jl"/>
+                            <constraint firstAttribute="height" constant="218" id="dYG-HD-tg9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-zP-d4G">
-                        <rect key="frame" x="10" y="21" width="144.33333333333334" height="25"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dUO-4t-QP1">
+                        <rect key="frame" x="0.0" y="0.0" width="385" height="238"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-zP-d4G">
+                                <rect key="frame" x="10" y="15" width="375" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Ut4-Qm-SDu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awardName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fa-lp-9Zo" userLabel="awardsCellAwardName">
+                                <rect key="frame" x="10" y="45" width="375" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="G8p-DS-O7K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                <color key="textColor" name="TouchBarBezel"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="outcomeYear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-GP-BuU">
+                                <rect key="frame" x="10" y="75" width="375" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Jo7-Yb-ufY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="outcomeTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-WB-ENX">
+                                <rect key="frame" x="10" y="105" width="375" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="MZl-BS-jXl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awardCategory" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfX-CV-1qk">
+                                <rect key="frame" x="10" y="189.66666666666666" width="375" height="33.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33.333333333333343" id="yPn-9p-JPy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.91976243260000001" green="0.63398265509999996" blue="0.89988092819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </label>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="16j-Cl-G0r"/>
-                            <constraint firstAttribute="height" constant="25" id="Ut4-Qm-SDu"/>
+                            <constraint firstAttribute="trailing" secondItem="6yh-GP-BuU" secondAttribute="trailing" id="1AY-ti-3Rg"/>
+                            <constraint firstItem="81i-WB-ENX" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="leading" constant="10" id="1gS-FI-Gxb"/>
+                            <constraint firstItem="Pb5-zP-d4G" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="leading" constant="10" id="2OQ-3W-tKf"/>
+                            <constraint firstItem="BfX-CV-1qk" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="leading" constant="10" id="6cT-pt-5VD"/>
+                            <constraint firstAttribute="trailing" secondItem="81i-WB-ENX" secondAttribute="trailing" id="8V5-Is-G63"/>
+                            <constraint firstAttribute="trailing" secondItem="BfX-CV-1qk" secondAttribute="trailing" id="Gdx-ow-tX2"/>
+                            <constraint firstItem="6yh-GP-BuU" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="leading" constant="10" id="K7Q-Xz-aKJ"/>
+                            <constraint firstItem="Pb5-zP-d4G" firstAttribute="top" secondItem="dUO-4t-QP1" secondAttribute="top" constant="15" id="W4H-AQ-db0"/>
+                            <constraint firstAttribute="trailing" secondItem="9fa-lp-9Zo" secondAttribute="trailing" id="bmv-gd-YjV"/>
+                            <constraint firstAttribute="trailing" secondItem="Pb5-zP-d4G" secondAttribute="trailing" id="iBU-gm-TUL"/>
+                            <constraint firstAttribute="bottom" secondItem="BfX-CV-1qk" secondAttribute="bottom" constant="15" id="kgT-cZ-pft"/>
+                            <constraint firstItem="9fa-lp-9Zo" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="leading" constant="10" id="trG-1K-LDk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awardName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUn-kk-MOM">
-                        <rect key="frame" x="10" y="55.999999999999993" width="144.33333333333334" height="24.666666666666664"/>
-                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="outcomeYear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-GP-BuU">
-                        <rect key="frame" x="10" y="90.666666666666671" width="144.33333333333334" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="25" id="Jo7-Yb-ufY"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="outcomeTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-WB-ENX">
-                        <rect key="frame" x="10" y="125.66666666666669" width="144.33333333333334" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="25" id="MZl-BS-jXl"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awardCategory" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfX-CV-1qk">
-                        <rect key="frame" x="10" y="194.66666666666666" width="144.33333333333334" height="33.333333333333343"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="33.333333333333343" id="yPn-9p-JPy"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="cnW-UA-SIn" secondAttribute="trailing" constant="10" id="6Li-mn-ZnV"/>
-                    <constraint firstItem="BfX-CV-1qk" firstAttribute="leading" secondItem="Pb5-zP-d4G" secondAttribute="leading" id="6OG-8i-ER3"/>
-                    <constraint firstAttribute="bottom" secondItem="cnW-UA-SIn" secondAttribute="bottom" constant="10" id="8XH-8a-dn4"/>
-                    <constraint firstItem="HUn-kk-MOM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BFp-9r-6JN"/>
-                    <constraint firstAttribute="bottom" secondItem="BfX-CV-1qk" secondAttribute="bottom" constant="10" id="DNm-ry-VvO"/>
-                    <constraint firstItem="Pb5-zP-d4G" firstAttribute="leading" secondItem="HUn-kk-MOM" secondAttribute="leading" id="FQb-iE-ybI"/>
-                    <constraint firstItem="6yh-GP-BuU" firstAttribute="leading" secondItem="Pb5-zP-d4G" secondAttribute="leading" id="GYB-MJ-37j"/>
-                    <constraint firstItem="HUn-kk-MOM" firstAttribute="width" secondItem="Pb5-zP-d4G" secondAttribute="width" id="Hhn-iK-z8O"/>
-                    <constraint firstItem="BfX-CV-1qk" firstAttribute="width" secondItem="Pb5-zP-d4G" secondAttribute="width" id="JHT-Sp-hxi"/>
-                    <constraint firstItem="81i-WB-ENX" firstAttribute="leading" secondItem="Pb5-zP-d4G" secondAttribute="leading" id="JIX-WR-0G8"/>
-                    <constraint firstItem="81i-WB-ENX" firstAttribute="width" secondItem="Pb5-zP-d4G" secondAttribute="width" id="Pyq-0x-nGL"/>
-                    <constraint firstItem="6yh-GP-BuU" firstAttribute="width" secondItem="Pb5-zP-d4G" secondAttribute="width" id="SDq-wp-tvp"/>
-                    <constraint firstItem="cnW-UA-SIn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YSd-dQ-O4g"/>
-                    <constraint firstItem="6yh-GP-BuU" firstAttribute="centerX" secondItem="81i-WB-ENX" secondAttribute="centerX" id="ZQ4-vL-MN3"/>
-                    <constraint firstItem="HUn-kk-MOM" firstAttribute="top" secondItem="Pb5-zP-d4G" secondAttribute="bottom" constant="10" id="jpt-Mm-d9n"/>
-                    <constraint firstItem="BfX-CV-1qk" firstAttribute="top" secondItem="81i-WB-ENX" secondAttribute="bottom" constant="43.999999999999943" id="l0G-77-TLr"/>
-                    <constraint firstItem="Pb5-zP-d4G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="qGs-rq-c8I"/>
-                    <constraint firstItem="81i-WB-ENX" firstAttribute="top" secondItem="6yh-GP-BuU" secondAttribute="bottom" constant="10" id="rRT-og-lDQ"/>
-                    <constraint firstItem="6yh-GP-BuU" firstAttribute="top" secondItem="HUn-kk-MOM" secondAttribute="bottom" constant="10" id="sv8-jn-E7q"/>
-                    <constraint firstItem="HUn-kk-MOM" firstAttribute="top" secondItem="Pb5-zP-d4G" secondAttribute="bottom" constant="10" id="vo7-w9-TxI"/>
+                    <constraint firstAttribute="trailing" secondItem="cnW-UA-SIn" secondAttribute="trailing" constant="10" id="8so-x4-Rnh"/>
+                    <constraint firstItem="dUO-4t-QP1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kr2-3U-b8e"/>
+                    <constraint firstItem="dUO-4t-QP1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LgB-Fd-HcT"/>
+                    <constraint firstItem="cnW-UA-SIn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Xih-7H-tVS"/>
+                    <constraint firstItem="cnW-UA-SIn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hEl-jL-LTr"/>
+                    <constraint firstAttribute="bottom" secondItem="dUO-4t-QP1" secondAttribute="bottom" id="jUF-Yo-VQu"/>
+                    <constraint firstItem="cnW-UA-SIn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="p5d-f4-tOC"/>
+                    <constraint firstItem="cnW-UA-SIn" firstAttribute="leading" secondItem="dUO-4t-QP1" secondAttribute="trailing" constant="10" id="tfT-e0-bTx"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="CustomDarkPink"/>
             <connections>
-                <outlet property="awardsCellAwardName" destination="HUn-kk-MOM" id="cMQ-Au-cE3"/>
+                <outlet property="awardsCellAwardName" destination="9fa-lp-9Zo" id="Ou9-sg-xQY"/>
                 <outlet property="awardsCellContentView" destination="H2p-sc-9uM" id="KJW-lU-MpZ"/>
                 <outlet property="awardsCellEventTitle" destination="Pb5-zP-d4G" id="d2x-wh-TCP"/>
                 <outlet property="awardsCellImageView" destination="cnW-UA-SIn" id="5So-n0-c68"/>
@@ -112,6 +123,9 @@
     <resources>
         <namedColor name="CustomDarkPink">
             <color red="1" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TouchBarBezel">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

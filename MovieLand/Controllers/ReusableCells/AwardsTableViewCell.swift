@@ -23,14 +23,13 @@ class AwardsTableViewCell: UITableViewCell {
     @IBOutlet weak var awardsCellContentView: UIView!
     @IBOutlet weak var awardsCellImageView: UIImageView!
     @IBOutlet weak var awardsCellEventTitle: UILabel!
-    @IBOutlet weak var awardsCellAwardName: UILabel!
     @IBOutlet weak var awardsCellOutcomeYear: UILabel!
     @IBOutlet weak var awardsCellOutcomeTitle: UILabel!
     @IBOutlet weak var awardsCellOutcomeCategory: UILabel!
     
+    @IBOutlet weak var awardsCellAwardName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         configureCellView()
     }
     
