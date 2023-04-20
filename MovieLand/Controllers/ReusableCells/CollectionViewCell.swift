@@ -88,7 +88,9 @@ class CollectionViewCell: UICollectionViewCell {
                 switch result {
                 case .success(let movieRating):
                     ratingMovieFromDifferentModel = movieRating.imDb
-                   
+                    DispatchQueue.main.async {
+                        self.starImage.isHidden = false
+                    }
                 case .failure:
                     DispatchQueue.main.async {
                         self.starImage.isHidden = true
