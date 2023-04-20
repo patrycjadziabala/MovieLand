@@ -160,14 +160,14 @@ class MovieDetailsViewController: UIViewController {
     
     func configureCollectionViewActorsInFilm() {
         addChild(actorsInFilmController)
-        view.addSubview(actorsInFilmController.view)
+        actorsInFilmScrollableViewContainer.addSubview(actorsInFilmController.view)
         actorsInFilmController.didMove(toParent: self)
         actorsInFilmController.view.constraint(to: actorsInFilmScrollableViewContainer)
     }
     
     func configureCollectionViewSimilarMovies() {
         addChild(similarMoviesController)
-        view.addSubview(similarMoviesController.view)
+        similarMoviesScrollableViewContainer.addSubview(similarMoviesController.view)
         similarMoviesController.didMove(toParent: self)
         similarMoviesController.view.constraint(to: similarMoviesScrollableViewContainer)
     }
