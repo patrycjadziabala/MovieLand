@@ -28,12 +28,6 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellAdditionalInfoLabel: UILabel!
     @IBOutlet weak var cellYearInfo: UILabel!
-  
-   
-    
-    
-    
-    
     
     let apiManager: APIManagerProtocol = APIManager()
     
@@ -176,6 +170,10 @@ class TableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.cellImage.image = Constants.defaultImage
         }
+    }
+    
+    func cancelCurrentTasks() {
+        cellImage.sd_cancelCurrentImageLoad()
     }
 }
 

@@ -90,7 +90,7 @@ class MovieDetailsViewController: UIViewController {
         viewModel.fetchTitle(id: titleID)
         prepareForShowingTrailer()
         prepareToShowFullDetails()
-        prepareForShowingMovieRating()
+        prepareForShowingMovieRatingFromRatingsModel()
         updateSeenIcon(isSeen: false)
         updateWantIcon(isWant: false)
     }
@@ -136,7 +136,11 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - Movie rating configuration
     
-    func prepareForShowingMovieRating() {
+    func confingureMovieRating(titleModel: TitleModel) {
+//        ratingScore
+    }
+    
+    func prepareForShowingMovieRatingFromRatingsModel() {
         viewModel.fetchRating(id: titleID)
     }
     

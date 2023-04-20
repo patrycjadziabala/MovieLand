@@ -22,7 +22,7 @@ protocol APIManagerProtocol: AnyObject {
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void)
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void)
     func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void)
-    func cancelCurrentTask()
+    func cancelCurrentTasks()
 }
 
 enum APIEndpoint: String {
@@ -54,7 +54,7 @@ class APIManager: APIManagerProtocol {
     
     let language: String
     
-    var currentTask: URLSessionDataTask?
+    var currentTasks: [URLSessionDataTask] = []
     
     init(language: String = "en") {
         self.language = language
@@ -91,36 +91,46 @@ class APIManager: APIManagerProtocol {
         }
         // TODO: - Make it generic and reuse
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            else if let data = data {
+            if let data = data {
                 let decoder = JSONDecoder()
                 do {
                     let decodedData = try decoder.decode(PersonModel.self, from: data)
                     completion(.success(decodedData))
+                    return
                 } catch {
                     completion(.failure(error))
+                    return
                 }
-            } else {
+            }
+
                 completion(.failure(APIManagerError.unknownError))
             }
-        }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void) {
         guard let url = buildURL(for: .title, id: id) else {
-            
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
         // TODO: - Make it generic and reuse
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -138,8 +148,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchSearchResults(query: String, completion: @escaping (Result<SearchResultsModel, Error>) -> Void) {
@@ -148,7 +159,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -166,8 +181,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchTrailer(id: String, completion: @escaping(Result<TrailerModel, Error>) -> Void) {
@@ -176,7 +192,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -194,8 +214,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchAllDetailsWeb(id: String, completion: @escaping(Result<AllDetailsWebModel, Error>) -> Void) {
@@ -204,7 +225,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -222,8 +247,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
@@ -232,7 +258,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -250,8 +280,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void) {
@@ -260,7 +291,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -278,8 +313,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
@@ -288,7 +324,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -306,8 +346,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
@@ -316,7 +357,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -334,8 +379,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void) {
@@ -344,7 +390,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -362,8 +412,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void) {
@@ -372,7 +423,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -390,8 +445,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void) {
@@ -400,7 +456,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -418,8 +478,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void) {
@@ -428,7 +489,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -446,8 +511,9 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
     func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void) {
@@ -456,7 +522,11 @@ class APIManager: APIManagerProtocol {
             return
         }
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { data, response, error in
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
             if let error = error {
                 completion(.failure(error))
                 return
@@ -474,11 +544,14 @@ class APIManager: APIManagerProtocol {
             }
             completion(.failure(APIManagerError.unknownError))
         }
-        task.resume()
         currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
     
-    func cancelCurrentTask() {
-        currentTask?.cancel()
+    func cancelCurrentTasks() {
+        currentTasks.forEach { task in
+            task.cancel()
+        }
     }
 }
