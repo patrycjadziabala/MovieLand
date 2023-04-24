@@ -120,7 +120,6 @@ class MovieDetailsViewController: UIViewController {
         if let awardsList = titleModel.awards {
             self.exploreAwardsButton.isHidden = false
             self.exploreAwardsButton.backgroundColor = UIColor.cyan
-            
             self.awardsTextView.text = awardsList
         } else {
             self.awardsTextView.isHidden = true
