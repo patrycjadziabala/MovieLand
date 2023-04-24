@@ -45,11 +45,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="2500"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="2100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-5i-QJZ">
-                    <rect key="frame" x="0.0" y="47" width="390" height="2400"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="2000"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-O1-Lbf" userLabel="ContentView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="2434"/>
@@ -110,7 +110,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2in-HT-puo">
-                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333333144" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333333144" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -129,7 +129,7 @@
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" id="Itc-7E-I6y"/>
                                                 <constraint firstAttribute="top" secondItem="cnV-S2-zC0" secondAttribute="bottom" constant="-44" id="ZCw-kq-UKn"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" id="kdx-d0-5Uz"/>
-                                                <constraint firstAttribute="trailing" secondItem="2in-HT-puo" secondAttribute="trailing" id="tot-dW-6Ri"/>
+                                                <constraint firstAttribute="trailing" secondItem="2in-HT-puo" secondAttribute="trailing" constant="10" id="tot-dW-6Ri"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="xjE-wG-ORL"/>
                                             </constraints>
                                         </view>
@@ -150,7 +150,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
-                                                    <rect key="frame" x="313.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -165,7 +165,7 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="Dd6-VE-1Ks" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="4SR-vJ-p3s"/>
-                                                <constraint firstAttribute="trailing" secondItem="Dd6-VE-1Ks" secondAttribute="trailing" id="54F-bz-DeD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dd6-VE-1Ks" secondAttribute="trailing" constant="10" id="54F-bz-DeD"/>
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="6Zp-mb-n53"/>
                                                 <constraint firstAttribute="height" constant="35" id="A6a-vS-GbF"/>
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="leading" secondItem="cUI-TR-ner" secondAttribute="leading" id="GxJ-9W-D4t"/>
@@ -183,7 +183,7 @@
                                             <rect key="frame" x="0.0" y="920" width="390" height="35"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
-                                                    <rect key="frame" x="311" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -208,7 +208,7 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="Ada-He-xB7"/>
-                                                <constraint firstItem="cu5-z5-UcI" firstAttribute="leading" secondItem="z5M-2Y-qyQ" secondAttribute="trailing" constant="94" id="FCi-So-5Ac"/>
+                                                <constraint firstAttribute="trailing" secondItem="cu5-z5-UcI" secondAttribute="trailing" constant="10" id="EUx-zx-B3F"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="top" secondItem="8Np-s1-Twt" secondAttribute="top" id="V9W-QQ-JI8"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WiB-tY-8nL"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="leading" secondItem="8Np-s1-Twt" secondAttribute="leading" id="jsq-Sv-iz5"/>
@@ -233,7 +233,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
-                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -249,7 +249,7 @@
                                             <constraints>
                                                 <constraint firstItem="AlS-EO-IRn" firstAttribute="leading" secondItem="EiH-aG-Toz" secondAttribute="leading" id="AqB-Hu-LaK"/>
                                                 <constraint firstAttribute="height" constant="45" id="K6D-gl-cuD"/>
-                                                <constraint firstAttribute="trailing" secondItem="pjc-U5-ZYe" secondAttribute="trailing" id="Vps-ow-a2x"/>
+                                                <constraint firstAttribute="trailing" secondItem="pjc-U5-ZYe" secondAttribute="trailing" constant="10" id="Vps-ow-a2x"/>
                                                 <constraint firstItem="AlS-EO-IRn" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="eF4-h9-es3"/>
                                                 <constraint firstItem="pjc-U5-ZYe" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="vea-fm-qfp"/>
                                             </constraints>
@@ -271,7 +271,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
-                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -289,7 +289,7 @@
                                                 <constraint firstAttribute="height" constant="45" id="INm-gf-vlw"/>
                                                 <constraint firstItem="NVg-Ss-Jqi" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="OWs-nj-hMm"/>
                                                 <constraint firstItem="ALB-tK-4RV" firstAttribute="leading" secondItem="7z9-xc-Bzv" secondAttribute="leading" id="PLm-UE-xju"/>
-                                                <constraint firstAttribute="trailing" secondItem="NVg-Ss-Jqi" secondAttribute="trailing" id="Rhg-3D-A11"/>
+                                                <constraint firstAttribute="trailing" secondItem="NVg-Ss-Jqi" secondAttribute="trailing" constant="10" id="Rhg-3D-A11"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-M2-bgj" userLabel="MostPopularTVSeriesCollectionView">
@@ -309,7 +309,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
-                                                    <rect key="frame" x="313.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
@@ -327,7 +327,7 @@
                                                 <constraint firstItem="bM7-DD-Jh6" firstAttribute="leading" secondItem="dyc-J2-8zS" secondAttribute="leading" id="Ajk-rt-xnD"/>
                                                 <constraint firstAttribute="height" constant="45" id="F5R-4F-yYI"/>
                                                 <constraint firstItem="bM7-DD-Jh6" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="GDR-An-Vow"/>
-                                                <constraint firstAttribute="trailing" secondItem="28s-Y5-bgQ" secondAttribute="trailing" id="GPf-re-hZs"/>
+                                                <constraint firstAttribute="trailing" secondItem="28s-Y5-bgQ" secondAttribute="trailing" constant="10" id="GPf-re-hZs"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-FD-dhl" userLabel="BoxOfficeAllTimeCollectionView">

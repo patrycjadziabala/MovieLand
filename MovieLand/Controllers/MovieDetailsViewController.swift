@@ -136,7 +136,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Movie rating configuration
     
     func confingureMovieRating(titleModel: TitleModel) {
-//        ratingScore
+        //        ratingScore
     }
     
     func prepareForShowingMovieRatingFromRatingsModel() {

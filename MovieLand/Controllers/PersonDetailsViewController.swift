@@ -24,8 +24,6 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var deathDateLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
     
-    
-    
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
     let tabRouter: TabRouterProtocol
@@ -137,7 +135,7 @@ class PersonDetailsViewController: UIViewController {
     
     func configureCollectionViewCastMovies() {
         addChild(castMoviesController)
-        view.addSubview(castMoviesController.view)
+        castMoviesCollectionViewContainer.addSubview(castMoviesController.view)
         castMoviesController.didMove(toParent: self)
         castMoviesController.view.constraint(to: castMoviesCollectionViewContainer)
     }
