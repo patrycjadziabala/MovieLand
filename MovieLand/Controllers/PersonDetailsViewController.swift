@@ -15,7 +15,7 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var birthDateLabel: UILabel!
     @IBOutlet weak var personInfoTextView: UITextView!
     @IBOutlet weak var personImageView: UIImageView!
-    @IBOutlet weak var awardsLabel: UITextView!
+    @IBOutlet weak var awardsTextView: UITextView!
     @IBOutlet weak var awardsButton: UIButton!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var castMoviesLabel: UILabel!
@@ -112,7 +112,7 @@ class PersonDetailsViewController: UIViewController {
     
     func configurePersonAwards(personModel: PersonModel) {
         if let personAwards = personModel.awards {
-            self.awardsLabel.text = personAwards
+            self.awardsTextView.text = personAwards
         } else {
             self.hideAwardsLabelandButton()
         }
@@ -129,7 +129,7 @@ class PersonDetailsViewController: UIViewController {
     }
     
     func hideAwardsLabelandButton() {
-        awardsLabel.isHidden = true
+        awardsTextView.isHidden = true
         awardsButton.isHidden = true
     }
     
@@ -199,6 +199,8 @@ extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
     }
     
     func presentAlertOffile(with error: Error) {
-        presentAlert(with: error)
+        DispatchQueue.main.async {
+            self.presentAlert(with: error)
+        }
     }
 }
