@@ -17,4 +17,24 @@ extension UIView {
         topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).isActive = true
         bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
     }
+    
+    func applyShadow() {
+            layer.masksToBounds = false
+            layer.shadowRadius = 4.0
+            layer.shadowOpacity = 0.5
+            layer.shadowColor = UIColor.gray.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 1)
+        }
+        
+        func makeRound() {
+            layer.cornerRadius = frame.width / 2
+            layer.masksToBounds = true
+            clipsToBounds = true
+        }
+        
+        func makeRound(radius: CGFloat) {
+            layer.cornerRadius = radius
+            layer.masksToBounds = true
+            clipsToBounds = true
+        }
 }
