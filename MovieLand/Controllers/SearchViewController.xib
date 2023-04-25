@@ -3,16 +3,25 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Labrada-Light.ttf">
+            <string>Labrada-Light</string>
+        </array>
+        <array key="Showtime.ttf">
+            <string>Showtime</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="PyV-yP-Xho" id="dDe-48-5v6"/>
                 <outlet property="searchButton" destination="RFW-n1-duB" id="B4h-lC-B98"/>
                 <outlet property="searchTextField" destination="pSM-FT-meZ" id="brH-jx-cdM"/>
+                <outlet property="showtimeLabel" destination="4VL-m8-Xi7" id="ufR-Ck-P4i"/>
                 <outlet property="view" destination="GpG-th-oTy" id="qwH-so-6yu"/>
             </connections>
         </placeholder>
@@ -21,50 +30,80 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-yP-Xho">
-                    <rect key="frame" x="75" y="268" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-yP-Xho">
+                    <rect key="frame" x="72" y="479" width="200" height="179"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="179" id="1J4-YL-qPs"/>
+                        <constraint firstAttribute="width" constant="200" id="Xqq-ol-eA0"/>
+                    </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Search for your favourite actor to see movies he played in or type in a movie/tv series title below" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4VL-m8-Xi7">
-                    <rect key="frame" x="75" y="434" width="240" height="216.66666666666666"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="(SHOWTIME)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4VL-m8-Xi7">
+                    <rect key="frame" x="30" y="294" width="330" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="4K3-Su-4fl"/>
+                    </constraints>
+                    <color key="textColor" red="1" green="0.48627450980392156" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" name="Showtime" family="Showtime" pointSize="59"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFW-n1-duB">
-                    <rect key="frame" x="336" y="661" width="46" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="systemRedColor"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFW-n1-duB">
+                    <rect key="frame" x="336" y="663.66666666666663" width="49.666666666666686" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="Ong-9j-JwE"/>
+                    </constraints>
+                    <color key="tintColor" name="CustomBeige"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                     <connections>
                         <action selector="searchButtonPressed:" destination="-1" eventType="touchUpInside" id="N02-oX-pbT"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSM-FT-meZ">
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSM-FT-meZ">
                     <rect key="frame" x="16" y="666" width="312" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="312" id="Xpv-lx-XVt"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for your favourite actors, movies and TV series" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozp-Ah-6zY">
+                    <rect key="frame" x="20" y="379" width="350" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="iCF-wF-485"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="20"/>
+                    <color key="textColor" name="CustomBeige"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="O4o-Wf-8gU"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="CustomDarkBlue"/>
+            <constraints>
+                <constraint firstItem="ozp-Ah-6zY" firstAttribute="top" secondItem="4VL-m8-Xi7" secondAttribute="bottom" id="2GM-e1-XjD"/>
+                <constraint firstItem="O4o-Wf-8gU" firstAttribute="bottom" secondItem="pSM-FT-meZ" secondAttribute="bottom" constant="110" id="Cu7-w2-kgZ"/>
+                <constraint firstItem="ozp-Ah-6zY" firstAttribute="leading" secondItem="O4o-Wf-8gU" secondAttribute="leading" constant="20" id="Efh-G3-nt0"/>
+                <constraint firstItem="pSM-FT-meZ" firstAttribute="leading" secondItem="O4o-Wf-8gU" secondAttribute="leading" constant="16" id="Fnt-9S-dDN"/>
+                <constraint firstItem="O4o-Wf-8gU" firstAttribute="trailing" secondItem="4VL-m8-Xi7" secondAttribute="trailing" constant="30" id="Gcr-FJ-ofv"/>
+                <constraint firstItem="4VL-m8-Xi7" firstAttribute="leading" secondItem="O4o-Wf-8gU" secondAttribute="leading" constant="30" id="ODv-kg-PRu"/>
+                <constraint firstItem="PyV-yP-Xho" firstAttribute="top" secondItem="ozp-Ah-6zY" secondAttribute="bottom" id="aLl-CS-OaR"/>
+                <constraint firstItem="O4o-Wf-8gU" firstAttribute="trailing" secondItem="RFW-n1-duB" secondAttribute="trailing" constant="4.3300000000000001" id="dE5-Nf-zTV"/>
+                <constraint firstItem="pSM-FT-meZ" firstAttribute="centerX" secondItem="PyV-yP-Xho" secondAttribute="centerX" id="eiC-iq-rv4"/>
+                <constraint firstItem="pSM-FT-meZ" firstAttribute="top" secondItem="PyV-yP-Xho" secondAttribute="bottom" constant="8" symbolic="YES" id="hjr-hW-mpM"/>
+                <constraint firstItem="O4o-Wf-8gU" firstAttribute="trailing" secondItem="ozp-Ah-6zY" secondAttribute="trailing" constant="20" id="kdp-xN-rVW"/>
+                <constraint firstItem="RFW-n1-duB" firstAttribute="centerY" secondItem="pSM-FT-meZ" secondAttribute="centerY" id="o8t-SE-dcu"/>
+                <constraint firstItem="RFW-n1-duB" firstAttribute="leading" secondItem="pSM-FT-meZ" secondAttribute="trailing" constant="8" symbolic="YES" id="qUH-8v-iZR"/>
+                <constraint firstItem="4VL-m8-Xi7" firstAttribute="centerX" secondItem="GpG-th-oTy" secondAttribute="centerX" id="w05-nd-rRD"/>
+            </constraints>
             <point key="canvasLocation" x="112.30769230769231" y="0.0"/>
         </view>
     </objects>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="CustomBeige">
+            <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomDarkBlue">
+            <color red="0.18799999356269836" green="0.22400000691413879" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

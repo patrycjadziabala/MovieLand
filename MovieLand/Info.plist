@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Labrada-Light.ttf</string>
+		<string>Showtime.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

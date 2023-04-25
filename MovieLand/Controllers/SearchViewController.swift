@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var showtimeLabel: UITextView!
     @IBOutlet weak var searchButton: UIButton!
     
     let tabRouter: TabRouterProtocol
@@ -31,7 +32,16 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        
+        configure()
+    }
+    
+    func configure() {
+        if let path = Bundle.main.path(forResource: "popcorn", ofType: "gif") {
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path))
+            let image = UIImage.sd_image(withGIFData: data)
+            imageView.image = image
+        }
+        showtimeLabel.applyShadow()
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
