@@ -38,6 +38,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingDescriptionLabel: UILabel!
     @IBOutlet weak var wantToWatchButton: UIButton!
     @IBOutlet weak var seenButton: UIButton!
+    @IBOutlet weak var awardsViewContainer: UIView!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -68,6 +69,7 @@ class MovieDetailsViewController: UIViewController {
         
         toggleActivity(active: true)
         prepareForShowingMovieInformation()
+        prepareToShowFullDetailsWeb()
         configureView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.toggleActivity(active: false)
@@ -89,7 +91,6 @@ class MovieDetailsViewController: UIViewController {
         exploreAwardsButton.isHidden = true
         viewModel.fetchTitle(id: titleID)
         prepareForShowingTrailer()
-        prepareToShowFullDetails()
         prepareForShowingMovieRatingFromRatingsModel()
         updateSeenIcon(isSeen: false)
         updateWantIcon(isWant: false)
@@ -135,7 +136,7 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - Movie rating configuration
     
-    func confingureMovieRating(titleModel: TitleModel) {
+    func confingureMovieRating(model: Similars) {
         //        ratingScore
     }
     
@@ -197,7 +198,7 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - See Full Details - Web View configuration
     
-    func prepareToShowFullDetails() {
+    func prepareToShowFullDetailsWeb() {
         viewModel.fetchFullDetailsWeb(id: titleID)
     }
     

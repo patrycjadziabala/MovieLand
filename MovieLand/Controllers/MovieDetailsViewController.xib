@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="actorsInFilmScrollableViewContainer" destination="xai-Rv-H5f" id="5Ow-9h-aFp"/>
                 <outlet property="awardsTextView" destination="zMx-Et-xGQ" id="n7k-vS-Fhc"/>
+                <outlet property="awardsViewContainer" destination="W9L-bI-dVs" id="rdr-nK-9MB"/>
                 <outlet property="castLabel" destination="jiv-XB-xiQ" id="nmJ-Ux-f9v"/>
                 <outlet property="exploreAwardsButton" destination="7wp-bf-HcU" id="9Mg-m2-zgT"/>
                 <outlet property="filmAffinityWebsiteButton" destination="588-Yy-Mrh" id="jE0-rH-CGa"/>
@@ -71,7 +72,7 @@
                                     <rect key="frame" x="0.0" y="43" width="390" height="30"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4rA-27-rom" userLabel="Rating Star">
-                                            <rect key="frame" x="211.33333333333334" y="-0.33333333333333215" width="30" height="29.666666666666664"/>
+                                            <rect key="frame" x="214.66666666666666" y="-0.33333333333333215" width="30" height="29.666666666666664"/>
                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="qVw-C5-Rdi"/>
@@ -79,7 +80,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" verticalHuggingPriority="251" text="ImDb rating:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYp-gX-WIT" userLabel="ImDb rating:">
-                                            <rect key="frame" x="246.33333333333337" y="0.0" width="100" height="30"/>
+                                            <rect key="frame" x="249.66666666666663" y="0.0" width="100" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="prW-ku-b3R"/>
                                             </constraints>
@@ -88,7 +89,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Y-V7-zcd" userLabel="8.9">
-                                            <rect key="frame" x="356.33333333333331" y="0.0" width="23.666666666666686" height="30"/>
+                                            <rect key="frame" x="359.66666666666669" y="0.0" width="20.333333333333314" height="30"/>
                                             <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -111,13 +112,13 @@
                                     <rect key="frame" x="0.0" y="88" width="390" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lug-PO-wjh">
-                                            <rect key="frame" x="15" y="0.0" width="99" height="50"/>
+                                            <rect key="frame" x="15" y="0.0" width="88" height="50"/>
                                             <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5M-aB-qTJ">
-                                            <rect key="frame" x="329" y="0.0" width="46" height="50"/>
+                                            <rect key="frame" x="332.66666666666669" y="0.0" width="42.333333333333314" height="50"/>
                                             <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -215,7 +216,7 @@
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Awards" translatesAutoresizingMaskIntoConstraints="NO" id="zMx-Et-xGQ" userLabel="Awards Text View">
                                             <rect key="frame" x="10" y="0.0" width="270" height="41"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" name="CustomOrange"/>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -512,6 +513,9 @@
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="CustomLightGray">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomOrange">
+            <color red="1" green="0.60399997234344482" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

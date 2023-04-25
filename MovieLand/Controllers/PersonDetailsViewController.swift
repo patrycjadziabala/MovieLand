@@ -196,7 +196,7 @@ extension PersonDetailsViewController: PersonDetailsViewModelDelegate {
         handleSuccess(personModel: model)
     }
     
-    func presentAlertOffile(with error: Error) {
+    func presentAlertOffline(with error: Error) {
         DispatchQueue.main.async {
             self.presentAlert(with: error)
         }

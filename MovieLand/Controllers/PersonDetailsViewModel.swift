@@ -96,7 +96,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     //MARK: - Alerts
     
     func handleError(error: Error) {
-            self.delegate?.presentAlertOffile(with: error)
+            self.delegate?.presentAlertOffline(with: error)
     }
     
   //MARK: - Favourites
@@ -122,6 +122,6 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
 
 protocol PersonDetailsViewModelDelegate: AnyObject {
     func onFetchPersonInformationSuccess(model: PersonModel)
-    func presentAlertOffile(with error: Error)
+    func presentAlertOffline(with error: Error)
     func onFetchAwardsCompleted(success: Bool)
 }

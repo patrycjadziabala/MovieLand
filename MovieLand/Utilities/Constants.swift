@@ -49,4 +49,6 @@ struct Constants {
     static let offlineMessage = "Ooops you appear to be offline. This app required internet connection."
     static let ok = "Ok"
     static let okButtonTapped = "Ok button tapped"
+    static let urlWasNotCreatedCorrectly = "Url Was Not Created Correctly"
+    static let failedUrl = "Ooops could not fetch awards"
 }

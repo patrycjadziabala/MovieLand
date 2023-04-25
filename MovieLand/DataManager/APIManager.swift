@@ -7,6 +7,7 @@
 
 import Foundation
 import SafariServices
+import UIKit
 
 protocol APIManagerProtocol: AnyObject {
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void)
@@ -453,6 +454,7 @@ class APIManager: APIManagerProtocol {
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void) {
         guard let url = buildURL(for: .nameAwards, id: id) else {
             completion(.failure(APIManagerError.couldNotBuildURL))
+            
             return
         }
         let session = URLSession(configuration: .default)

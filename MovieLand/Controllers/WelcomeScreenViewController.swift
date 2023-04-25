@@ -14,6 +14,7 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var trailerViewContainer: UIView!
+    @IBOutlet weak var trailerVideoView: UIView!
     @IBOutlet weak var trailerImageView: UIImageView!
     @IBOutlet weak var trailerInfoTextView: UITextView!
     @IBOutlet weak var trailerButton: UIButton!
@@ -44,7 +45,6 @@ class WelcomeScreenViewController: UIViewController {
     let mostPopularTVSeriesController: SwipeableInformationTilesController
     let boxOfficeAllTimeController: SwipeableInformationTilesController
     let viewModel: WelcomeScreenViewModelProtocol
-    
     
     init(tabRouter: TabRouterProtocol, viewModel: WelcomeScreenViewModelProtocol) {
         self.tabRouter = tabRouter
@@ -280,7 +280,9 @@ class WelcomeScreenViewController: UIViewController {
             print(Constants.okButtonTapped)
         })
         alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
@@ -309,6 +311,8 @@ extension WelcomeScreenViewController: WelcomeScreenViewModelDelegate {
     }
     
     func presentError(error: Error) {
-        errorAlert(with: error)
+        DispatchQueue.main.async {
+            self.errorAlert(with: error)
+        }
     }
 }

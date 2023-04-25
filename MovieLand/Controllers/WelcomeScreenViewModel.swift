@@ -50,7 +50,9 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
             case .success(let title):
                 self?.delegate?.onFetchMostPopularMoviesInformationSuccess(model: title)
             case .failure(let error):
-                self?.handleError(error: error)
+                DispatchQueue.main.async {
+                    self?.handleError(error: error)
+                }
             }
         }
     }

@@ -66,7 +66,7 @@ class TableViewCell: UITableViewCell {
             case .success(let starList):
                 stars = starList.stars
                 DispatchQueue.main.async {
-                    self.cellAdditionalInfoLabel.text = stars
+//                    self.cellAdditionalInfoLabel.text = stars
                 }
             case .failure:
                 DispatchQueue.main.async {
@@ -132,7 +132,11 @@ class TableViewCell: UITableViewCell {
                 }
             }
             DispatchQueue.main.async {
-                self.cellIMDbRatingNumberLabel.text = "IMDb rating: \(ratingMovieFromDifferentModel ?? "")"
+                if ratingMovieFromDifferentModel == "" {
+                    self.cellIMDbRatingNumberLabel.isHidden = true
+                } else {
+                    self.cellIMDbRatingNumberLabel.text = "IMDb rating: \(ratingMovieFromDifferentModel ?? "")"
+                }
             }
         }
     }
