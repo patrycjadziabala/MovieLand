@@ -37,4 +37,15 @@ extension UIView {
             layer.masksToBounds = true
             clipsToBounds = true
         }
+    
+    func rotate(degrees: CGFloat) {
+
+        let degreesToRadians: (CGFloat) -> CGFloat = { (degrees: CGFloat) in
+            return degrees / 180.0 * CGFloat.pi
+        }
+        self.transform =  CGAffineTransform(rotationAngle: degreesToRadians(degrees))
+
+        // If you like to use layer you can uncomment the following line
+        //layer.transform = CATransform3DMakeRotation(degreesToRadians(degrees), 0.0, 0.0, 1.0)
+    }
 }

@@ -29,6 +29,11 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellAdditionalInfoLabel: UILabel!
     @IBOutlet weak var cellYearInfo: UILabel!
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var rankView: UIView!
+    
+    @IBOutlet weak var crownImageView: UIImageView!
+    
     let apiManager: APIManagerProtocol = APIManager()
     
     override func awakeFromNib() {
@@ -40,7 +45,7 @@ class TableViewCell: UITableViewCell {
     //MARK: - Configure Cell View
     
     func configureCellView() {
-        contentView.backgroundColor = UIColor(named: Constants.customLightPink)
+//        contentView.backgroundColor = UIColor(named: Constants.customLightPink)
         configureDefaultImage()
     }
     
@@ -50,6 +55,15 @@ class TableViewCell: UITableViewCell {
         cellNameLabel.text = model.nameLabelText
         cellNameLabel.lineBreakMode = .byWordWrapping
         cellNameLabel.numberOfLines = 0
+        
+        containerView.makeRound(radius: 15)
+//        containerView.applyShadow()
+//
+        cellImage.applyShadow()
+        rankView.makeRound()
+        rankView.applyShadow()
+        crownImageView.rotate(degrees: 35)
+        
         fetchImage(with: model)
         configureMovieYear(with: model)
         configureIMDbRank(with: model)
@@ -70,7 +84,7 @@ class TableViewCell: UITableViewCell {
                 }
             case .failure:
                 DispatchQueue.main.async {
-                    self.cellAdditionalInfoLabel.isHidden = true
+//                    self.cellAdditionalInfoLabel.isHidden = true
                 }
             }
         }

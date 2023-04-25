@@ -39,7 +39,7 @@
 		46BCD5A929BB5EA00047AC42 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */; };
 		46BCD5AE29BB69D80047AC42 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */; };
 		46BCD5AF29BB69D80047AC42 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */; };
-		46BCD5B929BCEEEA0047AC42 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */; };
+		46BCD5B929BCEEEA0047AC42 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCD5B829BCEEEA0047AC42 /* UIKit+Extensions.swift */; };
 		46BCD5BC29BD23A40047AC42 /* Labrada-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5BB29BD23A40047AC42 /* Labrada-Light.ttf */; };
 		46BCD5BE29BE16DE0047AC42 /* LaunchScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */; };
 		46D8605229C76EE6006271A2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D8605129C76EE6006271A2 /* ListViewController.swift */; };
@@ -85,7 +85,7 @@
 		46AC54BF29BF8ADC00DB029B /* SwipeableInformationTilesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableInformationTilesController.swift; sourceTree = "<group>"; };
 		46BCD5AC29BB69D80047AC42 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		46BCD5AD29BB69D80047AC42 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		46BCD5B829BCEEEA0047AC42 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
 		46BCD5BB29BD23A40047AC42 /* Labrada-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Labrada-Light.ttf"; sourceTree = "<group>"; };
 		46BCD5BD29BE16DE0047AC42 /* LaunchScreenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenView.xib; sourceTree = "<group>"; };
 		46D8605129C76EE6006271A2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				46BCD5BA29BD21BB0047AC42 /* Fonts */,
 				46425CA829B76B7300524341 /* Constants.swift */,
 				469959B629B649DE00069520 /* GifLoader.swift */,
-				46BCD5B829BCEEEA0047AC42 /* UIView+Extensions.swift */,
+				46BCD5B829BCEEEA0047AC42 /* UIKit+Extensions.swift */,
 				4684F62C29ED87FD00733FED /* UIViewController+Extensions.swift */,
 			);
 			path = Utilities;
@@ -358,7 +358,7 @@
 				4693340729BA588300593C70 /* TabRouter.swift in Sources */,
 				46F4E9B229AFC0DE00E8A1A6 /* LaunchScreenViewController.swift in Sources */,
 				46D8605529CB0DCB006271A2 /* WelcomeScreenViewController.swift in Sources */,
-				46BCD5B929BCEEEA0047AC42 /* UIView+Extensions.swift in Sources */,
+				46BCD5B929BCEEEA0047AC42 /* UIKit+Extensions.swift in Sources */,
 				4640FC2629E033790061999C /* PersonDetailsViewModel.swift in Sources */,
 				46F4E9AE29AFC0DE00E8A1A6 /* AppDelegate.swift in Sources */,
 				4640FC2829E6B57B0061999C /* WelcomeScreenViewModel.swift in Sources */,
