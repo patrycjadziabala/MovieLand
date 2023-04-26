@@ -42,6 +42,7 @@ struct Constants {
     static let customOrange = "CustomOrange"
     static let customPink = "CustomPink"
     static let customWhite = "CustomWhite"
+    static let customLightBlue = "CustomLightBlue"
     
     // MARK: - Alerts
     

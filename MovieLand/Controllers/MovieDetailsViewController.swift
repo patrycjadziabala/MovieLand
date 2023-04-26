@@ -37,9 +37,12 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingStarImage: UIImageView!
     @IBOutlet weak var wantToWatchButton: UIButton!
     @IBOutlet weak var seenButton: UIButton!
-    @IBOutlet weak var awardsViewContainer: UIView!
+
     @IBOutlet weak var movieImageAndOverviewView: UIView!
-    
+    @IBOutlet weak var awardsView: UIView!
+    @IBOutlet weak var castLabelAndButtonView: UIView!
+    @IBOutlet weak var trailerLabelView: UIView!
+    @IBOutlet weak var similarMoviesLabelAndButtonView: UIView!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -87,7 +90,14 @@ class MovieDetailsViewController: UIViewController {
         movieImageAndOverviewView.makeRound(radius: 20)
         wantToWatchButton.makeRound()
         seenButton.makeRound()
-        genreLabel.makeRound(radius:15)
+        genreLabel.makeRound(radius: 15)
+        awardsView.makeRound(radius: 20)
+        castLabelAndButtonView.makeRound(radius: 20)
+        trailerLabelView.makeRound(radius: 20)
+        trailerViewContainer.backgroundColor = UIColor(named: Constants.customDarkBlue)
+        similarMoviesLabelAndButtonView.makeRound(radius: 20)
+        navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
+        tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
     }
     
     // MARK: - Movie Information Configuration
@@ -125,7 +135,7 @@ class MovieDetailsViewController: UIViewController {
     func configureMovieAwards(titleModel: TitleModel) {
         if let awardsList = titleModel.awards {
             self.exploreAwardsButton.isHidden = false
-            self.exploreAwardsButton.backgroundColor = UIColor.cyan
+            self.exploreAwardsButton.backgroundColor = UIColor(named: Constants.customLightBlue)
             self.awardsTextView.text = awardsList
         } else {
             self.awardsTextView.isHidden = true
