@@ -35,10 +35,11 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var rottenTomatoesWebsiteButton: UIButton!
     @IBOutlet weak var ratingScore: UILabel!
     @IBOutlet weak var ratingStarImage: UIImageView!
-    @IBOutlet weak var ratingDescriptionLabel: UILabel!
     @IBOutlet weak var wantToWatchButton: UIButton!
     @IBOutlet weak var seenButton: UIButton!
     @IBOutlet weak var awardsViewContainer: UIView!
+    @IBOutlet weak var movieImageAndOverviewView: UIView!
+    
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -83,6 +84,10 @@ class MovieDetailsViewController: UIViewController {
         configureCollectionViewSimilarMovies()
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
+        movieImageAndOverviewView.makeRound(radius: 20)
+        wantToWatchButton.makeRound()
+        seenButton.makeRound()
+        genreLabel.makeRound(radius:15)
     }
     
     // MARK: - Movie Information Configuration
@@ -148,8 +153,7 @@ class MovieDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             if ratingModel.imDb?.isEmpty ?? true {
                 self.ratingScore.isHidden = true
-                self.ratingStarImage.isHidden = true
-                self.ratingDescriptionLabel.isHidden = true
+//                self.ratingStarImage.isHidden = true
             } else {
                 self.ratingScore.text = ratingModel.imDb
             }
