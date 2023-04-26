@@ -26,7 +26,9 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rankNumber: UILabel!
     @IBOutlet weak var rankScore: UILabel!
     @IBOutlet weak var starImage: UIImageView!
-    
+    @IBOutlet weak var rankView: UIView!
+    @IBOutlet weak var crownImage: UIImageView!
+    @IBOutlet weak var containerView: UIView!
     let apiManager: APIManagerProtocol = APIManager()
     
     override func awakeFromNib() {
@@ -38,9 +40,14 @@ class CollectionViewCell: UICollectionViewCell {
     //MARK: - Configure Cell View
     
     func configureCellView() {
-        contentView.backgroundColor = UIColor(named: Constants.customPink)
+        contentView.backgroundColor = UIColor(named: Constants.customDarkBlue)
         configureDefaultImage()
-        starImage.isHidden = true
+        containerView.makeRound(radius: 15)
+        imageView.applyShadow()
+        imageView.makeRound(radius: 10)
+        rankView.makeRound()
+        rankView.applyShadow()
+        crownImage.rotate(degrees: 35)
     }
     
     //MARK: - Cell configuration
@@ -88,12 +95,8 @@ class CollectionViewCell: UICollectionViewCell {
                 switch result {
                 case .success(let movieRating):
                     ratingMovieFromDifferentModel = movieRating.imDb
-                    DispatchQueue.main.async {
-                        self.starImage.isHidden = false
-                    }
                 case .failure:
                     DispatchQueue.main.async {
-                        self.starImage.isHidden = true
                         self.rankScore.isHidden = true
                     }
                 }

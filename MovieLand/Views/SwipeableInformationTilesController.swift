@@ -40,7 +40,7 @@ class SwipeableInformationTilesController: UIViewController {
     private func configureCollectionView() {
         view.addSubview(collectionViewCastMovies)
         collectionViewCastMovies.register(UINib(nibName: Constants.collectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCell)
-        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customPink)
+        collectionViewCastMovies.backgroundColor = UIColor(named: Constants.customDarkBlue)
         collectionViewCastMovies.constraint(to: view)
         collectionViewCastMovies.delegate = self
         collectionViewCastMovies.dataSource = self
@@ -60,7 +60,7 @@ class SwipeableInformationTilesController: UIViewController {
 extension SwipeableInformationTilesController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        CGSize(width: 150, height: 200)
+        CGSize(width: 200, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

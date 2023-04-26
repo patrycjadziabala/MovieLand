@@ -242,7 +242,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiv-XB-xiQ" userLabel="Cast:">
                                             <rect key="frame" x="10" y="0.0" width="35.333333333333336" height="41"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" name="CustomBeige"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZu-3z-2rP">
@@ -260,7 +260,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" name="CustomDarkBlue"/>
                                     <constraints>
                                         <constraint firstItem="jiv-XB-xiQ" firstAttribute="top" secondItem="ZLQ-wR-Cua" secondAttribute="top" id="CsG-59-4iv"/>
                                         <constraint firstAttribute="trailing" secondItem="SZu-3z-2rP" secondAttribute="trailing" constant="15" id="X6s-mB-bUv"/>
@@ -272,7 +272,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xai-Rv-H5f" userLabel="Cast Collection View">
                                     <rect key="frame" x="0.0" y="550" width="390" height="200"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" name="CustomDarkBlue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="mrb-An-6mx"/>
                                     </constraints>
@@ -479,6 +479,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
+                            <color key="backgroundColor" name="CustomDarkBlue"/>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" name="CustomLightGray"/>
@@ -511,6 +512,12 @@
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="CustomBeige">
+            <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomDarkBlue">
+            <color red="0.18799999356269836" green="0.22400000691413879" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="CustomLightGray">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
