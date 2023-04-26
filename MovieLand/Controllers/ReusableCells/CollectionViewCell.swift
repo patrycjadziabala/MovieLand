@@ -43,11 +43,8 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = UIColor(named: Constants.customDarkBlue)
         configureDefaultImage()
         containerView.makeRound(radius: 15)
-        imageView.applyShadow()
+//        imageView.applyShadow()
         imageView.makeRound(radius: 10)
-        rankView.makeRound()
-        rankView.applyShadow()
-        crownImage.rotate(degrees: 35)
     }
     
     //MARK: - Cell configuration
@@ -111,7 +108,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configureRankNumber(with model: SwipeableInformationTilePresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
-            rankNumber.isHidden = true
+//            rankNumber.isHidden = true
         } else {
             rankNumber.isHidden = false
             rankNumber.text = model.iMDbRankLabelText
