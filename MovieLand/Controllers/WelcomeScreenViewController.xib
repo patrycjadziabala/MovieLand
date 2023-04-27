@@ -145,6 +145,9 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="inCinemasSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="Yxm-vb-WFE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
