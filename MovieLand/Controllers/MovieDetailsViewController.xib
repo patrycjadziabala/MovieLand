@@ -59,7 +59,7 @@
                     <rect key="frame" x="0.0" y="59" width="390" height="1707"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VDK-aA-9e5">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="1379"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="1378"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGz-X6-caw">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="45"/>
@@ -212,7 +212,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UML-N5-k0s" userLabel="WantToWatchButton">
                                                     <rect key="frame" x="35.666666666666657" y="-1" width="30" height="30"/>
-                                                    <color key="backgroundColor" name="CustomLightBlue"/>
+                                                    <color key="backgroundColor" name="CustomDarkBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="uZN-Kd-xRc"/>
                                                         <constraint firstAttribute="height" constant="30" id="yYY-ZU-8L6"/>
@@ -226,7 +226,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xko-4q-giS" userLabel="Seen Button">
                                                     <rect key="frame" x="105" y="-1" width="30" height="30"/>
-                                                    <color key="backgroundColor" name="CustomLightBlue"/>
+                                                    <color key="backgroundColor" name="CustomDarkBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="9qU-4W-Qz6"/>
                                                         <constraint firstAttribute="width" constant="30" id="yFC-xd-AZf"/>
@@ -286,7 +286,6 @@
                                                     <rect key="frame" x="278.66666666666669" y="5.6666666666666856" width="81.333333333333314" height="34"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="XFr-vN-oJc"/>
                                                         <constraint firstAttribute="height" constant="34" id="ZsM-Db-gp8"/>
                                                     </constraints>
                                                     <color key="tintColor" name="CustomBeige"/>
@@ -323,19 +322,19 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLQ-wR-Cua" userLabel="Cast Label and Button Container View">
-                                    <rect key="frame" x="0.0" y="446" width="390" height="46"/>
+                                    <rect key="frame" x="0.0" y="446" width="390" height="45"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avx-G2-PUG" userLabel="Cast Label and Button View">
-                                            <rect key="frame" x="10" y="0.0" width="370" height="46"/>
+                                            <rect key="frame" x="10" y="0.0" width="370" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiv-XB-xiQ" userLabel="Cast:">
-                                                    <rect key="frame" x="10" y="0.0" width="35" height="46"/>
+                                                    <rect key="frame" x="10" y="0.0" width="35" height="45"/>
                                                     <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZu-3z-2rP">
-                                                    <rect key="frame" x="283.66666666666669" y="6" width="76.333333333333314" height="34"/>
+                                                    <rect key="frame" x="283.66666666666669" y="5.6666666666666856" width="76.333333333333314" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="XBa-Zm-aQV"/>
                                                     </constraints>
@@ -367,19 +366,19 @@
                                         <constraint firstAttribute="trailing" secondItem="avx-G2-PUG" secondAttribute="trailing" constant="10" id="G18-Ie-wpE"/>
                                         <constraint firstItem="avx-G2-PUG" firstAttribute="top" secondItem="ZLQ-wR-Cua" secondAttribute="top" id="MQv-b7-gkj"/>
                                         <constraint firstAttribute="bottom" secondItem="avx-G2-PUG" secondAttribute="bottom" id="dWj-KE-QQk"/>
-                                        <constraint firstAttribute="height" constant="46" id="k6D-NB-GWd"/>
+                                        <constraint firstAttribute="height" constant="45" id="k6D-NB-GWd"/>
                                         <constraint firstItem="avx-G2-PUG" firstAttribute="leading" secondItem="ZLQ-wR-Cua" secondAttribute="leading" constant="10" id="r4G-1k-2dz"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xai-Rv-H5f" userLabel="Cast Collection View">
-                                    <rect key="frame" x="0.0" y="504" width="390" height="200"/>
+                                    <rect key="frame" x="0.0" y="503" width="390" height="200"/>
                                     <color key="backgroundColor" name="CustomDarkBlue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="mrb-An-6mx"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-oU-lST" userLabel="Trailer Label Container View">
-                                    <rect key="frame" x="0.0" y="716" width="390" height="41"/>
+                                    <rect key="frame" x="0.0" y="715" width="390" height="41"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir7-0K-krQ" userLabel="Trailer Label View">
                                             <rect key="frame" x="10" y="0.0" width="370" height="41"/>
@@ -410,7 +409,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-mC-vx3" userLabel="Trailer Collection View">
-                                    <rect key="frame" x="0.0" y="769" width="390" height="200"/>
+                                    <rect key="frame" x="0.0" y="768" width="390" height="200"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Snj-4P-y4Q">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
@@ -439,7 +438,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-69-J0M" userLabel="Official Website View">
-                                    <rect key="frame" x="0.0" y="981" width="390" height="41"/>
+                                    <rect key="frame" x="0.0" y="980" width="390" height="41"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goP-vs-PwH">
                                             <rect key="frame" x="120" y="0.0" width="150" height="41"/>
@@ -468,7 +467,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpB-1o-a9I" userLabel="Other Websites View">
-                                    <rect key="frame" x="0.0" y="1034" width="390" height="80"/>
+                                    <rect key="frame" x="0.0" y="1033" width="390" height="80"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For more information, check out one of these websites:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S7-L9-lo8">
                                             <rect key="frame" x="2.6666666666666572" y="0.0" width="384.66666666666674" height="24.666666666666668"/>
@@ -562,7 +561,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeU-4F-yWW" userLabel="Similar Movies Label and Button Container View">
-                                    <rect key="frame" x="0.0" y="1126" width="390" height="41"/>
+                                    <rect key="frame" x="0.0" y="1125" width="390" height="41"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1p1-uG-9Ic" userLabel="Similar Movies Label and Button View">
                                             <rect key="frame" x="10" y="0.0" width="370" height="41"/>
@@ -610,7 +609,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN6-gB-BML" userLabel="Similar movies Collection View">
-                                    <rect key="frame" x="0.0" y="1179" width="390" height="200"/>
+                                    <rect key="frame" x="0.0" y="1178" width="390" height="200"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="5fh-nd-wpu"/>

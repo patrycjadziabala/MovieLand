@@ -23,6 +23,10 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var seeAllCastMovieButton: UIButton!
     @IBOutlet weak var deathDateLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak var roleAndBirthDateView: UIView!
+    @IBOutlet weak var awardsView: UIView!
+    
+    @IBOutlet weak var CastLabelAndButtonView: UIView!
     
     let castMoviesController: SwipeableInformationTilesController
     let personID: String
@@ -61,6 +65,12 @@ class PersonDetailsViewController: UIViewController {
     func configureView() {
         configureCollectionViewCastMovies()
         awardsButton.isEnabled = false
+        favouriteButton.makeRound()
+        roleAndBirthDateView.makeRound(radius: 20)
+        awardsView.makeRound(radius: 20)
+        CastLabelAndButtonView.makeRound(radius: 20)
+        navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
+        tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
     }
     
     //MARK: - Person Details Configuration
