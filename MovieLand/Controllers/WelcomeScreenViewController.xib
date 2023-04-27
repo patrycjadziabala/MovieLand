@@ -11,6 +11,9 @@
         <array key="Labrada-Light.ttf">
             <string>Labrada-Light</string>
         </array>
+        <array key="Labrada-SemiBold.ttf">
+            <string>Labrada-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeScreenViewController" customModule="MovieLand" customModuleProvider="target">
@@ -68,7 +71,6 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="370" height="230"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="CustomLightBlue"/>
                                                     <constraints>
                                                         <constraint firstItem="MEq-fH-9bG" firstAttribute="leading" secondItem="gQB-dx-Xs6" secondAttribute="leading" id="69G-R9-si4"/>
                                                         <constraint firstItem="MEq-fH-9bG" firstAttribute="top" secondItem="gQB-dx-Xs6" secondAttribute="top" id="Lg2-VJ-8iK"/>
@@ -94,11 +96,11 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNc-gY-whc">
-                                                    <rect key="frame" x="10" y="315" width="75" height="40.333333333333314"/>
+                                                    <rect key="frame" x="10" y="315" width="77.666666666666671" height="40.333333333333314"/>
                                                     <color key="tintColor" name="CustomBeige"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button">
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="seeAllSomingSoonButtonPressed:" destination="-1" eventType="touchUpInside" id="iJI-8I-UL2"/>
@@ -127,23 +129,23 @@
                                             <rect key="frame" x="0.0" y="368" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Cinemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnV-S2-zC0" userLabel="In Cinemas">
-                                                    <rect key="frame" x="9.9999999999999929" y="1" width="109.33333333333331" height="43"/>
+                                                    <rect key="frame" x="9.9999999999999929" y="1" width="114.33333333333331" height="43"/>
                                                     <color key="tintColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-06-oE2">
-                                                    <rect key="frame" x="304" y="5.6666666666666856" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="5.6666666666666856" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" id="3Su-1W-yPd"/>
+                                                        <constraint firstAttribute="width" constant="78" id="3Su-1W-yPd"/>
                                                         <constraint firstAttribute="height" constant="34" id="zSp-dT-un9"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="inCinemasSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="Yxm-vb-WFE"/>
@@ -171,26 +173,25 @@
                                             <rect key="frame" x="0.0" y="649" width="390" height="35"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
-                                                    <rect key="frame" x="10" y="1" width="210" height="33.333333333333336"/>
+                                                    <rect key="frame" x="10" y="1" width="216.66666666666666" height="33.333333333333336"/>
                                                     <color key="tintColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
-                                                    <rect key="frame" x="304" y="0.66666666666662877" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="0.66666666666662877" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" id="6TT-TU-yyH"/>
                                                         <constraint firstAttribute="height" constant="34" id="Y48-yE-ekS"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="small">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="top250IMDbMoviesAeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="lLf-n5-LbK"/>
@@ -218,19 +219,18 @@
                                             <rect key="frame" x="0.0" y="920" width="390" height="35"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
-                                                    <rect key="frame" x="304" y="0.66666666666662877" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="0.66666666666662877" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" id="YOX-JP-B1J"/>
                                                         <constraint firstAttribute="height" constant="34" id="qxu-zj-b5O"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="mostPopularMoviesSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="EWg-DV-XhX"/>
@@ -243,7 +243,7 @@
                                                         <constraint firstAttribute="width" constant="217" id="ZrE-Se-iGE"/>
                                                         <constraint firstAttribute="height" constant="35" id="caA-QO-oPF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -270,26 +270,25 @@
                                             <rect key="frame" x="0.0" y="1191" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlS-EO-IRn">
-                                                    <rect key="frame" x="10" y="6" width="231.33333333333334" height="33.333333333333336"/>
+                                                    <rect key="frame" x="10.000000000000014" y="6" width="240.33333333333337" height="33.333333333333336"/>
                                                     <color key="tintColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
-                                                    <rect key="frame" x="304" y="5.6666666666667425" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="faI-1Y-Rbp"/>
-                                                        <constraint firstAttribute="width" constant="76" id="uAm-yY-FE3"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="top250IMDbTVSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="5be-up-joU"/>
@@ -307,6 +306,15 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-1j-5Z8" userLabel="Top250TVSeriesCollectionView">
                                             <rect key="frame" x="0.0" y="1254" width="390" height="200"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BW9-Ve-uF6">
+                                                    <rect key="frame" x="305" y="0.0" width="77" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule"/>
+                                                </button>
+                                            </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="9Ce-lY-psJ"/>
@@ -316,26 +324,25 @@
                                             <rect key="frame" x="0.0" y="1472" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular TV Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALB-tK-4RV">
-                                                    <rect key="frame" x="10" y="6" width="230" height="33.333333333333336"/>
+                                                    <rect key="frame" x="10" y="6" width="239" height="33.333333333333336"/>
                                                     <color key="tintColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
-                                                    <rect key="frame" x="304" y="5.6666666666667425" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" id="tQB-lQ-Saa"/>
                                                         <constraint firstAttribute="height" constant="34" id="zwa-Mx-D1X"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="mostPopularTvSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="6dI-oz-DIe"/>
@@ -362,26 +369,25 @@
                                             <rect key="frame" x="0.0" y="1753" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Box Office of All Time " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-DD-Jh6" userLabel="BoxOfficeAllTimeLabel">
-                                                    <rect key="frame" x="10.000000000000014" y="6" width="252.33333333333337" height="33.333333333333336"/>
+                                                    <rect key="frame" x="10" y="6" width="262.33333333333331" height="33.333333333333336"/>
                                                     <color key="tintColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="23"/>
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
-                                                    <rect key="frame" x="304" y="5.6666666666667425" width="76" height="34"/>
+                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
                                                     <color key="backgroundColor" name="CustomDarkPink"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="0Lx-FX-tfL"/>
-                                                        <constraint firstAttribute="width" constant="76" id="yrP-ke-xLU"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="CustomBeige"/>
+                                                    <color key="tintColor" name="CustomDarkBlue"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" name="CustomDarkPink"/>
                                                         </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-Light" family="Labrada" pointSize="18"/>
+                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="boxOfficeAllTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="afH-VE-T8q"/>
@@ -415,9 +421,14 @@
                                         <constraint firstItem="R1t-mM-fo2" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="UTc-EW-tka"/>
                                         <constraint firstItem="EiH-aG-Toz" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="Vhl-0R-EQV"/>
                                         <constraint firstAttribute="trailing" secondItem="7Dz-M2-bgj" secondAttribute="trailing" id="ZtV-Ph-LaO"/>
+                                        <constraint firstItem="pjc-U5-ZYe" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="bH2-UW-zSY"/>
+                                        <constraint firstItem="NVg-Ss-Jqi" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="c2p-fv-0A7"/>
                                         <constraint firstAttribute="trailing" secondItem="EiH-aG-Toz" secondAttribute="trailing" id="f2r-8g-akw"/>
+                                        <constraint firstItem="cu5-z5-UcI" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="iVx-iM-shC"/>
+                                        <constraint firstItem="Dd6-VE-1Ks" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="kmI-Vj-c2d"/>
                                         <constraint firstAttribute="trailing" secondItem="F99-Hu-nPc" secondAttribute="trailing" id="kn4-ke-Pvu"/>
                                         <constraint firstItem="qDz-FD-dhl" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="ljP-bX-68H"/>
+                                        <constraint firstItem="28s-Y5-bgQ" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="pUK-Dw-158"/>
                                         <constraint firstAttribute="trailing" secondItem="R1t-mM-fo2" secondAttribute="trailing" id="quP-JD-EBu"/>
                                         <constraint firstAttribute="trailing" secondItem="qDz-FD-dhl" secondAttribute="trailing" id="rNn-st-7fm"/>
                                         <constraint firstAttribute="trailing" secondItem="vTl-em-BRI" secondAttribute="trailing" id="sl1-Th-MzQ"/>

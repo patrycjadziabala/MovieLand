@@ -43,8 +43,8 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = UIColor(named: Constants.customDarkBlue)
         configureDefaultImage()
         containerView.makeRound(radius: 15)
-//        imageView.applyShadow()
         imageView.makeRound(radius: 10)
+        containerView.backgroundColor = UIColor(white: 1, alpha: 0.05)
     }
     
     //MARK: - Cell configuration
@@ -110,8 +110,7 @@ class CollectionViewCell: UICollectionViewCell {
         if model.iMDbRankLabelText?.isEmpty ?? true {
 //            rankNumber.isHidden = true
         } else {
-            rankNumber.isHidden = false
-            rankNumber.text = model.iMDbRankLabelText
+//            rankNumber.text = model.iMDbRankLabelText
         }
     }
     //MARK: - Image

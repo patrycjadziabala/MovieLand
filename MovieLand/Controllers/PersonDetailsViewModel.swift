@@ -43,14 +43,14 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         let mappedResult = result.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedResult)
+        tabRouter.navigateToList(results: mappedResult, title: "")
     }
     
     func navigateToAwards() {
         guard let array = awardsArray else {
             return
         }
-        self.tabRouter.navigateToList(results: array)
+        self.tabRouter.navigateToList(results: array, title: "Awards")
     }
     
     //MARK: - Fetch Person Information

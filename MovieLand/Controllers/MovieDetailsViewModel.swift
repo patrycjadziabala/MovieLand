@@ -55,7 +55,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         let mappedResult = result.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedResult)
+        tabRouter.navigateToList(results: mappedResult, title: "")
     }
     
     //MARK: - Fetch Title
@@ -119,7 +119,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
                 arrayMovieAward.append(model)
             }
         }
-        self.tabRouter.navigateToList(results: arrayMovieAward)
+        self.tabRouter.navigateToList(results: arrayMovieAward, title: "")
     }
     
     //MARK: - Fetch Rating

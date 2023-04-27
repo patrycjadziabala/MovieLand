@@ -41,13 +41,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let welcomeScreen = WelcomeScreenViewController(tabRouter: welcomeScreenTabRouter, viewModel: viewModel)
         welcomeScreenNavigationController.viewControllers = [welcomeScreen]
         welcomeScreen.tabBarItem = UITabBarItem(title: "Home", image: Constants.homekitImage, selectedImage: Constants.homekitImage)
+    
         
         let favouritesNavigationController = UINavigationController()
         let favouritesTabRouter = TabRouter(navigationController: favouritesNavigationController, persistenceManager: persistenceManager)
         let favouritesViewController = FavouritesViewController(tabRouter: favouritesTabRouter, persistenceManager: persistenceManager)
         favouritesNavigationController.viewControllers = [favouritesViewController]
         favouritesViewController.tabBarItem = UITabBarItem(title: "Fav", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: .normal)
+        
+        tabBarController.tabBar.tintColor = UIColor(named: Constants.customDarkPink)
+        tabBarController.tabBar.unselectedItemTintColor = UIColor(named: Constants.customLightPink)
         
         let searchViewController = SearchViewController(tabRouter: searchTabRouter)
         searchNavigationController.viewControllers = [searchViewController]

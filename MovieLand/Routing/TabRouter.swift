@@ -12,7 +12,7 @@ import SafariServices
 protocol TabRouterProtocol {
     func navigateToPersonDetails(id: String)
     func navigateToTitleDetails(id: String)
-    func navigateToList(results: [ListViewControllerCellPresentable])
+    func navigateToList(results: [ListViewControllerCellPresentable], title: String)
     func navigateToWebView(urlString: String)
 }
 
@@ -41,9 +41,9 @@ class TabRouter: TabRouterProtocol {
         }
     }
     
-    func navigateToList(results: [ListViewControllerCellPresentable]) {
+    func navigateToList(results: [ListViewControllerCellPresentable], title: String) {
         DispatchQueue.main.async {
-            let controller = ListViewController(tabRouter: self, dataSource: results)
+            let controller = ListViewController(tabRouter: self, dataSource: results, navBarTitle: title)
             self.navigationController.pushViewController(controller, animated: true)
         }
     }

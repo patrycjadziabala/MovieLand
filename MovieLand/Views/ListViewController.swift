@@ -23,11 +23,13 @@ class ListViewController: UIViewController {
     let tabRouter: TabRouterProtocol
     let tableView: UITableView
     var dataSource: [ListViewControllerCellPresentable]
+    var navBarTitle: String
     
-    init(tabRouter: TabRouterProtocol, dataSource: [ListViewControllerCellPresentable]) {
+    init(tabRouter: TabRouterProtocol, dataSource: [ListViewControllerCellPresentable], navBarTitle: String) {
         self.dataSource = dataSource
         self.tabRouter = tabRouter
         self.tableView = UITableView(frame: .zero)
+        self.navBarTitle = navBarTitle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,6 +63,9 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
+        tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
+        self.title = navBarTitle
     }
     
     //MARK: - Update Data Source

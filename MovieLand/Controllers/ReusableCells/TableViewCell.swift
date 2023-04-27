@@ -28,11 +28,14 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellAdditionalInfoLabel: UILabel!
     @IBOutlet weak var cellYearInfo: UILabel!
-    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var rankView: UIView!
-    
     @IBOutlet weak var crownImageView: UIImageView!
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
     
     let apiManager: APIManagerProtocol = APIManager()
     
@@ -57,8 +60,6 @@ class TableViewCell: UITableViewCell {
         cellNameLabel.numberOfLines = 0
         
         containerView.makeRound(radius: 15)
-//        containerView.applyShadow()
-//
         cellImage.applyShadow()
         rankView.makeRound()
         rankView.applyShadow()
@@ -70,7 +71,7 @@ class TableViewCell: UITableViewCell {
         configureIMDbRating(with: model)
         configureAdditionalInfo(with: model)
     }
-    
+
     //MARK: - Stars
     
     func configureAdditionalInfo(with model: TableViewCellPresentable) {
@@ -117,20 +118,58 @@ class TableViewCell: UITableViewCell {
     
     func configureIMDbRank(with model: TableViewCellPresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
-            cellIMDbRankLabel.isHidden = true
+            rankView.isHidden = true
+            crownImageView.isHidden = true
         } else {
-            cellIMDbRankLabel.isHidden = false
+            rankView.isHidden = false
             cellIMDbRankLabel.text = model.iMDbRankLabelText
+            if let rank = Int(model.iMDbRankLabelText ?? "") {
+                if rank > 3 {
+                    crownImageView.isHidden = true
+                }
+            }
         }
     }
     
     //MARK: - Movie iMDbRating
+    func setRankStars(ranking: String) {
+        if let intValue = Double(ranking) {
+            DispatchQueue.main.async {
+                switch intValue {
+                case 0...2:
+                    // 1 gwiazdka
+                    self.star1.image = UIImage(systemName: "star.fill")
+                case ...4:
+                    self.star1.image = UIImage(systemName: "star.fill")
+                    self.star2.image = UIImage(systemName: "star.fill")
+                case ...6:
+                    self.star1.image = UIImage(systemName: "star.fill")
+                    self.star2.image = UIImage(systemName: "star.fill")
+                    self.star3.image = UIImage(systemName: "star.fill")
+                case ...8:
+                    self.star1.image = UIImage(systemName: "star.fill")
+                    self.star2.image = UIImage(systemName: "star.fill")
+                    self.star3.image = UIImage(systemName: "star.fill")
+                    self.star4.image = UIImage(systemName: "star.fill")
+                case ...10:
+                    self.star1.image = UIImage(systemName: "star.fill")
+                    self.star2.image = UIImage(systemName: "star.fill")
+                    self.star3.image = UIImage(systemName: "star.fill")
+                    self.star4.image = UIImage(systemName: "star.fill")
+                    self.star5.image = UIImage(systemName: "star.fill")
+                default:
+                    ()
+                }
+            }
+        }
+    }
     
     func configureIMDbRating(with model: TableViewCellPresentable) {
         if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
             configureMovieRating(id: model.id)
         } else {
             cellIMDbRatingNumberLabel.text = "IMDb rating: \(model.iMDbRatingNumberLabelText ?? "")"
+            setRankStars(ranking: model.iMDbRatingNumberLabelText ?? "0")
         }
     }
     
@@ -140,6 +179,7 @@ class TableViewCell: UITableViewCell {
             switch result {
             case .success(let movieRating):
                 ratingMovieFromDifferentModel = movieRating.imDb
+                self.setRankStars(ranking: ratingMovieFromDifferentModel ?? "0")
             case .failure:
                 DispatchQueue.main.async {
                     self.cellIMDbRatingNumberLabel.isHidden = true

@@ -77,6 +77,29 @@ class WelcomeScreenViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navBar = self.navigationController?.navigationBar {
+            let titleFrame = CGRect(x: 0, y: 0, width: navBar.frame.width, height: navBar.frame.height)
+            let titleLabel = UILabel(frame: titleFrame)
+            titleLabel.text = "(MovieLand)"
+            titleLabel.textAlignment = .center
+            titleLabel.font = UIFont(name: "Showtime", size: 27)
+            titleLabel.textColor = UIColor(named: Constants.customDarkPink)
+            titleLabel.applyShadow()
+            navBar.addSubview(titleLabel)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navBar = self.navigationController?.navigationBar {
+            for view in navBar.subviews {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
     // MARK: - Welcome Screen View configuration
     
     func configureWelcomeScreenView() {
@@ -94,6 +117,7 @@ class WelcomeScreenViewController: UIViewController {
         trailerInfoTextView.makeRound(radius: 20)
         navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
         tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
+        trailerViewContainer.backgroundColor = UIColor(white: 1, alpha: 0.05)
     }
     
     func prepareForShowingWelcomeScreenInformation() {
@@ -147,7 +171,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = moviesInCinemaController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource)
+        tabRouter.navigateToList(results: mappedDataSource, title: "In Cinemas")
     }
     
     // MARK: - Top 250 Movies
@@ -174,7 +198,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = top250MoviesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource)
+        tabRouter.navigateToList(results: mappedDataSource, title: "Top 250 IMDb Movies")
     }
     
     // MARK: - Most Popular Movies
@@ -201,7 +225,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = mostPopularMoviesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource)
+        tabRouter.navigateToList(results: mappedDataSource, title: "Most Popular Movies")
     }
     
     // MARK: - Top 250 IMDb TV Series
@@ -228,7 +252,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = top250TVSeriesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource)
+        tabRouter.navigateToList(results: mappedDataSource, title: "Top 250 TV Series")
     }
     
     // MARK: - Most Popular TV Series
@@ -255,7 +279,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = mostPopularTVSeriesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource)
+        tabRouter.navigateToList(results: mappedDataSource, title: "Most Popular TV Series")
     }
     
     // MARK: - BoxOfficeAllTime configuration
@@ -282,7 +306,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        self.tabRouter.navigateToList(results: mappedDataSource)
+        self.tabRouter.navigateToList(results: mappedDataSource, title: "Box Office All Time")
     }
     
     // MARK: - Alert

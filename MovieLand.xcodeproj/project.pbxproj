@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4618690F29F845A700A5B761 /* popcorn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4618690E29F845A700A5B761 /* popcorn.gif */; };
 		4618691129F84B8100A5B761 /* Showtime.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4618691029F84B8100A5B761 /* Showtime.ttf */; };
+		4618691329FAAFD600A5B761 /* Labrada-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4618691229FAAFD600A5B761 /* Labrada-SemiBold.ttf */; };
 		4635BB3629B8F10200A8083D /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */; };
 		4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3929B8F1E600A8083D /* SearchViewController.swift */; };
 		4635BB3C29B8F1E600A8083D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4635BB3A29B8F1E600A8083D /* SearchViewController.xib */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		4618690E29F845A700A5B761 /* popcorn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = popcorn.gif; sourceTree = "<group>"; };
 		4618691029F84B8100A5B761 /* Showtime.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Showtime.ttf; sourceTree = "<group>"; };
+		4618691229FAAFD600A5B761 /* Labrada-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Labrada-SemiBold.ttf"; sourceTree = "<group>"; };
 		4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		4635BB3929B8F1E600A8083D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4635BB3A29B8F1E600A8083D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				46BCD5BB29BD23A40047AC42 /* Labrada-Light.ttf */,
+				4618691229FAAFD600A5B761 /* Labrada-SemiBold.ttf */,
 				4618691029F84B8100A5B761 /* Showtime.ttf */,
 			);
 			path = Fonts;
@@ -351,6 +354,7 @@
 				46F4E9B529AFC0DE00E8A1A6 /* Main.storyboard in Resources */,
 				4635BB3C29B8F1E600A8083D /* SearchViewController.xib in Resources */,
 				469959B529B6499100069520 /* mp4.mp4 in Resources */,
+				4618691329FAAFD600A5B761 /* Labrada-SemiBold.ttf in Resources */,
 				4618690F29F845A700A5B761 /* popcorn.gif in Resources */,
 				46BCD5BC29BD23A40047AC42 /* Labrada-Light.ttf in Resources */,
 				469979AB29CF3CBB00DECEBB /* ScrollTestViewController.xib in Resources */,

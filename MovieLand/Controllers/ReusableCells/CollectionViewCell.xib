@@ -11,6 +11,9 @@
         <array key="Labrada-Light.ttf">
             <string>Labrada-Light</string>
         </array>
+        <array key="Labrada-SemiBold.ttf">
+            <string>Labrada-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -28,60 +31,55 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IL5-gW-AOY" userLabel="ContainerView">
                                 <rect key="frame" x="0.0" y="45" width="100" height="155"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
-                                        <rect key="frame" x="2" y="121.33333333333334" width="14" height="11.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="8"/>
-                                        <color key="textColor" name="CustomBeige"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title long long long long long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
-                                        <rect key="frame" x="2" y="84.333333333333343" width="98" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="9w5-YC-uFe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
-                                        <color key="textColor" name="CustomBeige"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="H3w-GR-GhB">
-                                        <rect key="frame" x="2" y="138" width="28" height="15"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-6V-ivG">
+                                        <rect key="frame" x="0.0" y="82" width="100" height="68"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VtN-tf-BHK" userLabel="Star 1">
-                                                <rect key="frame" x="0.0" y="-0.33333333333333215" width="13" height="14.666666666666666"/>
-                                                <color key="tintColor" name="CustomDarkPink"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="13" id="MAB-6H-Cah"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-hJ-BSg">
-                                                <rect key="frame" x="16" y="0.0" width="12" height="15"/>
-                                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title long long long long long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" showsExpansionTextWhenTruncated="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcI-Ok-7KH">
+                                                <rect key="frame" x="4.3333333333333357" y="0.0" width="91.666666666666657" height="44.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="14"/>
                                                 <color key="textColor" name="CustomBeige"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="bEm-hR-vxE">
+                                                <rect key="frame" x="7" y="47.666666666666657" width="86.333333333333329" height="20.333333333333329"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muB-ly-2MG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="12"/>
+                                                        <color key="textColor" name="CustomBeige"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="H3w-GR-GhB">
+                                                        <rect key="frame" x="55.666666666666664" y="0.0" width="30.666666666666664" height="20.333333333333332"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VtN-tf-BHK" userLabel="Star 1">
+                                                                <rect key="frame" x="0.0" y="-0.33333333333333215" width="13" height="19.999999999999996"/>
+                                                                <color key="tintColor" name="CustomDarkPink"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="13" id="MAB-6H-Cah"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-hJ-BSg">
+                                                                <rect key="frame" x="16.000000000000007" y="0.0" width="14.666666666666664" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="12"/>
+                                                                <color key="textColor" name="CustomBeige"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="fMR-iN-mso"/>
+                                            <constraint firstAttribute="height" constant="68" id="jeN-Zi-UBf"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap1-oP-L9d">
-                                        <rect key="frame" x="87.333333333333329" y="129.66666666666666" width="7.6666666666666714" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="CustomBeige"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="CustomLightBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ap1-oP-L9d" secondAttribute="bottom" constant="5" id="3WP-DD-GRK"/>
-                                    <constraint firstAttribute="trailing" secondItem="HcI-Ok-7KH" secondAttribute="trailing" id="741-lp-GHN"/>
-                                    <constraint firstItem="muB-ly-2MG" firstAttribute="top" secondItem="HcI-Ok-7KH" secondAttribute="bottom" constant="2" id="H3a-8L-PEV"/>
-                                    <constraint firstItem="H3w-GR-GhB" firstAttribute="top" secondItem="muB-ly-2MG" secondAttribute="bottom" constant="5" id="Ov6-wO-lzJ"/>
-                                    <constraint firstItem="H3w-GR-GhB" firstAttribute="leading" secondItem="IL5-gW-AOY" secondAttribute="leading" constant="2" id="WfB-Lq-i5T"/>
-                                    <constraint firstItem="HcI-Ok-7KH" firstAttribute="leading" secondItem="IL5-gW-AOY" secondAttribute="leading" constant="2" id="em6-fN-ml5"/>
-                                    <constraint firstItem="muB-ly-2MG" firstAttribute="leading" secondItem="IL5-gW-AOY" secondAttribute="leading" constant="2" id="fUa-Cr-QEI"/>
-                                    <constraint firstAttribute="bottom" secondItem="H3w-GR-GhB" secondAttribute="bottom" constant="2" id="sf5-d2-l2C"/>
-                                    <constraint firstAttribute="trailing" secondItem="ap1-oP-L9d" secondAttribute="trailing" constant="5" id="usf-Iy-GG0"/>
+                                    <constraint firstItem="LdM-6V-ivG" firstAttribute="leading" secondItem="IL5-gW-AOY" secondAttribute="leading" id="3Mu-vu-fRV"/>
+                                    <constraint firstAttribute="bottom" secondItem="LdM-6V-ivG" secondAttribute="bottom" constant="5" id="433-UT-yKS"/>
+                                    <constraint firstAttribute="trailing" secondItem="LdM-6V-ivG" secondAttribute="trailing" id="thS-fg-kps"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-9Y-AWs">
@@ -117,7 +115,6 @@
                 <outlet property="containerView" destination="IL5-gW-AOY" id="wSF-zD-YcJ"/>
                 <outlet property="imageView" destination="Hjb-9Y-AWs" id="pzg-hw-TQt"/>
                 <outlet property="info" destination="muB-ly-2MG" id="8wm-iU-JWC"/>
-                <outlet property="rankNumber" destination="ap1-oP-L9d" id="o3D-LA-Phh"/>
                 <outlet property="rankScore" destination="grr-hJ-BSg" id="VRf-yB-Ay9"/>
                 <outlet property="starImage" destination="VtN-tf-BHK" id="AS0-RW-onI"/>
                 <outlet property="title" destination="HcI-Ok-7KH" id="XKI-Sl-hCR"/>
@@ -126,7 +123,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="CustomBeige">
             <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

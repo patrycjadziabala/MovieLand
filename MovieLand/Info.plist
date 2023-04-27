@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Labrada-SemiBold</string>
 		<string>Labrada-Light.ttf</string>
 		<string>Showtime.ttf</string>
 	</array>

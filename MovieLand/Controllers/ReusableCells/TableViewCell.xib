@@ -53,18 +53,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-qo-U0J">
                                 <rect key="frame" x="185" y="161" width="150" height="22"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y0o-mk-4tr" userLabel="Star 1">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y0o-mk-4tr" userLabel="Star 1">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
                                         <color key="tintColor" name="CustomDarkPink"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="oZu-dd-JOQ"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YnR-gV-gTl" userLabel="Star 2">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YnR-gV-gTl" userLabel="Star 2">
                                         <rect key="frame" x="32" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
                                         <color key="tintColor" name="CustomDarkPink"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NXn-Ey-clv" userLabel="Star 3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NXn-Ey-clv" userLabel="Star 3">
                                         <rect key="frame" x="64" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
                                         <color key="tintColor" name="CustomDarkPink"/>
                                     </imageView>
@@ -154,6 +154,11 @@
                 <outlet property="containerView" destination="zdg-V1-W7K" id="Rby-k3-CCw"/>
                 <outlet property="crownImageView" destination="4n6-ES-T4U" id="Pfg-yd-pOu"/>
                 <outlet property="rankView" destination="PJ1-eh-ov6" id="kCE-c2-TKy"/>
+                <outlet property="star1" destination="Y0o-mk-4tr" id="oVa-T6-iMP"/>
+                <outlet property="star2" destination="YnR-gV-gTl" id="0nX-6L-rZR"/>
+                <outlet property="star3" destination="NXn-Ey-clv" id="ias-U6-g4r"/>
+                <outlet property="star4" destination="VeD-Lv-V0c" id="Gib-02-qlL"/>
+                <outlet property="star5" destination="Olm-Oi-rTa" id="GFz-gt-KFv"/>
             </connections>
             <point key="canvasLocation" x="123.84615384615384" y="57.582938388625593"/>
         </tableViewCell>
@@ -161,8 +166,6 @@
     <resources>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
         <namedColor name="CustomBeige">
             <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

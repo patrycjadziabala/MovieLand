@@ -35,7 +35,7 @@ class FavouritesViewController: UIViewController {
     init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
         self.segmentedControl = UISegmentedControl(frame: CGRect.zero)
         self.tabRouter = tabRouter
-        self.listController = ListViewController(tabRouter: tabRouter, dataSource: [])
+        self.listController = ListViewController(tabRouter: tabRouter, dataSource: [], navBarTitle: "")
         self.persistenceManager = persistenceManager
         super.init(nibName: nil, bundle: nil)
     }
