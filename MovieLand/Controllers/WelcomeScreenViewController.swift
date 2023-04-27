@@ -72,6 +72,7 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViews()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.toggleActivity(active: false)
+          
         }
     }
     
@@ -81,6 +82,17 @@ class WelcomeScreenViewController: UIViewController {
         trailerButton.setTitle("See all Coming Soon movies", for: .normal)
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
+        inCinemasSeeAllButton.makeRound(radius: 15)
+        mostPopularMoviesButton.makeRound(radius: 15)
+        mostPopularMoviesButton.makeRound(radius: 15)
+        boxOfficeAllTimeButton.makeRound(radius: 15)
+        mostPopularTVShowsButton.makeRound(radius: 15)
+        top250IMDbTVSeriesButton.makeRound(radius: 15)
+        top250IMDMoviesSeeAllButton.makeRound(radius: 15)
+        trailerViewContainer.makeRound(radius: 20)
+        trailerInfoTextView.makeRound(radius: 20)
+        navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
+        tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
     }
     
     func prepareForShowingWelcomeScreenInformation() {

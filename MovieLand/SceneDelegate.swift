@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
 
-        tabBarController.viewControllers = [searchNavigationController, favouritesNavigationController]
+        tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, favouritesNavigationController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
