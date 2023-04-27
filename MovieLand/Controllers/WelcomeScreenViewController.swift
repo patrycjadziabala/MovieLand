@@ -36,6 +36,7 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet weak var boxOfficeAllTimeLabel: UILabel!
     @IBOutlet weak var boxOfficeAllTimeButton: UIButton!
     @IBOutlet weak var boxOfficeAllTimeScrollableContainer: UIView!
+    @IBOutlet weak var trailerImage: UIImageView!
     
     let tabRouter: TabRouterProtocol
     let moviesInCinemaController: SwipeableInformationTilesController

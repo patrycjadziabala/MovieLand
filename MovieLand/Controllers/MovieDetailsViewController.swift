@@ -37,7 +37,6 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingStarImage: UIImageView!
     @IBOutlet weak var wantToWatchButton: UIButton!
     @IBOutlet weak var seenButton: UIButton!
-
     @IBOutlet weak var movieImageAndOverviewView: UIView!
     @IBOutlet weak var awardsView: UIView!
     @IBOutlet weak var castLabelAndButtonView: UIView!
