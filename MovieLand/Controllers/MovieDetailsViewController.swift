@@ -34,14 +34,19 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var movieDbWebsiteButton: UIButton!
     @IBOutlet weak var rottenTomatoesWebsiteButton: UIButton!
     @IBOutlet weak var ratingScore: UILabel!
-    @IBOutlet weak var ratingStarImage: UIImageView!
-    @IBOutlet weak var wantToWatchButton: UIButton!
-    @IBOutlet weak var seenButton: UIButton!
     @IBOutlet weak var movieImageAndOverviewView: UIView!
     @IBOutlet weak var awardsView: UIView!
     @IBOutlet weak var castLabelAndButtonView: UIView!
     @IBOutlet weak var trailerLabelView: UIView!
     @IBOutlet weak var similarMoviesLabelAndButtonView: UIView!
+    @IBOutlet weak var wantToWatchButton: UIButton!
+    @IBOutlet weak var seenButton: UIButton!
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var oscarImageView: UIImageView!
     
     let actorsInFilmController: SwipeableInformationTilesController
     let similarMoviesController: SwipeableInformationTilesController
@@ -90,13 +95,14 @@ class MovieDetailsViewController: UIViewController {
         wantToWatchButton.makeRound()
         seenButton.makeRound()
         genreLabel.makeRound(radius: 15)
-        awardsView.makeRound(radius: 20)
         castLabelAndButtonView.makeRound(radius: 20)
         trailerLabelView.makeRound(radius: 20)
         trailerViewContainer.backgroundColor = UIColor(named: Constants.customDarkBlue)
         similarMoviesLabelAndButtonView.makeRound(radius: 20)
         navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
         tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
+        oscarImageView.image = Constants.oscarImage
+        oscarImageView.rotate(degrees: 345)
     }
     
     // MARK: - Movie Information Configuration
@@ -134,7 +140,7 @@ class MovieDetailsViewController: UIViewController {
     func configureMovieAwards(titleModel: TitleModel) {
         if let awardsList = titleModel.awards {
             self.exploreAwardsButton.isHidden = false
-            self.exploreAwardsButton.backgroundColor = UIColor(named: Constants.customLightBlue)
+            self.exploreAwardsButton.backgroundColor = UIColor(named: Constants.customDarkBlue)
             self.awardsTextView.text = awardsList
         } else {
             self.awardsTextView.isHidden = true
@@ -150,10 +156,6 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - Movie rating configuration
     
-    func confingureMovieRating(model: Similars) {
-        //        ratingScore
-    }
-    
     func prepareForShowingMovieRatingFromRatingsModel() {
         viewModel.fetchRating(id: titleID)
     }
@@ -163,6 +165,7 @@ class MovieDetailsViewController: UIViewController {
             if ratingModel.imDb?.isEmpty ?? true {
                 self.ratingScore.isHidden = true
 //                self.ratingStarImage.isHidden = true
+                
             } else {
                 self.ratingScore.text = ratingModel.imDb
             }
