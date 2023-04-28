@@ -60,7 +60,7 @@
                                             <constraint firstAttribute="height" constant="22" id="oZu-dd-JOQ"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YnR-gV-gTl" userLabel="Star 2">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YnR-gV-gTl" userLabel="Star 2">
                                         <rect key="frame" x="32" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
                                         <color key="tintColor" name="CustomDarkPink"/>
                                     </imageView>
@@ -166,6 +166,7 @@
     <resources>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
         <namedColor name="CustomBeige">
             <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

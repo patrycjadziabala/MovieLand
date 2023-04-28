@@ -23,7 +23,9 @@ struct Constants {
     static let wantToWatch = UIImage(systemName: "plus")
     static let onWantToWatchList = UIImage(systemName: "doc.text.fill")
     static let starFill = UIImage(systemName: "star.fill")
-
+    static let starEmpty = UIImage(systemName: "star")
+    static let starHalf = UIImage(systemName: "star.leadinghalf.filled")
+    
     // MARK: - Titles/Names
    
     static let regularTableViewCell = "TableViewCell"

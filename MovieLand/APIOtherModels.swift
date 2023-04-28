@@ -185,18 +185,14 @@ struct MovieAwardsModel: Codable {
 struct MovieAwardsItemModel: Codable {
     let eventTitle: String?
     let eventYear: String?
-    let outcomeItems: [MovieAwardsOutcomeItemModel]?
+    let awardEventDetails: [MovieAwardsOutcomeItemModel]?
 }
 
 struct MovieAwardsOutcomeItemModel: Codable {
-    let outcomeTitle: String?
-    let outcomeCategory: String?
-    let outcomeDetails: [MovieAwardsOutcomeDetailsModel]?
-}
-
-struct MovieAwardsOutcomeDetailsModel: Codable {
-    let plainText: String?
-    let html: String?
+    let image: String?
+    let title: String?
+    let `for`: String?
+    let description: String?
 }
 
 struct MovieAwardSummaryModel {
@@ -205,19 +201,25 @@ struct MovieAwardSummaryModel {
     let title: String
     let category: String
     let description: String?
-    let id: String
+    let movieId: String
+    let image: String?
     
-    init(with model: MovieAwardsOutcomeItemModel, eventYear: String, eventTitle: String) {
+    init(with model: MovieAwardsOutcomeItemModel, eventYear: String, eventTitle: String, movieID: String) {
         self.awardYear = eventYear
         self.eventTitle = eventTitle
-        self.title = model.outcomeTitle ?? ""
-        self.category = model.outcomeCategory ?? ""
-        self.description = model.outcomeDetails?.first?.plainText
-        self.id = ""
+        self.title = model.title ?? ""
+        self.category = model.for ?? ""
+        self.description = model.description
+        self.movieId = movieID
+        self.image = model.image
     }
 }
 
 extension MovieAwardSummaryModel: AwardsTableViewCellPresentable {
+    var id: String {
+        movieId
+    }
+    
     var awardsCellEventTitle: String? {
         eventTitle
     }

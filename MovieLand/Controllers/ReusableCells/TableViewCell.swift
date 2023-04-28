@@ -140,26 +140,46 @@ class TableViewCell: UITableViewCell {
         if let intValue = Double(ranking) {
             DispatchQueue.main.async {
                 switch intValue {
-                case 0...0.5:
-                    self.star1.image = UIImage(systemName: "star.fill")
+                case 0...1:
+                    self.star1.image = Constants.starHalf
+                case ...2:
+                    self.star1.image = Constants.starFill
+                case ...3:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starHalf
                 case ...4:
-                    self.star1.image = UIImage(systemName: "star.fill")
-                    self.star2.image = UIImage(systemName: "star.fill")
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                case ...5:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starHalf
                 case ...6:
-                    self.star1.image = UIImage(systemName: "star.fill")
-                    self.star2.image = UIImage(systemName: "star.fill")
-                    self.star3.image = UIImage(systemName: "star.fill")
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                case ...7:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starHalf
                 case ...8:
-                    self.star1.image = UIImage(systemName: "star.fill")
-                    self.star2.image = UIImage(systemName: "star.fill")
-                    self.star3.image = UIImage(systemName: "star.fill")
-                    self.star4.image = UIImage(systemName: "star.fill")
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                case ...9:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                    self.star5.image = Constants.starHalf
                 case ...10:
-                    self.star1.image = UIImage(systemName: "star.fill")
-                    self.star2.image = UIImage(systemName: "star.fill")
-                    self.star3.image = UIImage(systemName: "star.fill")
-                    self.star4.image = UIImage(systemName: "star.fill")
-                    self.star5.image = UIImage(systemName: "star.fill")
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                    self.star5.image = Constants.starFill
                 default:
                     ()
                 }

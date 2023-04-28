@@ -103,7 +103,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         apiManager.fetchMovieAwardsInformation(id: id) { [weak self] result in
             switch result {
             case .success(let awardsResults):
-                self?.handleSuccess(awardsResults: awardsResults)
+                self?.handleSuccess(awardsResults: awardsResults, id: id)
             case .failure(let error):
                 self?.handleError(error: error)
             }
@@ -111,13 +111,16 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
     }
     
-    func handleSuccess(awardsResults: MovieAwardsModel) {
+    func handleSuccess(awardsResults: MovieAwardsModel, id: String) {
         var arrayMovieAward: [MovieAwardSummaryModel] = []
         if let items = awardsResults.items {
             for outerItem in items {
-                if let outcomeItems = outerItem.outcomeItems {
+                if let outcomeItems = outerItem.awardEventDetails {
                     for innerItem in outcomeItems {
-                        let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear ?? "", eventTitle: outerItem.eventTitle ?? "")
+                        let model = MovieAwardSummaryModel(with: innerItem,
+                                                           eventYear: outerItem.eventYear ?? "",
+                                                           eventTitle: outerItem.eventTitle ?? "",
+                                                           movieID: id)
                         arrayMovieAward.append(model)
                     }
                 }
