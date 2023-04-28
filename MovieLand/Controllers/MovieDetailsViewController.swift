@@ -95,7 +95,6 @@ class MovieDetailsViewController: UIViewController {
         wantToWatchButton.makeRound()
         seenButton.makeRound()
         genreLabel.makeRound(radius: 15)
-        castLabelAndButtonView.makeRound(radius: 20)
         trailerLabelView.makeRound(radius: 20)
         trailerViewContainer.backgroundColor = UIColor(named: Constants.customDarkBlue)
         similarMoviesLabelAndButtonView.makeRound(radius: 20)
@@ -156,6 +155,56 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - Movie rating configuration
     
+    func setRankStars(ratingScore: String) {
+        if let intValue = Double(ratingScore) {
+            DispatchQueue.main.async {
+                switch intValue {
+                case 0...1:
+                    self.star1.image = Constants.starHalf
+                case ...2:
+                    self.star1.image = Constants.starFill
+                case ...3:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starHalf
+                case ...4:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                case ...5:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starHalf
+                case ...6:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                case ...7:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starHalf
+                case ...8:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                case ...9:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                    self.star5.image = Constants.starHalf
+                case ...10:
+                    self.star1.image = Constants.starFill
+                    self.star2.image = Constants.starFill
+                    self.star3.image = Constants.starFill
+                    self.star4.image = Constants.starFill
+                    self.star5.image = Constants.starFill
+                default:
+                    ()
+                }
+            }
+        }
+    }
     func prepareForShowingMovieRatingFromRatingsModel() {
         viewModel.fetchRating(id: titleID)
     }
@@ -164,10 +213,10 @@ class MovieDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             if ratingModel.imDb?.isEmpty ?? true {
                 self.ratingScore.isHidden = true
-//                self.ratingStarImage.isHidden = true
-                
             } else {
-                self.ratingScore.text = ratingModel.imDb
+                let iMDbRating = ratingModel.imDb
+                self.ratingScore.text = iMDbRating
+                self.setRankStars(ratingScore: iMDbRating ?? "0")
             }
         }
     }

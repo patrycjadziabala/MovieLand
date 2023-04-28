@@ -118,7 +118,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
                 if let outcomeItems = outerItem.awardEventDetails {
                     for innerItem in outcomeItems {
                         let model = MovieAwardSummaryModel(with: innerItem,
-                                                           eventYear: outerItem.eventYear ?? "",
+                                                        eventYear: outerItem.eventYear ?? "",
                                                            eventTitle: outerItem.eventTitle ?? "",
                                                            movieID: id)
                         arrayMovieAward.append(model)
@@ -127,7 +127,6 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             }
             self.tabRouter.navigateToList(results: arrayMovieAward, title: "")
         }
-        
     }
     
     //MARK: - Fetch Rating
