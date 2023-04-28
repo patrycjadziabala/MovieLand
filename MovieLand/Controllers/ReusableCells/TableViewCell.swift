@@ -69,28 +69,8 @@ class TableViewCell: UITableViewCell {
         configureMovieYear(with: model)
         configureIMDbRank(with: model)
         configureIMDbRating(with: model)
-        configureAdditionalInfo(with: model)
     }
 
-    //MARK: - Stars
-    
-    func configureAdditionalInfo(with model: TableViewCellPresentable) {
-        apiManager.fetchTitle(id: model.id) { result in
-            var stars: String?
-            switch result {
-            case .success(let starList):
-                stars = starList.stars
-                DispatchQueue.main.async {
-//                    self.cellAdditionalInfoLabel.text = stars
-                }
-            case .failure:
-                DispatchQueue.main.async {
-//                    self.cellAdditionalInfoLabel.isHidden = true
-                }
-            }
-        }
-    }
-    
     //MARK: - Movie Year
     
     func configureMovieYear(with model: TableViewCellPresentable) {

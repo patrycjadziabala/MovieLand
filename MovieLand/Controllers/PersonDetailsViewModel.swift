@@ -50,7 +50,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         guard let array = awardsArray else {
             return
         }
-        self.tabRouter.navigateToList(results: array, title: "Awards")
+        self.tabRouter.navigateToList(results: array, title: Constants.awardsTitle)
     }
     
     //MARK: - Fetch Person Information

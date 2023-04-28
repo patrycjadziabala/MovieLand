@@ -11,6 +11,7 @@ import UIKit
 struct Constants {
     
     // MARK: - Images
+    
     static let heartImage = UIImage(systemName: "heart")
     static let heartFillImage = UIImage(systemName: "heart.fill")
     static let listBulletImage = UIImage(systemName: "list.bullet")
@@ -33,6 +34,22 @@ struct Constants {
     static let awardsTableViewCell = "AwardsTableViewCell"
     static let collectionViewCell = "CollectionViewCell"
     static let iMDbRating = "IMDb Rating:"
+    static let showtime = "Showtime"
+    static let favourites = "(Favourites)"
+    static let movieLand = "(MovieLand)"
+    static let people = "PEOPLE"
+    static let seen = "SEEN"
+    static let wantToSee = "WANT TO SEE"
+    static let awardsTitle = "Awards"
+    static let popcorn = "popcorn"
+    static let gif = "gif"
+    static let seeAllComingSoonMovies = "See all Coming Soon movies"
+    static let inCinemas = "In Cinemas"
+    static let top250IMDbMovies = "Top 250 IMDb Movies"
+    static let mostPopularMovies = "Most Popular Movies"
+    static let top250TVSeries = "Top 250 TV Series"
+    static let mostPopularTVSeries = "Most Popular TV Series"
+    static let boxOfficeAllTime = "Box Office All Time"
     
  
     // MARK: - Colors
@@ -48,6 +65,10 @@ struct Constants {
     static let customWhite = "CustomWhite"
     static let customLightBlue = "CustomLightBlue"
     
+    
+    //MARK: - Fonts
+    
+    static let boldfont = "Labrada-SemiBold"
     // MARK: - Alerts
     
     static let noInternet = "No internet"

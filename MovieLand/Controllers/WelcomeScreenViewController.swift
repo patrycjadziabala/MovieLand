@@ -89,8 +89,8 @@ class WelcomeScreenViewController: UIViewController {
 //            titleLabel.applyShadow()
 //            navBar.addSubview(titleLabel)
 //        }
-        if let font = UIFont(name: "Showtime", size: 27) {
-            self.navigationController?.setNavigationBarCustomTitle(title: "(MovieLand)", font: font)
+        if let font = UIFont(name: Constants.showtime, size: 27) {
+            self.navigationController?.setNavigationBarCustomTitle(title: Constants.movieLand, font: font)
         }
     }
     
@@ -102,7 +102,7 @@ class WelcomeScreenViewController: UIViewController {
     // MARK: - Welcome Screen View configuration
     
     func configureWelcomeScreenView() {
-        trailerButton.setTitle("See all Coming Soon movies", for: .normal)
+        trailerButton.setTitle(Constants.seeAllComingSoonMovies, for: .normal)
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scrollView.showsVerticalScrollIndicator = false
         inCinemasSeeAllButton.makeRound(radius: 15)
@@ -170,7 +170,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = moviesInCinemaController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource, title: "In Cinemas")
+        tabRouter.navigateToList(results: mappedDataSource, title: Constants.inCinemas)
     }
     
     // MARK: - Top 250 Movies
@@ -197,7 +197,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = top250MoviesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource, title: "Top 250 IMDb Movies")
+        tabRouter.navigateToList(results: mappedDataSource, title: Constants.top250IMDbMovies)
     }
     
     // MARK: - Most Popular Movies
@@ -224,7 +224,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = mostPopularMoviesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource, title: "Most Popular Movies")
+        tabRouter.navigateToList(results: mappedDataSource, title: Constants.mostPopularMovies)
     }
     
     // MARK: - Top 250 IMDb TV Series
@@ -251,7 +251,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = top250TVSeriesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource, title: "Top 250 TV Series")
+        tabRouter.navigateToList(results: mappedDataSource, title: Constants.top250TVSeries)
     }
     
     // MARK: - Most Popular TV Series
@@ -278,7 +278,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = mostPopularTVSeriesController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        tabRouter.navigateToList(results: mappedDataSource, title: "Most Popular TV Series")
+        tabRouter.navigateToList(results: mappedDataSource, title: Constants.mostPopularTVSeries)
     }
     
     // MARK: - BoxOfficeAllTime configuration
@@ -305,7 +305,7 @@ class WelcomeScreenViewController: UIViewController {
         let mappedDataSource = boxOfficeAllTimeController.dataSource.compactMap { swipeable in
             return swipeable as? ListViewControllerCellPresentable
         }
-        self.tabRouter.navigateToList(results: mappedDataSource, title: "Box Office All Time")
+        self.tabRouter.navigateToList(results: mappedDataSource, title: Constants.boxOfficeAllTime)
     }
     
     // MARK: - Alert

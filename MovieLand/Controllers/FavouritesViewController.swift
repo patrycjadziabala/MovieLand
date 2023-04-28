@@ -29,8 +29,8 @@ class FavouritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
-        if let font = UIFont(name: "Showtime", size: 27) {
-            self.navigationController?.setNavigationBarCustomTitle(title: "(Favourites)", font: font)
+        if let font = UIFont(name: Constants.showtime, size: 27) {
+            self.navigationController?.setNavigationBarCustomTitle(title: Constants.favourites, font: font)
         }
     }
     
@@ -68,10 +68,10 @@ class FavouritesViewController: UIViewController {
         segmentedControl.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
         segmentedControl.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        segmentedControl.insertSegment(withTitle: "PEOPLE", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "SEEN", at: 1, animated: false)
-        segmentedControl.insertSegment(withTitle: "WANT TO SEE", at: 2, animated: false)
-        if let font = UIFont(name: "Labrada-SemiBold", size: 15),
+        segmentedControl.insertSegment(withTitle: Constants.people, at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: Constants.seen, at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: Constants.wantToSee, at: 2, animated: false)
+        if let font = UIFont(name: Constants.boldfont, size: 15),
            let color = UIColor(named: Constants.customDarkPink) {
             segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color ], for: .normal)
         }

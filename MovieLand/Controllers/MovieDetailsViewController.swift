@@ -35,8 +35,6 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var rottenTomatoesWebsiteButton: UIButton!
     @IBOutlet weak var ratingScore: UILabel!
     @IBOutlet weak var movieImageAndOverviewView: UIView!
-    @IBOutlet weak var awardsView: UIView!
-    @IBOutlet weak var castLabelAndButtonView: UIView!
     @IBOutlet weak var trailerLabelView: UIView!
     @IBOutlet weak var similarMoviesLabelAndButtonView: UIView!
     @IBOutlet weak var wantToWatchButton: UIButton!

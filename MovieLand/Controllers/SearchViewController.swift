@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
     }
     
     func configure() {
-        if let path = Bundle.main.path(forResource: "popcorn", ofType: "gif") {
+        if let path = Bundle.main.path(forResource: Constants.popcorn, ofType: Constants.gif) {
             let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             let image = UIImage.sd_image(withGIFData: data)
             imageView.image = image
