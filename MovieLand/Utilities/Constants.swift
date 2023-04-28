@@ -25,6 +25,7 @@ struct Constants {
     static let starFill = UIImage(systemName: "star.fill")
     static let starEmpty = UIImage(systemName: "star")
     static let starHalf = UIImage(systemName: "star.leadinghalf.filled")
+    static let oscarImage = UIImage(named: "Oscar")
     
     // MARK: - Titles/Names
    

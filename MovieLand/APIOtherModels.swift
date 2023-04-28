@@ -136,30 +136,25 @@ struct PersonAwardSummaryModel {
 }
 
 extension PersonAwardSummaryModel: AwardsTableViewCellPresentable {
+    var awardsCellImage: String? {
+        image
+    }
+    
     var id: String {
         personId
     }
-    
     var awardsCellEventTitle: String? {
         eventTitle
     }
-    
     var awardsCellAwardName: String? {
-        category
-    }
-    
-    var awardsCellOutcomeYear: String? {
-        year
-    }
-    
-    var awardsCellOutcomeTitle: String? {
         title
     }
-    
-    var awardsCellOutcomeCategory: String? {
+    var awardsCellOutcomeTitle: String? {
         description
     }
-    
+    var awardsCellOutcomeCategory: String? {
+        category
+    }
     var awardsCellType: CellContentType {
         .title
     }
@@ -217,6 +212,10 @@ struct MovieAwardSummaryModel {
 }
 
 extension MovieAwardSummaryModel: AwardsTableViewCellPresentable {
+    var awardsCellImage: String? {
+        image
+    }
+    
     var id: String {
         movieId
     }
@@ -227,10 +226,6 @@ extension MovieAwardSummaryModel: AwardsTableViewCellPresentable {
     
     var awardsCellAwardName: String? {
         category
-    }
-    
-    var awardsCellOutcomeYear: String? {
-        awardYear
     }
     
     var awardsCellOutcomeTitle: String? {
