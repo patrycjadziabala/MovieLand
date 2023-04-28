@@ -73,7 +73,7 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         apiManager.fetchPersonAwardsInformation(id: id) { [weak self] result in
             switch result {
             case .success(let awardsResults):
-                self?.handleSuccess(awardsResults: awardsResults)
+                self?.handleSuccess(awardsResults: awardsResults, id: id)
                 self?.delegate?.onFetchAwardsCompleted(success: true)
             case .failure(let error):
                 self?.handleError(error: error)
@@ -82,11 +82,11 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
         }
     }
     
-    func handleSuccess(awardsResults: PersonAwardsModel) {
+    func handleSuccess(awardsResults: PersonAwardsModel, id: String) {
         var array: [PersonAwardSummaryModel] = []
         for outerItem in awardsResults.items {
-            for innerItem in outerItem.outcomeItems {
-                let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle)
+            for innerItem in outerItem.nameAwardEventDetails {
+                let model = PersonAwardSummaryModel(with: innerItem, eventTitle: outerItem.eventTitle, personId: id)
                 array.append(model)
             }
         }

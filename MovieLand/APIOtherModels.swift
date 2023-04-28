@@ -104,19 +104,15 @@ struct PersonAwardsModel: Codable {
 
 struct PersonAwardsItemModel: Codable {
     let eventTitle: String
-    let outcomeItems: [PersonAwardsOutcomeItemModel]
+    let nameAwardEventDetails: [PersonAwardsOutcomeItemModel]
 }
 
 struct PersonAwardsOutcomeItemModel: Codable {
+    let image: String?
     let outcomeYear: String?
-    let outcomeTitle: String
-    let outcomeCategory: String
-    let outcomeDetails: [PersonAwardsOutcomeDetailsModel]
-}
-
-struct PersonAwardsOutcomeDetailsModel: Codable {
-    let plainText: String
-    let html: String
+    let title: String
+    let `for`: String
+    let description: String?
 }
 
 struct PersonAwardSummaryModel {
@@ -125,20 +121,25 @@ struct PersonAwardSummaryModel {
     let title: String
     let category: String
     let description: String?
-    let id: String
+    let personId: String
+    let image: String?
     
-    init(with model: PersonAwardsOutcomeItemModel, eventTitle: String) {
+    init(with model: PersonAwardsOutcomeItemModel, eventTitle: String, personId: String) {
         self.year = model.outcomeYear
         self.eventTitle = eventTitle
-        self.title = model.outcomeTitle
-        self.category = model.outcomeCategory
-        self.description = model.outcomeDetails.first?.plainText
-        // TODO: - Get id using regex from "html"
-        self.id = ""
+        self.title = model.title
+        self.category = model.`for`
+        self.description = model.description
+        self.personId = personId
+        self.image = model.image
     }
 }
 
 extension PersonAwardSummaryModel: AwardsTableViewCellPresentable {
+    var id: String {
+        personId
+    }
+    
     var awardsCellEventTitle: String? {
         eventTitle
     }
