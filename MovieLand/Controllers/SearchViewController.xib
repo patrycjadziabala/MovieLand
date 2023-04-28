@@ -42,7 +42,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="4K3-Su-4fl"/>
                     </constraints>
-                    <color key="textColor" red="1" green="0.48627450980392156" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="textColor" name="CustomDarkPink"/>
                     <fontDescription key="fontDescription" name="Showtime" family="Showtime" pointSize="59"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -60,9 +60,11 @@
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSM-FT-meZ">
                     <rect key="frame" x="16" y="666" width="312" height="34"/>
+                    <color key="backgroundColor" name="CustomLightBlue"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="312" id="Xpv-lx-XVt"/>
                     </constraints>
+                    <color key="textColor" name="CustomBeige"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                 </textField>
@@ -104,6 +106,12 @@
         </namedColor>
         <namedColor name="CustomDarkBlue">
             <color red="0.18799999356269836" green="0.22400000691413879" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomDarkPink">
+            <color red="1" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomLightBlue">
+            <color red="0.22696732052260452" green="0.27012120253066224" blue="0.46061567525670977" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

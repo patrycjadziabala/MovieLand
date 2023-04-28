@@ -113,13 +113,18 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     func handleSuccess(awardsResults: MovieAwardsModel) {
         var arrayMovieAward: [MovieAwardSummaryModel] = []
-        for outerItem in awardsResults.items {
-            for innerItem in outerItem.outcomeItems {
-                let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear, eventTitle: outerItem.eventTitle)
-                arrayMovieAward.append(model)
+        if let items = awardsResults.items {
+            for outerItem in items {
+                if let outcomeItems = outerItem.outcomeItems {
+                    for innerItem in outcomeItems {
+                        let model = MovieAwardSummaryModel(with: innerItem, eventYear: outerItem.eventYear ?? "", eventTitle: outerItem.eventTitle ?? "")
+                        arrayMovieAward.append(model)
+                    }
+                }
             }
+            self.tabRouter.navigateToList(results: arrayMovieAward, title: "")
         }
-        self.tabRouter.navigateToList(results: arrayMovieAward, title: "")
+        
     }
     
     //MARK: - Fetch Rating

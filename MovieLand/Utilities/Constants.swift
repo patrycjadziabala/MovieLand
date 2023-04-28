@@ -22,6 +22,7 @@ struct Constants {
     static let eyeSeenIcon = UIImage(systemName: "eye.fill")
     static let wantToWatch = UIImage(systemName: "plus")
     static let onWantToWatchList = UIImage(systemName: "doc.text.fill")
+    static let starFill = UIImage(systemName: "star.fill")
 
     // MARK: - Titles/Names
    

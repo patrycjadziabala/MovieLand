@@ -126,7 +126,11 @@ class TableViewCell: UITableViewCell {
             if let rank = Int(model.iMDbRankLabelText ?? "") {
                 if rank > 3 {
                     crownImageView.isHidden = true
+                } else {
+                    crownImageView.isHidden = false
                 }
+            } else {
+                crownImageView.isHidden = true
             }
         }
     }
@@ -136,8 +140,7 @@ class TableViewCell: UITableViewCell {
         if let intValue = Double(ranking) {
             DispatchQueue.main.async {
                 switch intValue {
-                case 0...2:
-                    // 1 gwiazdka
+                case 0...0.5:
                     self.star1.image = UIImage(systemName: "star.fill")
                 case ...4:
                     self.star1.image = UIImage(systemName: "star.fill")

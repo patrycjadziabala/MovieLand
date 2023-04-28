@@ -66,6 +66,7 @@ class ListViewController: UIViewController {
         navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
         tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
         self.title = navBarTitle
+        self.tableView.backgroundColor = UIColor(named: Constants.customDarkBlue)
     }
     
     //MARK: - Update Data Source

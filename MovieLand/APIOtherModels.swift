@@ -174,29 +174,29 @@ extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
 }
 
 struct MovieAwardsModel: Codable {
-    let imDbId: String
-    let title: String
-    let type: String
-    let year: String
+    let imDbId: String?
+    let title: String?
+    let type: String?
+    let year: String?
     let description: String?
-    let items: [MovieAwardsItemModel]
+    let items: [MovieAwardsItemModel]?
 }
 
 struct MovieAwardsItemModel: Codable {
-    let eventTitle: String
-    let eventYear: String
-    let outcomeItems: [MovieAwardsOutcomeItemModel]
+    let eventTitle: String?
+    let eventYear: String?
+    let outcomeItems: [MovieAwardsOutcomeItemModel]?
 }
 
 struct MovieAwardsOutcomeItemModel: Codable {
-    let outcomeTitle: String
-    let outcomeCategory: String
-    let outcomeDetails: [MovieAwardsOutcomeDetailsModel]
+    let outcomeTitle: String?
+    let outcomeCategory: String?
+    let outcomeDetails: [MovieAwardsOutcomeDetailsModel]?
 }
 
 struct MovieAwardsOutcomeDetailsModel: Codable {
-    let plainText: String
-    let html: String
+    let plainText: String?
+    let html: String?
 }
 
 struct MovieAwardSummaryModel {
@@ -210,9 +210,9 @@ struct MovieAwardSummaryModel {
     init(with model: MovieAwardsOutcomeItemModel, eventYear: String, eventTitle: String) {
         self.awardYear = eventYear
         self.eventTitle = eventTitle
-        self.title = model.outcomeTitle
-        self.category = model.outcomeCategory
-        self.description = model.outcomeDetails.first?.plainText
+        self.title = model.outcomeTitle ?? ""
+        self.category = model.outcomeCategory ?? ""
+        self.description = model.outcomeDetails?.first?.plainText
         self.id = ""
     }
 }

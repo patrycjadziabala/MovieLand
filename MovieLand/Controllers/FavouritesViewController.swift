@@ -28,8 +28,15 @@ class FavouritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         refreshData()
+        if let font = UIFont(name: "Showtime", size: 27) {
+            self.navigationController?.setNavigationBarCustomTitle(title: "(Favourites)", font: font)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.clearNavigationBar()
     }
     
     init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
@@ -49,7 +56,7 @@ class FavouritesViewController: UIViewController {
     }
     
     func configureView() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: Constants.customDarkBlue)
     }
     
     func configureSegmentedControl() {
@@ -61,11 +68,16 @@ class FavouritesViewController: UIViewController {
         segmentedControl.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
         segmentedControl.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        segmentedControl.insertSegment(withTitle: "People", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Seen", at: 1, animated: false)
-        segmentedControl.insertSegment(withTitle: "Want", at: 2, animated: false)
+        segmentedControl.insertSegment(withTitle: "PEOPLE", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "SEEN", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "WANT TO SEE", at: 2, animated: false)
+        if let font = UIFont(name: "Labrada-SemiBold", size: 15),
+           let color = UIColor(named: Constants.customDarkPink) {
+            segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color ], for: .normal)
+        }
         segmentedControl.selectedSegmentIndex = 0
-        
+        segmentedControl.backgroundColor = UIColor(white: 1, alpha: 0.05)
+        segmentedControl.selectedSegmentTintColor = UIColor(white: 1, alpha: 0.3)
     }
     
     @objc func onSegmentedControlChanged() {

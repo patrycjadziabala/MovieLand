@@ -49,3 +49,25 @@ extension UIView {
         //layer.transform = CATransform3DMakeRotation(degreesToRadians(degrees), 0.0, 0.0, 1.0)
     }
 }
+
+
+extension UINavigationController {
+    func setNavigationBarCustomTitle(title: String, font: UIFont) {
+        let navBar = self.navigationBar
+        let titleFrame = CGRect(x: 0, y: 0, width: navBar.frame.width, height: navBar.frame.height)
+        let titleLabel = UILabel(frame: titleFrame)
+        titleLabel.text = title
+        titleLabel.textAlignment = .center
+        titleLabel.font = font
+        titleLabel.textColor = UIColor(named: Constants.customDarkPink)
+        titleLabel.applyShadow()
+        navBar.addSubview(titleLabel)
+    }
+    
+    func clearNavigationBar() {
+        let navBar = self.navigationBar
+        for view in navBar.subviews {
+            view.removeFromSuperview()
+        }
+    }
+}

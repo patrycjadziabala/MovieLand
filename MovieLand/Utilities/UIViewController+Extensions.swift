@@ -32,6 +32,7 @@ class ActivityOverlayView: UIView {
     
     override init(frame: CGRect) {
         activityIndicator = UIActivityIndicatorView(frame: .zero)
+        activityIndicator.color = UIColor(named: Constants.customDarkPink)
         super.init(frame: frame)
         doConfiguration()
     }
@@ -42,7 +43,7 @@ class ActivityOverlayView: UIView {
     
     func doConfiguration() {
         addSubview(activityIndicator)
-        backgroundColor = .white
+        backgroundColor = UIColor(named: Constants.customDarkBlue)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

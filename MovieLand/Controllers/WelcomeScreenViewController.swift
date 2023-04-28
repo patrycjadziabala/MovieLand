@@ -79,25 +79,24 @@ class WelcomeScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let navBar = self.navigationController?.navigationBar {
-            let titleFrame = CGRect(x: 0, y: 0, width: navBar.frame.width, height: navBar.frame.height)
-            let titleLabel = UILabel(frame: titleFrame)
-            titleLabel.text = "(MovieLand)"
-            titleLabel.textAlignment = .center
-            titleLabel.font = UIFont(name: "Showtime", size: 27)
-            titleLabel.textColor = UIColor(named: Constants.customDarkPink)
-            titleLabel.applyShadow()
-            navBar.addSubview(titleLabel)
+//        if let navBar = self.navigationController?.navigationBar {
+//            let titleFrame = CGRect(x: 0, y: 0, width: navBar.frame.width, height: navBar.frame.height)
+//            let titleLabel = UILabel(frame: titleFrame)
+//            titleLabel.text = "(MovieLand)"
+//            titleLabel.textAlignment = .center
+//            titleLabel.font = UIFont(name: "Showtime", size: 27)
+//            titleLabel.textColor = UIColor(named: Constants.customDarkPink)
+//            titleLabel.applyShadow()
+//            navBar.addSubview(titleLabel)
+//        }
+        if let font = UIFont(name: "Showtime", size: 27) {
+            self.navigationController?.setNavigationBarCustomTitle(title: "(MovieLand)", font: font)
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let navBar = self.navigationController?.navigationBar {
-            for view in navBar.subviews {
-                view.removeFromSuperview()
-            }
-        }
+        self.navigationController?.clearNavigationBar()
     }
     
     // MARK: - Welcome Screen View configuration
