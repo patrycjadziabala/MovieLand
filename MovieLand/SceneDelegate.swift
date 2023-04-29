@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { _ in
-            SDImageCache.shared.clearMemory()
+            // turned off temporarily to reduce amount of API calls during development
+//            SDImageCache.shared.clearMemory()
         }
         
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

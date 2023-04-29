@@ -302,7 +302,7 @@
                                                 <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="exploreAwardsButtonPressed:" destination="-1" eventType="touchUpInside" id="hN6-DT-DG8"/>
+                                                <action selector="exploreAwardsButtonPressed:" destination="-1" eventType="touchUpInside" id="wGB-b9-Y4W"/>
                                             </connections>
                                         </button>
                                     </subviews>

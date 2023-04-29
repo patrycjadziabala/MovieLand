@@ -33,6 +33,7 @@ struct Constants {
     static let regularTableViewCell = "TableViewCell"
     static let awardsTableViewCell = "AwardsTableViewCell"
     static let collectionViewCell = "CollectionViewCell"
+    static let trailerCollectionViewCell = "TrailerCollectionViewCell"
     static let iMDbRating = "IMDb Rating:"
     static let showtime = "Showtime"
     static let favourites = "(Favourites)"

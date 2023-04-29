@@ -105,6 +105,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
             case .success(let awardsResults):
                 self?.handleSuccess(awardsResults: awardsResults, id: id)
             case .failure(let error):
+                self?.delegate?.onFetchMovieAwardsErrorAlert()
                 self?.handleError(error: error)
             }
             self?.delegate?.onFetchMovieAwardsFinished()
@@ -190,4 +191,5 @@ protocol MovieDetailsViewModelDelegate: AnyObject {
     func onFetchRatingSuccess(ratingModel: RatingsModel)
     func onFetchMovieAwardsFinished()
     func presentErrorAlert(error: Error)
+    func onFetchMovieAwardsErrorAlert()
 }

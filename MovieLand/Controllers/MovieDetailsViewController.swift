@@ -132,17 +132,9 @@ class MovieDetailsViewController: UIViewController {
         }
     }
     
-    // MARK: - Movie Awards
+
     
-    func configureMovieAwards(titleModel: TitleModel) {
-        if let awardsList = titleModel.awards {
-            self.exploreAwardsButton.isHidden = false
-            self.exploreAwardsButton.backgroundColor = UIColor(named: Constants.customDarkBlue)
-            self.awardsTextView.text = awardsList
-        } else {
-            self.awardsTextView.isHidden = true
-        }
-    }
+    
     
     //MARK: - Movie Image
     
@@ -329,6 +321,20 @@ class MovieDetailsViewController: UIViewController {
         viewModel.fetchMovieAwards(id: titleID)
     }
     
+    // MARK: - Movie Awards
+    
+    func configureMovieAwards(titleModel: TitleModel) {
+        if let awardsList = titleModel.awards {
+            self.exploreAwardsButton.isHidden = false
+            self.exploreAwardsButton.backgroundColor = UIColor(named: Constants.customDarkBlue)
+            self.awardsTextView.text = awardsList
+        } else if titleModel.awards == "" {
+            self.awardsTextView.text = "No awards available for this movie."
+        } else {
+            self.awardsTextView.text = "No awards available for this movie."
+        }
+    }
+    
     // MARK: - Alerts
     
     func errorAlert(with error: Error) {
@@ -341,6 +347,10 @@ class MovieDetailsViewController: UIViewController {
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func errorFetchingAwards() {
+        awardsTextView.text = "No awards available for this movie."
     }
     
     // MARK: - Favourites
@@ -401,4 +411,8 @@ extension MovieDetailsViewController: MovieDetailsViewModelDelegate {
             self.exploreAwardsButton.isEnabled = true
         }
     }
+    func onFetchMovieAwardsErrorAlert() {
+        errorFetchingAwards()
+    }
+    
 }

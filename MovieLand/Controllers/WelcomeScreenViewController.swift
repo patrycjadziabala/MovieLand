@@ -45,6 +45,7 @@ class WelcomeScreenViewController: UIViewController {
     let top250TVSeriesController: SwipeableInformationTilesController
     let mostPopularTVSeriesController: SwipeableInformationTilesController
     let boxOfficeAllTimeController: SwipeableInformationTilesController
+    let trailerViewController: TrailerViewController
     let viewModel: WelcomeScreenViewModelProtocol
     
     init(tabRouter: TabRouterProtocol, viewModel: WelcomeScreenViewModelProtocol) {
@@ -55,9 +56,11 @@ class WelcomeScreenViewController: UIViewController {
         self.top250TVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.mostPopularTVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.boxOfficeAllTimeController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
+        self.trailerViewController = TrailerViewController()
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
+    
     }
     
     required init?(coder: NSCoder) {
@@ -113,7 +116,6 @@ class WelcomeScreenViewController: UIViewController {
         top250IMDbTVSeriesButton.makeRound(radius: 15)
         top250IMDMoviesSeeAllButton.makeRound(radius: 15)
         trailerViewContainer.makeRound(radius: 20)
-        trailerInfoTextView.makeRound(radius: 20)
         navigationController?.navigationBar.barTintColor =  UIColor(named: Constants.customDarkBlue)
         tabBarController?.tabBar.barTintColor = UIColor(named: Constants.customDarkBlue)
         trailerViewContainer.backgroundColor = UIColor(white: 1, alpha: 0.05)
@@ -136,6 +138,7 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViewTop250TVSeries()
         configureCollectionViewForMostPopularTVSeries()
         configureCollectionViewForBoxOfficeAllTime()
+        configureCollectionViewTrailers()
     }
     
     // MARK: - Trailers
@@ -144,6 +147,13 @@ class WelcomeScreenViewController: UIViewController {
     //}
     @IBAction func seeAllSomingSoonButtonPressed(_ sender: UIButton) {
         
+    }
+
+    func configureCollectionViewTrailers() {
+        addChild(trailerViewController)
+        view.addSubview(trailerViewController.view)
+        trailerViewController.didMove(toParent: self)
+        trailerViewController.view.constraint(to: trailerViewContainer)
     }
     
     // MARK: - In Cinemas Movies

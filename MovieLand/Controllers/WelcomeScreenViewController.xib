@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Labrada-Light.ttf">
-            <string>Labrada-Light</string>
-        </array>
         <array key="Labrada-SemiBold.ttf">
             <string>Labrada-SemiBold</string>
         </array>
@@ -39,10 +36,6 @@
                 <outlet property="top250IMDbTVSeriesLabel" destination="AlS-EO-IRn" id="Ny7-4n-aKW"/>
                 <outlet property="top250IMDbTVSeriesScrollableViewContainer" destination="5HZ-1j-5Z8" id="104-jE-XSi"/>
                 <outlet property="trailerButton" destination="UNc-gY-whc" id="jzX-Kb-hQT"/>
-                <outlet property="trailerImage" destination="MEq-fH-9bG" id="aRY-Qb-Hrg"/>
-                <outlet property="trailerImageView" destination="rtq-X3-Cj7" id="EwV-lx-c8C"/>
-                <outlet property="trailerInfoTextView" destination="cxw-Pm-50r" id="sbJ-qC-nk9"/>
-                <outlet property="trailerVideoView" destination="gQB-dx-Xs6" id="ftP-x1-g7P"/>
                 <outlet property="trailerViewContainer" destination="gB2-IE-RPk" id="Plu-ii-Wwz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,77 +49,34 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="2000"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-O1-Lbf" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="2434"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="2472"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ijv-c9-vlM">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="2016"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="2054"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gB2-IE-RPk" userLabel="TrailerView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="350"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQB-dx-Xs6" userLabel="TrailerVideoView">
-                                                    <rect key="frame" x="10" y="10" width="370" height="230"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="narcos" translatesAutoresizingMaskIntoConstraints="NO" id="MEq-fH-9bG" userLabel="Trailer Image View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="230"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="MEq-fH-9bG" firstAttribute="leading" secondItem="gQB-dx-Xs6" secondAttribute="leading" id="69G-R9-si4"/>
-                                                        <constraint firstItem="MEq-fH-9bG" firstAttribute="top" secondItem="gQB-dx-Xs6" secondAttribute="top" id="Lg2-VJ-8iK"/>
-                                                        <constraint firstAttribute="bottom" secondItem="MEq-fH-9bG" secondAttribute="bottom" id="Npx-TH-WBp"/>
-                                                        <constraint firstAttribute="trailing" secondItem="MEq-fH-9bG" secondAttribute="trailing" id="r16-WS-ayI"/>
-                                                    </constraints>
-                                                </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="narcos1" translatesAutoresizingMaskIntoConstraints="NO" id="rtq-X3-Cj7">
-                                                    <rect key="frame" x="5" y="180" width="80" height="120"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="mhC-tj-QYC"/>
-                                                        <constraint firstAttribute="height" constant="120" id="t8P-Zx-56d"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Trailer info" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cxw-Pm-50r">
-                                                    <rect key="frame" x="105" y="210" width="275" height="70"/>
-                                                    <color key="backgroundColor" name="CustomDarkBlue"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="coJ-Wm-68x"/>
-                                                    </constraints>
-                                                    <color key="textColor" name="CustomBeige"/>
-                                                    <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNc-gY-whc">
-                                                    <rect key="frame" x="10" y="315" width="77.666666666666671" height="40.333333333333314"/>
-                                                    <color key="tintColor" name="CustomBeige"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button">
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="seeAllSomingSoonButtonPressed:" destination="-1" eventType="touchUpInside" id="iJI-8I-UL2"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
                                             <color key="backgroundColor" name="CustomLightBlue"/>
                                             <constraints>
-                                                <constraint firstItem="rtq-X3-Cj7" firstAttribute="leading" secondItem="gB2-IE-RPk" secondAttribute="leading" constant="5" id="0HX-wd-xQQ"/>
-                                                <constraint firstItem="cxw-Pm-50r" firstAttribute="top" secondItem="gB2-IE-RPk" secondAttribute="top" constant="210" id="6LA-OL-L72"/>
                                                 <constraint firstAttribute="height" constant="350" id="Ctg-IM-ByO"/>
-                                                <constraint firstAttribute="trailing" secondItem="gQB-dx-Xs6" secondAttribute="trailing" constant="10" id="DuO-KN-Gfn"/>
-                                                <constraint firstItem="gQB-dx-Xs6" firstAttribute="leading" secondItem="gB2-IE-RPk" secondAttribute="leading" constant="10" id="LU9-xE-JIQ"/>
-                                                <constraint firstItem="UNc-gY-whc" firstAttribute="top" secondItem="gQB-dx-Xs6" secondAttribute="bottom" constant="75" id="LXQ-Cf-w0l"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="LsC-Rv-M9t"/>
-                                                <constraint firstAttribute="trailing" secondItem="cxw-Pm-50r" secondAttribute="trailing" constant="10" id="Me6-IK-YZS"/>
-                                                <constraint firstItem="rtq-X3-Cj7" firstAttribute="top" secondItem="gB2-IE-RPk" secondAttribute="top" constant="180" id="Sgb-TX-zJ9"/>
-                                                <constraint firstItem="cxw-Pm-50r" firstAttribute="leading" secondItem="rtq-X3-Cj7" secondAttribute="trailing" constant="20" id="TKd-tu-HgA"/>
-                                                <constraint firstItem="gQB-dx-Xs6" firstAttribute="top" secondItem="gB2-IE-RPk" secondAttribute="top" constant="10" id="WZK-Eg-oOB"/>
-                                                <constraint firstItem="UNc-gY-whc" firstAttribute="leading" secondItem="gB2-IE-RPk" secondAttribute="leading" constant="10" id="ZwL-uo-gm9"/>
-                                                <constraint firstAttribute="trailing" secondItem="cxw-Pm-50r" secondAttribute="trailing" constant="10" id="dDb-BZ-lf8"/>
-                                                <constraint firstItem="UNc-gY-whc" firstAttribute="top" secondItem="rtq-X3-Cj7" secondAttribute="bottom" constant="15" id="m3O-ti-QOX"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNc-gY-whc">
+                                            <rect key="frame" x="0.0" y="368" width="390" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="nia-ZZ-cYu"/>
+                                            </constraints>
+                                            <color key="tintColor" name="CustomBeige"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="seeAllSomingSoonButtonPressed:" destination="-1" eventType="touchUpInside" id="iJI-8I-UL2"/>
+                                            </connections>
+                                        </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1t-mM-fo2" userLabel="InCinemasLabelView">
-                                            <rect key="frame" x="0.0" y="368" width="390" height="45"/>
+                                            <rect key="frame" x="0.0" y="406" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Cinemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnV-S2-zC0" userLabel="In Cinemas">
                                                     <rect key="frame" x="9.9999999999999929" y="1" width="114.33333333333331" height="43"/>
@@ -158,14 +108,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F99-Hu-nPc" userLabel="InCinemasCollectionView">
-                                            <rect key="frame" x="0.0" y="431" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="469" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="S69-oa-Phl"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-TR-ner" userLabel="Top250MoviesLabelView">
-                                            <rect key="frame" x="0.0" y="649" width="390" height="35"/>
+                                            <rect key="frame" x="0.0" y="687" width="390" height="35"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-h6-hvN">
                                                     <rect key="frame" x="10" y="1" width="216.66666666666666" height="33.333333333333336"/>
@@ -196,7 +146,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-em-BRI" userLabel="Top250IMDbMoviesCollectionView">
-                                            <rect key="frame" x="0.0" y="702" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="740" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="ciK-lU-qc3"/>
@@ -204,7 +154,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-s1-Twt" userLabel="MostPopularMoviesLabelView">
-                                            <rect key="frame" x="0.0" y="920" width="390" height="35"/>
+                                            <rect key="frame" x="0.0" y="958" width="390" height="35"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-2Y-qyQ" userLabel="MostPopularMoviesLabel">
                                                     <rect key="frame" x="10" y="0.0" width="217" height="35"/>
@@ -240,7 +190,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRi-bC-1RR" userLabel="MostPopularMoviesCollectionView">
-                                            <rect key="frame" x="0.0" y="973" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="1011" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <color key="tintColor" red="0.77745652198791504" green="0.13628259301185608" blue="0.080417118966579437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -248,7 +198,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiH-aG-Toz" userLabel="Top250TVSeriesLabelView">
-                                            <rect key="frame" x="0.0" y="1191" width="390" height="45"/>
+                                            <rect key="frame" x="0.0" y="1229" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 250 IMDb TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlS-EO-IRn">
                                                     <rect key="frame" x="10.000000000000014" y="6" width="240.33333333333337" height="33.333333333333336"/>
@@ -277,14 +227,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-1j-5Z8" userLabel="Top250TVSeriesCollectionView">
-                                            <rect key="frame" x="0.0" y="1254" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="1292" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="9Ce-lY-psJ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7z9-xc-Bzv" userLabel="MostPopularTVSeriesLabelView">
-                                            <rect key="frame" x="0.0" y="1472" width="390" height="45"/>
+                                            <rect key="frame" x="0.0" y="1510" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular TV Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALB-tK-4RV">
                                                     <rect key="frame" x="10" y="6" width="239" height="33.333333333333336"/>
@@ -315,14 +265,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-M2-bgj" userLabel="MostPopularTVSeriesCollectionView">
-                                            <rect key="frame" x="0.0" y="1535" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="1573" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="MZM-kh-9cd"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyc-J2-8zS" userLabel="BoxOfficeAllTimeLabelView">
-                                            <rect key="frame" x="0.0" y="1753" width="390" height="45"/>
+                                            <rect key="frame" x="0.0" y="1791" width="390" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Box Office of All Time " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-DD-Jh6" userLabel="BoxOfficeAllTimeLabel">
                                                     <rect key="frame" x="10" y="6" width="262.33333333333331" height="33.333333333333336"/>
@@ -353,7 +303,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-FD-dhl" userLabel="BoxOfficeAllTimeCollectionView">
-                                            <rect key="frame" x="0.0" y="1816" width="390" height="200"/>
+                                            <rect key="frame" x="0.0" y="1854" width="390" height="200"/>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="fpY-Se-v7E"/>
@@ -416,8 +366,6 @@
         </view>
     </objects>
     <resources>
-        <image name="narcos" width="800" height="500"/>
-        <image name="narcos1" width="1012" height="1500"/>
         <namedColor name="CustomBeige">
             <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
