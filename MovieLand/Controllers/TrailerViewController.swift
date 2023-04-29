@@ -12,6 +12,8 @@ class TrailerViewController: UIViewController {
     private let collectionViewTrailers: UICollectionView
     private var dataSource: [WelcomeScreenTrailerModel] = []
     private let tabRouter: TabRouterProtocol
+    private var timer: Timer?
+    private var currentRow = 0
     
     init(tabRouter: TabRouterProtocol) {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -33,6 +35,16 @@ class TrailerViewController: UIViewController {
         configureTrailerCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpAutoScroll()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
+    
     func configureTrailerCollectionView() {
         view.addSubview(collectionViewTrailers)
         collectionViewTrailers.register(UINib(nibName: Constants.trailerCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.trailerCollectionViewCell)
@@ -51,6 +63,36 @@ class TrailerViewController: UIViewController {
                 return WelcomeScreenTrailerModel(comingSoonModel: comingSoonModel)
             }
             self.collectionViewTrailers.reloadData()
+        }
+    }
+    
+    func setUpAutoScroll() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+            self.scrollToNextItem()
+        }
+    }
+    
+    func scrollToNextItem() {
+        let visibleCells = collectionViewTrailers.visibleCells
+        guard
+            visibleCells.count == 1,
+            let currentCell = visibleCells.first,
+            let currentIndex = collectionViewTrailers.indexPath(for: currentCell)
+        else {
+            return
+        }
+        if currentIndex.row == dataSource.count - 1 {
+            /// We are at the last row, scroll to the beginning
+            collectionViewTrailers.scrollToItem(at: IndexPath(row: 0,
+                                                              section: 0),
+                                                at: .centeredHorizontally, animated: true)
+        } else {
+            /// Scroll to next row
+            let nextIndex = IndexPath(row: currentIndex.row + 1,
+                                      section: 0)
+            collectionViewTrailers.scrollToItem(at: nextIndex,
+                                                at: .centeredHorizontally,
+                                                animated: true)
         }
     }
 }
@@ -74,6 +116,7 @@ extension TrailerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionViewTrailers.dequeueReusableCell(withReuseIdentifier: Constants.trailerCollectionViewCell, for: indexPath) as? TrailerCollectionViewCell {
             cell.configure(with: dataSource[indexPath.row])
+            currentRow = indexPath.row
             return cell
         }
         return UICollectionViewCell()
