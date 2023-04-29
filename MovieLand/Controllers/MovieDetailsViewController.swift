@@ -235,9 +235,9 @@ class MovieDetailsViewController: UIViewController {
     
     func handleSuccess(trailerModel: TrailerModel) {
         DispatchQueue.main.async {
-            let trailerImageUrl = URL(string: trailerModel.thumbnailUrl)
+            let trailerImageUrl = URL(string: trailerModel.thumbnailUrl ?? "")
             self.trailerImageView.sd_setImage(with: trailerImageUrl)
-            self.trailerUrl = trailerModel.link
+            self.trailerUrl = trailerModel.link ?? ""
         }
     }
     

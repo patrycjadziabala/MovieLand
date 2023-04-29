@@ -9,15 +9,24 @@ import Foundation
 
 struct TrailerModel: Codable {
     let imDbId: String
-    let link: String
-    let linkEmbed: String
-    let thumbnailUrl: String
+    let link: String?
+    let linkEmbed: String?
+    let thumbnailUrl: String?
+    let title: String
+    let videoTitle: String?
+    let videoDescription: String?
 }
 
-struct WelcomeScreenTrailerModel {
+class WelcomeScreenTrailerModel {
     let comingSoonModel: ComingSoonModel
     var trailerModel: TrailerModel?
+    
+    init(comingSoonModel: ComingSoonModel, trailerModel: TrailerModel? = nil) {
+        self.comingSoonModel = comingSoonModel
+        self.trailerModel = trailerModel
+    }
 }
+
 
 struct AllDetailsWebModel: Codable {
     let imDbId: String
