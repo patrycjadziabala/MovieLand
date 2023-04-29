@@ -27,16 +27,16 @@
                         <color key="backgroundColor" name="CustomLightBlue"/>
                     </view>
                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="bottom" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="D2c-XC-iJe" userLabel="Year and Info Stack View">
-                        <rect key="frame" x="20" y="35" width="335" height="183"/>
+                        <rect key="frame" x="20" y="35" width="345" height="183"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-lT-4jR">
-                                <rect key="frame" x="215" y="0.0" width="120" height="36.333333333333336"/>
+                                <rect key="frame" x="225" y="0.0" width="120" height="36.333333333333336"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="25"/>
-                                <color key="textColor" name="CustomBeige"/>
+                                <color key="textColor" red="1" green="0.96078431372549022" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Year/Release Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-D4-6xX">
-                                <rect key="frame" x="199" y="64.333333333333329" width="136" height="20"/>
+                                <rect key="frame" x="209" y="64.333333333333329" width="136" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="rbv-Km-iqz"/>
                                 </constraints>
@@ -45,13 +45,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="IMDb rating number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrh-6y-bZq">
-                                <rect key="frame" x="209.33333333333334" y="112.66666666666666" width="125.66666666666666" height="20.333333333333343"/>
+                                <rect key="frame" x="219.33333333333334" y="112.66666666666666" width="125.66666666666666" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Labrada-Light" family="Labrada" pointSize="14"/>
                                 <color key="textColor" name="CustomBeige"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-qo-U0J">
-                                <rect key="frame" x="185" y="161" width="150" height="22"/>
+                                <rect key="frame" x="195" y="161" width="150" height="22"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y0o-mk-4tr" userLabel="Star 1">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
@@ -127,10 +127,10 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="CustomDarkBlue"/>
+                <color key="backgroundColor" red="0.18823529411764706" green="0.22352941176470587" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="zdg-V1-W7K" secondAttribute="trailing" constant="20" id="1Fz-pg-Bkv"/>
-                    <constraint firstItem="axG-99-y1R" firstAttribute="leading" secondItem="D2c-XC-iJe" secondAttribute="trailing" constant="20" id="6o8-Xh-rmJ"/>
+                    <constraint firstItem="axG-99-y1R" firstAttribute="leading" secondItem="D2c-XC-iJe" secondAttribute="trailing" constant="10" id="6o8-Xh-rmJ"/>
                     <constraint firstItem="zdg-V1-W7K" firstAttribute="bottom" secondItem="axG-99-y1R" secondAttribute="bottom" constant="5" id="BHC-sE-ccW"/>
                     <constraint firstAttribute="bottom" secondItem="D2c-XC-iJe" secondAttribute="bottom" constant="20" id="HyF-Wz-ji9"/>
                     <constraint firstAttribute="bottom" secondItem="zdg-V1-W7K" secondAttribute="bottom" constant="5" id="Lgt-va-alX"/>
@@ -170,14 +170,11 @@
         <namedColor name="CustomBeige">
             <color red="1" green="0.96100002527236938" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="CustomDarkBlue">
-            <color red="0.18799999356269836" green="0.22400000691413879" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="CustomDarkPink">
             <color red="1" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomLightBlue">
-            <color red="0.22696732052260452" green="0.27012120253066224" blue="0.46061567525670977" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.22699999809265137" green="0.27000001072883606" blue="0.460999995470047" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
