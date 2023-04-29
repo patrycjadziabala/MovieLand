@@ -41,14 +41,12 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         configureCellView()
     }
     
     //MARK: - Configure Cell View
     
     func configureCellView() {
-//        contentView.backgroundColor = UIColor(named: Constants.customLightPink)
         configureDefaultImage()
     }
     
