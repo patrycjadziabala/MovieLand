@@ -28,9 +28,7 @@ class TrailerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTrailerCollectionView()
-        
     }
     
     func configureTrailerCollectionView() {
@@ -54,7 +52,9 @@ class TrailerViewController: UIViewController {
         }
     }
 }
+
 // MARK: - Extensions
+
 extension TrailerViewController: UICollectionViewDelegate {
     
 }
@@ -79,8 +79,3 @@ extension TrailerViewController: UICollectionViewDelegateFlowLayout {
         CGSize(width: view.frame.width, height: view.frame.height)
     }
 }
-
-//extension TrailerViewController: UIScrollViewDelegate {
-//
-//    func cellWi
-//}
