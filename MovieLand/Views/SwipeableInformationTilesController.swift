@@ -45,6 +45,7 @@ class SwipeableInformationTilesController: UIViewController {
         collectionViewCastMovies.delegate = self
         collectionViewCastMovies.dataSource = self
         collectionViewCastMovies.reloadData()
+        collectionViewCastMovies.showsHorizontalScrollIndicator = false
     }
     
     //MARK: - Update Data Source
