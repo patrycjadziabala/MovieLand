@@ -128,7 +128,7 @@ class WelcomeScreenViewController: UIViewController {
         prepareForShowingTop250TVSeriesInformation()
         prepareForShowingMostPopularSeries()
         prepareForShowingBoxOfficeAllTime()
-        //        prepareForShowingTrailer()
+        prepareForShowingTrailers()
     }
     
     func configureCollectionViews() {
@@ -154,6 +154,14 @@ class WelcomeScreenViewController: UIViewController {
         view.addSubview(trailerViewController.view)
         trailerViewController.didMove(toParent: self)
         trailerViewController.view.constraint(to: trailerViewContainer)
+    }
+    
+    func prepareForShowingTrailers() {
+        viewModel.fetchComingSoon()
+    }
+    
+    func handleSuccess(model: [ComingSoonModel]) {
+        trailerViewController.set(dataSource: model)
     }
     
     // MARK: - In Cinemas Movies
@@ -354,6 +362,10 @@ extension WelcomeScreenViewController: WelcomeScreenViewModelDelegate {
     
     func onFetchBoxOfficeAllTimeSuccess(model: ItemsForBoxOfficeAllTimeModel) {
         handleSuccess(model: model)
+    }
+    
+    func onFetchComingSoonSuccess(models: [ComingSoonModel]) {
+        self.handleSuccess(model: models)
     }
     
     func presentError(error: Error) {

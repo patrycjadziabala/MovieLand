@@ -15,12 +15,24 @@ protocol WelcomeScreenViewModelProtocol: AnyObject {
     func fetchTop250TVSeries()
     func fetchMostPopularTVSeries()
     func fetchBoxOfficeAllTime()
+    func fetchComingSoon()
 }
 
 class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
     
     var delegate: WelcomeScreenViewModelDelegate?
     let apiManager: APIManagerProtocol = APIManager()
+    
+    func fetchComingSoon() {
+        apiManager.fetchComingSoon { [weak self] result in
+            switch result {
+            case .success(let title):
+                self?.delegate?.onFetchComingSoonSuccess(models: title)
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
     
     func fetchInCinemaMoviesInformation() {
         apiManager.fetchInCinemasMoviesInformation { [weak self] result in
@@ -106,5 +118,6 @@ protocol WelcomeScreenViewModelDelegate {
     func onFetchTop250TVSeriesSuccess(model: ItemsForFeaturedMoviesModel)
     func onFetchMostPopularTVSeriesSuccess(model: ItemsForFeaturedMoviesModel)
     func onFetchBoxOfficeAllTimeSuccess(model: ItemsForBoxOfficeAllTimeModel)
+    func onFetchComingSoonSuccess(models: [ComingSoonModel])
     func presentError(error: Error)
 }

@@ -10,6 +10,7 @@ import UIKit
 class TrailerViewController: UIViewController {
     
     private let collectionViewTrailers: UICollectionView
+    private var dataSource: [WelcomeScreenTrailerModel] = []
     
     init() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -43,20 +44,29 @@ class TrailerViewController: UIViewController {
         collectionViewTrailers.delegate = self
         
     }
-    
+   
+    func set(dataSource: [ComingSoonModel]) {
+        DispatchQueue.main.async {
+            self.dataSource = dataSource.map { comingSoonModel in
+                return WelcomeScreenTrailerModel(comingSoonModel: comingSoonModel)
+            }
+            self.collectionViewTrailers.reloadData()
+        }
+    }
 }
-
+// MARK: - Extensions
 extension TrailerViewController: UICollectionViewDelegate {
     
 }
 
 extension TrailerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionViewTrailers.dequeueReusableCell(withReuseIdentifier: Constants.trailerCollectionViewCell, for: indexPath) as? TrailerCollectionViewCell {
+            cell.configure(with: dataSource[indexPath.row])
             return cell
         }
         return UICollectionViewCell()

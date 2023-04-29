@@ -14,6 +14,11 @@ struct TrailerModel: Codable {
     let thumbnailUrl: String
 }
 
+struct WelcomeScreenTrailerModel {
+    let comingSoonModel: ComingSoonModel
+    var trailerModel: TrailerModel?
+}
+
 struct AllDetailsWebModel: Codable {
     let imDbId: String
     let officialWebsite: String?

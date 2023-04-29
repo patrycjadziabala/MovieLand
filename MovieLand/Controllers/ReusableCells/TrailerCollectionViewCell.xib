@@ -11,6 +11,9 @@
         <array key="Labrada-Light.ttf">
             <string>Labrada-Light</string>
         </array>
+        <array key="Labrada-SemiBold.ttf">
+            <string>Labrada-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -55,6 +58,12 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOz-dN-d1v">
+                                <rect key="frame" x="105" y="285" width="103.33333333333331" height="32"/>
+                                <fontDescription key="fontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="22"/>
+                                <color key="textColor" name="CustomBeige"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="CustomLightBlue"/>
                         <constraints>
@@ -66,7 +75,9 @@
                             <constraint firstItem="Euz-0z-xIS" firstAttribute="leading" secondItem="NQB-LU-ZPS" secondAttribute="leading" id="Q1K-EW-2GE"/>
                             <constraint firstItem="Euz-0z-xIS" firstAttribute="top" secondItem="NQB-LU-ZPS" secondAttribute="top" id="Uh5-Ol-kg0"/>
                             <constraint firstItem="0ja-As-Fbn" firstAttribute="top" secondItem="NQB-LU-ZPS" secondAttribute="top" id="bO1-fP-a0U"/>
+                            <constraint firstItem="SOz-dN-d1v" firstAttribute="top" secondItem="uZY-sw-nlL" secondAttribute="bottom" constant="5" id="dh7-j4-Mko"/>
                             <constraint firstAttribute="trailing" secondItem="uZY-sw-nlL" secondAttribute="trailing" id="gLQ-3k-1OA"/>
+                            <constraint firstItem="SOz-dN-d1v" firstAttribute="leading" secondItem="uZY-sw-nlL" secondAttribute="leading" id="gsL-fb-pH4"/>
                             <constraint firstAttribute="trailing" secondItem="0ja-As-Fbn" secondAttribute="trailing" id="j4Q-1H-rZA"/>
                             <constraint firstAttribute="trailing" secondItem="Euz-0z-xIS" secondAttribute="trailing" id="ldv-PD-TpP"/>
                             <constraint firstItem="Euz-0z-xIS" firstAttribute="centerX" secondItem="0ja-As-Fbn" secondAttribute="centerX" id="o4w-0V-5mD"/>
@@ -84,7 +95,12 @@
             </constraints>
             <size key="customSize" width="573" height="327"/>
             <connections>
+                <outlet property="movieTitleLabel" destination="SOz-dN-d1v" id="har-oU-oJc"/>
+                <outlet property="posterImage" destination="4gf-a4-Sp0" id="9dk-fD-mpo"/>
                 <outlet property="trailerImage" destination="0ja-As-Fbn" id="ygQ-fu-ghL"/>
+                <outlet property="trailerTextView" destination="uZY-sw-nlL" id="H0T-b3-ucu"/>
+                <outlet property="trailerViewContainer" destination="NQB-LU-ZPS" id="lmF-CD-IT6"/>
+                <outlet property="trailerWebButton" destination="Euz-0z-xIS" id="AgU-ft-nnH"/>
             </connections>
             <point key="canvasLocation" x="-1836.1538461538462" y="47.985781990521325"/>
         </collectionViewCell>

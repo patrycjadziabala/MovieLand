@@ -23,6 +23,7 @@ protocol APIManagerProtocol: AnyObject {
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void)
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void)
     func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void)
+    func fetchComingSoon(completion: @escaping (Result<[ComingSoonModel], Error>) -> Void)
     func cancelCurrentTasks()
 }
 
@@ -42,6 +43,7 @@ enum APIEndpoint: String {
     case nameAwards
     case awards
     case ratings
+    case comingSoon
 }
 
 enum APIManagerError: Error {
@@ -555,5 +557,38 @@ class APIManager: APIManagerProtocol {
         currentTasks.forEach { task in
             task.cancel()
         }
+    }
+    
+    func fetchComingSoon(completion: @escaping (Result<[ComingSoonModel], Error>) -> Void) {
+        guard let url = buildURLForFeaturedMovies(for: .comingSoon) else {
+            completion(.failure(APIManagerError.couldNotBuildURL))
+            return
+        }
+        let session = URLSession(configuration: .default)
+        var currentTask: URLSessionDataTask?
+        let task = session.dataTask(with: url) { [weak self] data, response, error in
+            self?.currentTasks.removeAll { storedTask in
+                storedTask === currentTask
+            }
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(ItemsForComingSoonModel.self, from: data)
+                    completion(.success(decodedData.items))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
+            completion(.failure(APIManagerError.unknownError))
+        }
+        currentTask = task
+        task.resume()
+        currentTasks.append(task)
     }
 }
