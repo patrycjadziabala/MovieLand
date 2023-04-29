@@ -56,7 +56,7 @@ class WelcomeScreenViewController: UIViewController {
         self.top250TVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.mostPopularTVSeriesController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
         self.boxOfficeAllTimeController = SwipeableInformationTilesController(dataSource: [], tabRouter: tabRouter)
-        self.trailerViewController = TrailerViewController()
+        self.trailerViewController = TrailerViewController(tabRouter: tabRouter)
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self

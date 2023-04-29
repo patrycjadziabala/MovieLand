@@ -69,6 +69,5 @@ class TrailerCollectionViewCell: UICollectionViewCell {
             trailerTextView.text = model.videoDescription
         }
         playImage.isHidden = (model.link == nil)
-        
     }
 }

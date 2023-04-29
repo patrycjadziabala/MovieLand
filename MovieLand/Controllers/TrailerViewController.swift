@@ -11,13 +11,15 @@ class TrailerViewController: UIViewController {
     
     private let collectionViewTrailers: UICollectionView
     private var dataSource: [WelcomeScreenTrailerModel] = []
+    private let tabRouter: TabRouterProtocol
     
-    init() {
+    init(tabRouter: TabRouterProtocol) {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         self.collectionViewTrailers = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.tabRouter = tabRouter
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -56,7 +58,12 @@ class TrailerViewController: UIViewController {
 // MARK: - Extensions
 
 extension TrailerViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = dataSource[indexPath.row]
+        if let trailerUrlString = item.trailerModel?.link {
+            tabRouter.navigateToWebView(urlString: trailerUrlString)
+        }
+    }
 }
 
 extension TrailerViewController: UICollectionViewDataSource {
