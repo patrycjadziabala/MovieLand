@@ -18,24 +18,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeScreenViewController" customModule="MovieLand" customModuleProvider="target">
             <connections>
-                <outlet property="boxOfficeAllTimeButton" destination="28s-Y5-bgQ" id="H1n-dV-d6G"/>
+                <outlet property="boxOfficeAllTimeButton" destination="HIg-My-Jfe" id="Ydp-by-AKv"/>
                 <outlet property="boxOfficeAllTimeLabel" destination="bM7-DD-Jh6" id="ef1-mu-M1L"/>
                 <outlet property="boxOfficeAllTimeScrollableContainer" destination="qDz-FD-dhl" id="bFy-Hk-9SC"/>
                 <outlet property="contentView" destination="vPj-O1-Lbf" id="lYa-xy-opb"/>
                 <outlet property="inCinemasLabel" destination="cnV-S2-zC0" id="ILa-EQ-nUj"/>
                 <outlet property="inCinemasScrollableViewContainer" destination="F99-Hu-nPc" id="Mge-5s-lw3"/>
-                <outlet property="inCinemasSeeAllButton" destination="k8G-06-oE2" id="4xe-pU-XOZ"/>
-                <outlet property="mostPopularMoviesButton" destination="cu5-z5-UcI" id="lYL-x9-Bxz"/>
+                <outlet property="inCinemasSeeAllButton" destination="VaG-3I-750" id="YRF-Hr-juD"/>
+                <outlet property="mostPopularMoviesButton" destination="gbl-Vo-POn" id="moM-IM-3XX"/>
                 <outlet property="mostPopularMoviesLabel" destination="z5M-2Y-qyQ" id="ie0-VT-AV1"/>
                 <outlet property="mostPopularScrollableViewCointainer" destination="HRi-bC-1RR" id="dxJ-FC-XrE"/>
-                <outlet property="mostPopularTVShowsButton" destination="NVg-Ss-Jqi" id="CL7-GM-Bzr"/>
+                <outlet property="mostPopularTVShowsButton" destination="yni-Qa-aIz" id="8PC-0k-Lqj"/>
                 <outlet property="mostPopularTVShowsLabel" destination="ALB-tK-4RV" id="yhU-vy-21J"/>
                 <outlet property="mostPopularTVShowsScrollableContainer" destination="7Dz-M2-bgj" id="LXh-FZ-Rd8"/>
                 <outlet property="scrollView" destination="qAE-5i-QJZ" id="ALO-3V-yFd"/>
-                <outlet property="top250IMDMoviesSeeAllButton" destination="Dd6-VE-1Ks" id="5s7-tO-zwV"/>
-                <outlet property="top250IMDbMoviesLabel" destination="OTN-h6-hvN" id="wZG-Ox-PKO"/>
+                <outlet property="top250IMDMoviesSeeAllButton" destination="szd-yt-wyg" id="JB4-Nu-g5A"/>
+                <outlet property="top250IMDbMoviesLabel" destination="OTN-h6-hvN" id="cA3-zV-Jhp"/>
                 <outlet property="top250IMDbMoviesScrollableViewContainer" destination="vTl-em-BRI" id="biF-uI-I41"/>
-                <outlet property="top250IMDbTVSeriesButton" destination="pjc-U5-ZYe" id="L8c-oK-oEz"/>
+                <outlet property="top250IMDbTVSeriesButton" destination="BW9-Ve-uF6" id="mJu-Mz-0qI"/>
                 <outlet property="top250IMDbTVSeriesLabel" destination="AlS-EO-IRn" id="Ny7-4n-aKW"/>
                 <outlet property="top250IMDbTVSeriesScrollableViewContainer" destination="5HZ-1j-5Z8" id="104-jE-XSi"/>
                 <outlet property="trailerButton" destination="UNc-gY-whc" id="jzX-Kb-hQT"/>
@@ -135,29 +135,24 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-06-oE2">
-                                                    <rect key="frame" x="302" y="5.6666666666666856" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="3Su-1W-yPd"/>
-                                                        <constraint firstAttribute="height" constant="34" id="zSp-dT-un9"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaG-3I-750">
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333333144" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" name="CustomDarkPink"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="inCinemasSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="Yxm-vb-WFE"/>
+                                                        <action selector="inCinemasSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="ecs-AC-24v"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="VaG-3I-750" secondAttribute="trailing" constant="10" id="31f-ON-X4w"/>
                                                 <constraint firstAttribute="height" constant="45" id="5gp-vJ-UPY"/>
-                                                <constraint firstAttribute="trailing" secondItem="k8G-06-oE2" secondAttribute="trailing" constant="10" id="JJQ-5H-loa"/>
+                                                <constraint firstItem="VaG-3I-750" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="8Jl-Eu-srW"/>
                                                 <constraint firstAttribute="top" secondItem="cnV-S2-zC0" secondAttribute="bottom" constant="-44" id="ZCw-kq-UKn"/>
-                                                <constraint firstItem="k8G-06-oE2" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="cKP-Py-vEv"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="leading" secondItem="R1t-mM-fo2" secondAttribute="leading" constant="10" id="kdx-d0-5Uz"/>
                                                 <constraint firstItem="cnV-S2-zC0" firstAttribute="centerY" secondItem="R1t-mM-fo2" secondAttribute="centerY" id="xjE-wG-ORL"/>
                                             </constraints>
@@ -179,32 +174,25 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-VE-1Ks">
-                                                    <rect key="frame" x="302" y="0.66666666666662877" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="Y48-yE-ekS"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szd-yt-wyg">
+                                                    <rect key="frame" x="303.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="small">
-                                                        <backgroundConfiguration key="background">
-                                                            <color key="backgroundColor" name="CustomDarkPink"/>
-                                                        </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" name="CustomDarkPink"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="top250IMDbMoviesAeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="lLf-n5-LbK"/>
+                                                        <action selector="top250IMDbMoviesAeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="WgN-zL-V1w"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
-                                                <constraint firstItem="Dd6-VE-1Ks" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="4SR-vJ-p3s"/>
-                                                <constraint firstAttribute="trailing" secondItem="Dd6-VE-1Ks" secondAttribute="trailing" constant="10" id="54F-bz-DeD"/>
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="6Zp-mb-n53"/>
                                                 <constraint firstAttribute="height" constant="35" id="A6a-vS-GbF"/>
                                                 <constraint firstItem="OTN-h6-hvN" firstAttribute="leading" secondItem="cUI-TR-ner" secondAttribute="leading" constant="10" id="GxJ-9W-D4t"/>
+                                                <constraint firstAttribute="trailing" secondItem="szd-yt-wyg" secondAttribute="trailing" constant="10" id="Zk1-X2-Zk8"/>
+                                                <constraint firstItem="szd-yt-wyg" firstAttribute="centerY" secondItem="cUI-TR-ner" secondAttribute="centerY" id="fb1-sk-lUo"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-em-BRI" userLabel="Top250IMDbMoviesCollectionView">
@@ -218,24 +206,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-s1-Twt" userLabel="MostPopularMoviesLabelView">
                                             <rect key="frame" x="0.0" y="920" width="390" height="35"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-z5-UcI">
-                                                    <rect key="frame" x="302" y="0.66666666666662877" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="qxu-zj-b5O"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
-                                                        <backgroundConfiguration key="background">
-                                                            <color key="backgroundColor" name="CustomDarkPink"/>
-                                                        </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="mostPopularMoviesSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="EWg-DV-XhX"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-2Y-qyQ" userLabel="MostPopularMoviesLabel">
                                                     <rect key="frame" x="10" y="0.0" width="217" height="35"/>
                                                     <color key="tintColor" name="CustomBeige"/>
@@ -247,15 +217,26 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbl-Vo-POn">
+                                                    <rect key="frame" x="303.66666666666669" y="0.33333333333337123" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" red="1" green="0.57999998330000002" blue="0.57999998330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" name="CustomDarkPink"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="mostPopularMoviesSeeAllButtonPressed:" destination="-1" eventType="touchUpInside" id="Ksl-y0-ZqB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
+                                                <constraint firstItem="gbl-Vo-POn" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="58m-ea-EO3"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="Ada-He-xB7"/>
-                                                <constraint firstAttribute="trailing" secondItem="cu5-z5-UcI" secondAttribute="trailing" constant="10" id="EUx-zx-B3F"/>
+                                                <constraint firstAttribute="trailing" secondItem="gbl-Vo-POn" secondAttribute="trailing" constant="10" id="IUj-xL-pa9"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="top" secondItem="8Np-s1-Twt" secondAttribute="top" id="V9W-QQ-JI8"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WiB-tY-8nL"/>
                                                 <constraint firstItem="z5M-2Y-qyQ" firstAttribute="leading" secondItem="8Np-s1-Twt" secondAttribute="leading" constant="10" id="jsq-Sv-iz5"/>
-                                                <constraint firstItem="cu5-z5-UcI" firstAttribute="centerY" secondItem="8Np-s1-Twt" secondAttribute="centerY" id="lUK-Vn-ASy"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRi-bC-1RR" userLabel="MostPopularMoviesCollectionView">
@@ -276,45 +257,27 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-U5-ZYe">
-                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="faI-1Y-Rbp"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BW9-Ve-uF6">
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
-                                                        <backgroundConfiguration key="background">
-                                                            <color key="backgroundColor" name="CustomDarkPink"/>
-                                                        </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
-                                                    </buttonConfiguration>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule"/>
                                                     <connections>
-                                                        <action selector="top250IMDbTVSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="5be-up-joU"/>
+                                                        <action selector="top250IMDbTVSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="O3L-hx-FkD"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="BW9-Ve-uF6" secondAttribute="trailing" constant="10" id="0Nt-CV-JZn"/>
                                                 <constraint firstItem="AlS-EO-IRn" firstAttribute="leading" secondItem="EiH-aG-Toz" secondAttribute="leading" constant="10" id="AqB-Hu-LaK"/>
                                                 <constraint firstAttribute="height" constant="45" id="K6D-gl-cuD"/>
-                                                <constraint firstAttribute="trailing" secondItem="pjc-U5-ZYe" secondAttribute="trailing" constant="10" id="Vps-ow-a2x"/>
                                                 <constraint firstItem="AlS-EO-IRn" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="eF4-h9-es3"/>
-                                                <constraint firstItem="pjc-U5-ZYe" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="vea-fm-qfp"/>
+                                                <constraint firstItem="BW9-Ve-uF6" firstAttribute="centerY" secondItem="EiH-aG-Toz" secondAttribute="centerY" id="me2-8h-YkJ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-1j-5Z8" userLabel="Top250TVSeriesCollectionView">
                                             <rect key="frame" x="0.0" y="1254" width="390" height="200"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BW9-Ve-uF6">
-                                                    <rect key="frame" x="305" y="0.0" width="77" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" name="CustomDarkPink"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule"/>
-                                                </button>
-                                            </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="9Ce-lY-psJ"/>
@@ -330,32 +293,25 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-Ss-Jqi">
-                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="zwa-Mx-D1X"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yni-Qa-aIz">
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
-                                                        <backgroundConfiguration key="background">
-                                                            <color key="backgroundColor" name="CustomDarkPink"/>
-                                                        </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" name="CustomDarkPink"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="mostPopularTvSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="6dI-oz-DIe"/>
+                                                        <action selector="mostPopularTvSeriesButtonPressed:" destination="-1" eventType="touchUpInside" id="Q1d-Kd-Gn1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
                                                 <constraint firstItem="ALB-tK-4RV" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="1HX-xs-JGQ"/>
+                                                <constraint firstItem="yni-Qa-aIz" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="INN-Em-kMo"/>
                                                 <constraint firstAttribute="height" constant="45" id="INm-gf-vlw"/>
-                                                <constraint firstItem="NVg-Ss-Jqi" firstAttribute="centerY" secondItem="7z9-xc-Bzv" secondAttribute="centerY" id="OWs-nj-hMm"/>
+                                                <constraint firstAttribute="trailing" secondItem="yni-Qa-aIz" secondAttribute="trailing" constant="10" id="MfB-Hw-32a"/>
                                                 <constraint firstItem="ALB-tK-4RV" firstAttribute="leading" secondItem="7z9-xc-Bzv" secondAttribute="leading" constant="10" id="PLm-UE-xju"/>
-                                                <constraint firstAttribute="trailing" secondItem="NVg-Ss-Jqi" secondAttribute="trailing" constant="10" id="Rhg-3D-A11"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-M2-bgj" userLabel="MostPopularTVSeriesCollectionView">
@@ -375,32 +331,25 @@
                                                     <color key="textColor" name="CustomBeige"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Y5-bgQ" userLabel="BoxOfficeAllTimeButton">
-                                                    <rect key="frame" x="302" y="5.6666666666667425" width="78" height="34"/>
-                                                    <color key="backgroundColor" name="CustomDarkPink"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="0Lx-FX-tfL"/>
-                                                    </constraints>
-                                                    <color key="tintColor" name="CustomDarkBlue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIg-My-Jfe">
+                                                    <rect key="frame" x="303.66666666666669" y="5.3333333333332575" width="76.333333333333314" height="34.333333333333336"/>
+                                                    <color key="tintColor" name="CustomDarkPink"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All" cornerStyle="capsule">
-                                                        <backgroundConfiguration key="background">
-                                                            <color key="backgroundColor" name="CustomDarkPink"/>
-                                                        </backgroundConfiguration>
-                                                        <fontDescription key="titleFontDescription" name="Labrada-SemiBold" family="Labrada" pointSize="18"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="See All" cornerStyle="capsule">
+                                                        <color key="baseBackgroundColor" name="CustomDarkPink"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="boxOfficeAllTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="afH-VE-T8q"/>
+                                                        <action selector="boxOfficeAllTimeButtonPressed:" destination="-1" eventType="touchUpInside" id="M20-YV-RLe"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="CustomDarkBlue"/>
                                             <constraints>
-                                                <constraint firstItem="28s-Y5-bgQ" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="AYL-bE-2ch"/>
+                                                <constraint firstAttribute="trailing" secondItem="HIg-My-Jfe" secondAttribute="trailing" constant="10" id="7I6-rI-x3m"/>
                                                 <constraint firstItem="bM7-DD-Jh6" firstAttribute="leading" secondItem="dyc-J2-8zS" secondAttribute="leading" constant="10" id="Ajk-rt-xnD"/>
+                                                <constraint firstItem="HIg-My-Jfe" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="CNl-9i-CNI"/>
                                                 <constraint firstAttribute="height" constant="45" id="F5R-4F-yYI"/>
                                                 <constraint firstItem="bM7-DD-Jh6" firstAttribute="centerY" secondItem="dyc-J2-8zS" secondAttribute="centerY" id="GDR-An-Vow"/>
-                                                <constraint firstAttribute="trailing" secondItem="28s-Y5-bgQ" secondAttribute="trailing" constant="10" id="GPf-re-hZs"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-FD-dhl" userLabel="BoxOfficeAllTimeCollectionView">
@@ -421,14 +370,9 @@
                                         <constraint firstItem="R1t-mM-fo2" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="UTc-EW-tka"/>
                                         <constraint firstItem="EiH-aG-Toz" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="Vhl-0R-EQV"/>
                                         <constraint firstAttribute="trailing" secondItem="7Dz-M2-bgj" secondAttribute="trailing" id="ZtV-Ph-LaO"/>
-                                        <constraint firstItem="pjc-U5-ZYe" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="bH2-UW-zSY"/>
-                                        <constraint firstItem="NVg-Ss-Jqi" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="c2p-fv-0A7"/>
                                         <constraint firstAttribute="trailing" secondItem="EiH-aG-Toz" secondAttribute="trailing" id="f2r-8g-akw"/>
-                                        <constraint firstItem="cu5-z5-UcI" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="iVx-iM-shC"/>
-                                        <constraint firstItem="Dd6-VE-1Ks" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="kmI-Vj-c2d"/>
                                         <constraint firstAttribute="trailing" secondItem="F99-Hu-nPc" secondAttribute="trailing" id="kn4-ke-Pvu"/>
                                         <constraint firstItem="qDz-FD-dhl" firstAttribute="leading" secondItem="Ijv-c9-vlM" secondAttribute="leading" id="ljP-bX-68H"/>
-                                        <constraint firstItem="28s-Y5-bgQ" firstAttribute="width" secondItem="k8G-06-oE2" secondAttribute="width" id="pUK-Dw-158"/>
                                         <constraint firstAttribute="trailing" secondItem="R1t-mM-fo2" secondAttribute="trailing" id="quP-JD-EBu"/>
                                         <constraint firstAttribute="trailing" secondItem="qDz-FD-dhl" secondAttribute="trailing" id="rNn-st-7fm"/>
                                         <constraint firstAttribute="trailing" secondItem="vTl-em-BRI" secondAttribute="trailing" id="sl1-Th-MzQ"/>
@@ -484,7 +428,7 @@
             <color red="1" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomLightBlue">
-            <color red="0.22696732052260452" green="0.27012120253066224" blue="0.46061567525670977" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.22699999809265137" green="0.27000001072883606" blue="0.460999995470047" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

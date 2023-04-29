@@ -108,7 +108,7 @@ class WelcomeScreenViewController: UIViewController {
         inCinemasSeeAllButton.makeRound(radius: 15)
         mostPopularMoviesButton.makeRound(radius: 15)
         mostPopularMoviesButton.makeRound(radius: 15)
-        boxOfficeAllTimeButton.makeRound(radius: 15)
+//        boxOfficeAllTimeButton.makeRound(radius: 15)
         mostPopularTVShowsButton.makeRound(radius: 15)
         top250IMDbTVSeriesButton.makeRound(radius: 15)
         top250IMDMoviesSeeAllButton.makeRound(radius: 15)
@@ -289,7 +289,7 @@ class WelcomeScreenViewController: UIViewController {
     
     func handleSuccess(model: ItemsForBoxOfficeAllTimeModel) {
         DispatchQueue.main.async {
-            self.boxOfficeAllTimeButton.isEnabled = true
+//            self.boxOfficeAllTimeButton.isEnabled = true
             self.boxOfficeAllTimeController.set(dataSource: model.items)
         }
     }
