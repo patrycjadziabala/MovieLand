@@ -19,7 +19,6 @@ class TrailerCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     func configure(with model: WelcomeScreenTrailerModel) {
