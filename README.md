@@ -4,6 +4,8 @@
 MovieLand is an app created to display information about actors and movies.
 ## Table Of Contents
 ## App Preview
+
+![mockup-featuring-two-iphones-x-floating-against-a-solid-color-background-28764 copy 2](https://user-images.githubusercontent.com/124930897/236704056-7014d7f1-cdc5-4f29-96b2-415588784a6d.png)
 ## General Information
 MovieLand is a multiple screen aplication which was created for educational purposes.
 ## Code Architecture
