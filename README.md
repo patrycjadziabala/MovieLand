@@ -1,3 +1,5 @@
+![IMG_3447_resized](https://user-images.githubusercontent.com/124930897/236702931-2230bd3b-81ef-4f0e-9b54-8943347dc771.jpg)
+
 # MovieLand
 MovieLand is an app created to display information about actors and movies.
 ## Table Of Contents
