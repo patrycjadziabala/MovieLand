@@ -1,5 +1,5 @@
 # MovieLand
-MovieLand is an app created to display Actors and Movies information.
+MovieLand is an app created to display information about actors and movies.
 ## Table Of Contents
 ## App Preview
 ## General Information
