@@ -24,6 +24,15 @@ MovieLand is a multiple screen aplication which was created for educational purp
    * UIKit
 ## Screenshots
 ![3](https://user-images.githubusercontent.com/124930897/236706320-28b67d24-6afa-4e58-84a9-ac7cd1af9745.gif)
+![4](https://user-images.githubusercontent.com/124930897/236706540-500787cb-0f6b-4405-b503-bc741fd74771.gif)
+![5](https://user-images.githubusercontent.com/124930897/236706541-c9ff11dd-a120-478d-965f-ca9b57fc7d4e.gif)
+![6](https://user-images.githubusercontent.com/124930897/236706543-b6ed939c-dd57-40fd-90ca-154207ad6696.gif)
+![7](https://user-images.githubusercontent.com/124930897/236706544-e5ed8c94-baea-4b52-af7a-2e3f03b53973.gif)
+![8](https://user-images.githubusercontent.com/124930897/236706545-5ca9b3ba-5981-4d1e-8f44-c764e759f40d.gif)
+![9](https://user-images.githubusercontent.com/124930897/236706547-f0ec0b90-2f58-411b-8e09-5741f9353487.gif)
+![10](https://user-images.githubusercontent.com/124930897/236706548-12213abb-929c-4709-9d88-02026fd8f409.gif)
+![11](https://user-images.githubusercontent.com/124930897/236706549-294a4993-1756-414a-8190-6f1f6e406f85.gif)
+![12](https://user-images.githubusercontent.com/124930897/236706552-07b05f34-50f5-4401-842d-cd141353ef62.gif)
 
 ## External Libraries
    * [SDWebImage](https://github.com/SDWebImage/SDWebImage)
