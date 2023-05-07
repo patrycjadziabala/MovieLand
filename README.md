@@ -23,6 +23,8 @@ MovieLand is a multiple screen aplication which was created for educational purp
    * Swift Package Manager
    * UIKit
 ## Screenshots
+![3](https://user-images.githubusercontent.com/124930897/236706320-28b67d24-6afa-4e58-84a9-ac7cd1af9745.gif)
+
 ## External Libraries
    * [SDWebImage](https://github.com/SDWebImage/SDWebImage)
 ## Resources
