@@ -14,14 +14,17 @@ final class MovieDetailsViewModelTests: XCTestCase {
     var mockApiManager: MockAPIManager!
     var mockTabRouter: MockTabRouter!
     var mockPersistenceManager: MockPersistenceManager!
+    var mockDelegate: MockMovieDetailsViewModelDelegate!
     
     override func setUpWithError() throws {
         mockApiManager = MockAPIManager()
         mockTabRouter = MockTabRouter()
         mockPersistenceManager = MockPersistenceManager()
+        mockDelegate = MockMovieDetailsViewModelDelegate()
         sut = MovieDetailsViewModel(apiManager: mockApiManager,
                                     tabRouter: mockTabRouter,
                                     persistenceManager: mockPersistenceManager)
+        sut.delegate = mockDelegate
     }
 
     override func tearDownWithError() throws {
@@ -71,5 +74,36 @@ final class MovieDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(mockTabRouter.lastNavigateToListResult?.count, 1)
         XCTAssertEqual(mockTabRouter.lastNavigateToListResult?.first?.id, "mock ID")
         XCTAssertEqual(mockTabRouter.lastNavigateToListTitle, "")
+    }
+    
+    func testFetchTitleSuccess() {
+        // given
+        let model = TitleModel(id: "1234",
+                               title: "title",
+                               type: "",
+                               year: "",
+                               image: "",
+                               releaseDate: "",
+                               plot: "",
+                               awards: "",
+                               directors: "",
+                               stars: "",
+                               starList: [],
+                               actorList: [],
+                               genreList: [],
+                               similars: [],
+                               errorMessage: "")
+        mockApiManager.expectedFetchTitleResult = .success(model)
+        
+        // when
+        sut.fetchTitle(id: "1234id")
+        
+        // then
+        XCTAssertEqual(sut.titleModel, model)
+        XCTAssertEqual(mockDelegate.lastOnFetchTitleSuccessModel, model)
+    }
+    
+    func testFetchTitleFailure() {
+        
     }
 }

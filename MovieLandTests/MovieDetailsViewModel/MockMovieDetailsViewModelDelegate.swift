@@ -9,8 +9,9 @@ import Foundation
 @testable import MovieLand
 
 class MockMovieDetailsViewModelDelegate: MovieDetailsViewModelDelegate {
+    var lastOnFetchTitleSuccessModel: TitleModel?
     func onFetchTitleSuccess(model: MovieLand.TitleModel) {
-        
+        lastOnFetchTitleSuccessModel = model
     }
     
     func onFetchTrailerSuccess(model: MovieLand.TrailerModel) {

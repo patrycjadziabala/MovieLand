@@ -13,8 +13,10 @@ final class MockAPIManager: APIManagerProtocol {
         
     }
     
+    var expectedFetchTitleResult: Result<MovieLand.TitleModel, Error>?
+    var lastFetchTitleId: String?
     func fetchTitle(id: String, completion: @escaping (Result<MovieLand.TitleModel, Error>) -> Void) {
-        
+        completion(expectedFetchTitleResult!)
     }
     
     func fetchTrailer(id: String, completion: @escaping (Result<MovieLand.TrailerModel, Error>) -> Void) {
