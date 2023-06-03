@@ -8,7 +8,7 @@
 import Foundation
 @testable import MovieLand
 
-class MockAPIManager: APIManagerProtocol {
+final class MockAPIManager: APIManagerProtocol {
     func fetchPersonInformation(id: String, completion: @escaping (Result<MovieLand.PersonModel, Error>) -> Void) {
         
     }

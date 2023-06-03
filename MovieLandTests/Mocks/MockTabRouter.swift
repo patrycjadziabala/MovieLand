@@ -8,7 +8,7 @@
 import Foundation
 @testable import MovieLand
 
-struct MockTabRouter: TabRouterProtocol {
+final class MockTabRouter: TabRouterProtocol {
     func navigateToPersonDetails(id: String) {
         
     }
@@ -17,11 +17,15 @@ struct MockTabRouter: TabRouterProtocol {
         
     }
     
+    var lastNavigateToListResult: [MovieLand.ListViewControllerCellPresentable]?
+    var lastNavigateToListTitle: String?
     func navigateToList(results: [MovieLand.ListViewControllerCellPresentable], title: String) {
-        
+        lastNavigateToListResult = results
+        lastNavigateToListTitle = title
     }
     
+    var lastNavigateToWebViewUrlString: String?
     func navigateToWebView(urlString: String) {
-        
+        lastNavigateToWebViewUrlString = urlString
     }
 }

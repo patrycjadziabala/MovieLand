@@ -8,7 +8,7 @@
 import Foundation
 @testable import MovieLand
 
-struct MockPersistenceManager: PersistenceManagerProtocol {
+final class MockPersistenceManager: PersistenceManagerProtocol {
     func persist(model: MovieLand.PersistableModel) {
         
     }
@@ -25,7 +25,5 @@ struct MockPersistenceManager: PersistenceManagerProtocol {
         
     }
     
-    var persistedData: [MovieLand.PersistableModel]
-    
-    
+    var persistedData: [MovieLand.PersistableModel] = []
 }
