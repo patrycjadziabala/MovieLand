@@ -26,7 +26,7 @@ protocol MovieDetailsViewModelProtocol: AnyObject {
 
 class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
-    let apiManager = APIManager()
+    let apiManager: APIManagerProtocol
     
     weak var delegate: MovieDetailsViewModelDelegate?
     
@@ -36,7 +36,10 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     
     var titleModel: TitleModel?
     
-    init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
+    init(apiManager: APIManagerProtocol,
+         tabRouter: TabRouterProtocol,
+         persistenceManager: PersistenceManagerProtocol) {
+        self.apiManager = apiManager
         self.tabRouter = tabRouter
         self.persistenceManager = persistenceManager
     }

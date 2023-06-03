@@ -35,7 +35,9 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToTitleDetails(id: String) {
         DispatchQueue.main.async {
-            let viewModel = MovieDetailsViewModel(tabRouter: self, persistenceManager: self.persistenceManager)
+            let viewModel = MovieDetailsViewModel(apiManager: APIManager(),
+                                                  tabRouter: self,
+                                                  persistenceManager: self.persistenceManager)
             let controller = MovieDetailsViewController(titleID: id, tabRouter: self, viewModel: viewModel)
             self.navigationController.pushViewController(controller, animated: true)
         }

@@ -20,7 +20,6 @@
 		4640FC2829E6B57B0061999C /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4640FC2729E6B57B0061999C /* WelcomeScreenViewModel.swift */; };
 		4640FC2A29E96BD60061999C /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4640FC2929E96BD60061999C /* MovieDetailsViewController.xib */; };
 		46425CA929B76B7300524341 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46425CA829B76B7300524341 /* Constants.swift */; };
-		46630AF82A2BAB9500E37F21 /* MovieLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46630AF72A2BAB9500E37F21 /* MovieLandTests.swift */; };
 		4684F62729EBF6D500733FED /* APIPersonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62629EBF6D500733FED /* APIPersonModels.swift */; };
 		4684F62929EBF70300733FED /* APITitleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62829EBF70300733FED /* APITitleModels.swift */; };
 		4684F62B29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62A29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift */; };
@@ -60,6 +59,12 @@
 		46F4E9B529AFC0DE00E8A1A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F4E9B329AFC0DE00E8A1A6 /* Main.storyboard */; };
 		46F4E9B729AFC0DF00E8A1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F4E9B629AFC0DF00E8A1A6 /* Assets.xcassets */; };
 		46F4E9C429B0E41500E8A1A6 /* Tweener in Frameworks */ = {isa = PBXBuildFile; productRef = 46F4E9C329B0E41500E8A1A6 /* Tweener */; };
+		46F8DE932A2BB19D005183CE /* MovieDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8DE922A2BB19D005183CE /* MovieDetailsViewModelTests.swift */; };
+		46F8DE952A2BB208005183CE /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8DE942A2BB208005183CE /* MockAPIManager.swift */; };
+		46F8DE982A2BB285005183CE /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 46F8DE972A2BB285005183CE /* SDWebImage */; };
+		46F8DE9A2A2BB337005183CE /* MockTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8DE992A2BB337005183CE /* MockTabRouter.swift */; };
+		46F8DE9C2A2BB36B005183CE /* MockPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8DE9B2A2BB36B005183CE /* MockPersistenceManager.swift */; };
+		46F8DE9F2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8DE9E2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +92,6 @@
 		4640FC2929E96BD60061999C /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
 		46425CA829B76B7300524341 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46630AF52A2BAB9500E37F21 /* MovieLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		46630AF72A2BAB9500E37F21 /* MovieLandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLandTests.swift; sourceTree = "<group>"; };
 		4684F62629EBF6D500733FED /* APIPersonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPersonModels.swift; sourceTree = "<group>"; };
 		4684F62829EBF70300733FED /* APITitleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITitleModels.swift; sourceTree = "<group>"; };
 		4684F62A29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWelcomeScreenTitleModels.swift; sourceTree = "<group>"; };
@@ -125,6 +129,11 @@
 		46F4E9B429AFC0DE00E8A1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46F4E9B629AFC0DF00E8A1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46F4E9BB29AFC0DF00E8A1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46F8DE922A2BB19D005183CE /* MovieDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		46F8DE942A2BB208005183CE /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
+		46F8DE992A2BB337005183CE /* MockTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabRouter.swift; sourceTree = "<group>"; };
+		46F8DE9B2A2BB36B005183CE /* MockPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistenceManager.swift; sourceTree = "<group>"; };
+		46F8DE9E2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieDetailsViewModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F8DE982A2BB285005183CE /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +182,8 @@
 		46630AF62A2BAB9500E37F21 /* MovieLandTests */ = {
 			isa = PBXGroup;
 			children = (
-				46630AF72A2BAB9500E37F21 /* MovieLandTests.swift */,
+				46F8DE9D2A2BB3AB005183CE /* MovieDetailsViewModel */,
+				46F8DE902A2BB172005183CE /* Mocks */,
 			);
 			path = MovieLandTests;
 			sourceTree = "<group>";
@@ -273,6 +284,7 @@
 				46F4E9AC29AFC0DE00E8A1A6 /* MovieLand */,
 				46630AF62A2BAB9500E37F21 /* MovieLandTests */,
 				46F4E9AB29AFC0DE00E8A1A6 /* Products */,
+				46F8DE962A2BB285005183CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -303,6 +315,32 @@
 			path = MovieLand;
 			sourceTree = "<group>";
 		};
+		46F8DE902A2BB172005183CE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				46F8DE942A2BB208005183CE /* MockAPIManager.swift */,
+				46F8DE992A2BB337005183CE /* MockTabRouter.swift */,
+				46F8DE9B2A2BB36B005183CE /* MockPersistenceManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		46F8DE962A2BB285005183CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46F8DE9D2A2BB3AB005183CE /* MovieDetailsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				46F8DE922A2BB19D005183CE /* MovieDetailsViewModelTests.swift */,
+				46F8DE9E2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift */,
+			);
+			path = MovieDetailsViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +358,9 @@
 				46630AFA2A2BAB9500E37F21 /* PBXTargetDependency */,
 			);
 			name = MovieLandTests;
+			packageProductDependencies = (
+				46F8DE972A2BB285005183CE /* SDWebImage */,
+			);
 			productName = MovieLandTests;
 			productReference = 46630AF52A2BAB9500E37F21 /* MovieLandTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -359,6 +400,7 @@
 				TargetAttributes = {
 					46630AF42A2BAB9500E37F21 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 						TestTargetID = 46F4E9A929AFC0DE00E8A1A6;
 					};
 					46F4E9A929AFC0DE00E8A1A6 = {
@@ -430,7 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46630AF82A2BAB9500E37F21 /* MovieLandTests.swift in Sources */,
+				46F8DE952A2BB208005183CE /* MockAPIManager.swift in Sources */,
+				46F8DE9F2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift in Sources */,
+				46F8DE9C2A2BB36B005183CE /* MockPersistenceManager.swift in Sources */,
+				46F8DE932A2BB19D005183CE /* MovieDetailsViewModelTests.swift in Sources */,
+				46F8DE9A2A2BB337005183CE /* MockTabRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NX7WBF6A;
@@ -506,6 +553,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = patka.MovieLandTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieLandTests/MovieLandTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieLand.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieLand";
@@ -516,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NX7WBF6A;
@@ -525,6 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = patka.MovieLandTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieLandTests/MovieLandTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieLand.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieLand";
@@ -780,6 +831,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46F4E9C229B0E41500E8A1A6 /* XCRemoteSwiftPackageReference "SwiftTweener" */;
 			productName = Tweener;
+		};
+		46F8DE972A2BB285005183CE /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

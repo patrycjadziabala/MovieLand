@@ -22,6 +22,7 @@ protocol APIManagerProtocol: AnyObject {
     func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void)
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<PersonAwardsModel, Error>) -> Void)
     func fetchMovieAwardsInformation(id: String, completion: @escaping (Result<MovieAwardsModel, Error>) -> Void)
+    func fetchAllDetailsWeb(id: String, completion: @escaping(Result<AllDetailsWebModel, Error>) -> Void)
     func fetchRatings(id: String, completion: @escaping (Result<RatingsModel, Error>) -> Void)
     func fetchComingSoon(completion: @escaping (Result<[ComingSoonModel], Error>) -> Void)
     func cancelCurrentTasks()
