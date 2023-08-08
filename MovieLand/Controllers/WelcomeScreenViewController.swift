@@ -369,8 +369,10 @@ extension WelcomeScreenViewController: WelcomeScreenViewModelDelegate {
     }
     
     func presentError(error: Error) {
-        DispatchQueue.main.async {
-            self.errorAlert(with: error)
-        }
+        // TODO: improve error handling
+
+//        DispatchQueue.main.async {
+//            self.errorAlert(with: error)
+//        }
     }
 }
