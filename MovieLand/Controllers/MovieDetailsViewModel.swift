@@ -25,9 +25,8 @@ protocol MovieDetailsViewModelProtocol: AnyObject {
 }
 
 class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
-    
     let apiManager: APIManagerProtocol
-    
+
     weak var delegate: MovieDetailsViewModelDelegate?
     
     let tabRouter: TabRouterProtocol

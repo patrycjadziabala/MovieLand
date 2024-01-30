@@ -14,27 +14,33 @@ class MockMovieDetailsViewModelDelegate: MovieDetailsViewModelDelegate {
         lastOnFetchTitleSuccessModel = model
     }
     
+    var lastOnFetchTrailerSuccessModel: TrailerModel?
     func onFetchTrailerSuccess(model: MovieLand.TrailerModel) {
-        
+        lastOnFetchTrailerSuccessModel = model
     }
     
+    var lastOnFetchWebDetailsSuccessModel: AllDetailsWebModel?
     func onFetchWebDetailsSuccess(model: MovieLand.AllDetailsWebModel) {
-        
+        lastOnFetchWebDetailsSuccessModel = model
     }
     
+    var lastOnFetchRatingSuccessModel: RatingsModel?
     func onFetchRatingSuccess(ratingModel: MovieLand.RatingsModel) {
-        
+        lastOnFetchRatingSuccessModel = ratingModel
     }
     
+    var expectedExploreAwardsButton = false
     func onFetchMovieAwardsFinished() {
-        
+        expectedExploreAwardsButton = true
     }
     
+    var lastPresentedError: MockAPIManagerError?
     func presentErrorAlert(error: Error) {
-        
+        lastPresentedError = (error as! MockAPIManagerError)
     }
     
+    var onFetchMovieAwardsErrorAlertCalled = false
     func onFetchMovieAwardsErrorAlert() {
-        
+        onFetchMovieAwardsErrorAlertCalled = true
     }
 }

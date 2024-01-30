@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrailerModel: Codable {
+struct TrailerModel: Codable, Equatable {
     let imDbId: String
     let link: String?
     let linkEmbed: String?
@@ -27,8 +27,7 @@ class WelcomeScreenTrailerModel {
     }
 }
 
-
-struct AllDetailsWebModel: Codable {
+struct AllDetailsWebModel: Codable, Equatable {
     let imDbId: String
     let officialWebsite: String?
     let imDb: AllDetailsWebLinkModel
@@ -37,7 +36,7 @@ struct AllDetailsWebModel: Codable {
     let filmAffinity: AllDetailsWebLinkModel
 }
 
-struct AllDetailsWebLinkModel: Codable {
+struct AllDetailsWebLinkModel: Codable, Equatable {
     let id: String
     let url: String
 }
@@ -183,7 +182,7 @@ extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
-struct MovieAwardsModel: Codable {
+struct MovieAwardsModel: Codable, Equatable {
     let imDbId: String?
     let title: String?
     let type: String?
@@ -192,13 +191,13 @@ struct MovieAwardsModel: Codable {
     let items: [MovieAwardsItemModel]?
 }
 
-struct MovieAwardsItemModel: Codable {
+struct MovieAwardsItemModel: Codable, Equatable {
     let eventTitle: String?
     let eventYear: String?
     let awardEventDetails: [MovieAwardsOutcomeItemModel]?
 }
 
-struct MovieAwardsOutcomeItemModel: Codable {
+struct MovieAwardsOutcomeItemModel: Codable, Equatable {
     let image: String?
     let title: String?
     let `for`: String?
@@ -264,7 +263,7 @@ extension MovieAwardSummaryModel: ListViewControllerCellPresentable {
     }
 }
 
-struct RatingsModel: Codable {
+struct RatingsModel: Codable, Equatable {
     let imDbId: String
     let year: String
     let type: String

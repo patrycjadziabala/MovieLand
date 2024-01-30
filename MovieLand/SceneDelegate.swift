@@ -31,6 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let searchNavigationController = UINavigationController()
         let searchTabRouter = TabRouter(navigationController: searchNavigationController, persistenceManager: persistenceManager)
+        let searchViewController = SearchViewController(tabRouter: searchTabRouter)
+        searchNavigationController.viewControllers = [searchViewController]
+        
+        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
         
         // launch screen
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -53,10 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.tintColor = UIColor(named: Constants.customDarkPink)
         tabBarController.tabBar.unselectedItemTintColor = UIColor(named: Constants.customLightPink)
         
-        let searchViewController = SearchViewController(tabRouter: searchTabRouter)
-        searchNavigationController.viewControllers = [searchViewController]
-        
-        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: Constants.magnifyingGlassImage, selectedImage: Constants.magnifyingGlassImage)
+
 
         tabBarController.viewControllers = [welcomeScreenNavigationController, searchNavigationController, favouritesNavigationController]
         window?.rootViewController = tabBarController

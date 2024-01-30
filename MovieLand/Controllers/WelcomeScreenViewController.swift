@@ -76,7 +76,6 @@ class WelcomeScreenViewController: UIViewController {
         configureCollectionViews()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.toggleActivity(active: false)
-          
         }
     }
     
