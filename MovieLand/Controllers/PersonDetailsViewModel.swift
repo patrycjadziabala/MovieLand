@@ -19,8 +19,7 @@ protocol PersonDetailsViewModelProtocol: AnyObject {
 }
 
 class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
-    
-    let apiManager = APIManager()
+    let apiManager: APIManagerProtocol
     
     weak var delegate: PersonDetailsViewModelDelegate?
     
@@ -30,9 +29,12 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     
     var personModel: PersonModel?
     
-    private var awardsArray: [PersonAwardSummaryModel]?
+    var awardsArray: [PersonAwardSummaryModel]?
     
-    init(tabRouter: TabRouterProtocol, persistenceManager: PersistenceManagerProtocol) {
+    init(apiManager: APIManagerProtocol,
+         tabRouter: TabRouterProtocol,
+         persistenceManager: PersistenceManagerProtocol) {
+        self.apiManager = apiManager
         self.tabRouter = tabRouter
         self.persistenceManager = persistenceManager
     }
@@ -102,12 +104,10 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
   //MARK: - Favourites
     
     func toggleFavourite() {
-      
         guard let personModel = self.personModel else {
             return
         }
         persistenceManager.togglePersisted(model: .person(model: personModel))
-        
     }
     
     func isFavourite() -> Bool {

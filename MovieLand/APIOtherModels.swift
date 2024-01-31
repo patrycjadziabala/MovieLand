@@ -128,7 +128,7 @@ struct PersonAwardsOutcomeItemModel: Codable {
     let description: String?
 }
 
-struct PersonAwardSummaryModel {
+struct PersonAwardSummaryModel: Equatable {
     let year: String?
     let eventTitle: String
     let title: String

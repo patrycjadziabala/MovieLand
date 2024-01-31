@@ -114,7 +114,7 @@ final class MovieDetailsViewModelTests: XCTestCase {
         
         // then
         XCTAssertEqual(mockApiManager.lastFetchTitleId, "12345id")
-        XCTAssertEqual(mockDelegate.lastPresentedError, MockAPIManagerError.genericError)
+        XCTAssertEqual(mockDelegate.lastPresentedError, error)
     }
     
     func testFetchTrailerSuccess() {

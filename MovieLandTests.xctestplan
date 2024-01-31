@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "BC366FCF-F04A-4BC5-993D-B84DCD164903",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MovieLand.xcodeproj",
+        "identifier" : "46630AF42A2BAB9500E37F21",
+        "name" : "MovieLandTests"
+      }
+    }
+  ],
+  "version" : 1
+}

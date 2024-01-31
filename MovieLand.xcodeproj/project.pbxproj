@@ -20,6 +20,8 @@
 		4640FC2829E6B57B0061999C /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4640FC2729E6B57B0061999C /* WelcomeScreenViewModel.swift */; };
 		4640FC2A29E96BD60061999C /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4640FC2929E96BD60061999C /* MovieDetailsViewController.xib */; };
 		46425CA929B76B7300524341 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46425CA829B76B7300524341 /* Constants.swift */; };
+		466CCA482B6992B50055BA15 /* PersonDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466CCA472B6992B50055BA15 /* PersonDetailsViewModelTests.swift */; };
+		466CCA4A2B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466CCA492B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift */; };
 		4684F62729EBF6D500733FED /* APIPersonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62629EBF6D500733FED /* APIPersonModels.swift */; };
 		4684F62929EBF70300733FED /* APITitleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62829EBF70300733FED /* APITitleModels.swift */; };
 		4684F62B29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684F62A29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift */; };
@@ -92,6 +94,9 @@
 		4640FC2929E96BD60061999C /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
 		46425CA829B76B7300524341 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46630AF52A2BAB9500E37F21 /* MovieLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		466CCA422B697FE80055BA15 /* MovieLandTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieLandTests.xctestplan; sourceTree = "<group>"; };
+		466CCA472B6992B50055BA15 /* PersonDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		466CCA492B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersonDetailsViewModelDelegate.swift; sourceTree = "<group>"; };
 		4684F62629EBF6D500733FED /* APIPersonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPersonModels.swift; sourceTree = "<group>"; };
 		4684F62829EBF70300733FED /* APITitleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITitleModels.swift; sourceTree = "<group>"; };
 		4684F62A29EBF7F100733FED /* APIWelcomeScreenTitleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWelcomeScreenTitleModels.swift; sourceTree = "<group>"; };
@@ -182,10 +187,20 @@
 		46630AF62A2BAB9500E37F21 /* MovieLandTests */ = {
 			isa = PBXGroup;
 			children = (
+				466CCA432B69906F0055BA15 /* PersonDetailsViewModel */,
 				46F8DE9D2A2BB3AB005183CE /* MovieDetailsViewModel */,
 				46F8DE902A2BB172005183CE /* Mocks */,
 			);
 			path = MovieLandTests;
+			sourceTree = "<group>";
+		};
+		466CCA432B69906F0055BA15 /* PersonDetailsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				466CCA472B6992B50055BA15 /* PersonDetailsViewModelTests.swift */,
+				466CCA492B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift */,
+			);
+			path = PersonDetailsViewModel;
 			sourceTree = "<group>";
 		};
 		4687908429B1F4B6000BA402 /* Views */ = {
@@ -281,6 +296,7 @@
 		46F4E9A129AFC0DE00E8A1A6 = {
 			isa = PBXGroup;
 			children = (
+				466CCA422B697FE80055BA15 /* MovieLandTests.xctestplan */,
 				46F4E9AC29AFC0DE00E8A1A6 /* MovieLand */,
 				46630AF62A2BAB9500E37F21 /* MovieLandTests */,
 				46F4E9AB29AFC0DE00E8A1A6 /* Products */,
@@ -472,7 +488,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466CCA482B6992B50055BA15 /* PersonDetailsViewModelTests.swift in Sources */,
 				46F8DE952A2BB208005183CE /* MockAPIManager.swift in Sources */,
+				466CCA4A2B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift in Sources */,
 				46F8DE9F2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift in Sources */,
 				46F8DE9C2A2BB36B005183CE /* MockPersistenceManager.swift in Sources */,
 				46F8DE932A2BB19D005183CE /* MovieDetailsViewModelTests.swift in Sources */,

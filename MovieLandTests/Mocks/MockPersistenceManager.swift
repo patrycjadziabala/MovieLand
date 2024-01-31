@@ -8,6 +8,10 @@
 import Foundation
 @testable import MovieLand
 
+//enum MockPersistableModel: Codable, Equatable {
+//    case seen(model: TitleModel)
+//}
+
 final class MockPersistenceManager: PersistenceManagerProtocol {
     func persist(model: MovieLand.PersistableModel) {
         
@@ -22,7 +26,6 @@ final class MockPersistenceManager: PersistenceManagerProtocol {
     }
     
     func togglePersisted(model: MovieLand.PersistableModel) {
-        
     }
     
     var persistedData: [MovieLand.PersistableModel] = []

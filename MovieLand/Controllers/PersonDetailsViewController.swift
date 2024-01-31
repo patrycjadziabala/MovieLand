@@ -158,7 +158,6 @@ class PersonDetailsViewController: UIViewController {
         let ok = UIAlertAction(title: Constants.ok, style: .default, handler: { (action) -> Void in
             print(Constants.okButtonTapped)
         })
-        
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }

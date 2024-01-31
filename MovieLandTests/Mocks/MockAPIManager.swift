@@ -13,8 +13,11 @@ enum MockAPIManagerError: Error {
 }
 
 final class MockAPIManager: APIManagerProtocol {
+    var expectedFetchPersonInformationResult: Result<MovieLand.PersonModel, Error>?
+    var lastFetchPersonId: String?
     func fetchPersonInformation(id: String, completion: @escaping (Result<MovieLand.PersonModel, Error>) -> Void) {
-        
+        lastFetchPersonId = id
+        completion(expectedFetchPersonInformationResult!)
     }
     
     var expectedFetchTitleResult: Result<MovieLand.TitleModel, Error>?
@@ -59,8 +62,11 @@ final class MockAPIManager: APIManagerProtocol {
         
     }
     
+    var expectedFetchPersonAwardsInformationResult: Result<MovieLand.PersonAwardsModel, Error>?
+    var lastFetchPersonAwardsInformationId: String?
     func fetchPersonAwardsInformation(id: String, completion: @escaping (Result<MovieLand.PersonAwardsModel, Error>) -> Void) {
-        
+        lastFetchPersonAwardsInformationId = id
+        completion(expectedFetchPersonAwardsInformationResult!)
     }
     
     var expectedFetchMovieAwardsInformationResult: Result<MovieLand.MovieAwardsModel, Error>?
