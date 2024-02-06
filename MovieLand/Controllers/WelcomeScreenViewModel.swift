@@ -20,8 +20,12 @@ protocol WelcomeScreenViewModelProtocol: AnyObject {
 
 class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
     
-    var delegate: WelcomeScreenViewModelDelegate?
-    let apiManager: APIManagerProtocol = APIManager()
+    let apiManager: APIManagerProtocol
+    weak var delegate: WelcomeScreenViewModelDelegate?
+    
+    init(apiManager: APIManagerProtocol) {
+        self.apiManager = apiManager
+    }
     
     func fetchComingSoon() {
         apiManager.fetchComingSoon { [weak self] result in
@@ -62,13 +66,11 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
             case .success(let title):
                 self?.delegate?.onFetchMostPopularMoviesInformationSuccess(model: title)
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.handleError(error: error)
-                }
+                self?.handleError(error: error)
             }
         }
     }
-
+    
     func fetchTop250TVSeries() {
         apiManager.fetchTop250TVSeriesResults { [weak self] result in
             switch result {
@@ -79,7 +81,7 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
             }
         }
     }
-
+    
     func fetchMostPopularTVSeries() {
         apiManager.fetchMostPopularTVSeriesInformation { [weak self] result in
             switch result {
@@ -110,7 +112,7 @@ class WelcomeScreenViewModel: WelcomeScreenViewModelProtocol {
 
 // MARK: - WelcomeScreenViewModelDelegate
 
-protocol WelcomeScreenViewModelDelegate {
+protocol WelcomeScreenViewModelDelegate: AnyObject {
     
     func onFetchInCinemasMoviesHandleSuccess(model: ItemsforInCinemasModel)
     func onFetchFeaturedMoviesHandleSuccess(model: ItemsForFeaturedMoviesModel)

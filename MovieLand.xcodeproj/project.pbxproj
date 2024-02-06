@@ -10,6 +10,8 @@
 		4618690F29F845A700A5B761 /* popcorn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4618690E29F845A700A5B761 /* popcorn.gif */; };
 		4618691129F84B8100A5B761 /* Showtime.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4618691029F84B8100A5B761 /* Showtime.ttf */; };
 		4618691329FAAFD600A5B761 /* Labrada-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4618691229FAAFD600A5B761 /* Labrada-SemiBold.ttf */; };
+		4618DF9F2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DF9E2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift */; };
+		4618DFA12B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DFA02B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift */; };
 		4635BB3629B8F10200A8083D /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */; };
 		4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3929B8F1E600A8083D /* SearchViewController.swift */; };
 		4635BB3C29B8F1E600A8083D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4635BB3A29B8F1E600A8083D /* SearchViewController.xib */; };
@@ -83,6 +85,8 @@
 		4618690E29F845A700A5B761 /* popcorn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = popcorn.gif; sourceTree = "<group>"; };
 		4618691029F84B8100A5B761 /* Showtime.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Showtime.ttf; sourceTree = "<group>"; };
 		4618691229FAAFD600A5B761 /* Labrada-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Labrada-SemiBold.ttf"; sourceTree = "<group>"; };
+		4618DF9E2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
+		4618DFA02B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWelcomeScreenViewModelDelegate.swift; sourceTree = "<group>"; };
 		4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		4635BB3929B8F1E600A8083D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4635BB3A29B8F1E600A8083D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 			path = Gifs;
 			sourceTree = "<group>";
 		};
+		4618DF9D2B6D3C3E0086ED55 /* WelcomeScreenViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				4618DF9E2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift */,
+				4618DFA02B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift */,
+			);
+			path = WelcomeScreenViewModelTests;
+			sourceTree = "<group>";
+		};
 		46425CA729B76B6000524341 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +200,7 @@
 		46630AF62A2BAB9500E37F21 /* MovieLandTests */ = {
 			isa = PBXGroup;
 			children = (
+				4618DF9D2B6D3C3E0086ED55 /* WelcomeScreenViewModelTests */,
 				466CCA432B69906F0055BA15 /* PersonDetailsViewModel */,
 				46F8DE9D2A2BB3AB005183CE /* MovieDetailsViewModel */,
 				46F8DE902A2BB172005183CE /* Mocks */,
@@ -493,6 +507,8 @@
 				466CCA4A2B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift in Sources */,
 				46F8DE9F2A2BB3EB005183CE /* MockMovieDetailsViewModelDelegate.swift in Sources */,
 				46F8DE9C2A2BB36B005183CE /* MockPersistenceManager.swift in Sources */,
+				4618DFA12B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift in Sources */,
+				4618DF9F2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift in Sources */,
 				46F8DE932A2BB19D005183CE /* MovieDetailsViewModelTests.swift in Sources */,
 				46F8DE9A2A2BB337005183CE /* MockTabRouter.swift in Sources */,
 			);

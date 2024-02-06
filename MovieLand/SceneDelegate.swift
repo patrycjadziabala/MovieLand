@@ -40,9 +40,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let controller = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController")
         
+        let apiManager = APIManager()
         let welcomeScreenNavigationController = UINavigationController()
         let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController, persistenceManager: persistenceManager)
-        let viewModel = WelcomeScreenViewModel()
+        let viewModel = WelcomeScreenViewModel(apiManager: apiManager)
         let welcomeScreen = WelcomeScreenViewController(tabRouter: welcomeScreenTabRouter, viewModel: viewModel)
         welcomeScreenNavigationController.viewControllers = [welcomeScreen]
         welcomeScreen.tabBarItem = UITabBarItem(title: "Home", image: Constants.homekitImage, selectedImage: Constants.homekitImage)

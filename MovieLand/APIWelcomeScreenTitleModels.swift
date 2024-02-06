@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ItemsForFeaturedMoviesModel: Codable {
+struct ItemsForFeaturedMoviesModel: Codable, Equatable {
     let items: [FeaturedMoviesModel]
 }
 
-struct FeaturedMoviesModel: Codable {
+struct FeaturedMoviesModel: Codable, Equatable {
     let id: String
     let rank: String
     let title: String
@@ -72,11 +72,11 @@ extension FeaturedMoviesModel: ListViewControllerCellPresentable {
     }
 }
 
-struct ItemsForComingSoonModel: Codable {
+struct ItemsForComingSoonModel: Codable, Equatable {
     let items: [ComingSoonModel]
 }
 
-struct ComingSoonModel: Codable {
+struct ComingSoonModel: Codable, Equatable {
     let id: String
     let title: String
     let fullTitle: String?
@@ -137,11 +137,11 @@ extension ComingSoonModel: ListViewControllerCellPresentable {
     }
 }
 
-struct ItemsforInCinemasModel: Codable {
+struct ItemsforInCinemasModel: Codable, Equatable {
     let items: [InCinemasModel]
 }
 
-struct InCinemasModel: Codable {
+struct InCinemasModel: Codable, Equatable {
     let id: String
     let title: String
     let image: String
@@ -198,11 +198,11 @@ extension InCinemasModel: ListViewControllerCellPresentable {
     }
 }
 
-struct ItemsForBoxOfficeAllTimeModel: Codable {
+struct ItemsForBoxOfficeAllTimeModel: Codable, Equatable {
     let items: [BoxOfficeAllTimeModel]
 }
 
-struct BoxOfficeAllTimeModel: Codable {
+struct BoxOfficeAllTimeModel: Codable, Equatable {
     let id: String
     let rank: String
     let title: String

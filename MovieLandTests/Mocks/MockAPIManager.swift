@@ -38,28 +38,34 @@ final class MockAPIManager: APIManagerProtocol {
         
     }
     
+    var expectedFetchFeaturedMoviesResults: Result<ItemsForFeaturedMoviesModel, Error>?
     func fetchFeaturedMoviesResults(completion: @escaping (Result<MovieLand.ItemsForFeaturedMoviesModel, Error>) -> Void) {
-        
+        completion(expectedFetchFeaturedMoviesResults!)
     }
     
+    var expectedInCinemasMoviesInformationResult: Result<ItemsforInCinemasModel, Error>?
     func fetchInCinemasMoviesInformation(completion: @escaping (Result<MovieLand.ItemsforInCinemasModel, Error>) -> Void) {
-        
+        completion(expectedInCinemasMoviesInformationResult!)
     }
     
+    var expectedFetchMostPopularMoviesResult: Result<ItemsForFeaturedMoviesModel, Error>?
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<MovieLand.ItemsForFeaturedMoviesModel, Error>) -> Void) {
-        
+        completion(expectedFetchMostPopularMoviesResult!)
     }
     
+    var expectedFetchTop250SeriesResult: Result<ItemsForFeaturedMoviesModel, Error>?
     func fetchTop250TVSeriesResults(completion: @escaping (Result<MovieLand.ItemsForFeaturedMoviesModel, Error>) -> Void) {
-        
+        completion(expectedFetchTop250SeriesResult!)
     }
     
+    var expectedFetchMostPopularTVSeriesResult: Result<ItemsForFeaturedMoviesModel, Error>?
     func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<MovieLand.ItemsForFeaturedMoviesModel, Error>) -> Void) {
-        
+        completion(expectedFetchMostPopularTVSeriesResult!)
     }
     
+    var expectedFetchBoxOfficeAllTimeResult: Result<ItemsForBoxOfficeAllTimeModel, Error>?
     func fetchBoxOfficeAllTime(completion: @escaping (Result<MovieLand.ItemsForBoxOfficeAllTimeModel, Error>) -> Void) {
-        
+        completion(expectedFetchBoxOfficeAllTimeResult!)
     }
     
     var expectedFetchPersonAwardsInformationResult: Result<MovieLand.PersonAwardsModel, Error>?
@@ -89,8 +95,9 @@ final class MockAPIManager: APIManagerProtocol {
         completion(expectedFetchRatingResult!)
     }
     
+    var expectedFetchComingSoonResult: Result<[MovieLand.ComingSoonModel], Error>?
     func fetchComingSoon(completion: @escaping (Result<[MovieLand.ComingSoonModel], Error>) -> Void) {
-        
+        completion(expectedFetchComingSoonResult!)
     }
     
     func cancelCurrentTasks() {

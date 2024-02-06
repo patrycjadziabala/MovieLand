@@ -25,7 +25,9 @@ final class MockPersistenceManager: PersistenceManagerProtocol {
         false
     }
     
+    var lastTogglePersistedModel: PersistableModel?
     func togglePersisted(model: MovieLand.PersistableModel) {
+        lastTogglePersistedModel = model
     }
     
     var persistedData: [MovieLand.PersistableModel] = []

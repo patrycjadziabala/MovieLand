@@ -103,7 +103,7 @@ enum CellContentType: String {
 }
 
 
-struct GenreList: Codable {
+struct GenreList: Codable, Equatable {
     let key: String
     let value: String
 }

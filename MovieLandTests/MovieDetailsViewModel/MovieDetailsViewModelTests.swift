@@ -257,4 +257,16 @@ final class MovieDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(mockApiManager.lastFetchRatingId, "123a")
         XCTAssertEqual(mockDelegate.lastPresentedError, error)
     }
+    
+    func testToggleSeen() {
+        //given
+        let titleModel = TitleModel(id: "123", title: "", type: "", year: "", image: "", releaseDate: "", plot: "", awards: "", directors: "", stars: "", starList: [], actorList: [], genreList: [], similars: [], errorMessage: "")
+        sut.titleModel = titleModel
+        
+        //when
+        sut.toggleSeen()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastTogglePersistedModel, PersistableModel.seen(model: titleModel))
+    }
 }

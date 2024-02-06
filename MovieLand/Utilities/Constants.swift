@@ -52,7 +52,6 @@ struct Constants {
     static let mostPopularTVSeries = "Most Popular TV Series"
     static let boxOfficeAllTime = "Box Office All Time"
     
- 
     // MARK: - Colors
     
     static let customBeige = "CustomBeige"
@@ -66,14 +65,14 @@ struct Constants {
     static let customWhite = "CustomWhite"
     static let customLightBlue = "CustomLightBlue"
     
-    
     //MARK: - Fonts
     
     static let boldfont = "Labrada-SemiBold"
+    
     // MARK: - Alerts
     
     static let noInternet = "No internet"
-    static let offlineMessage = "Ooops you appear to be offline. This app required internet connection."
+    static let offlineMessage = "Ooops you appear to be offline. This app requires internet connection."
     static let ok = "Ok"
     static let okButtonTapped = "Ok button tapped"
     static let urlWasNotCreatedCorrectly = "Url Was Not Created Correctly"
