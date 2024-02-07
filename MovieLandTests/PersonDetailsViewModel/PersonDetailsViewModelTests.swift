@@ -145,4 +145,52 @@ final class PersonDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(mockDelegate.lastPresentedError, error)
         XCTAssertEqual(mockDelegate.onFetchAwardsCompletedCalled, false)
     }
+    
+    func testToggleFavourite() {
+        //given
+        let model = PersonModel(id: "123",
+                                name: "",
+                                role: "",
+                                image: "",
+                                summary: "",
+                                birthDate: "",
+                                deathDate: "",
+                                height: "",
+                                awards: "",
+                                knownFor: [],
+                                castMovies: [],
+                                errorMessage: "")
+        sut.personModel = model
+        
+        //when
+        sut.toggleFavourite()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastTogglePersistedModel, PersistableModel.person(model: model))
+    }
+    
+    func testIsFavourite() {
+        //given
+        let model = PersonModel(id: "123",
+                                name: "",
+                                role: "",
+                                image: "",
+                                summary: "",
+                                birthDate: "",
+                                deathDate: "",
+                                height: "",
+                                awards: "",
+                                knownFor: [],
+                                castMovies: [],
+                                errorMessage: "")
+        sut.personModel = model
+        mockPersistenceManager.expectedIsPersisted = true
+        
+        //when
+        let isFavourite = sut.isFavourite()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastIsPersistedModel, PersistableModel.person(model: model))
+        XCTAssertTrue(isFavourite)
+    }
 }
