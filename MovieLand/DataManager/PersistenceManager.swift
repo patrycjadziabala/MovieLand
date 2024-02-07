@@ -46,9 +46,10 @@ protocol PersistenceManagerProtocol {
 class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
     var persistedData: [PersistableModel]
     private let kPersistedData = "kPersistedData"
-    
-    init() {
-        if let dataFromDefaults = UserDefaults.standard.data(forKey: kPersistedData) {
+    private let userDefaults: UserDefaults
+    init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+        if let dataFromDefaults = userDefaults.data(forKey: kPersistedData) {
             let decoder = JSONDecoder()
             let decodedData = try? decoder.decode([PersistableModel].self, from: dataFromDefaults)
             persistedData = decodedData ?? []
@@ -89,6 +90,6 @@ class UserDefaultsPersistenceManager: PersistenceManagerProtocol {
     func persistToUserDefaults() {
         let encoder = JSONEncoder()
         let data = try? encoder.encode(persistedData)
-        UserDefaults.standard.set(data, forKey: kPersistedData)
+        userDefaults.set(data, forKey: kPersistedData)
     }
 }

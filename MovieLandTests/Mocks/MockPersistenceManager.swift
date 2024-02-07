@@ -21,8 +21,11 @@ final class MockPersistenceManager: PersistenceManagerProtocol {
         
     }
     
+    var lastIsPersistedModel: PersistableModel?
+    var expectedIsPersisted: Bool!
     func isPersisted(model: MovieLand.PersistableModel) -> Bool {
-        false
+        lastIsPersistedModel = model
+        return expectedIsPersisted
     }
     
     var lastTogglePersistedModel: PersistableModel?

@@ -129,7 +129,6 @@ final class PersonDetailsViewModelTests: XCTestCase {
 
         //then
         XCTAssertEqual(mockApiManager.lastFetchPersonAwardsInformationId, "123id")
-//        XCTAssertEqual(sut.awardsArray, resultModel)
         XCTAssertEqual(mockDelegate.onFetchAwardsCompletedCalled, true)
     }
     

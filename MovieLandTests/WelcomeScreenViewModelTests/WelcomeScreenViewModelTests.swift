@@ -153,7 +153,7 @@ final class WelcomeScreenViewModelTests: XCTestCase {
         XCTAssertEqual(mockDelegate.lastPresentedError, error)
     }
     
-    func testFetchTop250TVSeries() {
+    func testFetchTop250TVSeriesSuccess() {
         //given
         let featuredMovieModels = [FeaturedMoviesModel(id: "123",
                                                        rank: "",
@@ -186,7 +186,7 @@ final class WelcomeScreenViewModelTests: XCTestCase {
         XCTAssertEqual(mockDelegate.lastPresentedError, error)
     }
     
-    func testFetchMostPopularTVSeries() {
+    func testFetchMostPopularTVSeriesSuccess() {
         //given
         let featuredMovieModels = [FeaturedMoviesModel(id: "123",
                                                        rank: "",

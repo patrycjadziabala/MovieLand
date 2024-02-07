@@ -210,7 +210,7 @@ final class MovieDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(mockTabRouter.lastNavigateToListTitle, "")
         XCTAssertEqual(mockTabRouter.lastNavigateToListResult?.count, 1)
         XCTAssertEqual(mockTabRouter.lastNavigateToListResult?.first?.id, "34")
-        XCTAssertTrue(mockDelegate.expectedExploreAwardsButton)
+        XCTAssertTrue(mockDelegate.onFetchMovieAwardsFinishedCalled)
     }
    
     func testFetchMovieAwardsFailure() {
@@ -225,7 +225,7 @@ final class MovieDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(mockApiManager.lastFetchMovieAwardsInformationId, "1234a")
         XCTAssertTrue(mockDelegate.onFetchMovieAwardsErrorAlertCalled)
         XCTAssertEqual(mockDelegate.lastPresentedError, error)
-        XCTAssertTrue(mockDelegate.expectedExploreAwardsButton)
+        XCTAssertTrue(mockDelegate.onFetchMovieAwardsFinishedCalled)
     }
     
     func testFetchRatingSuccess() {
@@ -268,5 +268,87 @@ final class MovieDetailsViewModelTests: XCTestCase {
         
         //then
         XCTAssertEqual(mockPersistenceManager.lastTogglePersistedModel, PersistableModel.seen(model: titleModel))
+    }
+    
+    func testIsSeen() {
+        //given
+        let titleModel = TitleModel(id: "123",
+                                    title: "",
+                                    type: "",
+                                    year: "",
+                                    image: "",
+                                    releaseDate: "",
+                                    plot: "",
+                                    awards: "",
+                                    directors: "",
+                                    stars: "",
+                                    starList: [],
+                                    actorList: [],
+                                    genreList: [],
+                                    similars: [],
+                                    errorMessage: "")
+        sut.titleModel = titleModel
+        mockPersistenceManager.expectedIsPersisted = true
+
+        //when
+        let isSeen = sut.isSeen()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastIsPersistedModel, PersistableModel.seen(model: titleModel))
+        XCTAssertTrue(isSeen)
+    }
+    
+    func testToggleWant() {
+        //given
+        let titleModel = TitleModel(id: "123",
+                                    title: "",
+                                    type: "",
+                                    year: "",
+                                    image: "",
+                                    releaseDate: "",
+                                    plot: "",
+                                    awards: "",
+                                    directors: "",
+                                    stars: "",
+                                    starList: [],
+                                    actorList: [],
+                                    genreList: [],
+                                    similars: [],
+                                    errorMessage: "")
+        sut.titleModel = titleModel
+        
+        //when
+        sut.toggleWant()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastTogglePersistedModel, PersistableModel.want(model: titleModel))
+    }
+    
+    func testIsWant() {
+        //given
+        let titleModel = TitleModel(id: "123",
+                                    title: "",
+                                    type: "",
+                                    year: "",
+                                    image: "",
+                                    releaseDate: "",
+                                    plot: "",
+                                    awards: "",
+                                    directors: "",
+                                    stars: "",
+                                    starList: [],
+                                    actorList: [],
+                                    genreList: [],
+                                    similars: [],
+                                    errorMessage: "")
+        sut.titleModel = titleModel
+        mockPersistenceManager.expectedIsPersisted = true
+        
+        //when
+        let isWant = sut.isWant()
+        
+        //then
+        XCTAssertEqual(mockPersistenceManager.lastIsPersistedModel, PersistableModel.want(model: titleModel))
+        XCTAssertTrue(isWant)
     }
 }

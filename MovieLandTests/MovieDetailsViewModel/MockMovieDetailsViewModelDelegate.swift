@@ -30,9 +30,9 @@ class MockMovieDetailsViewModelDelegate: MovieDetailsViewModelDelegate {
         lastOnFetchRatingSuccessModel = ratingModel
     }
     
-    var expectedExploreAwardsButton = false
+    var onFetchMovieAwardsFinishedCalled = false
     func onFetchMovieAwardsFinished() {
-        expectedExploreAwardsButton = true
+        onFetchMovieAwardsFinishedCalled = true
     }
     
     var lastPresentedError: MockAPIManagerError?

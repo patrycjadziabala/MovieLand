@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         let tabBarController = UITabBarController()
-        let persistenceManager = UserDefaultsPersistenceManager()
+        let persistenceManager = UserDefaultsPersistenceManager(userDefaults: UserDefaults.standard)
         
         let searchNavigationController = UINavigationController()
         let searchTabRouter = TabRouter(navigationController: searchNavigationController, persistenceManager: persistenceManager)
