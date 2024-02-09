@@ -8,7 +8,7 @@
 import UIKit
 
 class FavouritesViewController: UIViewController {
-
+    
     private let segmentedControl: UISegmentedControl
     private let tabRouter: TabRouterProtocol
     private let listController: ListViewController
@@ -96,7 +96,6 @@ class FavouritesViewController: UIViewController {
     }
     
     func refreshData() {
-        
         let allPersistedData = persistenceManager.persistedData
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -111,7 +110,7 @@ class FavouritesViewController: UIViewController {
                 }
                 .map { model in
                     return model.asListPresentable
-            }
+                }
             listController.update(dataSource: peopleData)
         case 1:
             let seenData = allPersistedData

@@ -54,7 +54,7 @@ enum APIManagerError: Error {
 
 class APIManager: APIManagerProtocol {
     
-    let baseURLString: String = "https://imdb-api.com/<language>/API/<endpoint>/k_bdv8grxf/"
+    let baseURLString: String = "https://tv-api.com//<language>/API/<endpoint>/k_bdv8grxf/"
     
     let language: String
     
@@ -115,9 +115,9 @@ class APIManager: APIManagerProtocol {
                     return
                 }
             }
-
-                completion(.failure(APIManagerError.unknownError))
-            }
+            
+            completion(.failure(APIManagerError.unknownError))
+        }
         currentTask = task
         task.resume()
         currentTasks.append(task)

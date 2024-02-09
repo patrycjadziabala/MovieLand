@@ -19,32 +19,32 @@ extension UIView {
     }
     
     func applyShadow() {
-            layer.masksToBounds = false
-            layer.shadowRadius = 4.0
-            layer.shadowOpacity = 0.5
-            layer.shadowColor = UIColor.gray.cgColor
-            layer.shadowOffset = CGSize(width: 0, height: 1)
-        }
-        
-        func makeRound() {
-            layer.cornerRadius = frame.width / 2
-            layer.masksToBounds = true
-            clipsToBounds = true
-        }
-        
-        func makeRound(radius: CGFloat) {
-            layer.cornerRadius = radius
-            layer.masksToBounds = true
-            clipsToBounds = true
-        }
+        layer.masksToBounds = false
+        layer.shadowRadius = 4.0
+        layer.shadowOpacity = 0.5
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+    }
+    
+    func makeRound() {
+        layer.cornerRadius = frame.width / 2
+        layer.masksToBounds = true
+        clipsToBounds = true
+    }
+    
+    func makeRound(radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.masksToBounds = true
+        clipsToBounds = true
+    }
     
     func rotate(degrees: CGFloat) {
-
+        
         let degreesToRadians: (CGFloat) -> CGFloat = { (degrees: CGFloat) in
             return degrees / 180.0 * CGFloat.pi
         }
         self.transform =  CGAffineTransform(rotationAngle: degreesToRadians(degrees))
-
+        
         // If you like to use layer you can uncomment the following line
         //layer.transform = CATransform3DMakeRotation(degreesToRadians(degrees), 0.0, 0.0, 1.0)
     }

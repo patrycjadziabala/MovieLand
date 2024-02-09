@@ -67,7 +67,7 @@ class TableViewCell: UITableViewCell {
         configureIMDbRank(with: model)
         configureIMDbRating(with: model)
     }
-
+    
     //MARK: - Movie Year
     
     func configureMovieYear(with model: TableViewCellPresentable) {

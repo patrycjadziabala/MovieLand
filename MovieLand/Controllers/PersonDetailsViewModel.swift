@@ -98,10 +98,10 @@ class PersonDetailsViewModel: PersonDetailsViewModelProtocol {
     //MARK: - Alerts
     
     func handleError(error: Error) {
-            self.delegate?.presentAlertOffline(with: error)
+        self.delegate?.presentAlertOffline(with: error)
     }
     
-  //MARK: - Favourites
+    //MARK: - Favourites
     
     func toggleFavourite() {
         guard let personModel = self.personModel else {

@@ -108,11 +108,12 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configureRankNumber(with model: SwipeableInformationTilePresentable) {
         if model.iMDbRankLabelText?.isEmpty ?? true {
-//            rankNumber.isHidden = true
+            //            rankNumber.isHidden = true
         } else {
-//            rankNumber.text = model.iMDbRankLabelText
+            //            rankNumber.text = model.iMDbRankLabelText
         }
     }
+    
     //MARK: - Image
     
     func fetchImage(with model: SwipeableInformationTilePresentable) {

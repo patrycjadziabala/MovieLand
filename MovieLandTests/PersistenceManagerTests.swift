@@ -8,17 +8,17 @@
 import XCTest
 @testable import MovieLand
 
-final class PersistenceManagerTests: XCTestCase {
+class Klasa {
+    static var varA = "VarA"
+    var varB = "VarB"
+}
 
+final class PersistenceManagerTests: XCTestCase {
+    
     let defaultsSuitName = "testDefaults"
     var defaults: UserDefaults!
     var sut: UserDefaultsPersistenceManager!
     
-    override func setUp() {
-        defaults = UserDefaults(suiteName: defaultsSuitName)
-        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
-    }
-
     override func tearDown() {
         defaults = nil
         UserDefaults.standard.removePersistentDomain(forName: defaultsSuitName)
@@ -39,48 +39,59 @@ final class PersistenceManagerTests: XCTestCase {
                                                                knownFor: [],
                                                                castMovies: [],
                                                                errorMessage: ""))
+        defaults = UserDefaults(suiteName: defaultsSuitName)
+        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
+        
         //when
         sut.persist(model: model)
         sut.persist(model: model)
-
+        
         //then
         XCTAssertEqual(sut.persistedData, [model])
         XCTAssertEqual(sut.persistedData.count, 1)
+        let dataFromDefaults = readFromDefaults()
+        XCTAssertEqual(dataFromDefaults, [model])
+        XCTAssertEqual(dataFromDefaults.count, 1)
     }
     func testRemove() {
         //given
         let model1 = PersistableModel.person(model: PersonModel(id: "123",
-                                                               name: "",
-                                                               role: "",
-                                                               image: "",
-                                                               summary: "",
-                                                               birthDate: "",
-                                                               deathDate: "",
-                                                               height: "",
-                                                               awards: "",
-                                                               knownFor: [],
-                                                               castMovies: [],
-                                                               errorMessage: ""))
+                                                                name: "",
+                                                                role: "",
+                                                                image: "",
+                                                                summary: "",
+                                                                birthDate: "",
+                                                                deathDate: "",
+                                                                height: "",
+                                                                awards: "",
+                                                                knownFor: [],
+                                                                castMovies: [],
+                                                                errorMessage: ""))
         let model2 = PersistableModel.person(model: PersonModel(id: "321",
-                                                               name: "",
-                                                               role: "",
-                                                               image: "",
-                                                               summary: "",
-                                                               birthDate: "",
-                                                               deathDate: "",
-                                                               height: "",
-                                                               awards: "",
-                                                               knownFor: [],
-                                                               castMovies: [],
-                                                               errorMessage: ""))
+                                                                name: "",
+                                                                role: "",
+                                                                image: "",
+                                                                summary: "",
+                                                                birthDate: "",
+                                                                deathDate: "",
+                                                                height: "",
+                                                                awards: "",
+                                                                knownFor: [],
+                                                                castMovies: [],
+                                                                errorMessage: ""))
+        defaults = UserDefaults(suiteName: defaultsSuitName)
+        addToDefaults(models: [model1, model2])
+        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
         
         //when
-        sut.persist(model: model1)
-        sut.persist(model: model2)
         sut.remove(model: model1)
         
         //then
         XCTAssertEqual(sut.persistedData.count, 1)
+        XCTAssertEqual(sut.persistedData.first?.id, "321")
+        let dataFromDefaults = readFromDefaults()
+        XCTAssertEqual(dataFromDefaults.count, 1)
+        XCTAssertEqual(dataFromDefaults.first?.id, "321")
     }
     
     func testIsPersisted() {
@@ -97,13 +108,15 @@ final class PersistenceManagerTests: XCTestCase {
                                                                knownFor: [],
                                                                castMovies: [],
                                                                errorMessage: ""))
+        defaults = UserDefaults(suiteName: defaultsSuitName)
+        addToDefaults(models: [model])
+        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
         
         //when
         let isPersisted = sut.isPersisted(model: model)
         
         //then
-//        XCTAssertTrue(isPersisted)
-        
+        XCTAssertTrue(isPersisted)
     }
     
     func testTogglePersistedCaseIsPersisted() {
@@ -120,13 +133,17 @@ final class PersistenceManagerTests: XCTestCase {
                                                                knownFor: [],
                                                                castMovies: [],
                                                                errorMessage: ""))
+        defaults = UserDefaults(suiteName: defaultsSuitName)
+        addToDefaults(models: [model])
+        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
         
         //when
-        sut.persist(model: model)
         sut.togglePersisted(model: model)
         
         //then
         XCTAssertEqual(sut.persistedData.count, 0)
+        let dataFromDefaults = readFromDefaults()
+        XCTAssertEqual(dataFromDefaults.count, 0)
     }
     
     func testTogglePersistedCaseIsNotPersisted() {
@@ -143,11 +160,31 @@ final class PersistenceManagerTests: XCTestCase {
                                                                knownFor: [],
                                                                castMovies: [],
                                                                errorMessage: ""))
+        defaults = UserDefaults(suiteName: defaultsSuitName)
+        sut = UserDefaultsPersistenceManager(userDefaults: defaults)
         
         //when
         sut.togglePersisted(model: model)
         
         //then
         XCTAssertEqual(sut.persistedData.count, 1)
+        let dataFromDefaults = readFromDefaults()
+        XCTAssertEqual(dataFromDefaults.count, 1)
+    }
+    
+    func addToDefaults(models: [PersistableModel]) {
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(models)
+        defaults.set(data, forKey: "kPersistedData")
+    }
+    
+    func readFromDefaults() -> [PersistableModel] {
+        if let dataFromDefaults = defaults.data(forKey: "kPersistedData") {
+            let decoder = JSONDecoder()
+            let decodedData = try? decoder.decode([PersistableModel].self, from: dataFromDefaults)
+            return decodedData ?? []
+        } else {
+            return []
+        }
     }
 }
