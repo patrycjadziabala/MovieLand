@@ -114,14 +114,6 @@ final class PersonDetailsViewModelTests: XCTestCase {
                                       name: "",
                                       description: "",
                                       items: [])
-//        let resultsModel = PersonAwardsOutcomeItemModel(image: "",
-//                                                        outcomeYear: "",
-//                                                        title: "",
-//                                                        for: "",
-//                                                        description: "")
-//        let resultModel = [PersonAwardSummaryModel(with: resultsModel,
-//                                                  eventTitle: "",
-//                                                  personId: "")]
         mockApiManager.expectedFetchPersonAwardsInformationResult = .success(model)
         
         //when
