@@ -4,14 +4,8 @@
 //
 //  Created by Patka on 06/02/2024.
 //
-
 import XCTest
 @testable import MovieLand
-
-class Klasa {
-    static var varA = "VarA"
-    var varB = "VarB"
-}
 
 final class PersistenceManagerTests: XCTestCase {
     

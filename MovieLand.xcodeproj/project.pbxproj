@@ -13,6 +13,8 @@
 		4618DF9F2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DF9E2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift */; };
 		4618DFA12B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DFA02B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift */; };
 		4618DFA32B72B7130086ED55 /* PersistenceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DFA22B72B7130086ED55 /* PersistenceManagerTests.swift */; };
+		4618DFA92B76D06A0086ED55 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 4618DFA82B76D06A0086ED55 /* Mocker */; };
+		4618DFAB2B76D4FF0086ED55 /* ApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618DFAA2B76D4FF0086ED55 /* ApiManagerTests.swift */; };
 		4635BB3629B8F10200A8083D /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */; };
 		4635BB3B29B8F1E600A8083D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635BB3929B8F1E600A8083D /* SearchViewController.swift */; };
 		4635BB3C29B8F1E600A8083D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4635BB3A29B8F1E600A8083D /* SearchViewController.xib */; };
@@ -89,6 +91,7 @@
 		4618DF9E2B6D3C580086ED55 /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		4618DFA02B6D3D500086ED55 /* MockWelcomeScreenViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWelcomeScreenViewModelDelegate.swift; sourceTree = "<group>"; };
 		4618DFA22B72B7130086ED55 /* PersistenceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManagerTests.swift; sourceTree = "<group>"; };
+		4618DFAA2B76D4FF0086ED55 /* ApiManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerTests.swift; sourceTree = "<group>"; };
 		4635BB3529B8F10200A8083D /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		4635BB3929B8F1E600A8083D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4635BB3A29B8F1E600A8083D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -160,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4618DFA92B76D06A0086ED55 /* Mocker in Frameworks */,
 				469959B129B639BD00069520 /* SDWebImage in Frameworks */,
 				46BCD5A929BB5EA00047AC42 /* IQKeyboardManagerSwift in Frameworks */,
 				469959B329B639BD00069520 /* SDWebImageMapKit in Frameworks */,
@@ -207,6 +211,7 @@
 				46F8DE9D2A2BB3AB005183CE /* MovieDetailsViewModel */,
 				46F8DE902A2BB172005183CE /* Mocks */,
 				4618DFA22B72B7130086ED55 /* PersistenceManagerTests.swift */,
+				4618DFAA2B76D4FF0086ED55 /* ApiManagerTests.swift */,
 			);
 			path = MovieLandTests;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				469959B029B639BD00069520 /* SDWebImage */,
 				469959B229B639BD00069520 /* SDWebImageMapKit */,
 				46BCD5A829BB5EA00047AC42 /* IQKeyboardManagerSwift */,
+				4618DFA82B76D06A0086ED55 /* Mocker */,
 			);
 			productName = MovieLand;
 			productReference = 46F4E9AA29AFC0DE00E8A1A6 /* MovieLand.app */;
@@ -454,6 +460,7 @@
 				46F4E9C229B0E41500E8A1A6 /* XCRemoteSwiftPackageReference "SwiftTweener" */,
 				469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				46BCD5A729BB5EA00047AC42 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				4618DFA72B76D06A0086ED55 /* XCRemoteSwiftPackageReference "Mocker" */,
 			);
 			productRefGroup = 46F4E9AB29AFC0DE00E8A1A6 /* Products */;
 			projectDirPath = "";
@@ -505,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4618DFAB2B76D4FF0086ED55 /* ApiManagerTests.swift in Sources */,
 				466CCA482B6992B50055BA15 /* PersonDetailsViewModelTests.swift in Sources */,
 				46F8DE952A2BB208005183CE /* MockAPIManager.swift in Sources */,
 				466CCA4A2B6993FB0055BA15 /* MockPersonDetailsViewModelDelegate.swift in Sources */,
@@ -742,6 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NX7WBF6A;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -770,6 +779,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NX7WBF6A;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -823,6 +833,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4618DFA72B76D06A0086ED55 /* XCRemoteSwiftPackageReference "Mocker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WeTransfer/Mocker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -850,6 +868,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4618DFA82B76D06A0086ED55 /* Mocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4618DFA72B76D06A0086ED55 /* XCRemoteSwiftPackageReference "Mocker" */;
+			productName = Mocker;
+		};
 		469959B029B639BD00069520 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 469959AF29B639BD00069520 /* XCRemoteSwiftPackageReference "SDWebImage" */;

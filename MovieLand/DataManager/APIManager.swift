@@ -60,8 +60,11 @@ class APIManager: APIManagerProtocol {
     
     var currentTasks: [URLSessionDataTask] = []
     
-    init(language: String = "en") {
+    private let configuration: URLSessionConfiguration
+    
+    init(language: String = "en", configuration: URLSessionConfiguration = .default) {
         self.language = language
+        self.configuration = configuration
     }
     
     func buildURL(for endpoint: APIEndpoint, id: String) -> URL? {
@@ -94,7 +97,7 @@ class APIManager: APIManagerProtocol {
             return
         }
         // TODO: - Make it generic and reuse
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -129,7 +132,7 @@ class APIManager: APIManagerProtocol {
             return
         }
         // TODO: - Make it generic and reuse
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -162,7 +165,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -195,7 +198,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -228,7 +231,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -261,7 +264,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -294,7 +297,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -327,7 +330,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -360,7 +363,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -393,7 +396,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -426,7 +429,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -460,7 +463,7 @@ class APIManager: APIManagerProtocol {
             
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -493,7 +496,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -526,7 +529,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in
@@ -565,7 +568,7 @@ class APIManager: APIManagerProtocol {
             completion(.failure(APIManagerError.couldNotBuildURL))
             return
         }
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         var currentTask: URLSessionDataTask?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTasks.removeAll { storedTask in

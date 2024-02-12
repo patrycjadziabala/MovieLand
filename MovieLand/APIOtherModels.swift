@@ -46,13 +46,13 @@ struct GenreModel: Codable, Equatable {
     let value: String
 }
 
-struct SearchResultsModel: Codable {
+struct SearchResultsModel: Codable, Equatable {
     let results: [Results]
     let searchType: String
     let expression: String
 }
 
-struct Results: Codable {
+struct Results: Codable, Equatable {
     let id: String
     let image: String
     let title: String
