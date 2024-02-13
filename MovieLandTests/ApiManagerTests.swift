@@ -46,7 +46,7 @@ final class ApiManagerTests: XCTestCase {
         let encodedModel = try! JSONEncoder().encode(expectedModel)
         let mock = Mock(url: URL(string: url)!, statusCode: 200, data: [.get: encodedModel])
         mock.register()
-        let expectation = expectation(description: "wait for person information")
+        let expectation = expectation(description: "Wait for person information")
         
         // when
         sut.fetchPersonInformation(id: "someId") { result in
@@ -152,7 +152,7 @@ final class ApiManagerTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
-   
+    
     func testFetchSearchResultsSuccess() {
         //given
         let url = "https://tv-api.com//en/API/Searchall/k_bdv8grxf/someQuery"
@@ -226,7 +226,7 @@ final class ApiManagerTests: XCTestCase {
         //when
         sut.fetchTrailer(id: "someID") { result in
             let apiModel = try? result.get()
-
+            
             //then
             do {
                 let apiModel = try result.get()
@@ -419,6 +419,7 @@ final class ApiManagerTests: XCTestCase {
         
         //when
         sut.fetchInCinemasMoviesInformation { result in
+            //then
             switch result {
             case .success:
                 XCTFail("This url request should have failed")
@@ -477,6 +478,7 @@ final class ApiManagerTests: XCTestCase {
         
         //when
         sut.fetchMostPopularMoviesInformation { result in
+            //then
             switch result {
             case .success:
                 XCTFail("This url request should have failed")
@@ -489,15 +491,401 @@ final class ApiManagerTests: XCTestCase {
     }
     
     func testfetchTop250TVSeriesResultsSuccess() {
-//        let url = ""
-//        let featuredMoviesModel = FeaturedMoviesModel(id: "123",
-//                                                      rank: "",
-//                                                      title: "",
-//                                                      fullTitle: "", year: "",
-//                                                      image: "",
-//                                                      crew: "",
-//                                                      imDbRating: "")
-//        let expectedModel = ItemsForFeaturedMoviesModel(items: [featuredMoviesModel])
+        let url = "https://tv-api.com//en/API/Top250Tvs/k_bdv8grxf/"
+        let featuredMoviesModel = FeaturedMoviesModel(id: "123",
+                                                      rank: "",
+                                                      title: "",
+                                                      fullTitle: "", year: "",
+                                                      image: "",
+                                                      crew: "",
+                                                      imDbRating: "")
+        let expectedModel = ItemsForFeaturedMoviesModel(items: [featuredMoviesModel])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for top 250 series")
         
+        //when
+        sut.fetchTop250TVSeriesResults { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testfetchTop250TVSeriesResultsFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Top250Tvs/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!, statusCode: 200, data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for top 250 series")
+        
+        //when
+        sut.fetchTop250TVSeriesResults { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchMostPopularTVSeriesInformationSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Mostpopulartvs/k_bdv8grxf/"
+        let featuredMoviesModel = FeaturedMoviesModel(id: "123",
+                                                      rank: "",
+                                                      title: "",
+                                                      fullTitle: "",
+                                                      year: "",
+                                                      image: "",
+                                                      crew: "",
+                                                      imDbRating: "")
+        let expectedModel = ItemsForFeaturedMoviesModel(items: [featuredMoviesModel])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for most popular TV series information")
+        
+        //when
+        sut.fetchMostPopularTVSeriesInformation { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchMostPopularTVSeriesInformationFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Mostpopulartvs/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()], requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for most popular TV series information")
+        
+        //when
+        sut.fetchMostPopularTVSeriesInformation { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testBoxOfficeAllTimeSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Boxofficealltime/k_bdv8grxf/"
+        let boxOfficeAllTimeModel = BoxOfficeAllTimeModel(id: "123",
+                                                          rank: "",
+                                                          title: "",
+                                                          worldwideLifetimeGross: "",
+                                                          domesticLifetimeGross: "",
+                                                          domestic: "",
+                                                          foreignLifetimeGross: "",
+                                                          foreign: "",
+                                                          year: "")
+        let expectedModel = ItemsForBoxOfficeAllTimeModel(items: [boxOfficeAllTimeModel])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for box office all time")
+        
+        //when
+        sut.fetchBoxOfficeAllTime { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testBoxOfficeAllTimeFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Boxofficealltime/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for box office all time")
+        
+        //when
+        sut.fetchBoxOfficeAllTime { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchPersonAwardsInformationSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Nameawards/k_bdv8grxf/someID"
+        let expectedModel = PersonAwardsModel(imDbId: "123",
+                                              name: "",
+                                              description: "",
+                                              items: [])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for person awards")
+        
+        //when
+        sut.fetchPersonAwardsInformation(id: "someID") { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchPersonAwardsInformationFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Nameawards/k_bdv8grxf/someID"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for person awards")
+        
+        //when
+        sut.fetchPersonAwardsInformation(id: "someID") { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url shuld have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchMovieAwardsInformationSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Awards/k_bdv8grxf/someID"
+        let expectedModel = MovieAwardsModel(imDbId: "123",
+                                             title: "",
+                                             type: "",
+                                             year: "",
+                                             description: "",
+                                             items: [])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for movie awards")
+        
+        //when
+        sut.fetchMovieAwardsInformation(id: "someID") { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchMovieAwardsInformationFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Awards/k_bdv8grxf/someID"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for movie awards")
+        
+        //when
+        sut.fetchMovieAwardsInformation(id: "someID") { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchRatingsSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Ratings/k_bdv8grxf/someID"
+        let expectedModel = RatingsModel(imDbId: "123",
+                                         year: "",
+                                         type: "",
+                                         imDb: "",
+                                         title: "")
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for ratings")
+        
+        //when
+        sut.fetchRatings(id: "someID") { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchRatingsFailure() {
+        //givene
+        let url = "https://tv-api.com//en/API/Ratings/k_bdv8grxf/someID"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for ratings")
+        
+        //when
+        sut.fetchRatings(id: "someID") { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+//    func testFetchComingSoonSuccess() {
+//        //given
+//        let url = "https://tv-api.com//en/API/Comingsoon/k_bdv8grxf/"
+//        let comingSoonModel = [ComingSoonModel(id: "123",
+//                                            title: "",
+//                                            fullTitle: "",
+//                                            year: "",
+//                                            releaseState: "",
+//                                            image: "",
+//                                            genres: "",
+//                                            genreList: [],
+//                                            stars: "",
+//                                            imDbRating: "")]
+//        let expectedModel = ItemsForComingSoonModel(items: [comingSoonModel])
+//        let encodedModel = try! JSONEncoder().encode(comingSoonModel)
+//        let mock = Mock(url: URL(string: url)!,
+//                        statusCode: 200,
+//                        data: [.get : encodedModel])
+//        mock.register()
+//        let expectation = expectation(description: "Wait for coming soon")
+//
+//        //when
+//        sut.fetchComingSoon { result in
+//            let apiModel = try? result.get()
+//
+//            //then
+//            do {
+//                let apiModel = try result.get()
+//                XCTAssertEqual(apiModel, comingSoonModel)
+//            } catch {
+//                XCTFail(error.localizedDescription)
+//            }
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 1)
+//    }
+    
+    func testFetchComingSoonFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Comingsoon/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for coming soon")
+        
+            //when
+        sut.fetchComingSoon { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
     }
 }

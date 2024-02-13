@@ -108,19 +108,19 @@ struct GenreList: Codable, Equatable {
     let value: String
 }
 
-struct PersonAwardsModel: Codable {
+struct PersonAwardsModel: Codable, Equatable {
     let imDbId: String
     let name: String
     let description: String?
     let items: [PersonAwardsItemModel]
 }
 
-struct PersonAwardsItemModel: Codable {
+struct PersonAwardsItemModel: Codable, Equatable {
     let eventTitle: String
     let nameAwardEventDetails: [PersonAwardsOutcomeItemModel]
 }
 
-struct PersonAwardsOutcomeItemModel: Codable {
+struct PersonAwardsOutcomeItemModel: Codable, Equatable {
     let image: String?
     let outcomeYear: String?
     let title: String
