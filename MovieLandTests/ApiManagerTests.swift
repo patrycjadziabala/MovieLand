@@ -318,4 +318,115 @@ final class ApiManagerTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+    
+    func testFetchFeaturedMoviesResultsSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Top250Movies/k_bdv8grxf/"
+        let featuredMoviesModel = FeaturedMoviesModel(id: "123",
+                                                      rank: "",
+                                                      title: "",
+                                                      fullTitle: "",
+                                                      year: "",
+                                                      image: "",
+                                                      crew: "",
+                                                      imDbRating: "")
+        let expectedModel = ItemsForFeaturedMoviesModel(items: [featuredMoviesModel])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for featured movies")
+        
+        //when
+        sut.fetchFeaturedMoviesResults { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testFetchFeaturedMoviesResultsFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Top250Movies/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for featured movies")
+        
+        //when
+        sut.fetchFeaturedMoviesResults { result in
+            //then
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testfetchInCinemasMoviesInformationSuccess() {
+        let url = "https://tv-api.com//en/API/Boxoffice/k_bdv8grxf/"
+        let inCinemaModel = InCinemasModel(id: "123",
+                                           title: "",
+                                           image: "")
+        let expectedModel = ItemsforInCinemasModel(items: [inCinemaModel])
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for in cinemas movies information")
+        
+        //when
+        sut.fetchInCinemasMoviesInformation { result in
+            let apiModel = try? result.get()
+            
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(apiModel, expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testfetchInCinemasMoviesInformationFailure() {
+        //given
+        let url = "https://tv-api.com//en/API/Boxoffice/k_bdv8grxf/"
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 400,
+                        data: [.get : Data()],
+                        requestError: MockAPIManagerError.genericError)
+        mock.register()
+        let expectation = expectation(description: "Wait for featured movies")
+        
+        //when
+        sut.fetchInCinemasMoviesInformation { result in
+            switch result {
+            case .success:
+                XCTFail("This url request should have failed")
+            case .failure(let error):
+                XCTAssertTrue(error.localizedDescription.contains("APIManagerError"))
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
