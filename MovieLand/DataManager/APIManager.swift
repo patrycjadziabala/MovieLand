@@ -19,6 +19,7 @@ protocol APIManagerProtocol: AnyObject {
     func fetchFeaturedMoviesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     func fetchInCinemasMoviesInformation(completion: @escaping (Result<ItemsforInCinemasModel, Error>) -> Void)
     func fetchMostPopularMoviesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
+    func buildURLForImages(imageEndpoint: String) -> String?
     func fetchTop250TVSeriesResults(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     func fetchMostPopularTVSeriesInformation(completion: @escaping (Result<ItemsForFeaturedMoviesModel, Error>) -> Void)
     func fetchBoxOfficeAllTime(completion: @escaping (Result<ItemsForBoxOfficeAllTimeModel, Error>) -> Void)
@@ -55,6 +56,9 @@ enum APIManagerError: Error {
 }
 
 class APIManager: APIManagerProtocol {
+    func buildURLForImages(imageEndpoint: String) -> String? {
+        return ""
+    }
     
     let baseURLString: String = "https://tv-api.com//<language>/API/<endpoint>/k_bdv8grxf/"
     

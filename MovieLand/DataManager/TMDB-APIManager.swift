@@ -28,6 +28,7 @@ enum TMDBAPIEndpoint: String {
 class TMDBAPIManager: APIManagerProtocol {
     
     let baseURLString: String = "https://api.themoviedb.org/3/<type>/<endpoint>?api_key=29d1eac12ae7da1b5df0ba13aca09837"
+    let imageBaseURLString: String = "https://image.tmdb.org/t/p/w154"
     
     var currentTasks: [URLSessionDataTask] = []
     
@@ -50,6 +51,16 @@ class TMDBAPIManager: APIManagerProtocol {
             return nil
         }
         return URL(string: urlString)
+    }
+    
+    func buildURLForImages(imageEndpoint: String) -> String? {
+        let urlString = imageBaseURLString
+            .appending(imageEndpoint)
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        guard let urlString = urlString else {
+            return nil
+        }
+        return urlString
     }
     
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void) {
@@ -94,7 +105,7 @@ class TMDBAPIManager: APIManagerProtocol {
             if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    var decodedData = try decoder.decode(ResultsForPopularMoviesModel.self, from: data)
+                    let decodedData = try decoder.decode(ResultsForPopularMoviesModel.self, from: data)
                     completion(.success(decodedData.mapToOldModel()))
                     return
                 } catch {
