@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 protocol TableViewCellPresentable {
-    var id: String { get }
+    var optionalID: String { get }
     var iMDbRankLabelText: String? { get }
     var imageUrlString: String? { get }
     var nameLabelText: String? { get }
@@ -36,7 +36,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    let apiManager: APIManagerProtocol = APIManager()
+    let apiManager: APIManagerProtocol = TMDBAPIManager()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,7 +74,7 @@ class TableViewCell: UITableViewCell {
         if let yearMovieInfo = model.yearInfoText {
             cellYearInfo.text = yearMovieInfo
         } else {
-            apiManager.fetchTitle(id: model.id) { result in
+            apiManager.fetchTitle(id: model.optionalID) { result in
                 var yearMovieInfoFromDifferentModel: String?
                 switch result {
                 case .success(let movieYear):
@@ -166,7 +166,7 @@ class TableViewCell: UITableViewCell {
     
     func configureIMDbRating(with model: TableViewCellPresentable) {
         if model.iMDbRatingNumberLabelText?.isEmpty ?? true {
-            configureMovieRating(id: model.id)
+            configureMovieRating(id: model.optionalID)
         } else {
             cellIMDbRatingNumberLabel.text = "IMDb rating: \(model.iMDbRatingNumberLabelText ?? "")"
             setRankStars(ranking: model.iMDbRatingNumberLabelText ?? "0")
@@ -201,7 +201,7 @@ class TableViewCell: UITableViewCell {
         if let urlString = model.imageUrlString {
             cellImage.sd_setImage(with: URL(string: urlString))
         } else {
-            apiManager.fetchTitle(id: model.id) { result in
+            apiManager.fetchTitle(id: model.optionalID) { result in
                 var imageUrlString: String?
                 switch result {
                 case .success(let titleModel):

@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        let dataManager = APIManager()
+        let dataManager = TMDBAPIManager()
         dataManager
             .fetchSearchResults(query: searchTextField.text ?? "")
         { [weak self] result in
@@ -94,7 +94,7 @@ extension SearchViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let dataManager = APIManager()
+        let dataManager = TMDBAPIManager()
         dataManager
             .fetchSearchResults(query: searchTextField.text ?? "")
         { [weak self] result in

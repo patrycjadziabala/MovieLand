@@ -29,7 +29,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rankView: UIView!
     @IBOutlet weak var crownImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
-    let apiManager: APIManagerProtocol = APIManager()
+    let apiManager: APIManagerProtocol = TMDBAPIManager()
     
     override func awakeFromNib() {
         super.awakeFromNib()

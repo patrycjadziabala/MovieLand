@@ -27,7 +27,7 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToPersonDetails(id: String) {
         DispatchQueue.main.async {
-            let viewModel = PersonDetailsViewModel(apiManager: APIManager(), tabRouter: self, persistenceManager: self.persistenceManager)
+            let viewModel = PersonDetailsViewModel(apiManager: TMDBAPIManager(), tabRouter: self, persistenceManager: self.persistenceManager)
             let controller = PersonDetailsViewController(personID: id, tabRouter: self, viewModel: viewModel)
             self.navigationController.pushViewController(controller, animated: true)
         }
@@ -35,7 +35,7 @@ class TabRouter: TabRouterProtocol {
     
     func navigateToTitleDetails(id: String) {
         DispatchQueue.main.async {
-            let viewModel = MovieDetailsViewModel(apiManager: APIManager(),
+            let viewModel = MovieDetailsViewModel(apiManager: TMDBAPIManager(),
                                                   tabRouter: self,
                                                   persistenceManager: self.persistenceManager)
             let controller = MovieDetailsViewController(titleID: id, tabRouter: self, viewModel: viewModel)

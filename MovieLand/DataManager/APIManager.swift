@@ -9,6 +9,8 @@ import Foundation
 import SafariServices
 import UIKit
 
+//APIManager made redundant due to termination of free IMDB API
+
 protocol APIManagerProtocol: AnyObject {
     func fetchPersonInformation(id: String, completion: @escaping (Result<PersonModel, Error>) -> Void)
     func fetchTitle(id: String, completion: @escaping (Result<TitleModel, Error>) -> Void)

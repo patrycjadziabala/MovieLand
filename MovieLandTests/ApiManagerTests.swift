@@ -828,42 +828,42 @@ final class ApiManagerTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-//    func testFetchComingSoonSuccess() {
-//        //given
-//        let url = "https://tv-api.com//en/API/Comingsoon/k_bdv8grxf/"
-//        let comingSoonModel = [ComingSoonModel(id: "123",
-//                                            title: "",
-//                                            fullTitle: "",
-//                                            year: "",
-//                                            releaseState: "",
-//                                            image: "",
-//                                            genres: "",
-//                                            genreList: [],
-//                                            stars: "",
-//                                            imDbRating: "")]
-//        let expectedModel = ItemsForComingSoonModel(items: [comingSoonModel])
-//        let encodedModel = try! JSONEncoder().encode(comingSoonModel)
-//        let mock = Mock(url: URL(string: url)!,
-//                        statusCode: 200,
-//                        data: [.get : encodedModel])
-//        mock.register()
-//        let expectation = expectation(description: "Wait for coming soon")
-//
-//        //when
-//        sut.fetchComingSoon { result in
-//            let apiModel = try? result.get()
-//
-//            //then
-//            do {
-//                let apiModel = try result.get()
-//                XCTAssertEqual(apiModel, comingSoonModel)
-//            } catch {
-//                XCTFail(error.localizedDescription)
-//            }
-//            expectation.fulfill()
-//        }
-//        wait(for: [expectation], timeout: 1)
-//    }
+    func testFetchComingSoonSuccess() {
+        //given
+        let url = "https://tv-api.com//en/API/Comingsoon/k_bdv8grxf/"
+        let comingSoonModel = [ComingSoonModel(id: "123",
+                                            title: "",
+                                            fullTitle: "",
+                                            year: "",
+                                            releaseState: "",
+                                            image: "",
+                                            genres: "",
+                                            genreList: [],
+                                            stars: "",
+                                            imDbRating: "")]
+        let expectedModel = ItemsForComingSoonModel(items: comingSoonModel)
+        let encodedModel = try! JSONEncoder().encode(expectedModel)
+        let mock = Mock(url: URL(string: url)!,
+                        statusCode: 200,
+                        data: [.get : encodedModel])
+        mock.register()
+        let expectation = expectation(description: "Wait for coming soon")
+
+        //when
+        sut.fetchComingSoon { result in
+            let apiModel = try? result.get()
+
+            //then
+            do {
+                let apiModel = try result.get()
+                XCTAssertEqual(ItemsForComingSoonModel(items: apiModel), expectedModel)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
     
     func testFetchComingSoonFailure() {
         //given

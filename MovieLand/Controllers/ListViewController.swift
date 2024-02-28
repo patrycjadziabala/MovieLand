@@ -15,7 +15,7 @@ enum ListViewControllerCellType {
 protocol ListViewControllerCellPresentable {
     var listCellType: ListViewControllerCellType { get }
     var contentType: CellContentType { get }
-    var id: String { get }
+    var optionalID: String { get }
 }
 
 class ListViewController: UIViewController {
@@ -119,9 +119,9 @@ extension ListViewController: UITableViewDelegate {
         let model = dataSource[indexPath.row]
         switch model.contentType {
         case .title:
-            tabRouter.navigateToTitleDetails(id: model.id)
+            tabRouter.navigateToTitleDetails(id: model.optionalID)
         case .name:
-            tabRouter.navigateToPersonDetails(id: model.id)
+            tabRouter.navigateToPersonDetails(id: model.optionalID)
         case .unknown:
             break
         }

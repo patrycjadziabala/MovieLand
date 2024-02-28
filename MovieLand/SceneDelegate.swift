@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let controller = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController")
         
-        let apiManager = APIManager()
+        let apiManager = TMDBAPIManager()
         let welcomeScreenNavigationController = UINavigationController()
         let welcomeScreenTabRouter = TabRouter(navigationController: welcomeScreenNavigationController, persistenceManager: persistenceManager)
         let viewModel = WelcomeScreenViewModel(apiManager: apiManager)

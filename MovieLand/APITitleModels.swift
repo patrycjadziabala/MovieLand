@@ -26,6 +26,10 @@ struct TitleModel: Codable, Equatable {
 }
 
 extension TitleModel: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var iMDbRankLabelText: String? {
         nil
     }
@@ -100,6 +104,10 @@ extension Similars: SwipeableInformationTilePresentable {
 }
 
 extension Similars: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var additionalInfoLabelText: String? {
         nil
     }

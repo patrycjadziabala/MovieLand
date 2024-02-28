@@ -18,7 +18,7 @@ class TrailerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieTitleLabel: UILabel!
     
     private var currentModel: WelcomeScreenTrailerModel?
-    private let apiManager: APIManagerProtocol = APIManager()
+    private let apiManager: APIManagerProtocol = TMDBAPIManager()
     
     override func awakeFromNib() {
         super.awakeFromNib()

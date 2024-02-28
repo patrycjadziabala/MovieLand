@@ -7,6 +7,26 @@
 
 import Foundation
 
+struct TMDBPersonModel {
+    let id: String
+    let personName: String
+    
+    func asImdbModel() -> PersonModel {
+        PersonModel(id: id,
+                    name: personName,
+                    role: "",
+                    image: "",
+                    summary: "",
+                    birthDate: "",
+                    deathDate: "",
+                    height: "",
+                    awards: "",
+                    knownFor: [],
+                    castMovies: [],
+                    errorMessage: "")
+    }
+}
+
 struct PersonModel: Codable, Equatable {
     let id: String
     let name: String
@@ -23,6 +43,10 @@ struct PersonModel: Codable, Equatable {
 }
 
 extension PersonModel: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var iMDbRankLabelText: String? {
         nil
     }
@@ -105,6 +129,10 @@ extension CastMovieModel: SwipeableInformationTilePresentable {
 }
 
 extension CastMovieModel: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var additionalInfoLabelText: String? {
         nil
     }
@@ -168,6 +196,10 @@ extension ActorForTitleModel: SwipeableInformationTilePresentable {
 }
 
 extension ActorForTitleModel: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var additionalInfoLabelText: String? {
         asCharacter
     }

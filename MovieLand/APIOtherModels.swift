@@ -61,6 +61,10 @@ struct Results: Codable, Equatable {
 }
 
 extension Results: TableViewCellPresentable {
+    var optionalID: String {
+        id
+    }
+    
     var contentType: CellContentType {
         CellContentType(rawValue: resultType?.lowercased() ?? "") ?? .unknown
     }
@@ -174,6 +178,10 @@ extension PersonAwardSummaryModel: AwardsTableViewCellPresentable {
 }
 
 extension PersonAwardSummaryModel: ListViewControllerCellPresentable {
+    var optionalID: String {
+        String(id)
+    }
+    
     var listCellType: ListViewControllerCellType {
         .awardTableViewCell(model: self)
     }
@@ -255,6 +263,10 @@ extension MovieAwardSummaryModel: AwardsTableViewCellPresentable {
 }
 
 extension MovieAwardSummaryModel: ListViewControllerCellPresentable {
+    var optionalID: String {
+        String(id)
+    }
+    
     var listCellType: ListViewControllerCellType {
         .awardTableViewCell(model: self)
     }
