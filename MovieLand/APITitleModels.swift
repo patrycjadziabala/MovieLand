@@ -7,6 +7,50 @@
 
 import Foundation
 
+struct TMDBMovieModel: Codable, Equatable {
+    let backdrop_path: String
+    let budget: Int
+    let genres: [TMDBGenreModel]
+    let homepage: String
+    let id: Int
+    let original_language: String
+    let original_title: String
+    let overview: String
+    let poster_path: String
+    let release_date: String
+    let title: String
+    
+    func asImdbModel() -> TitleModel {
+        TitleModel(id: String(id),
+                   title: title,
+                   type: "",
+                   year: release_date,
+                   image: poster_path,
+                   releaseDate: release_date,
+                   plot: overview,
+                   awards: nil,
+                   directors: "",
+                   stars: "",
+                   starList: [],
+                   actorList: [],
+                   genreList: genres.map {
+            $0.asImdbModel()
+        },
+                   similars: [],
+                   errorMessage: "")
+    }
+}
+
+struct TMDBGenreModel: Codable, Equatable {
+    let id: Int
+    let name: String
+    
+    func asImdbModel() -> GenreModel {
+        GenreModel(key: String(id),
+                   value: name)
+    }
+}
+
 struct TitleModel: Codable, Equatable {
     let id: String
     let title: String

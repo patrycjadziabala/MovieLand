@@ -62,12 +62,10 @@ struct FeaturedMoviesModel: Codable, Equatable {
 extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
     var yearOrAdditionalInfoLabelText: String? {
         year
-//        release_date
     }
     
     var optionalId: String {
         id
-//        String(id)
     }
     
     var titleLabelText: String {
@@ -78,7 +76,6 @@ extension FeaturedMoviesModel: SwipeableInformationTilePresentable {
 extension FeaturedMoviesModel: TableViewCellPresentable {
     var optionalID: String {
         id
-//        String(id)
     }
     
     var contentType: CellContentType {
@@ -87,12 +84,10 @@ extension FeaturedMoviesModel: TableViewCellPresentable {
     
     var iMDbRankLabelText: String? {
         rank
-//        nil
     }
     
     var imageUrlString: String? {
         image
-//        poster_path
     }
     
     var nameLabelText: String? {
@@ -101,17 +96,14 @@ extension FeaturedMoviesModel: TableViewCellPresentable {
     
     var additionalInfoLabelText: String? {
         crew
-//        nil
     }
     
     var yearInfoText: String? {
         year
-//        release_date
     }
     
     var iMDbRatingNumberLabelText: String? {
         imDbRating
-//        String(vote_average)
     }
 }
 
@@ -136,9 +128,7 @@ struct ComingSoonModel: Codable, Equatable {
     let genres: String?
     let genreList: [GenreList]
     let stars: String?
-    let imDbRating: String?
-    
-    
+    let imDbRating: String?   
 }
 
 extension ComingSoonModel: SwipeableInformationTilePresentable {
