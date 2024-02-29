@@ -198,19 +198,27 @@ class TableViewCell: UITableViewCell {
     //MARK: - Image
     
     func fetchImage(with model: TableViewCellPresentable) {
-        if let urlString = model.imageUrlString {
-            cellImage.sd_setImage(with: URL(string: urlString))
-        } else {
-            apiManager.fetchTitle(id: model.optionalID) { result in
-                var imageUrlString: String?
-                switch result {
-                case .success(let titleModel):
-                    imageUrlString = titleModel.image
-                case .failure:
-                    self.configureDefaultImage()
-                }
-                self.configureImage(for: imageUrlString)
+        if let imageUrl = model.imageUrlString {
+            guard let imageUrlString = apiManager.buildURLForImages(imageEndpoint: imageUrl) else {
+                configureDefaultImage()
+                return
             }
+            configureImage(for: imageUrlString)
+            
+            //        if let urlString = model.imageUrlString {
+            //            cellImage.sd_setImage(with: URL(string: urlString))
+            //        } else {
+            //            apiManager.fetchTitle(id: model.optionalID) { result in
+            //                var imageUrlString: String?
+            //                switch result {
+            //                case .success(let titleModel):
+            //                    imageUrlString = titleModel.image
+            //                case .failure:
+            //                    self.configureDefaultImage()
+            //                }
+            //                self.configureImage(for: imageUrlString)
+            //            }
+            //        }
         }
     }
     
@@ -234,5 +242,3 @@ class TableViewCell: UITableViewCell {
         cellImage.sd_cancelCurrentImageLoad()
     }
 }
-
-

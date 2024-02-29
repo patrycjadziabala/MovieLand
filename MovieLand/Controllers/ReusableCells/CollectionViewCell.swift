@@ -119,24 +119,25 @@ class CollectionViewCell: UICollectionViewCell {
     func fetchImage(with model: SwipeableInformationTilePresentable) {
         if let imageUrl = model.imageUrlString {
             guard let imageUrlString = apiManager.buildURLForImages(imageEndpoint: imageUrl) else {
+                configureDefaultImage()
                 return
             }
-            imageView.sd_setImage(with: URL(string: imageUrlString))
+            configureImage(for: imageUrlString)
         }
-//        if let urlString = model.imageUrlString {
-//            imageView.sd_setImage(with: URL(string: urlString))
-//        } else {
-//            apiManager.fetchTitle(id: model.optionalId) { result in
-//                var imageUrlString: String?
-//                switch result {
-//                case .success(let titleModel):
-//                    imageUrlString = titleModel.image
-//                case .failure:
-//                    self.configureDefaultImage()
-//                }
-//                self.configureImage(for: imageUrlString)
-//            }
-//        }
+        //        if let urlString = model.imageUrlString {
+        //            imageView.sd_setImage(with: URL(string: urlString))
+        //        } else {
+        //            apiManager.fetchTitle(id: model.optionalId) { result in
+        //                var imageUrlString: String?
+        //                switch result {
+        //                case .success(let titleModel):
+        //                    imageUrlString = titleModel.image
+        //                case .failure:
+        //                    self.configureDefaultImage()
+        //                }
+        //                self.configureImage(for: imageUrlString)
+        //            }
+        //        }
     }
     
     func configureImage(for urlString: String?) {
